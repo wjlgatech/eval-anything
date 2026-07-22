@@ -46,6 +46,36 @@ const BRIEF_DATA = {
   "journey_url": "",
   "registry": [
     {
+      "repo": "patoles/agent-flow",
+      "category": "observe",
+      "why": "the HUMAN observation surface we compose (Apache-2.0): real-time node-graph viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py reads the same transcripts for the AI-agent surface",
+      "stars": 1336
+    },
+    {
+      "repo": "disler/claude-code-hooks-multi-agent-observability",
+      "category": "observe",
+      "why": "top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for knowledge; NOT composed (no license, heavier setup)",
+      "stars": 1500
+    },
+    {
+      "repo": "anthropics/claude-code-monitoring-guide",
+      "category": "observe",
+      "why": "the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana",
+      "stars": 357
+    },
+    {
+      "repo": "OWASP/www-project-agent-observability-standard",
+      "category": "observe",
+      "why": "the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit",
+      "stars": 57
+    },
+    {
+      "repo": "dreadnode/agent-lens",
+      "category": "observe",
+      "why": "agent observability + replay for safety/interpretability research (MIT) — the research-grade angle",
+      "stars": 109
+    },
+    {
       "repo": "EleutherAI/lm-evaluation-harness",
       "category": "harness",
       "why": "the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard",
@@ -1587,6 +1617,20 @@ const BRIEF_DATA = {
       ]
     },
     {
+      "feature": "Observe an agent session (O before E)",
+      "tagline": "the built-in observability layer — one ground truth, two surfaces: agent-flow draws it for humans, observe.py structures it for AI agents and evals",
+      "examples": [
+        {
+          "say": "what did my Claude Code session actually do?",
+          "get": "`make observe` — prompts, tool calls by name, error rate, subagents spawned, files mutated, tokens, duration — parsed from the session transcript; add `npx agent-flow-app` for the live human node-graph (patoles/agent-flow, Apache-2.0)"
+        },
+        {
+          "say": "feed my agent runs into an eval",
+          "get": "`observe.py --eval` — eval-ready signals (tool_error_rate, calls-per-prompt, subagents, duration) with honest not_measured fields: task_success needs a stated criterion — observation alone cannot judge"
+        }
+      ]
+    },
+    {
       "feature": "Answer 'is the business objective on track?'",
       "tagline": "eval targets the objective, not just the engineering — Kohavi's OEC is the E inside Observe→Eval→Control",
       "examples": [
@@ -1616,6 +1660,10 @@ const BRIEF_DATA = {
     }
   ],
   "news": [
+    {
+      "date": "2026-07-22",
+      "entry": "the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents; patoles/agent-flow (Apache-2.0, researched vs 6 alternatives incl. the unlicensed 1.5k-star leader) composed as the human surface — same ground truth, two audiences. New registry category: observe (5 repos). Dogfooded on this very session: 175 tool calls, 6.9% error rate, 11 subagents, 32 files mutated."
+    },
     {
       "date": "2026-07-22",
       "entry": "demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos) now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified, zero console errors. The pattern is now baseline-contract rule #4 in the family PLAYBOOK."
@@ -1655,6 +1703,11 @@ const BRIEF_DATA = {
     "Loop stage 'gate': pass/fail lands against the stated threshold — an honest ❌ recorded over a fake ✅.",
     "Loop stage 'compound': results bank to the ledger; what moved (and what saturated) feeds the next eval.",
     "The OEC mental model: Observe → Evaluate → Control. Observability precedes eval (you cannot evaluate what you cannot observe — Kalman 1960 proved O and C are duals). Eval targets the objective, engineering AND business (Kohavi's OEC — Overall Evaluation Criterion — is the formalized business E). Eval without control is a scoreboard.",
+    "Tracked repo patoles/agent-flow [observe]: the HUMAN observation surface we compose (Apache-2.0): real-time node-graph viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py reads the same transcripts for the AI-agent surface. Stars 1336, last push n/a.",
+    "Tracked repo disler/claude-code-hooks-multi-agent-observability [observe]: top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for knowledge; NOT composed (no license, heavier setup). Stars 1500, last push n/a.",
+    "Tracked repo anthropics/claude-code-monitoring-guide [observe]: the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana. Stars 357, last push n/a.",
+    "Tracked repo OWASP/www-project-agent-observability-standard [observe]: the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit. Stars 57, last push n/a.",
+    "Tracked repo dreadnode/agent-lens [observe]: agent observability + replay for safety/interpretability research (MIT) — the research-grade angle. Stars 109, last push n/a.",
     "Tracked repo EleutherAI/lm-evaluation-harness [harness]: the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard. Stars 13371, last push 2026-07-13.",
     "Tracked repo UKGovernmentBEIS/inspect_ai [harness]: UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it. Stars 2391, last push 2026-07-22.",
     "Tracked repo UKGovernmentBEIS/inspect_evals [harness]: 200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place. Stars 595, last push 2026-07-22.",
@@ -1987,10 +2040,13 @@ const BRIEF_DATA = {
     "Super-tool feature 'LLM-as-judge, with the biases handled' — say: \"our judge gives us 95% pass rates\" → you get: the skeptic's checklist: is the judge grading its own model family (self-preference)? was it validated against humans (EvalGen's criteria-drift warning)? a 30-trace human audit plan to find out.",
     "Super-tool feature 'Red-team the guardrails' — say: \"red-team this agent before launch\" → you get: a staged plan: garak/PyRIT scans for the known probes, AgentDojo for prompt-injection-under-tools, an AgentHarm pass for misuse — mapped to the lethal trifecta (private data + untrusted content + external comms) and Meta's Rule of Two.",
     "Super-tool feature 'Red-team the guardrails' — say: \"are our guardrails actually any good?\" → you get: guardrails evaluated AS evals: attack success rate before/after, StrongREJECT scoring so 'technically complied' junk doesn't inflate the numbers, and the honest baseline that no classifier survives adaptive attack — architecture (CaMeL-style) beats filters.",
+    "Super-tool feature 'Observe an agent session (O before E)' — say: \"what did my Claude Code session actually do?\" → you get: `make observe` — prompts, tool calls by name, error rate, subagents spawned, files mutated, tokens, duration — parsed from the session transcript; add `npx agent-flow-app` for the live human node-graph (patoles/agent-flow, Apache-2.0).",
+    "Super-tool feature 'Observe an agent session (O before E)' — say: \"feed my agent runs into an eval\" → you get: `observe.py --eval` — eval-ready signals (tool_error_rate, calls-per-prompt, subagents, duration) with honest not_measured fields: task_success needs a stated criterion — observation alone cannot judge.",
     "Super-tool feature 'Answer 'is the business objective on track?'' — say: \"leadership wants to know if the AI feature is working\" → you get: an Overall Evaluation Criterion tied to the business objective (not a vanity pass-rate), guardrail metrics that may not degrade, and the input-metric tree that makes the number actionable — WBR-style, with owners.",
     "Super-tool feature 'Answer 'is the business objective on track?'' — say: \"our evals pass but users are churning\" → you get: the diagnosis: your evals measure engineering soundness, not the objective — an error-analysis pass on real traces (Husain/Shankar doctrine) to find what users actually hit, then a criterion rebuilt from those failure modes.",
     "Super-tool feature 'Track what moved (the meta-repo)' — say: \"what moved this week in evals?\" → you get: the registry diff (stars, pushes, org moves across 54 repos) plus the News ledger — the same 'what moved' the weekly human-gated PR carries.",
     "Super-tool feature 'Track what moved (the meta-repo)' — say: \"give me the 300-year view on why eval without control fails\" → you get: the survival canon: every 300y survivor fused observe+eval+control into one artifact a worker could use (control chart, andon cord, checklist); every corpse was a scoreboard or a framework — with primary sources per entry.",
+    "News 2026-07-22: the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents; patoles/agent-flow (Apache-2.0, researched vs 6 alternatives incl. the unlicensed 1.5k-star leader) composed as the human surface — same ground truth, two audiences. New registry category: observe (5 repos). Dogfooded on this very session: 175 tool calls, 6.9% error rate, 11 subagents, 32 files mutated.",
     "News 2026-07-22: demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos) now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified, zero console errors. The pattern is now baseline-contract rule #4 in the family PLAYBOOK.",
     "News 2026-07-22: published: github.com/wjlgatech/eval-anything is live (private, family convention) — CI green on main; the weekly registry sync heartbeat is armed",
     "News 2026-07-22: OEC reframe landed (Paul's directive): the repo's big picture is now Observe → Evaluate → Control — observability precedes eval, eval targets the objective (engineering AND business, across the lifecycle), eval without control is a scoreboard. New data/oec.yml canon across three survival-test horizons (300y/30y/now) + docs/OEC.md deep dive (quote pairs, anti-portfolio, Lindy readings). Also: an unverifiable 'OpenAI acquires promptfoo' claim was removed from the registry (citation rigor).",

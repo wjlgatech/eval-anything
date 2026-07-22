@@ -24,6 +24,9 @@ brief-drift: ## fail if committed brief/data.js ≠ generated
 sync: ## meta-repo heartbeat — refresh registry (open GitHub API) + rebuild
 	python3 scripts/sync.py
 
+observe: ## the O of OEC — observe this project's agent sessions (human view; --json/--eval via script)
+	python3 scripts/observe.py
+
 ainative: ## AI-native self-audit (gate 85)
 	python3 scripts/ainative.py --gate 85
 

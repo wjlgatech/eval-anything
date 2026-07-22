@@ -1,4 +1,10 @@
 - date: '2026-07-22'
+  entry: 'the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into
+    machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents;
+    patoles/agent-flow (Apache-2.0, researched vs 6 alternatives incl. the unlicensed 1.5k-star leader)
+    composed as the human surface — same ground truth, two audiences. New registry category: observe (5
+    repos). Dogfooded on this very session: 175 tool calls, 6.9% error rate, 11 subagents, 32 files mutated.'
+- date: '2026-07-22'
   entry: 'demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos)
     now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus
     passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified,

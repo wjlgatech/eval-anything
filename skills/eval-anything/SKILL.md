@@ -26,6 +26,7 @@ The front door for `wjlgatech/eval-anything`. One slash away; designed to be
 | User wants… | Do |
 |---|---|
 | design any eval | walk the OEC loop: what can we OBSERVE (instrument first)? what CRITERION says the objective — engineering AND business — is on track? what CONTROL acts on the verdict (gate/rollback/change)? An eval with no control hook is a scoreboard — flag it |
+| observe an agent run (O before E) | `make observe` (this project's sessions) · `scripts/observe.py --json|--eval` for machine/eval consumption · `npx agent-flow-app` for the live human view (same ground truth) |
 | verify the repo | `make check` — the only truth |
 | what's new / what moved | the 📰 News section + `make sync` (weekly heartbeat) |
 | learn the domain | the 📚 Knowledge fold — README registry, one reliable place |

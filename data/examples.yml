@@ -32,6 +32,13 @@
       get: "a staged plan: garak/PyRIT scans for the known probes, AgentDojo for prompt-injection-under-tools, an AgentHarm pass for misuse — mapped to the lethal trifecta (private data + untrusted content + external comms) and Meta's Rule of Two"
     - say: "are our guardrails actually any good?"
       get: "guardrails evaluated AS evals: attack success rate before/after, StrongREJECT scoring so 'technically complied' junk doesn't inflate the numbers, and the honest baseline that no classifier survives adaptive attack — architecture (CaMeL-style) beats filters"
+- feature: Observe an agent session (O before E)
+  tagline: "the built-in observability layer — one ground truth, two surfaces: agent-flow draws it for humans, observe.py structures it for AI agents and evals"
+  examples:
+    - say: "what did my Claude Code session actually do?"
+      get: "`make observe` — prompts, tool calls by name, error rate, subagents spawned, files mutated, tokens, duration — parsed from the session transcript; add `npx agent-flow-app` for the live human node-graph (patoles/agent-flow, Apache-2.0)"
+    - say: "feed my agent runs into an eval"
+      get: "`observe.py --eval` — eval-ready signals (tool_error_rate, calls-per-prompt, subagents, duration) with honest not_measured fields: task_success needs a stated criterion — observation alone cannot judge"
 - feature: Answer 'is the business objective on track?'
   tagline: "eval targets the objective, not just the engineering — Kohavi's OEC is the E inside Observe→Eval→Control"
   examples:

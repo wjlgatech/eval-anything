@@ -15,6 +15,7 @@ One reliable place for evaluation of foundation models (LLM, VLM, VLA) and agent
 
 ## 📰 News
 
+- **2026-07-22** — the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents; patoles/agent-flow (Apache-2.0, researched vs 6 alternatives incl. the unlicensed 1.5k-star leader) composed as the human surface — same ground truth, two audiences. New registry category: observe (5 repos). Dogfooded on this very session: 175 tool calls, 6.9% error rate, 11 subagents, 32 files mutated.
 - **2026-07-22** — demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos) now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified, zero console errors. The pattern is now baseline-contract rule #4 in the family PLAYBOOK.
 - **2026-07-22** — published: github.com/wjlgatech/eval-anything is live (private, family convention) — CI green on main; the weekly registry sync heartbeat is armed
 - **2026-07-22** — OEC reframe landed (Paul's directive): the repo's big picture is now Observe → Evaluate → Control — observability precedes eval, eval targets the objective (engineering AND business, across the lifecycle), eval without control is a scoreboard. New data/oec.yml canon across three survival-test horizons (300y/30y/now) + docs/OEC.md deep dive (quote pairs, anti-portfolio, Lindy readings). Also: an unverifiable 'OpenAI acquires promptfoo' claim was removed from the registry (citation rigor).
@@ -66,6 +67,15 @@ _red-teaming IS adversarial evaluation — the security fold lives here, same be
 |---|---|
 | *“red-team this agent before launch”* | a staged plan: garak/PyRIT scans for the known probes, AgentDojo for prompt-injection-under-tools, an AgentHarm pass for misuse — mapped to the lethal trifecta (private data + untrusted content + external comms) and Meta's Rule of Two |
 | *“are our guardrails actually any good?”* | guardrails evaluated AS evals: attack success rate before/after, StrongREJECT scoring so 'technically complied' junk doesn't inflate the numbers, and the honest baseline that no classifier survives adaptive attack — architecture (CaMeL-style) beats filters |
+
+### Observe an agent session (O before E)
+
+_the built-in observability layer — one ground truth, two surfaces: agent-flow draws it for humans, observe.py structures it for AI agents and evals_
+
+| You say (vague is fine) | You get |
+|---|---|
+| *“what did my Claude Code session actually do?”* | `make observe` — prompts, tool calls by name, error rate, subagents spawned, files mutated, tokens, duration — parsed from the session transcript; add `npx agent-flow-app` for the live human node-graph (patoles/agent-flow, Apache-2.0) |
+| *“feed my agent runs into an eval”* | `observe.py --eval` — eval-ready signals (tool_error_rate, calls-per-prompt, subagents, duration) with honest not_measured fields: task_success needs a stated criterion — observation alone cannot judge |
 
 ### Answer 'is the business objective on track?'
 
@@ -206,6 +216,16 @@ hype cycle) · ⚡ now (rising, mid-2026):
 
 Top-rated repos this repo tracks — refreshed weekly by `make sync`
 (open GitHub API, human-gated PR with "what moved"):
+
+### 👁️ Observability (the O of OEC)
+
+| Repo | Why tracked | Stars | Last push |
+|------|-------------|-------|-----------|
+| [`patoles/agent-flow`](https://github.com/patoles/agent-flow) | the HUMAN observation surface we compose (Apache-2.0): real-time node-graph viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py reads the same transcripts for the AI-agent surface | ⭐ 1336 | — |
+| [`disler/claude-code-hooks-multi-agent-observability`](https://github.com/disler/claude-code-hooks-multi-agent-observability) | top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for knowledge; NOT composed (no license, heavier setup) | ⭐ 1500 | — |
+| [`anthropics/claude-code-monitoring-guide`](https://github.com/anthropics/claude-code-monitoring-guide) | the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana | ⭐ 357 | — |
+| [`OWASP/www-project-agent-observability-standard`](https://github.com/OWASP/www-project-agent-observability-standard) | the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit | ⭐ 57 | — |
+| [`dreadnode/agent-lens`](https://github.com/dreadnode/agent-lens) | agent observability + replay for safety/interpretability research (MIT) — the research-grade angle | ⭐ 109 | — |
 
 ### 🧰 LLM eval harnesses & platforms
 
