@@ -421,7 +421,7 @@
   horizon: now
   name: Observability 2.0 for agents
   origin: "Charity Majors; applied to agents 2025-26"
-  url: https://charity.wtf/tag/observability-2-0/
+  url: https://newsletter.pragmaticengineer.com/p/observability-the-present-and-future
   what: "wide structured events, high-cardinality queries — 'record what the model did in production and study it'"
   why: "the intellectual frame for why agents need obs-2.0, not three-pillar dashboards"
 - pillar: observe

@@ -2,3 +2,5 @@
 accept = [200, 202, 206, 403, 405, 406, 415, 429]
 max_retries = 2
 timeout = 20
+# family repos are PRIVATE — anonymous link checks 404 on them by design
+exclude = ["github\\.com/wjlgatech/"]
