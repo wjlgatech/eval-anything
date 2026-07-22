@@ -1,0 +1,54 @@
+- repo: EleutherAI/lm-evaluation-harness
+  why: the de-facto standard few-shot LLM eval harness — backbone of the (retired)
+    Open LLM Leaderboard
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: stanford-crfm/helm
+  why: holistic evaluation — the multi-metric
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: UKGovernmentBEIS/inspect_ai
+  why: UK AI Security Institute's harness — the emerging standard for frontier and
+    agentic safety evals
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: SWE-bench/SWE-bench
+  why: THE agentic coding benchmark — real GitHub issues
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: confident-ai/deepeval
+  why: unit-testing for LLM apps — G-Eval and friends as pytest-style assertions
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: promptfoo/promptfoo
+  why: eval + red-team in one CLI — the practitioner's on-ramp from vibes to gates
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: open-compass/opencompass
+  why: the comprehensive open eval platform behind CompassRank — broadest benchmark
+    coverage
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: open-compass/VLMEvalKit
+  why: the standard one-command eval kit for vision-language models across MMMU/MathVista/MMBench
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: NVIDIA/NeMo-Guardrails
+  why: the reference programmable-guardrails framework — runtime rails as code (security
+    fold)
+  stars: null
+  pushed_at: null
+  last_sync: null
+- repo: NVIDIA/garak
+  why: the LLM vulnerability scanner — nmap-for-LLMs
+  stars: null
+  pushed_at: null
+  last_sync: null

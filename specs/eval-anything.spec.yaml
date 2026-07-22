@@ -1,0 +1,95 @@
+# eval-anything.spec.yaml — minted by the graph-engineering-anything factory.
+# Domain: evaluation of foundation models (LLM, VLM, VLA) and agentic systems,
+# WITH guardrails/security as a first-class fold (red-teaming IS adversarial
+# evaluation — the benchmarks, tools, and people overlap too heavily to split;
+# extract a sibling repo only if/when that fold outgrows this one).
+
+meta:
+  name: eval-anything
+  emoji: "🧪"
+  title: eval-anything — the Evaluation Operating System
+  tagline: an honest ❌ beats a fake ✅ — measure models, agents, and their guardrails against reality
+  description: >
+    One reliable place for evaluation of foundation models (LLM, VLM, VLA) and
+    agentic systems — and the guardrails/security that adversarially test them.
+    Tracks the field's load-bearing harnesses, benchmarks, papers, labs, and
+    people (lm-evaluation-harness, HELM, Inspect, SWE-bench, LLM-as-judge and
+    its biases, red-teaming), tiers every claim by evidence, and ships tooling
+    to design and run evals with Claude.
+  audience: builders who must answer "is this model/agent good enough — and safe enough — to ship?" with evidence
+  github: wjlgatech/eval-anything
+  license: all-rights-reserved
+  family:
+    - wjlgatech/anyagent
+    - wjlgatech/FM-os
+    - wjlgatech/rsi-os
+    - wjlgatech/longevity-loop
+    - wjlgatech/animate-anything
+    - wjlgatech/master-anything
+    - wjlgatech/marketing-anything
+    - wjlgatech/graph-engineering-anything
+    - wjlgatech/loop-engineering-anything
+
+folds:
+  knowledge: an evidence-tiered map of the eval field — harnesses, benchmarks, seminal papers, canonical blogposts, labs, and people across LLM/VLM/VLA/agentic eval AND guardrails/security — synced weekly so this is the one place to track what matters
+  tooling: the /eval-anything super-tool — design an eval, pick the right benchmark/harness, run LLM-as-judge with bias checks, red-team an agent — no eval expertise required
+  community: add-one-row registry PRs, weekly human-gated sync with "what moved", saturated/contaminated benchmarks flagged for review — never silently kept as evidence
+
+upstream:
+  - {repo: EleutherAI/lm-evaluation-harness, why: the de-facto standard few-shot LLM eval harness — backbone of the (retired) Open LLM Leaderboard}
+  - {repo: stanford-crfm/helm, why: holistic evaluation — the multi-metric, multi-scenario framework that made eval a science}
+  - {repo: UKGovernmentBEIS/inspect_ai, why: UK AI Security Institute's harness — the emerging standard for frontier and agentic safety evals}
+  - {repo: SWE-bench/SWE-bench, why: THE agentic coding benchmark — real GitHub issues, resolved-or-not against real test suites}
+  - {repo: confident-ai/deepeval, why: unit-testing for LLM apps — G-Eval and friends as pytest-style assertions}
+  - {repo: promptfoo/promptfoo, why: eval + red-team in one CLI — the practitioner's on-ramp from vibes to gates}
+  - {repo: open-compass/opencompass, why: the comprehensive open eval platform behind CompassRank — broadest benchmark coverage}
+  - {repo: open-compass/VLMEvalKit, why: the standard one-command eval kit for vision-language models across MMMU/MathVista/MMBench}
+  - {repo: NVIDIA/NeMo-Guardrails, why: the reference programmable-guardrails framework — runtime rails as code (security fold)}
+  - {repo: NVIDIA/garak, why: the LLM vulnerability scanner — nmap-for-LLMs, adversarial evaluation automated (security fold)}
+
+loop:
+  stages:
+    - {name: scope, promise: "the capability or risk under test becomes a measurable claim with a stated threshold"}
+    - {name: collect, promise: "tasks and datasets land with provenance, version, and contamination status attached"}
+    - {name: run, promise: "outputs are produced reproducibly — harness, model version, prompts, and seeds pinned"}
+    - {name: judge, promise: "scores are computed maker≠checker, with LLM-judge biases checked and uncertainty reported"}
+    - {name: gate, promise: "pass/fail lands against the stated threshold — an honest ❌ recorded over a fake ✅"}
+    - {name: compound, promise: "results bank to the ledger; what moved (and what saturated) feeds the next eval"}
+  diagram: ascii
+
+profile: data-compiled
+
+gates:
+  validate: true
+  drift: true
+  tests: unittest
+  ainative_gate: 85
+  custom: []
+
+ci:
+  check: true
+  pages: false
+  weekly: [sync]
+
+skills:
+  - name: eval-anything
+    description: >
+      Turn any "is it good enough / safe enough?" question into a gated eval —
+      pick the right benchmark or harness for a model/agent, design an eval with
+      maker≠checker judging and bias checks, red-team guardrails, or track what
+      moved in the eval field this week.
+    triggers: ["/eval-anything", "eval this model", "eval this agent", "which benchmark", "design an eval", "red-team this", "LLM-as-judge"]
+    not_for: [general ML training questions with no measurement claim, human HR-style performance reviews]
+
+journey: none
+reportcards: true
+changelog: news-in-readme
+non_negotiables:
+  - "Citation rigor (Nature/NeurIPS standard): cite the primary source (paper/DOI/repo), never the trade article that covered it; secondary-only evidence is marked 'as cited in' and caps at WEAK until the primary is read."
+  - "Maker≠checker is doubly binding here: LLM-as-judge carries documented position, verbosity, and self-preference biases — no judge score counts as evidence without a stated bias-mitigation (randomized order, reference-guided, or human-calibrated sample)."
+  - "Every reported score names the benchmark VERSION and contamination status; saturated or contaminated benchmarks are flagged and never cited as headline evidence."
+  - "Guardrails/security is a first-class fold of evaluation (red-teaming IS adversarial eval); it splits into a sibling repo only when that fold demonstrably outgrows this one."
+gotchas:
+  - "LLM-as-judge is NOT a free lunch — position bias, verbosity bias, and self-preference are measured effects (Zheng et al. 2023, arXiv:2306.05685); calibrate against human labels before trusting."
+  - "Leaderboard deltas within a few points are often noise — report confidence intervals, not single numbers (Anthropic's 'statistical approach to model evals', 2024)."
+  - "A benchmark's public test set is in every frontier model's pretraining shadow — treat unversioned scores on pre-2024 benchmarks as contaminated until shown otherwise."

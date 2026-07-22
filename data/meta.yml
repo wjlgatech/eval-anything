@@ -1,0 +1,58 @@
+name: eval-anything
+emoji: 🧪
+title: eval-anything — the Evaluation Operating System
+tagline: an honest ❌ beats a fake ✅ — measure models, agents, and their guardrails
+  against reality
+description: 'One reliable place for evaluation of foundation models (LLM, VLM, VLA)
+  and agentic systems — and the guardrails/security that adversarially test them.
+  Tracks the field''s load-bearing harnesses, benchmarks, papers, labs, and people
+  (lm-evaluation-harness, HELM, Inspect, SWE-bench, LLM-as-judge and its biases, red-teaming),
+  tiers every claim by evidence, and ships tooling to design and run evals with Claude.
+
+  '
+audience: builders who must answer "is this model/agent good enough — and safe enough
+  — to ship?" with evidence
+github: wjlgatech/eval-anything
+license: all-rights-reserved
+family:
+- wjlgatech/anyagent
+- wjlgatech/FM-os
+- wjlgatech/rsi-os
+- wjlgatech/longevity-loop
+- wjlgatech/animate-anything
+- wjlgatech/master-anything
+- wjlgatech/marketing-anything
+- wjlgatech/graph-engineering-anything
+- wjlgatech/loop-engineering-anything
+loop:
+  stages:
+  - name: scope
+    promise: the capability or risk under test becomes a measurable claim with a stated
+      threshold
+  - name: collect
+    promise: tasks and datasets land with provenance, version, and contamination status
+      attached
+  - name: run
+    promise: outputs are produced reproducibly — harness, model version, prompts,
+      and seeds pinned
+  - name: judge
+    promise: scores are computed maker≠checker, with LLM-judge biases checked and
+      uncertainty reported
+  - name: gate
+    promise: pass/fail lands against the stated threshold — an honest ❌ recorded over
+      a fake ✅
+  - name: compound
+    promise: results bank to the ledger; what moved (and what saturated) feeds the
+      next eval
+  diagram: ascii
+folds:
+  knowledge: an evidence-tiered map of the eval field — harnesses, benchmarks, seminal
+    papers, canonical blogposts, labs, and people across LLM/VLM/VLA/agentic eval
+    AND guardrails/security — synced weekly so this is the one place to track what
+    matters
+  tooling: the /eval-anything super-tool — design an eval, pick the right benchmark/harness,
+    run LLM-as-judge with bias checks, red-team an agent — no eval expertise required
+  community: add-one-row registry PRs, weekly human-gated sync with "what moved",
+    saturated/contaminated benchmarks flagged for review — never silently kept as
+    evidence
+skill: eval-anything

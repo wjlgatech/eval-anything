@@ -1,0 +1,4 @@
+# accept bot-unfriendly codes — don't let false-negative link checks block CI
+accept = [200, 202, 206, 403, 405, 406, 415, 429]
+max_retries = 2
+timeout = 20

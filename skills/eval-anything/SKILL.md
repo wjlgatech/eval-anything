@@ -1,0 +1,37 @@
+---
+name: eval-anything
+description: Turn any "is it good enough / safe enough?" question into a gated eval — pick the right benchmark or harness for a model/agent, design an eval with maker≠checker judging and bias checks, red-team guardrails, or track what moved in the eval field this week. Accepts vague prompts — no grammar or expertise required; infers intent from context before acting. Trigger: "/eval-anything", "eval this model", "eval this agent", "which benchmark", "design an eval", "red-team this", "LLM-as-judge". NOT for: general ML training questions with no measurement claim; human HR-style performance reviews.
+---
+
+# /eval-anything — the super-tool
+
+The front door for `wjlgatech/eval-anything`. One slash away; designed to be
+**easy to use and hard to misuse**.
+
+## The super-tool contract (non-negotiable)
+
+1. **No grammar, no expertise required.** Accept vague prompts as first-class input.
+2. **Infer intent from the bigger context before asking.** Read, in order: this
+   repo's ledger (`data/news.yml`), recent `git log`, the current session, and any
+   longitudinal history available. Reflect the inferred intent back in ONE line
+   before any non-trivial action.
+3. **≤1 clarifying question, and only at a real fork.** When intent confidence is
+   low, ask exactly one question; when proceeding on an assumption, state it —
+   never silently fill a gap.
+4. **Hard to misuse.** Irreversible/outward actions (publish, post, delete, pay,
+   push) are ALWAYS drafted-then-human-shipped. An honest ❌ beats a fake ✅.
+
+## Backbone (always on)
+
+| User wants… | Do |
+|---|---|
+| verify the repo | `make check` — the only truth |
+| what's new / what moved | the 📰 News section + `make sync` (weekly heartbeat) |
+| learn the domain | the 📚 Knowledge fold — README registry, one reliable place |
+| regenerate artifacts | `make build` (never hand-edit generated files) |
+| contribute | add one row to the registry, open a PR (Community fold) |
+
+## Progressive disclosure
+
+Load deeper references only on trigger — keep the backbone lean
+(FM-os hub / longevity-loop SKILL.md pattern).

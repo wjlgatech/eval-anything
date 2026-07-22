@@ -1,0 +1,54 @@
+- id: loops-not-oneshot
+  principle: Work in small, green, committed increments — never one-shot.
+  evidence:
+    kind: grep
+    path: Makefile
+    pattern: '^check:'
+- id: independent-referee
+  principle: An independent script verifies the work (maker ≠ checker).
+  evidence:
+    kind: file
+    path: scripts/validate.py
+- id: no-evidence-no
+  principle: No evidence ⇒ No; nulls are recorded, never fabricated.
+  evidence:
+    kind: grep
+    path: CLAUDE.md
+    pattern: '[Nn]o evidence'
+- id: regression-gated
+  principle: CI runs the full check on every push/PR.
+  evidence:
+    kind: file
+    path: .github/workflows/ci.yml
+- id: spec-as-data
+  principle: A single machine-readable source of truth drives generated artifacts.
+  evidence:
+    kind: file
+    path: data/meta.yml
+- id: agent-native-harness
+  principle: The repo exposes an agentic surface (SKILL.md).
+  evidence:
+    kind: file
+    path: skills/eval-anything/SKILL.md
+- id: iteration-recorded
+  principle: Every increment lands in a dated ledger.
+  evidence:
+    kind: file
+    path: data/news.yml
+- id: compounding-memory
+  principle: Report cards tie deliveries to evidence.
+  evidence:
+    kind: file
+    path: docs/reportcards/collection.json
+- id: human-gated-irreversible
+  principle: Outward/irreversible actions require the human.
+  evidence:
+    kind: grep
+    path: CLAUDE.md
+    pattern: '[Hh]uman'
+- id: verify-live
+  principle: The finish line is executed, not asserted.
+  evidence:
+    kind: grep
+    path: .github/workflows/ci.yml
+    pattern: make check
