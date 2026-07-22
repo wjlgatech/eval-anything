@@ -15,6 +15,7 @@ One reliable place for evaluation of foundation models (LLM, VLM, VLA) and agent
 
 ## 📰 News
 
+- **2026-07-22** — published: github.com/wjlgatech/eval-anything is live (private, family convention) — CI green on main; the weekly registry sync heartbeat is armed
 - **2026-07-22** — OEC reframe landed (Paul's directive): the repo's big picture is now Observe → Evaluate → Control — observability precedes eval, eval targets the objective (engineering AND business, across the lifecycle), eval without control is a scoreboard. New data/oec.yml canon across three survival-test horizons (300y/30y/now) + docs/OEC.md deep dive (quote pairs, anti-portfolio, Lindy readings). Also: an unverifiable 'OpenAI acquires promptfoo' claim was removed from the registry (citation rigor).
 - **2026-07-22** — field research landed: 54 tracked repos, 59 seminal papers, 26 labs/orgs, 19 canonical blogs, 48 people, 47 guardrails/security entries — all web-verified this day. DECISION: guardrails/security lives inside eval-anything (red-teaming IS adversarial evaluation); splits out only if the fold outgrows the repo.
 - **2026-07-22** — repo scaffolded from spec (green at birth)

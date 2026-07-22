@@ -65,8 +65,8 @@
         {
           "text": "published to github.com/wjlgatech/eval-anything",
           "target": "remote exists and CI check is green",
-          "score": 0.0,
-          "evidence": "not yet run — human-gated (outward action); next turn"
+          "score": 1.0,
+          "evidence": "pushed 2026-07-22 (private, family convention); CI run 29930921798 success on main — first run caught 5 dead links (fixed: private-repo exclusion + 1 wrong URL)"
         }
       ]
     }

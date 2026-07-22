@@ -9,8 +9,8 @@ spec but NOT auto-generated** (no fake passes — each is a real next turn):
 
 ## Next turn
 
-- [ ] **Publish** — create `github.com/wjlgatech/eval-anything` and push (human-gated
-      outward action; CI + weekly sync workflows are already in `.github/workflows/`).
+- [x] **Publish** — `github.com/wjlgatech/eval-anything` live (private, matching the
+      family), CI green on `main` (2026-07-22); weekly sync workflow armed.
 - [ ] **Super-tool depth** — grow `skills/eval-anything/SKILL.md` beyond the scaffold
       contract: "pick me a benchmark" routing over `data/registry.yml`, an eval-design
       checklist wired to the loop's judge/gate stages (maker≠checker, bias checks,
