@@ -1,4 +1,43 @@
 {
-  "cards": [],
+  "cards": [
+    {
+      "id": "2026-07-22-founding-research",
+      "delivery": "eval-anything minted + field research landed",
+      "objective": "One reliable place for foundation-model (LLM/VLM/VLA) and agentic-system evaluation, guardrails/security included",
+      "created_at": "2026-07-22",
+      "key_results": [
+        {
+          "text": "repo scaffolded via the family factory, make check green at birth",
+          "target": "make check exits 0",
+          "score": 1.0,
+          "evidence": "commit d7ac24c — drift gate + ainative 100/100 + 3 unittests OK"
+        },
+        {
+          "text": "curated, web-verified field research across repos/papers/labs/blogs/people/security",
+          "target": ">= 200 annotated entries, every one schema-validated",
+          "score": 1.0,
+          "evidence": "commit 03faf37 — 253 entries in data/*.yml; validate.py gates required keys + categories"
+        },
+        {
+          "text": "every tracked repo slug verified against reality, not reputation",
+          "target": "0 last_sync_error after a live make sync over all 54 repos",
+          "score": 1.0,
+          "evidence": "make sync 2026-07-22 — 54/54 resolved via open GitHub API, stars+pushed_at recorded"
+        },
+        {
+          "text": "guardrails/security placement decided with an independent second opinion",
+          "target": "explicit decision recorded in README + data/security.yml header",
+          "score": 1.0,
+          "evidence": "in-repo (red-teaming IS adversarial evaluation); split criterion documented"
+        },
+        {
+          "text": "published to github.com/wjlgatech/eval-anything",
+          "target": "remote exists and CI check is green",
+          "score": 0.0,
+          "evidence": "not yet run — human-gated (outward action); next turn"
+        }
+      ]
+    }
+  ],
   "schema": "delivery/objective/key_results[{target,score,evidence}]"
 }
