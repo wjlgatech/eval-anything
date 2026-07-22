@@ -25,7 +25,11 @@ COLLECTIONS = {
                    {"architects", "arena", "builders", "science", "safety", "vla"}),
     "security.yml": (["category", "name", "url", "what", "why"],
                      {"standards", "papers", "tools", "agentsec", "labs", "people"}),
+    "oec.yml": (["pillar", "horizon", "name", "origin", "url", "what", "why"],
+                None),  # no `category` key — pillar/horizon checked below
 }
+OEC_PILLARS = {"observe", "evaluate", "control"}
+OEC_HORIZONS = {"300y", "30y", "now"}
 
 
 def main():
@@ -55,8 +59,13 @@ def main():
             for k in required:
                 if not e.get(k):
                     errs.append(f"{fname}[{i}]: missing {k} ({e.get('name') or e.get('repo') or e.get('title') or '?'})")
-            if e.get("category") not in cats:
+            if cats is not None and e.get("category") not in cats:
                 errs.append(f"{fname}[{i}]: unknown category {e.get('category')!r}")
+            if fname == "oec.yml":
+                if e.get("pillar") not in OEC_PILLARS:
+                    errs.append(f"oec.yml[{i}]: unknown pillar {e.get('pillar')!r}")
+                if e.get("horizon") not in OEC_HORIZONS:
+                    errs.append(f"oec.yml[{i}]: unknown horizon {e.get('horizon')!r}")
     return errs
 
 

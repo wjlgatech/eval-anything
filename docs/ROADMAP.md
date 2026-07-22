@@ -20,6 +20,13 @@ spec but NOT auto-generated** (no fake passes — each is a real next turn):
       freshness probe, honest-null on scrape failure.
 - [ ] **Split criterion review** — revisit the guardrails/security in-repo decision if
       that fold's entry count rivals the measurement content (currently 47 vs ~206).
+- [ ] **OEC gap watch** — the now-horizon research surfaced three unowned gaps worth
+      tracking (and possibly building toward): (1) no OSS trace platform ships native
+      drift-detection with auto-baselining; (2) "AI SLOs" have no canonical owner;
+      (3) only ~21% of enterprises have mature agent governance — C is the least-built
+      pillar. Each is a candidate for a future tooling increment.
+- [ ] **Verify the promptfoo-acquisition rumor** when a primary source appears — the
+      claim was removed from the registry under citation rigor (docs/OEC.md).
 
 ## Standing
 

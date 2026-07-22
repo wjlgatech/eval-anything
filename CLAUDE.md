@@ -7,6 +7,15 @@ Method lineage: `anyagent` — never self-certify; the check is the only truth.
 
 One reliable place for evaluation of foundation models (LLM, VLM, VLA) and agentic systems — and the guardrails/security that adversarially test them. Tracks the field's load-bearing harnesses, benchmarks, papers, labs, and people (lm-evaluation-harness, HELM, Inspect, SWE-bench, LLM-as-judge and its biases, red-teaming), tiers every claim by evidence, and ships tooling to design and run evals with Claude.
 
+## The OEC mental model (Paul's frame, 2026-07-22)
+
+**O**bserve → **E**valuate → **C**ontrol. Three laws govern everything in this repo:
+
+1. **Observability precedes eval** — you cannot evaluate what you cannot observe. Instrumentation, traces, and provenance come first (Kalman 1960 proved observability and controllability are mathematical duals).
+2. **Eval targets the objective, not just the engineering** — "is the code sound?" AND "is the business objective on track?" across the whole lifecycle: design, planning, execution, maintenance, upgrade. (Note the happy name collision: Kohavi's OEC — Overall Evaluation Criterion — is the canonical single business metric in A/B testing.)
+3. **Eval without control is a scoreboard** — after eval come decisions and change (gates, rollbacks, kaizen, error budgets). The loop must close.
+
+The repo loop maps onto OEC: `scope+collect+run` = Observe · `judge` = Evaluate · `gate+compound` = Control. The curated OEC canon lives in `data/oec.yml` (three horizons: 300y / 30y / now).
 
 Profile: **data-compiled**. Loop: `scope → collect → run → judge → gate → compound`.
 

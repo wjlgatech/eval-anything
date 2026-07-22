@@ -1,6 +1,38 @@
 {
   "cards": [
     {
+      "id": "2026-07-22-oec-reframe",
+      "delivery": "OEC big picture landed — Observe → Evaluate → Control",
+      "objective": "Broaden eval beyond engineering soundness to business objectives across the lifecycle; observability before eval; control after eval",
+      "created_at": "2026-07-22",
+      "key_results": [
+        {
+          "text": "three-horizon survival-test research (300y/30y/now) on O, E, and C in engineering AND business",
+          "target": ">= 60 curated entries, each with origin + survival evidence, schema-validated",
+          "score": 1.0,
+          "evidence": "data/oec.yml — 70 entries (30/22/18 by horizon); validate.py gates pillar+horizon enums; make check green"
+        },
+        {
+          "text": "identity reframed around OEC",
+          "target": "meta description, CLAUDE.md mental model, SKILL.md triggers + backbone rule all updated",
+          "score": 1.0,
+          "evidence": "generated README gains 'The big picture: OEC' section with loop mapping; skill gains 'an eval with no control hook is a scoreboard — flag it'"
+        },
+        {
+          "text": "narrative deep-dive preserved (quote pairs, anti-portfolios, Lindy readings)",
+          "target": "docs/OEC.md exists and is linked from data/oec.yml header",
+          "score": 1.0,
+          "evidence": "docs/OEC.md — incl. verified corrections (DuPont 1912-14, Drucker misattribution, Maxwell's 80-year neglect)"
+        },
+        {
+          "text": "citation-rigor enforcement on own prior claims",
+          "target": "conflicting claims between research runs resolved, unverifiable removed",
+          "score": 1.0,
+          "evidence": "'OpenAI acquires promptfoo' could not be verified against a primary source — removed from registry, noted in docs/OEC.md"
+        }
+      ]
+    },
+    {
       "id": "2026-07-22-founding-research",
       "delivery": "eval-anything minted + field research landed",
       "objective": "One reliable place for foundation-model (LLM/VLM/VLA) and agentic-system evaluation, guardrails/security included",

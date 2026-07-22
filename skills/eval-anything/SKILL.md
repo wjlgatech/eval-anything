@@ -1,6 +1,6 @@
 ---
 name: eval-anything
-description: Turn any "is it good enough / safe enough?" question into a gated eval — pick the right benchmark or harness for a model/agent, design an eval with maker≠checker judging and bias checks, red-team guardrails, or track what moved in the eval field this week. Accepts vague prompts — no grammar or expertise required; infers intent from context before acting. Trigger: "/eval-anything", "eval this model", "eval this agent", "which benchmark", "design an eval", "red-team this", "LLM-as-judge". NOT for: general ML training questions with no measurement claim; human HR-style performance reviews.
+description: Turn any "is it good enough / safe enough / on track?" question into a gated eval — pick the right benchmark or harness for a model/agent, design an eval with maker≠checker judging and bias checks, red-team guardrails, wire the OEC loop (observability before eval, control after eval, business objective as the criterion), or track what moved in the eval field this week. Accepts vague prompts — no grammar or expertise required; infers intent from context before acting. Trigger: "/eval-anything", "eval this model", "eval this agent", "which benchmark", "design an eval", "red-team this", "LLM-as-judge", "is this objective on track", "what should we observe", "how do we act on eval results". NOT for: general ML training questions with no measurement claim; human HR-style performance reviews.
 ---
 
 # /eval-anything — the super-tool
@@ -25,6 +25,7 @@ The front door for `wjlgatech/eval-anything`. One slash away; designed to be
 
 | User wants… | Do |
 |---|---|
+| design any eval | walk the OEC loop: what can we OBSERVE (instrument first)? what CRITERION says the objective — engineering AND business — is on track? what CONTROL acts on the verdict (gate/rollback/change)? An eval with no control hook is a scoreboard — flag it |
 | verify the repo | `make check` — the only truth |
 | what's new / what moved | the 📰 News section + `make sync` (weekly heartbeat) |
 | learn the domain | the 📚 Knowledge fold — README registry, one reliable place |

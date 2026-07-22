@@ -21,8 +21,8 @@
   last_sync: '2026-07-22'
 - repo: promptfoo/promptfoo
   category: harness
-  why: eval + red-team in one dev-first CLI; OpenAI announced acquisition 2026-03
-    — stays open source
+  why: eval + red-team in one dev-first CLI — the practitioner's on-ramp from vibes
+    to gates (a 2026 OpenAI-acquisition claim circulated but is unverified — not cited)
   stars: 23494
   pushed_at: '2026-07-22T06:39:26Z'
   last_sync: '2026-07-22'

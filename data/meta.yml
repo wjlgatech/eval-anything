@@ -8,6 +8,10 @@ description: 'One reliable place for evaluation of foundation models (LLM, VLM, 
   Tracks the field''s load-bearing harnesses, benchmarks, papers, labs, and people
   (lm-evaluation-harness, HELM, Inspect, SWE-bench, LLM-as-judge and its biases, red-teaming),
   tiers every claim by evidence, and ships tooling to design and run evals with Claude.
+  The big picture is the OEC loop — Observe → Evaluate → Control: observability precedes
+  eval (you cannot evaluate what you cannot observe), evaluation targets engineering
+  soundness AND whether the business objective is on track, and eval without control
+  (decisions, change) is just a scoreboard.
 
   '
 audience: builders who must answer "is this model/agent good enough — and safe enough
@@ -48,8 +52,9 @@ loop:
 folds:
   knowledge: an evidence-tiered map of the eval field — harnesses, benchmarks, seminal
     papers, canonical blogposts, labs, and people across LLM/VLM/VLA/agentic eval
-    AND guardrails/security — synced weekly so this is the one place to track what
-    matters
+    AND guardrails/security — plus the OEC survival canon (observation, evaluation,
+    control across 300y/30y/now horizons, engineering AND business) — synced weekly
+    so this is the one place to track what matters
   tooling: the /eval-anything super-tool — design an eval, pick the right benchmark/harness,
     run LLM-as-judge with bias checks, red-team an agent — no eval expertise required
   community: add-one-row registry PRs, weekly human-gated sync with "what moved",

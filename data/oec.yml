@@ -1,0 +1,521 @@
+# data/oec.yml — the OEC canon: Observe → Evaluate → Control (single source of truth; README generated).
+# Paul's frame (2026-07-22): observability precedes eval; eval targets the objective
+# (engineering AND business, across design/planning/execution/maintenance/upgrade);
+# eval without control is a scoreboard. Kalman 1960 proved O and C are mathematical duals.
+# Survival-test method: ranked by still-load-bearing evidence, not launch buzz.
+# horizons: 300y (survived generations) | 30y (survived the hype cycle) | now (rising, mid-2026)
+# Deep-dive narrative (quote pairs, anti-portfolio of dead frameworks, Lindy read): docs/OEC.md
+
+# ═══ 300y — survived generations ════════════════════════════════════════════
+
+# ── Observe ──
+- pillar: observe
+  horizon: 300y
+  name: Double-entry bookkeeping
+  origin: "Pacioli 1494 (pre-window ancestor)"
+  url: https://archive.org/details/summadearithmeti00paci
+  what: "every transaction recorded twice — the firm's state made self-checking and continuously observable"
+  why: "substrate of GAAP/IFRS, every ERP, and blockchain ledger design; the invariant (books must balance) is substrate-independent error detection"
+- pillar: observe
+  horizon: 300y
+  name: Shewhart control chart
+  origin: "Shewhart, Bell Labs memo, 1924-05-16"
+  url: https://asq.org/about-asq/honorary-members/shewhart
+  what: "process metric vs statistical limits — separates common-cause noise from special-cause signal; observation and evaluation fused in one artifact"
+  why: "still the core of SPC in semiconductor fabs, pharma validation, and hospital dashboards a century later"
+- pillar: observe
+  horizon: 300y
+  name: Cost accounting
+  origin: "Wedgwood 1772"
+  url: https://www.jstor.org/stable/2593524
+  what: "decompose product cost into materials/labor/overhead — see where money goes inside the factory"
+  why: "standard costing → activity-based costing → cloud unit economics (cost-per-request) all run on it"
+- pillar: observe
+  horizon: 300y
+  name: Standardized units (Metre Convention)
+  origin: "BIPM treaty 1875"
+  url: https://www.bipm.org/en/metre-convention
+  what: "shared, traceable measurement units — the precondition for any cross-firm observation"
+  why: "every calibration lab and ISO 17025 certificate chains to it; the 2019 SI redefinition strengthened it"
+- pillar: observe
+  horizon: 300y
+  name: Statistical sampling
+  origin: "Neyman 1934"
+  url: https://www.jstor.org/stable/2342192
+  what: "random sampling with confidence intervals — observe a population without measuring all of it"
+  why: "every census, poll, audit standard, and A/B-test power calculation descends from it"
+- pillar: observe
+  horizon: 300y
+  name: Gantt chart
+  origin: "Gantt ~1913"
+  url: https://archive.org/details/organizingforwor00gant
+  what: "planned vs actual work over time — schedule observability"
+  why: "ships essentially unchanged in every 2026 PM tool; survived paper → mainframe → SaaS"
+
+# ── Evaluate ──
+- pillar: evaluate
+  horizon: 300y
+  name: Least squares & error theory
+  origin: "Legendre 1805 / Gauss 1809 (priority contested)"
+  url: https://gallica.bnf.fr/ark:/12148/bpt6k15209372
+  what: "the optimal way to evaluate a model against noisy observations"
+  why: "regression, GPS, and every ML loss function minimize squared error — arguably the most-executed evaluation algorithm on Earth"
+- pillar: evaluate
+  horizon: 300y
+  name: Design of experiments & randomization
+  origin: "Fisher 1925/1935"
+  url: https://en.wikipedia.org/wiki/The_Design_of_Experiments
+  what: "randomization, replication, blocking — evaluation as a machine that isolates cause"
+  why: "agricultural trials → drug approval → A/B testing at billions-of-users scale; substrate changed three times, the logic never did"
+- pillar: evaluate
+  horizon: 300y
+  name: The randomized controlled trial
+  origin: "Bradford Hill, MRC streptomycin trial 1948"
+  url: https://www.bmj.com/content/2/4582/769
+  what: "randomization applied to human treatment evaluation"
+  why: "the FDA/EMA evidentiary gold standard; survived the real-world-evidence hype cycle as the reference all alternatives are judged against"
+- pillar: evaluate
+  horizon: 300y
+  name: Cost-benefit analysis
+  origin: "Dupuit 1844; US Flood Control Act 1936"
+  url: https://en.wikipedia.org/wiki/Jules_Dupuit
+  what: "evaluate a decision by monetizing and comparing its consequences"
+  why: "legally mandatory for US federal regulation (OMB Circular A-4) and infrastructure appraisal worldwide"
+- pillar: evaluate
+  horizon: 300y
+  name: ROI / DuPont formula
+  origin: "Donaldson Brown, DuPont 1912-14"
+  url: https://www.hagley.org/librarynews/father-roi-donaldson-brown
+  what: "ROI decomposed into margin × turnover × leverage — the first KPI tree; a single objective made diagnosable"
+  why: "taught in every finance curriculum, embedded in every FP&A deck; carried DuPont → GM → the world"
+- pillar: evaluate
+  horizon: 300y
+  name: Management by Objectives
+  origin: "Drucker 1954"
+  url: https://en.wikipedia.org/wiki/Management_by_objectives
+  what: "cascade explicit objectives; evaluate against agreed objectives, not activity"
+  why: "survives transformed — OKRs are MBO with self-set keys; the brand faded, the practice is near-universal"
+- pillar: evaluate
+  horizon: 300y
+  name: "Goodhart's law"
+  origin: "Goodhart 1975"
+  url: https://www.academia.edu/76823011/Goodharts_Law_its_origins_meaning_and_implications_for_monetary_policy
+  what: "a measure that becomes a target ceases to be a good measure"
+  why: "cited from central banking to school testing to AI reward hacking; one of few 1970s ideas whose citation curve is still RISING"
+- pillar: evaluate
+  horizon: 300y
+  name: "Campbell's law"
+  origin: "Campbell 1976/1979"
+  url: https://www.sciencedirect.com/science/article/abs/pii/014971897990048X
+  what: "the more an indicator drives decisions, the more it corrupts the process it monitors"
+  why: "independently converged with Goodhart — twin discovery is itself survival evidence; standard in testing/policing-metrics literature"
+- pillar: evaluate
+  horizon: 300y
+  name: McNamara fallacy
+  origin: "Yankelovich 1971"
+  url: https://en.wikipedia.org/wiki/McNamara_fallacy
+  what: "evaluate by what's easily measured, until what can't be measured 'doesn't exist' (Vietnam body counts)"
+  why: "the standing warning against dashboard-driven management — load-bearing in defense, medicine, and metrics critique"
+- pillar: evaluate
+  horizon: 300y
+  name: FMEA / FMECA
+  origin: "US military MIL-P-1629, 1949"
+  url: https://apps.dtic.mil/sti/citations/ADA066579
+  what: "enumerate failure modes at DESIGN time, score severity × occurrence × detection — evaluate a design against futures that haven't happened"
+  why: "NASA Apollo → Ford → ISO 26262 automotive safety and healthcare FMEA today; the design-phase eval discipline"
+- pillar: evaluate
+  horizon: 300y
+  name: Reliability engineering (Weibull / bathtub curve)
+  origin: "Weibull 1939/1951"
+  url: https://en.wikipedia.org/wiki/Weibull_distribution
+  what: "the mathematics of failure over a lifecycle — infant mortality, useful life, wear-out"
+  why: "the default maintenance-phase eval for turbines, semiconductors, batteries, and warranty pricing"
+
+# ── Control ──
+- pillar: control
+  horizon: 300y
+  name: Centrifugal governor
+  origin: "Watt 1788"
+  url: https://en.wikipedia.org/wiki/Centrifugal_governor
+  what: "the first mass-deployed automatic negative-feedback controller — the machine that closed its own loop"
+  why: "still regulates turbines; the etymological root of cybernetics and 'cyber' itself"
+- pillar: control
+  horizon: 300y
+  name: "Maxwell, 'On Governors'"
+  origin: "Maxwell 1868"
+  url: https://royalsocietypublishing.org/doi/10.1098/rspl.1867.0055
+  what: "the founding mathematical paper of control theory — feedback stability reduced to characteristic-equation roots"
+  why: "ignored ~80 years until Wiener revived it (canonization was retroactive, not inevitable); its descendants certify every autopilot and power grid"
+- pillar: control
+  horizon: 300y
+  name: PID control
+  origin: "Minorsky 1922"
+  url: https://onlinelibrary.wiley.com/doi/10.1111/j.1559-3584.1922.tb04958.x
+  what: "proportional-integral-derivative feedback, derived from watching helmsmen steer warships"
+  why: "~90-95% of industrial control loops in 2026 are still PID — the highest survival-per-page ratio on this list"
+- pillar: control
+  horizon: 300y
+  name: PDCA / Shewhart cycle
+  origin: "Shewhart 1939; Deming 1950"
+  url: https://deming.org/explore/pdsa/
+  what: "Plan-Do-Check/Study-Act — the management-scale control loop; scientific method made a wheel"
+  why: "embedded verbatim in ISO 9001:2015, lean/agile retrospectives, and clinical improvement; survived three quality-movement hype cycles"
+- pillar: control
+  horizon: 300y
+  name: Kalman duality (observability ↔ controllability)
+  origin: "Kalman 1960"
+  url: https://asmedigitalcollection.asme.org/fluidsengineering/article/82/1/35/397706
+  what: "the proof that observation and control are mathematical duals — a system is observable iff its transpose is controllable — plus the optimal state estimator"
+  why: "Apollo → GPS → every drone and sensor-fusion stack; makes the OEC frame a THEOREM, not a metaphor — SRE 'observability' borrows Kalman's word"
+- pillar: control
+  horizon: 300y
+  name: Cybernetics
+  origin: "Wiener 1948"
+  url: https://en.wikipedia.org/wiki/Cybernetics:_Or_Control_and_Communication_in_the_Animal_and_the_Machine
+  what: "feedback as a universal principle spanning machines, organisms, organizations"
+  why: "the unified discipline fragmented but its organs (control theory, AI, systems biology) outlived the body — a partial survivor"
+- pillar: control
+  horizon: 300y
+  name: Toyota Production System (kaizen, jidoka, andon)
+  origin: "Ohno ~1950; Sugimori et al. 1977"
+  url: https://en.wikipedia.org/wiki/Toyota_Production_System
+  what: "continuous improvement + control handed to the OBSERVER — any worker who sees a defect stops the line"
+  why: "lean worldwide, stop-the-line CI/CD culture, Amazon's software andon cord; outlived the fad cycle AND its Western imitations"
+- pillar: control
+  horizon: 300y
+  name: OODA loop
+  origin: "Boyd ~1976"
+  url: https://en.wikipedia.org/wiki/OODA_loop
+  what: "Observe-Orient-Decide-Act — victory goes to whoever cycles the loop faster and reorients better"
+  why: "USMC doctrine since 1989, incident response, startup strategy; survived by oral tradition — the founder barely published"
+- pillar: control
+  horizon: 300y
+  name: Double-loop learning
+  origin: "Argyris & Schön 1974"
+  url: https://hbr.org/1977/09/double-loop-learning-in-organizations
+  what: "single-loop corrects the error; double-loop questions the governing OBJECTIVE itself — control applied to the objective function"
+  why: "load-bearing in blameless postmortems and AI-alignment corrigibility debates — the meta-control Paul's 'is the objective right?' question demands"
+- pillar: control
+  horizon: 300y
+  name: System dynamics
+  origin: "Forrester 1958/1961"
+  url: https://en.wikipedia.org/wiki/System_dynamics
+  what: "feedback-loop simulation of business/social systems — discovered the bullwhip effect"
+  why: "climate-policy simulators (En-ROADS at UN negotiations) and supply-chain science; survived the Limits-to-Growth near-death"
+- pillar: control
+  horizon: 300y
+  name: The aviation checklist
+  origin: "US Army Air Corps 1935 (B-17 crash)"
+  url: https://en.wikipedia.org/wiki/Preflight_checklist
+  what: "a pre-execution evaluation gate that assumes competent people forget"
+  why: "90 years mandatory in every cockpit; jumped substrate to surgery (WHO checklist cut mortality) and release engineering"
+- pillar: control
+  horizon: 300y
+  name: Safety codes with legal teeth (ASME BPVC)
+  origin: "ASME 1914-15"
+  url: https://www.asme.org/codes-standards/bpvc-standards
+  what: "independent inspection + codified design margins — society's control loop on engineering objectives"
+  why: "statute-incorporated law in most US states and ~100 countries; the template for AI-safety regulatory design"
+- pillar: control
+  horizon: 300y
+  name: Reliability-Centered Maintenance
+  origin: "Nowlan & Heap, United Airlines 1978"
+  url: https://apps.dtic.mil/sti/citations/ADA066579
+  what: "most failures are NOT age-related — maintain on evidence of failure consequence, not calendar"
+  why: "became MSG-3, still governing every commercial aircraft maintenance program; predictive-maintenance ML builds on its decision logic"
+
+# ═══ 30y — survived the hype cycle ══════════════════════════════════════════
+
+# ── Observe ──
+- pillar: observe
+  horizon: 30y
+  name: Event-based product analytics
+  origin: "Mixpanel 2009, Amplitude 2012, PostHog 2020"
+  url: https://amplitude.com
+  what: "instrument user behavior as events — funnels, cohorts, paths as the observation substrate for product objectives"
+  why: "a ~$9B→$28B market; analytics and experimentation now merging into one eval plane (Amplitude absorbed the Statsig platform, 2026)"
+- pillar: observe
+  horizon: 30y
+  name: Observability (three pillars → observability 2.0)
+  origin: "Twitter ~2013; Majors/Honeycomb 2016; OpenTelemetry 2019"
+  url: https://opentelemetry.io
+  what: "instrument systems to answer UNANTICIPATED questions — the superset that outlived 'monitoring is dead'"
+  why: "OpenTelemetry is among the highest-velocity CNCF projects, the vendor-neutral standard every APM vendor supports"
+- pillar: observe
+  horizon: 30y
+  name: Retention & cohort analysis
+  origin: "Facebook growth era ~2008; Lean Analytics 2013"
+  url: https://leananalyticsbook.com
+  what: "judge the objective by whether cohorts keep coming back — the anti-vanity metric"
+  why: "a default chart in every analytics product; retention-first is board-level SaaS orthodoxy; outlived the growth-hacking fad"
+- pillar: observe
+  horizon: 30y
+  name: Sample Ratio Mismatch checks
+  origin: "Fabijan et al. (Microsoft), KDD 2019"
+  url: https://dl.acm.org/doi/10.1145/3292500.3330722
+  what: "chi-square on assignment counts — if the split isn't the designed split, the experiment is invalid regardless of result"
+  why: "an automatic default trust-gate in essentially every experimentation platform — trust of observation made mechanical"
+- pillar: observe
+  horizon: 30y
+  name: Chaos engineering
+  origin: "Netflix Chaos Monkey 2011; Principles 2015"
+  url: https://principlesofchaos.org
+  what: "inject failure deliberately — ACTIVE observation of whether reliability objectives actually hold"
+  why: "matured rather than died — normalized into resilience testing, institutionalized as AWS Fault Injection Service"
+- pillar: observe
+  horizon: 30y
+  name: Attribution crisis → MMM & incrementality revival
+  origin: "Apple ATT 2021; GA4 deprecations 2023; Meta Robyn, Google Meridian"
+  url: https://github.com/facebookexperimental/Robyn
+  what: "privacy killed user-level multi-touch attribution; marketing eval retreated to aggregate models and geo-lift experiments"
+  why: "the deep pattern: when observation gets censored, evaluation retreats to experiment design"
+
+# ── Evaluate ──
+- pillar: evaluate
+  horizon: 30y
+  name: Online controlled experiments + Kohavi's OEC
+  origin: "Kohavi, Microsoft ExP 2006; Trustworthy Online Controlled Experiments 2020"
+  url: https://experimentguide.com/
+  what: "randomized experiments on real users; the Overall Evaluation Criterion — one composite metric measurable short-term yet causally driving long-term objectives"
+  why: "2025-26 made experimentation INFRASTRUCTURE (OpenAI bought Statsig $1.1B, Datadog bought Eppo); the name collision with Observe-Eval-Control is a complement — Kohavi's OEC is the formalized E inside the loop"
+- pillar: evaluate
+  horizon: 30y
+  name: OKRs
+  origin: "Grove (Intel); Doerr → Google 1999; Measure What Matters 2018"
+  url: https://www.whatmatters.com
+  what: "Objectives (direction) + measurable Key Results (evaluation), reviewed on a cadence (control)"
+  why: "heavily backlashed (~70% of implementations abandoned; the tooling category cratered) AND still load-bearing — Google runs ~140k people on them; the default objective grammar of tech"
+- pillar: evaluate
+  horizon: 30y
+  name: KPIs / Balanced Scorecard
+  origin: "Kaplan & Norton, HBR 1992"
+  url: https://www.bain.com/insights/management-tools-balanced-scorecard/
+  what: "four-perspective scorecard linking strategy to measures — financial, customer, process, learning"
+  why: "fading in tech (~29% adoption, down from late-90s peak) yet never left Bain's top-25 tools; the generic KPI discipline it mainstreamed is universal"
+- pillar: evaluate
+  horizon: 30y
+  name: DORA metrics
+  origin: "Forsgren, Humble, Kim 2014; Accelerate 2018"
+  url: https://dora.dev
+  what: "four keys — deployment frequency, lead time, change-failure rate, recovery time — the empirical eval layer for delivery capability"
+  why: "the most widely adopted engineering measurement framework; 2025 report pivoted to AI-assisted development — evolution, not death"
+- pillar: evaluate
+  horizon: 30y
+  name: Guardrail vs goal metrics
+  origin: "Microsoft/LinkedIn experimentation ~2017; Kohavi et al. 2020"
+  url: https://experimentguide.com/
+  what: "the goal metric moves the OEC; guardrails (latency, errors, unsubscribes) may only NOT degrade"
+  why: "shipped natively in every surviving experimentation platform — Goodhart-proofing made mechanical"
+- pillar: evaluate
+  horizon: 30y
+  name: North Star Metric + input tree
+  origin: "Ellis ~2013; Amplitude North Star Playbook 2019"
+  url: https://amplitude.com/north-star-hub
+  what: "one leading-indicator metric capturing customer value, decomposed into an input-metric tree teams can act on"
+  why: "the inputs tree is the accepted fix for single-metric pitfalls; young end of the window — watch-listed, not bedrock"
+- pillar: evaluate
+  horizon: 30y
+  name: NPS
+  origin: "Reichheld, HBR 2003"
+  url: https://hbr.org/2003/12/the-one-number-you-need-to-grow
+  what: "likelihood-to-recommend as a single loyalty metric"
+  why: "Gartner predicted 75% abandonment by 2025 — instead it remains entrenched in most of the Fortune 1000 despite weak causal evidence; treat as a guardrail, never an OEC"
+- pillar: evaluate
+  horizon: 30y
+  name: Pre-mortem
+  origin: "Klein, HBR 2007"
+  url: https://hbr.org/2007/09/performing-a-project-premortem
+  what: "assume the objective has already failed; work backward to causes BEFORE committing — design-time evaluation"
+  why: "endorsed by Kahneman as a debiasing tool; embedded in product discovery; cheap, durable, unkillable"
+- pillar: evaluate
+  horizon: 30y
+  name: Wardley mapping
+  origin: "Wardley ~2005"
+  url: https://learnwardleymapping.com
+  what: "map value-chain components by visibility vs evolution — evaluate whether the STRATEGY itself is positioned correctly"
+  why: "never mass-market, never dead; actively used 2025-26 for AI build-vs-buy — a classic Lindy long-tail"
+- pillar: evaluate
+  horizon: 30y
+  name: The metric-failure canon in practice
+  origin: "Strathern 1997; Wells Fargo 2016; Muller, Tyranny of Metrics 2018"
+  url: https://ethicsunwrapped.utexas.edu/video/wells-fargo-fraud
+  what: "Goodhart operationalized — 1.5M fake accounts, $3B settlement, two CEOs gone: what metric gaming costs"
+  why: "the failure literature became a DESIGN REQUIREMENT — guardrail metrics and finance-audited input metrics exist because of it"
+
+# ── Control ──
+- pillar: control
+  horizon: 30y
+  name: SRE — SLI / SLO / error budgets
+  origin: "Treynor Sloss, Google ~2003; SRE book 2016"
+  url: https://sre.google/workbook/implementing-slos/
+  what: "SLIs observe, SLOs evaluate, and the error budget is a LITERAL control signal — budget exhausted ⇒ releases halt"
+  why: "the cleanest closed OEC loop in industry; SLO management is native in every major monitoring platform"
+- pillar: control
+  horizon: 30y
+  name: DevOps / CI-CD as loop tightening
+  origin: "Allspaw & Hammond 2009; Continuous Delivery 2010"
+  url: https://continuousdelivery.com
+  what: "shrink the observe→act cycle time itself — small batches make every other eval loop faster and safer"
+  why: "the unmarked default of software delivery; empirically validated by a decade of DORA data"
+- pillar: control
+  horizon: 30y
+  name: Feature flags & progressive delivery
+  origin: "Flickr ~2009; LaunchDarkly 2014; Governor 2018"
+  url: https://openfeature.dev
+  what: "decouple deploy from release — canary, blue-green, and flags are the control ACTUATORS of the business loop"
+  why: "~85% of Fortune 500 use flags; standardized vendor-neutral via OpenFeature (CNCF)"
+- pillar: control
+  horizon: 30y
+  name: Blameless postmortems
+  origin: "Allspaw, Etsy 2012; Google SRE book 2016"
+  url: https://sre.google/sre-book/postmortem-culture/
+  what: "incidents become evaluation input, not punishment; action items close the loop"
+  why: "whole product categories (PagerDuty, incident.io) and the Learning-from-Incidents movement assume it"
+- pillar: control
+  horizon: 30y
+  name: Working Backwards — PR/FAQ + WBR + controllable input metrics
+  origin: "Amazon ~2004; Bryar & Carr 2021"
+  url: https://workingbackwards.com/concepts/amazon-operating-cadence/
+  what: "press release before building (design-time eval); Weekly Business Review over controllable INPUT metrics with owners, audited against gaming"
+  why: "still Amazon's operating system at ~$600B scale — arguably the purest weekly O→E→C loop in business practice"
+- pillar: control
+  horizon: 30y
+  name: Lean Startup — build-measure-learn
+  origin: "Ries 2008/2011 (Blank 2005 as parent)"
+  url: https://theleanstartup.com
+  what: "the business plan as hypotheses; MVPs are experiments; pivot-or-persevere is the control decision"
+  why: "survived a decade of obituaries; AI collapsing build time makes measure-and-learn the bottleneck — RAISING the loop's value"
+
+# ═══ now — rising, mid-2026 ═════════════════════════════════════════════════
+
+# ── Observe ──
+- pillar: observe
+  horizon: now
+  name: OTel GenAI semantic conventions
+  origin: "OpenTelemetry GenAI SIG; dedicated repo 2026-06"
+  url: https://opentelemetry.io/docs/specs/semconv/gen-ai/
+  what: "the emerging wire standard for LLM/agent spans — gen_ai.* attributes for calls, agents, workflows, tools, MCP"
+  why: "vendors ingest it natively (Datadog) and coding agents (Claude Code, Copilot) emit it directly — still pre-1.0, names can change"
+- pillar: observe
+  horizon: now
+  name: MCP W3C Trace Context (SEP-414)
+  origin: "MCP spec 2026-07-28"
+  url: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/
+  what: "traceparent/tracestate propagate through MCP _meta — one span tree from host app → MCP server → downstream"
+  why: "the missing link in agent-trajectory observability; also deprecates MCP logging in favor of OTel"
+- pillar: observe
+  horizon: now
+  name: OpenInference & OpenLLMetry
+  origin: "Arize; Traceloop (~7.1k stars)"
+  url: https://arize-ai.github.io/openinference/spec/
+  what: "the two competing OTel-based instrumentation layers for LLM apps — richer RAG/span kinds vs vanilla-OTel"
+  why: "teams must pick one; switching means re-instrumenting every span — a standards fork worth tracking"
+- pillar: observe
+  horizon: now
+  name: Session/trajectory observability
+  origin: "LangSmith threads; AgentOps"
+  url: https://www.agentops.ai
+  what: "runs → traces → threads: multi-turn agent behavior observed and replayed as a coherent unit"
+  why: "the reference UX for evaluating agents at SESSION altitude, not per-call"
+- pillar: observe
+  horizon: now
+  name: Observability 2.0 for agents
+  origin: "Charity Majors; applied to agents 2025-26"
+  url: https://charity.wtf/tag/observability-2-0/
+  what: "wide structured events, high-cardinality queries — 'record what the model did in production and study it'"
+  why: "the intellectual frame for why agents need obs-2.0, not three-pillar dashboards"
+- pillar: observe
+  horizon: now
+  name: Online evals on production traces
+  origin: "Langfuse, LangSmith practice 2025-26"
+  url: https://langfuse.com/docs/evaluation/overview
+  what: "LLM-as-judge on sampled live traffic, scores attached to runs, watched for drift by model/prompt version"
+  why: "fuses O and E — monitoring without evaluators is now considered incomplete; note: no OSS platform ships native drift-detection with auto-baselining yet"
+
+# ── Evaluate ──
+- pillar: evaluate
+  horizon: now
+  name: Error-analysis-first eval doctrine
+  origin: "Husain & Shankar, Evals FAQ 2026-01"
+  url: https://hamel.dev/blog/posts/evals-faq/
+  what: "start with error analysis on real traces; write evaluators only for errors you DISCOVER, not imagine; 60-80% of dev time here"
+  why: "the closest thing to consensus practitioner doctrine — and it explicitly pushes back on naive eval-driven development"
+- pillar: evaluate
+  horizon: now
+  name: Judge alignment before judge trust (EvalGen)
+  origin: "Shankar et al., UIST 2024"
+  url: https://arxiv.org/abs/2404.12272
+  what: "align LLM judges with human preferences before trusting their scores; criteria drift is real"
+  why: "the load-bearing joint of the whole loop — online judge scores can only GATE rollouts if the judges were validated"
+- pillar: evaluate
+  horizon: now
+  name: Economic evals as the business case
+  origin: "OpenAI GDPval 2025; Anthropic Economic Index 2026"
+  url: https://openai.com/index/gdpval/
+  what: "expert-graded real occupational deliverables + hourly-equivalent dollar value of AI tasks"
+  why: "the freshest data connecting model capability to business value — the E of business, measured"
+- pillar: evaluate
+  horizon: now
+  name: Kohavi's OEC applied to AI rollouts
+  origin: "Kohavi 2020 canon → AI experimentation 2025-26"
+  url: https://launchdarkly.com/blog/ai-experimentation/
+  what: "a single composite metric causally tied to long-term objectives gates which model/prompt ships"
+  why: "no one has published a better answer for tying eval scores to business KPIs than an OEC over experiment data"
+
+# ── Control ──
+- pillar: control
+  horizon: now
+  name: Experimentation platforms as the AI control plane
+  origin: "OpenAI×Statsig $1.1B 2025-09; Datadog×Eppo 2025-05"
+  url: https://www.statsig.com/blog/openai-acquisition
+  what: "feature-flag + experimentation platforms absorbed by a frontier lab and an observability vendor"
+  why: "two $1B-class acquisitions confirm 'control plane for AI releases' is a strategic category — O, E, and C productized in one platform"
+- pillar: control
+  horizon: now
+  name: Feature-flagging prompts & models
+  origin: "LaunchDarkly AI Configs GA 2025; GrowthBook"
+  url: https://launchdarkly.com/docs/home/ai-configs
+  what: "prompts/models as runtime-flagged configs — percentage rollouts, canary, automated rollback on guardrail breach fed by OTel signals"
+  why: "the concrete product the deployment-control pattern is named after"
+- pillar: control
+  horizon: now
+  name: CI/CD eval gates with auto-rollback
+  origin: "promptfoo GitHub Action; Braintrust CI 2025-26"
+  url: https://www.promptfoo.dev/docs/integrations/github-action/
+  what: "PR-level eval diffs as comments, quality-gate exit codes, statistical gating with rollback on canary regression"
+  why: "'eval score as merge gate' is now the standard control actuator in the dev loop"
+- pillar: control
+  horizon: now
+  name: Runtime policy enforcement for agents
+  origin: "AgentSpec (arXiv 2025-03); NeMo Guardrails; Invariant→Snyk 2025-06"
+  url: https://arxiv.org/abs/2503.18666
+  what: "trigger/predicate/enforcement rules constraining agents at runtime; gateways that trace AND enforce in one hop"
+  why: "blocks >90% of unsafe code-agent executions at ms overhead; observation and control fused in one gateway"
+- pillar: control
+  horizon: now
+  name: AI SLOs & error budgets for agents
+  origin: "practitioner-led 2026"
+  url: https://www.buildmvpfast.com/blog/ai-agent-error-budget-sre-reliability-autonomous-2026
+  what: "SRE error-budget mechanics ported to agent quality — parallel budgets per SLI, budget-burn freezes releases"
+  why: "rising because accuracy improved over 18 months while CONSISTENCY barely did; no canonical owner yet — a gap"
+- pillar: control
+  horizon: now
+  name: Agent fleet governance
+  origin: "Microsoft Agent 365 (GA 2026-05)"
+  url: https://www.microsoft.com/en-us/microsoft-365/blog/2025/11/18/microsoft-agent-365-the-control-plane-for-ai-agents/
+  what: "registry + agent identities + fleet-wide telemetry + enforcement, framework-agnostic"
+  why: "the biggest-scale 'governance over agent fleets'; meanwhile Deloitte finds only 21% of enterprises have mature agent governance — C is the least-built pillar"
+- pillar: control
+  horizon: now
+  name: Sandboxing as containment control
+  origin: "E2B (Firecracker microVMs) et al."
+  url: https://e2b.dev
+  what: "kernel-level isolation as the outermost control ring for agent execution"
+  why: "the control everyone agrees on even when policy engines disagree"
+- pillar: control
+  horizon: now
+  name: Closed-loop data flywheels (MAPE for agents)
+  origin: "NVIDIA, arXiv:2510.27051 → EACL 2026; Arize LLMOps loop"
+  url: https://arxiv.org/abs/2510.27051
+  what: "Monitor-Analyze-Plan-Execute on a 30k-user assistant: production feedback → failure analysis → targeted fine-tunes → redeploy"
+  why: "the most explicit published OEC loop for agents — names the control-theory lineage outright (70% latency cut, 96% router accuracy)"
