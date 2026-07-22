@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧪 eval-anything — the Evaluation Operating System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f0ede4; --paper2: #f7f5ee; --card: #faf8f2;
+    --ink: #46423a; --ink-dim: #7d776b; --ink-faint: #a39c8e;
+    --accent: #cc785c; --accent-deep: #b5654a; --accent-soft: #f3e2da;
+    --dark: #46423a; --ok: #4a7c59; --warn: #b08430; --kill: #b0452f;
+    --serif: "Newsreader", Georgia, serif;
+    --sans: "Hanken Grotesk", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.65; font-size: 15.5px; }
+  a { color: var(--accent-deep); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header { position: sticky; top: 0; z-index: 60; background: rgba(240,237,228,.94); backdrop-filter: blur(8px); border-bottom: 1px solid #e2ddd0; }
+  .head-inner { max-width: 1020px; margin: 0 auto; padding: 10px 24px 12px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--ink-dim); flex-wrap: wrap; }
+  .brand .chip { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .brand b { color: var(--ink); font-size: 14.5px; }
+  nav { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; padding-bottom: 2px; }
+  nav button { display: flex; align-items: center; gap: 7px; background: var(--card); border: 1px solid #e2ddd0; color: var(--ink); font-family: var(--sans); font-size: 13px; font-weight: 600; padding: 7px 15px 7px 8px; cursor: pointer; border-radius: 999px; white-space: nowrap; transition: all .15s; }
+  nav button .n { width: 19px; height: 19px; border-radius: 50%; background: var(--paper); border: 1px solid #ddd7c8; font-size: 11px; display: flex; align-items: center; justify-content: center; color: var(--ink-dim); }
+  nav button:hover { border-color: var(--accent); }
+  nav button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  nav button.active .n { background: rgba(255,255,255,.25); border-color: transparent; color: #fff; }
+
+  main { max-width: 1020px; margin: 0 auto; padding: 46px 24px 90px; }
+  section.tab { display: none; }
+  section.tab.active { display: block; animation: fade .3s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: none;} }
+
+  .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 5vw, 52px); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 18px; max-width: 820px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede { color: var(--ink-dim); font-size: 16.5px; max-width: 700px; margin-bottom: 34px; }
+  h2.sec { font-family: var(--serif); font-weight: 500; font-size: 27px; margin: 46px 0 6px; letter-spacing: -.3px; }
+  .sec-sub { color: var(--ink-dim); font-size: 14px; margin-bottom: 16px; }
+
+  .card { background: var(--card); border: 1px solid #e6e1d3; border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+  @media (max-width: 800px){ .grid3 { grid-template-columns: 1fr; } }
+  .metric { text-align: center; padding: 20px 10px; }
+  .metric .num { font-family: var(--serif); font-size: 40px; color: var(--accent); line-height: 1; }
+  .metric .lbl { font-size: 12.5px; color: var(--ink-dim); margin-top: 8px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--paper2); border-radius: 12px; overflow: hidden; }
+  .tablewrap { border-radius: 12px; overflow: hidden; border: 1px solid #e2ddd0; margin-bottom: 16px; }
+  th { text-align: left; background: var(--dark); color: #f0ede4; font-weight: 600; padding: 12px 14px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+  td { padding: 12px 14px; border-bottom: 1px solid #e6e1d3; vertical-align: top; background: var(--paper2); }
+  tr:last-child td { border-bottom: none; }
+
+  .badge { display: inline-block; font-family: var(--sans); font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 999px; letter-spacing: .6px; vertical-align: middle; }
+  .b-300y { background: #e4ecdf; color: var(--ok); }
+  .b-30y { background: #f2e8d2; color: var(--warn); }
+  .b-now { background: #f4ded6; color: var(--kill); }
+
+  .aha { background: linear-gradient(135deg, #f7f2e7, #f5e7dd); border: 1px solid #ecdcc9; border-radius: 16px; padding: 26px 30px; margin: 30px 0; }
+  .aha .k { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .aha p { font-family: var(--serif); font-size: 20px; line-height: 1.5; }
+  .aha p em { font-style: italic; color: var(--accent-deep); }
+
+  .flow { display: flex; align-items: stretch; flex-wrap: wrap; margin: 16px 0; gap: 8px; }
+  .flow .step { flex: 1; min-width: 150px; background: var(--paper2); border: 1px solid #e2ddd0; border-radius: 12px; padding: 14px 16px; font-size: 13.5px; }
+  .flow .step b { display: block; color: var(--accent-deep); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+
+  .cta { display: inline-block; margin-top: 30px; background: var(--accent); color: #fff !important; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 999px; }
+  .cta:hover { background: var(--accent-deep); text-decoration: none; }
+
+  /* demo blocks */
+  .say-btn { display: block; width: 100%; text-align: left; background: var(--paper2); border: 1px solid #e2ddd0; border-radius: 12px; padding: 13px 16px; margin: 10px 0 0; cursor: pointer; font-family: var(--mono); font-size: 13px; color: var(--ink); transition: border-color .15s; }
+  .say-btn::before { content: "❯ you say  "; color: var(--accent-deep); font-family: var(--sans); font-weight: 700; font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px; }
+  .say-btn:hover { border-color: var(--accent); }
+  .say-btn.open { border-color: var(--accent); background: var(--accent-soft); }
+  .get-box { display: none; border-left: 3px solid var(--accent); background: var(--paper2); border-radius: 0 12px 12px 0; padding: 13px 16px; margin-top: 6px; font-size: 13.5px; }
+  .get-box.open { display: block; animation: fade .25s ease; }
+  .get-box .who { font-weight: 700; font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-deep); margin-bottom: 4px; }
+  .get-box .stamp { display: block; margin-top: 8px; font-size: 11px; color: var(--ink-faint); }
+  .feature-tag { font-family: var(--serif); font-style: italic; color: var(--ink-dim); font-size: 14.5px; margin-bottom: 4px; }
+
+  code.k { font-family: var(--mono); font-size: 12.5px; background: var(--paper2); border: 1px solid #e2ddd0; border-radius: 6px; padding: 1px 7px; }
+
+  /* floating copilot */
+  #copilot-pill { position: fixed; right: 22px; bottom: 22px; z-index: 90; background: var(--accent); color: #fff; border: none; font-family: var(--sans); font-weight: 700; font-size: 14px; padding: 13px 20px; border-radius: 999px; cursor: pointer; box-shadow: 0 6px 24px rgba(70,66,58,.25); }
+  #copilot-pill:hover { background: var(--accent-deep); }
+  #copilot-panel { position: fixed; right: 22px; bottom: 84px; z-index: 95; width: min(430px, calc(100vw - 44px)); max-height: min(600px, calc(100vh - 120px)); background: var(--card); border: 1px solid #ddd7c8; border-radius: 18px; box-shadow: 0 18px 60px rgba(70,66,58,.3); display: none; flex-direction: column; overflow: hidden; }
+  #copilot-panel.open { display: flex; }
+  .cp-head { padding: 14px 18px 12px; background: var(--dark); color: #f0ede4; }
+  .cp-head b { font-size: 15px; }
+  .cp-head .tag { display: block; font-size: 11.5px; color: #cfc9bb; margin-top: 2px; }
+  .cp-close { position: absolute; right: 14px; top: 12px; background: none; border: none; color: #cfc9bb; font-size: 16px; cursor: pointer; }
+  .chat-log { flex: 1; overflow-y: auto; padding: 16px 18px; min-height: 180px; }
+  .msg { margin-bottom: 14px; font-size: 13.5px; }
+  .msg .who { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-faint); margin-bottom: 3px; }
+  .msg.user .who { color: var(--accent-deep); }
+  .msg .body { white-space: pre-wrap; }
+  .chips { padding: 0 18px 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips button { background: var(--paper2); border: 1px solid #e2ddd0; border-radius: 999px; font-size: 12px; padding: 5px 12px; cursor: pointer; color: var(--ink); font-family: var(--sans); }
+  .chips button:hover { border-color: var(--accent); }
+  .chat-input { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid #e6e1d3; background: var(--paper2); }
+  .chat-input input { flex: 1; background: #fff; border: 1px solid #ddd7c8; border-radius: 999px; color: var(--ink); padding: 10px 16px; font-size: 13.5px; font-family: var(--sans); }
+  .chat-input button { background: var(--accent); color: #fff; border: none; border-radius: 999px; padding: 10px 18px; font-weight: 700; cursor: pointer; font-size: 13.5px; }
+  .chat-input button:disabled { opacity: .5; cursor: wait; }
+  .cp-note { padding: 7px 18px 10px; font-size: 11px; color: var(--ink-faint); }
+
+  .smallprint { color: var(--ink-faint); font-size: 12px; }
+  footer { border-top: 1px solid #e2ddd0; color: var(--ink-faint); font-size: 12px; padding: 24px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <div class="brand"><span class="chip">EA</span> <b>eval-anything</b> · the Evaluation OS · an honest ❌ beats a fake ✅</div>
+    <nav id="nav"></nav>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<button id="copilot-pill" onclick="togglePanel()">💬 Ask the eval copilot</button>
+<div id="copilot-panel">
+  <div class="cp-head" style="position:relative">
+    <b>eval copilot</b>
+    <span class="tag">grounded in the repo's registry + OEC canon · it won't bluff</span>
+    <button class="cp-close" onclick="togglePanel()">✕</button>
+  </div>
+  <div class="chat-log" id="chatlog">
+    <div class="msg bot"><div class="who">Copilot</div><div class="body">Ask which benchmark fits your model, how to judge without bias, or why eval without control fails. If the corpus doesn't cover it, I'll say so instead of bluffing.</div></div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="chat-input">
+    <input id="chatq" placeholder="e.g. Which benchmark for my coding agent?" onkeydown="if(event.key==='Enter')ask()">
+    <button id="chatbtn" onclick="ask()">Ask</button>
+  </div>
+  <div class="cp-note">Claude-backed when deployed with a key · falls back to labeled offline retrieval — never a faked answer.</div>
+</div>
+
+<footer id="foot"></footer>
+
+<script src="data.js"></script>
+<script>
+const TABS = [
+  { id: "why",      label: "Why OEC" },
+  { id: "demo",     label: "⭐ The super-tool, demoed" },
+  { id: "canon",    label: "The OEC canon" },
+  { id: "evidence", label: "Seminal papers" },
+  { id: "field",    label: "The field" },
+  { id: "lab",      label: "Ask it yourself" },
+];
+const D = window.BRIEF_DATA;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
+const hzBadge = h => `<span class="badge b-${h}">${h === "300y" ? "🏛️ 300y" : h === "30y" ? "🧭 30y" : "⚡ now"}</span>`;
+const hero = (kicker, h1, lede) => `<div class="kicker">${kicker}</div><h1>${h1}</h1><p class="lede">${lede}</p>`;
+
+function renderWhy() {
+  return `
+    ${hero("why oec · observe → evaluate → control",
+      `Eval without control is <em>a scoreboard</em>.`,
+      `Evaluation is the middle of a loop, not the whole of it. You can't evaluate what you can't observe — and a verdict that changes nothing changes nothing. This site is the live front door of <a href="https://github.com/${esc(D.meta.github)}">${esc(D.meta.github)}</a>: ${D.registry.length} tracked repos live-synced weekly, ${D.papers.length} seminal papers, a ${D.oec.length}-entry survival-tested OEC canon, and a super-tool you drive with plain words.`)}
+    <div class="grid3">
+      <div class="card metric"><div class="num">${D.registry.length}</div><div class="lbl">top repos tracked, live-synced weekly</div></div>
+      <div class="card metric"><div class="num">${D.oec.length}</div><div class="lbl">OEC canon entries across 3 horizons (300y/30y/now)</div></div>
+      <div class="card metric"><div class="num">${D.examples.reduce((s,f)=>s+f.examples.length,0)}</div><div class="lbl">runnable say→get examples in the demo</div></div>
+    </div>
+    <h2 class="sec">The three laws</h2>
+    <div class="flow">
+      <div class="step"><b>1 · Observe first</b>Observability precedes eval — Kalman (1960) proved observability and controllability are mathematical duals. Instrument before you judge.</div>
+      <div class="step"><b>2 · Eval the objective</b>Engineering soundness AND "is the business objective on track?" — across design, planning, execution, maintenance, upgrade.</div>
+      <div class="step"><b>3 · Close the loop</b>After eval come decisions and change: gates, rollbacks, error budgets, kaizen. No control hook, no loop.</div>
+    </div>
+    <div class="aha">
+      <div class="k">The 300-year Lindy finding</div>
+      <p>Every survivor fused observe + evaluate + control into <em>a single artifact a worker could use</em> — the ledger, the control chart, the PID loop, the checklist, the andon cord. Every corpse in the anti-portfolio was a framework a consultant could sell.</p>
+    </div>
+    <a class="cta" href="#" onclick="go('demo');return false;">See the super-tool in action →</a>`;
+}
+
+function renderDemo() {
+  return `
+    ${hero("the super-tool · /eval-anything · click any example",
+      `No grammar. No expertise. <em>Just say it.</em>`,
+      `The super-tool is a Claude Code skill: one slash, vague prompts welcome — it infers intent from your repo's ledger, commits, and history before acting, asks at most one question, and always drafts irreversible actions for a human to ship. Below: every essential feature with examples grounded in the repo's own data. Click a prompt to see what comes back.`)}
+    <div class="card" style="font-size:13.5px">
+      <b>Run it live in 3 steps:</b>
+      <ol style="padding-left:20px;margin-top:6px;color:var(--ink-dim)">
+        <li>Clone <code class="k">github.com/${esc(D.meta.github)}</code> (private — request access).</li>
+        <li>Open Claude Code in any project and make the skill available (symlink <code class="k">skills/eval-anything</code> into <code class="k">~/.claude/skills/</code>).</li>
+        <li>Type <code class="k">/eval-anything</code> followed by anything below — verbatim works.</li>
+      </ol>
+    </div>
+    ${D.examples.map((f, fi) => `
+      <h2 class="sec">${fi + 1} · ${esc(f.feature)}</h2>
+      <p class="feature-tag">${esc(f.tagline)}</p>
+      ${f.examples.map((e, ei) => `
+        <button class="say-btn" id="say-${fi}-${ei}" onclick="toggleGet(${fi},${ei})">${esc(e.say)}</button>
+        <div class="get-box" id="get-${fi}-${ei}">
+          <div class="who">you get</div>
+          ${esc(e.get)}
+          <span class="stamp">▣ recorded outcome from the skill's contract — run it live in Claude Code for your own data. The copilot (bottom right) can answer follow-ups from this site's corpus.</span>
+        </div>`).join("")}
+    `).join("")}
+    <a class="cta" href="#" onclick="go('canon');return false;">The survival-tested canon behind it →</a>`;
+}
+
+function renderCanon() {
+  const pillars = [
+    ["observe", "👁️ Observe", "you can't evaluate what you can't observe"],
+    ["evaluate", "⚖️ Evaluate", "is the objective on track? engineering AND business"],
+    ["control", "🎛️ Control", "decisions and change close the loop"],
+  ];
+  return `
+    ${hero("the oec canon · ranked by survival, not launch buzz",
+      `Three horizons. <em>One discipline.</em>`,
+      `🏛️ 300y — survived generations · 🧭 30y — survived the hype cycle · ⚡ now — rising, mid-2026. Every entry carries its origin and why it's still load-bearing. Source of truth: <code class="k">data/oec.yml</code>, drift-gated.`)}
+    ${pillars.map(([key, title, sub]) => `
+      <h2 class="sec">${title}</h2>
+      <p class="sec-sub">${sub}</p>
+      <div class="tablewrap"><table>
+        <tr><th>Entry</th><th>Origin</th><th>Horizon</th><th>Why still load-bearing</th></tr>
+        ${D.oec.filter(o => o.pillar === key).map(o => `<tr><td><b><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.name)}</a></b><div class="smallprint">${esc(o.what)}</div></td><td style="color:var(--ink-dim)">${esc(o.origin)}</td><td>${hzBadge(o.horizon)}</td><td style="color:var(--ink-dim)">${esc(o.why)}</td></tr>`).join("")}
+      </table></div>`).join("")}
+    <a class="cta" href="#" onclick="go('evidence');return false;">The seminal papers →</a>`;
+}
+
+function renderEvidence() {
+  const CATS = [["benchmarks","Foundational benchmarks"],["judge","LLM-as-judge & methodology"],["agentic","Agentic evaluation"],["vlm","VLM"],["vla","VLA / embodied"],["meta","Meta-science"]];
+  return `
+    ${hero("seminal papers · primary sources only",
+      `Citations that <em>survive the room</em>.`,
+      `Every entry links its primary source (paper/DOI), never the trade article that covered it. ${D.papers.length} papers researched and web-verified. Source of truth: <code class="k">data/papers.yml</code> — this page is generated from it and drift-gated.`)}
+    ${CATS.map(([key, title]) => `
+      <h2 class="sec">${title}</h2>
+      <div class="tablewrap"><table>
+        <tr><th>Paper</th><th>Cite</th><th>Why it matters</th></tr>
+        ${D.papers.filter(p => p.category === key).map(p => `<tr><td><b><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></b></td><td style="color:var(--ink-dim);white-space:nowrap">${esc(p.cite)}</td><td style="color:var(--ink-dim)">${esc(p.why)}</td></tr>`).join("")}
+      </table></div>`).join("")}
+    <a class="cta" href="#" onclick="go('field');return false;">The field, live-synced →</a>`;
+}
+
+function renderField() {
+  const CATS = [["harness","🧰 Harnesses & platforms"],["agent","🤖 Agentic benchmarks"],["vlm","🖼️ VLM"],["vla","🦾 VLA / embodied"],["judge","⚖️ Judges & arenas"],["live","📆 Live / contamination-resistant"],["security","🛡️ Guardrails & security"]];
+  return `
+    ${hero("the field · a meta-repo you can rely on",
+      `${D.registry.length} repos. <em>One reliable place.</em>`,
+      `The registry is refreshed weekly by an open-API sync that opens a human-gated PR with "what moved" — stars and pushes below are real fetched numbers, never typed in. Plus ${D.counts.labs} labs/orgs, ${D.counts.people} people, ${D.counts.security} security entries in the repo. Growing it is one PR: add a row, say why it's tracked.`)}
+    ${CATS.map(([key, title]) => `
+      <h2 class="sec">${title}</h2>
+      <div class="tablewrap"><table>
+        <tr><th>Repo</th><th>Why tracked</th><th>Stars</th><th>Last push</th></tr>
+        ${D.registry.filter(u => u.category === key).map(u => `<tr><td><b><a href="https://github.com/${esc(u.repo)}" target="_blank" rel="noopener">${esc(u.repo)}</a></b></td><td style="color:var(--ink-dim)">${esc(u.why)}</td><td>${u.stars != null ? "⭐ " + Number(u.stars).toLocaleString("en-US") : "—"}</td><td>${esc((u.pushed_at || "—").slice(0, 10))}</td></tr>`).join("")}
+      </table></div>`).join("")}
+    <h2 class="sec">📰 News — the ledger</h2>
+    <p class="sec-sub">Every increment lands here with its date. No entry, no claim.</p>
+    <div class="card">${D.news.map(n => `<div style="margin-bottom:8px"><b style="color:var(--accent-deep)">${esc(n.date)}</b> — ${esc(n.entry)}</div>`).join("")}</div>
+    <a class="cta" href="#" onclick="go('lab');return false;">Interrogate it yourself →</a>`;
+}
+
+function renderLab() {
+  return `
+    ${hero("ask it yourself · the site answers back",
+      `Interrogate the eval OS <em>yourself</em>.`,
+      `The copilot (floating button, bottom right — or a chip below) is grounded in this site's corpus: the registry, the OEC canon, the papers, the super-tool examples, and the news ledger — the same data files the repo's CI drift-gates. It says so when the corpus doesn't cover your question.`)}
+    <div class="card">
+      <b>Try these:</b>
+      <div class="chips" style="padding:12px 0 0">
+        ${SUGGESTIONS.map(q => `<button onclick="openAndAsk('${esc(q).replace(/'/g,"\\'")}')">${esc(q)}</button>`).join("")}
+      </div>
+    </div>
+    <div class="card" style="font-size:13.5px;color:var(--ink-dim)">
+      <b style="color:var(--ink)">How it stays honest.</b> Deployed with a key, answers come from Claude with a system prompt restricted to the corpus — it refuses to invent numbers or sources. Without a backend it falls back to labeled offline retrieval ("no LLM behind this answer"). UI and corpus are generated from the same <code class="k">data/*.yml</code> — they cannot drift apart.
+    </div>
+    ${D.journey_url ? `<div class="card" style="font-size:13.5px"><b>🛰️ The journey.</b> Every delivery behind this site is an evidence-graded report card: <a href="${esc(D.journey_url)}" target="_blank" rel="noopener">${esc(D.journey_url.replace("https://",""))}</a></div>` : ""}`;
+}
+
+const SUGGESTIONS = [
+  "Which benchmark for my coding agent?",
+  "Is MMLU still credible for a model card?",
+  "How do I use LLM-as-judge without the biases?",
+  "Why does eval without control fail?",
+  "What moved in the eval field recently?",
+];
+
+const RENDER = { why: renderWhy, demo: renderDemo, canon: renderCanon, evidence: renderEvidence, field: renderField, lab: renderLab };
+
+function go(id) {
+  document.querySelectorAll("nav button").forEach(b => b.classList.toggle("active", b.dataset.id === id));
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("active", s.id === "tab-" + id));
+  history.replaceState(null, "", "#" + id);
+  window.scrollTo({ top: 0 });
+}
+
+function toggleGet(fi, ei) {
+  document.getElementById("say-" + fi + "-" + ei).classList.toggle("open");
+  document.getElementById("get-" + fi + "-" + ei).classList.toggle("open");
+}
+
+(function init() {
+  const nav = document.getElementById("nav"), main = document.getElementById("main");
+  TABS.forEach((t, i) => {
+    const b = document.createElement("button");
+    b.innerHTML = `<span class="n">${i + 1}</span>${t.label}`; b.dataset.id = t.id; b.onclick = () => go(t.id);
+    nav.appendChild(b);
+    const s = document.createElement("section");
+    s.className = "tab"; s.id = "tab-" + t.id; s.innerHTML = RENDER[t.id]();
+    main.appendChild(s);
+  });
+  document.getElementById("chips").innerHTML = SUGGESTIONS.slice(0, 3).map(q => `<button onclick="askChip('${esc(q).replace(/'/g,"\\'")}')">${esc(q)}</button>`).join("");
+  document.getElementById("foot").innerHTML =
+    `Generated from <code>data/*.yml</code> of <a href="https://github.com/${esc(D.meta.github)}">${esc(D.meta.github)}</a> — drift-gated by CI.<br>` +
+    `Horizons: <span class="badge b-300y">🏛️ 300y</span> survived generations · <span class="badge b-30y">🧭 30y</span> survived the hype cycle · <span class="badge b-now">⚡ now</span> rising, mid-2026.`;
+  go(location.hash.replace("#", "") || "why");
+})();
+
+/* ---- copilot ---- */
+function togglePanel(forceOpen) {
+  const p = document.getElementById("copilot-panel");
+  p.classList.toggle("open", forceOpen === true ? true : forceOpen === false ? false : !p.classList.contains("open"));
+  if (p.classList.contains("open")) document.getElementById("chatq").focus();
+}
+function openAndAsk(q) { togglePanel(true); document.getElementById("chatq").value = q; ask(); }
+function askChip(q) { document.getElementById("chatq").value = q; ask(); }
+
+function addMsg(who, cls, text) {
+  const log = document.getElementById("chatlog");
+  const d = document.createElement("div");
+  d.className = "msg " + cls;
+  d.innerHTML = `<div class="who">${who}</div><div class="body"></div>`;
+  d.querySelector(".body").textContent = text;
+  log.appendChild(d); log.scrollTop = log.scrollHeight;
+}
+
+function localRetrieve(q) {
+  const words = q.toLowerCase().split(/\W+/).filter(w => w.length > 3);
+  const scored = D.corpus.map(p => ({ p, s: words.reduce((s, w) => s + (p.toLowerCase().includes(w) ? 1 : 0), 0) }))
+    .filter(x => x.s > 0).sort((a, b) => b.s - a.s).slice(0, 3);
+  if (!scored.length) return "No matching passage in the site corpus. Try terms like benchmark, judge, OEC, contamination, red-team, SWE-bench, or a repo name.";
+  return "[offline retrieval — no LLM behind this answer, these are the corpus's closest passages]\n\n" + scored.map(x => "• " + x.p).join("\n\n");
+}
+
+async function ask() {
+  const inp = document.getElementById("chatq"), btn = document.getElementById("chatbtn");
+  const q = inp.value.trim(); if (!q) return;
+  inp.value = ""; btn.disabled = true;
+  togglePanel(true);
+  addMsg("You", "user", q);
+  try {
+    const r = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question: q }) });
+    if (!r.ok) throw new Error("api " + r.status);
+    const j = await r.json();
+    addMsg("Copilot", "bot", j.answer);
+  } catch (e) {
+    addMsg("Copilot (offline)", "bot", localRetrieve(q));
+  }
+  btn.disabled = false; inp.focus();
+}
+</script>
+</body>
+</html>

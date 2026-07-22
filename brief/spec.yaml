@@ -1,0 +1,21 @@
+# spec.yaml — instance spec for the eval-anything brief webapp.
+# Rendered on the family brief pattern (graph-engineering-anything reference:
+# index.html block library + data.js + corpus-restricted api/chat.js with
+# labeled offline fallback).
+# NOTE: data.js is GENERATED from ../data/*.yml by scripts/build_brief.py (drift-gated).
+meta:
+  name: eval-anything-demo
+  title: 🧪 eval-anything — the Evaluation Operating System
+  brand: {chip: EA, label: eval-anything, descriptor: "· the Evaluation OS · an honest ❌ beats a fake ✅"}
+  audience: builders answering "is this model/agent good enough — and safe enough — to ship?"; anyone evaluating the super-tool
+theme: {preset: anthropic-paper}
+stack: static
+tabs: [why (OEC big picture), demo (⭐ super-tool with 6 features x say/get examples), canon (OEC 3-horizon survival canon), evidence (59 seminal papers), field (54-repo live registry + news), lab (copilot)]
+copilot:
+  grounding: brief/data.js corpus (generated from data/*.yml — registry, papers, oec, labs, blogs, people, security, examples, news)
+  honesty: preserve saturation/contamination/bias caveats; refuse outside corpus; labeled offline fallback on 503
+gates:
+  - every tab renders in a real browser, zero console errors
+  - live URL returns 200 AND POST /api/chat behaves (Claude answer, or honest 503 → labeled fallback)
+  - data.js drift gate in make check (UI/corpus can never diverge from repo data)
+deploy: {vercel_project: eval-anything-demo, root: brief/, status: not yet deployed — human-gated}

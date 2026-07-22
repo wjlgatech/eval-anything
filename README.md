@@ -20,6 +20,70 @@ One reliable place for evaluation of foundation models (LLM, VLM, VLA) and agent
 - **2026-07-22** — field research landed: 54 tracked repos, 59 seminal papers, 26 labs/orgs, 19 canonical blogs, 48 people, 47 guardrails/security entries — all web-verified this day. DECISION: guardrails/security lives inside eval-anything (red-teaming IS adversarial evaluation); splits out only if the fold outgrows the repo.
 - **2026-07-22** — repo scaffolded from spec (green at birth)
 
+## ⭐ The super-tool: `/eval-anything`
+
+One slash, no grammar, no expertise required. Say what you want — even vaguely —
+and the skill infers intent from the bigger context (this repo's ledger, commits,
+your history) before acting. Irreversible actions are always drafted for a human
+to ship, never auto-executed. See `skills/eval-anything/SKILL.md`.
+
+**Not sure what it can do? Say any of these — verbatim works:**
+
+### Pick the right benchmark or harness
+
+_say what you built — get the load-bearing eval for it, with saturation and contamination caveats attached_
+
+| You say (vague is fine) | You get |
+|---|---|
+| *“eval this coding agent we built”* | SWE-bench Verified as the headline (with its ~75% saturation caveat), SWE-bench-Live for contamination resistance, Terminal-Bench for CLI work — plus the harness call (Inspect vs promptfoo) based on your stack, each with why |
+| *“which benchmark for my vision-language model?”* | MMMU/MMMU-Pro for the headline, MathVista for visual reasoning, POPE for hallucination — run via VLMEvalKit or lmms-eval in one command, with the CircularEval robustness trick flagged |
+| *“is MMLU still credible for a 2026 model card?”* | an honest no for headline use — saturated (>90%) and in every pretraining shadow; the registry's current alternatives (MMLU-Pro, GPQA Diamond, HLE) with each one's version and contamination status |
+
+### Design a gated eval (the OEC loop)
+
+_every eval walks Observe → Evaluate → Control — instrument first, criterion second, control hook or it's a scoreboard_
+
+| You say (vague is fine) | You get |
+|---|---|
+| *“design an eval for our customer-support agent”* | the OEC walk: what to OBSERVE (traces, tool calls, session outcomes — OTel GenAI spans), the CRITERION (task resolution + policy adherence à la tau2-bench, pass^k for reliability), and the CONTROL (eval score gates the prompt rollout; regression auto-rolls back) |
+| *“is our RAG pipeline good enough to ship?”* | a gate design with maker≠checker judging (faithfulness + context precision), a stated threshold, error bars per Anthropic's statistical approach — and the honest note that 'good enough' needs a business criterion, not just a metric |
+
+### LLM-as-judge, with the biases handled
+
+_judge scores only count as evidence with a stated bias mitigation — position, verbosity, and self-preference are measured effects_
+
+| You say (vague is fine) | You get |
+|---|---|
+| *“just use Claude as the judge for our A/B outputs”* | yes, with the guardrails: randomized answer order (position bias flips verdicts), length control (verbosity bias is gameable), and a human-calibrated sample before trusting — or a panel of diverse small judges at 1/7 the cost (PoLL) |
+| *“our judge gives us 95% pass rates”* | the skeptic's checklist: is the judge grading its own model family (self-preference)? was it validated against humans (EvalGen's criteria-drift warning)? a 30-trace human audit plan to find out |
+
+### Red-team the guardrails
+
+_red-teaming IS adversarial evaluation — the security fold lives here, same benchmarks, same judges_
+
+| You say (vague is fine) | You get |
+|---|---|
+| *“red-team this agent before launch”* | a staged plan: garak/PyRIT scans for the known probes, AgentDojo for prompt-injection-under-tools, an AgentHarm pass for misuse — mapped to the lethal trifecta (private data + untrusted content + external comms) and Meta's Rule of Two |
+| *“are our guardrails actually any good?”* | guardrails evaluated AS evals: attack success rate before/after, StrongREJECT scoring so 'technically complied' junk doesn't inflate the numbers, and the honest baseline that no classifier survives adaptive attack — architecture (CaMeL-style) beats filters |
+
+### Answer 'is the business objective on track?'
+
+_eval targets the objective, not just the engineering — Kohavi's OEC is the E inside Observe→Eval→Control_
+
+| You say (vague is fine) | You get |
+|---|---|
+| *“leadership wants to know if the AI feature is working”* | an Overall Evaluation Criterion tied to the business objective (not a vanity pass-rate), guardrail metrics that may not degrade, and the input-metric tree that makes the number actionable — WBR-style, with owners |
+| *“our evals pass but users are churning”* | the diagnosis: your evals measure engineering soundness, not the objective — an error-analysis pass on real traces (Husain/Shankar doctrine) to find what users actually hit, then a criterion rebuilt from those failure modes |
+
+### Track what moved (the meta-repo)
+
+_54 tracked repos live-synced weekly, 70-entry OEC canon, every claim evidence-tiered — one reliable place_
+
+| You say (vague is fine) | You get |
+|---|---|
+| *“what moved this week in evals?”* | the registry diff (stars, pushes, org moves across 54 repos) plus the News ledger — the same 'what moved' the weekly human-gated PR carries |
+| *“give me the 300-year view on why eval without control fails”* | the survival canon: every 300y survivor fused observe+eval+control into one artifact a worker could use (control chart, andon cord, checklist); every corpse was a scoreboard or a framework — with primary sources per entry |
+
 ## 🧭 Three folds, one closed loop
 
 | Fold | Promise |
@@ -571,13 +635,6 @@ standards, papers, tools, labs, and people live here.
 | [Johann Rehberger](https://embracethered.com) | independent (Embrace The Red) — dozens of disclosed real-world LLM-product exploit chains | the most prolific public discoverer of actual shipped vulnerabilities — the field's empirical ground truth |
 | [Kai Greshake](https://arxiv.org/abs/2302.12173) | lead author of 'Not What You've Signed Up For' (affiliation uncertain) | defined indirect prompt injection — the threat class that now dominates agentic security |
 | [Florian Tramèr](https://floriantramer.com) | ETH Zürich professor — adaptive-attack methodology; senior author on CaMeL, AgentDojo, design patterns | the academic anchor of principled agent-security defense; his group sets the evaluation standards |
-
-## ⭐ The super-tool: `/eval-anything`
-
-One slash, no grammar, no expertise required. Say what you want — even vaguely —
-and the skill infers intent from the bigger context (this repo's ledger, commits,
-your history) before acting. Irreversible actions are always drafted for a human
-to ship, never auto-executed. See `skills/eval-anything/SKILL.md`.
 
 ## ♻️ The loop
 

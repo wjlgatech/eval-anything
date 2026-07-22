@@ -1,0 +1,48 @@
+# data/examples.yml — the super-tool's essential features, each demoed with 1-3
+# say/get examples (single source of truth; rendered ABOVE THE FOLD in the README
+# and baked into the brief webapp corpus). Family pattern: graph-engineering-anything.
+
+- feature: Pick the right benchmark or harness
+  tagline: "say what you built — get the load-bearing eval for it, with saturation and contamination caveats attached"
+  examples:
+    - say: "eval this coding agent we built"
+      get: "SWE-bench Verified as the headline (with its ~75% saturation caveat), SWE-bench-Live for contamination resistance, Terminal-Bench for CLI work — plus the harness call (Inspect vs promptfoo) based on your stack, each with why"
+    - say: "which benchmark for my vision-language model?"
+      get: "MMMU/MMMU-Pro for the headline, MathVista for visual reasoning, POPE for hallucination — run via VLMEvalKit or lmms-eval in one command, with the CircularEval robustness trick flagged"
+    - say: "is MMLU still credible for a 2026 model card?"
+      get: "an honest no for headline use — saturated (>90%) and in every pretraining shadow; the registry's current alternatives (MMLU-Pro, GPQA Diamond, HLE) with each one's version and contamination status"
+- feature: Design a gated eval (the OEC loop)
+  tagline: "every eval walks Observe → Evaluate → Control — instrument first, criterion second, control hook or it's a scoreboard"
+  examples:
+    - say: "design an eval for our customer-support agent"
+      get: "the OEC walk: what to OBSERVE (traces, tool calls, session outcomes — OTel GenAI spans), the CRITERION (task resolution + policy adherence à la tau2-bench, pass^k for reliability), and the CONTROL (eval score gates the prompt rollout; regression auto-rolls back)"
+    - say: "is our RAG pipeline good enough to ship?"
+      get: "a gate design with maker≠checker judging (faithfulness + context precision), a stated threshold, error bars per Anthropic's statistical approach — and the honest note that 'good enough' needs a business criterion, not just a metric"
+- feature: LLM-as-judge, with the biases handled
+  tagline: "judge scores only count as evidence with a stated bias mitigation — position, verbosity, and self-preference are measured effects"
+  examples:
+    - say: "just use Claude as the judge for our A/B outputs"
+      get: "yes, with the guardrails: randomized answer order (position bias flips verdicts), length control (verbosity bias is gameable), and a human-calibrated sample before trusting — or a panel of diverse small judges at 1/7 the cost (PoLL)"
+    - say: "our judge gives us 95% pass rates"
+      get: "the skeptic's checklist: is the judge grading its own model family (self-preference)? was it validated against humans (EvalGen's criteria-drift warning)? a 30-trace human audit plan to find out"
+- feature: Red-team the guardrails
+  tagline: "red-teaming IS adversarial evaluation — the security fold lives here, same benchmarks, same judges"
+  examples:
+    - say: "red-team this agent before launch"
+      get: "a staged plan: garak/PyRIT scans for the known probes, AgentDojo for prompt-injection-under-tools, an AgentHarm pass for misuse — mapped to the lethal trifecta (private data + untrusted content + external comms) and Meta's Rule of Two"
+    - say: "are our guardrails actually any good?"
+      get: "guardrails evaluated AS evals: attack success rate before/after, StrongREJECT scoring so 'technically complied' junk doesn't inflate the numbers, and the honest baseline that no classifier survives adaptive attack — architecture (CaMeL-style) beats filters"
+- feature: Answer 'is the business objective on track?'
+  tagline: "eval targets the objective, not just the engineering — Kohavi's OEC is the E inside Observe→Eval→Control"
+  examples:
+    - say: "leadership wants to know if the AI feature is working"
+      get: "an Overall Evaluation Criterion tied to the business objective (not a vanity pass-rate), guardrail metrics that may not degrade, and the input-metric tree that makes the number actionable — WBR-style, with owners"
+    - say: "our evals pass but users are churning"
+      get: "the diagnosis: your evals measure engineering soundness, not the objective — an error-analysis pass on real traces (Husain/Shankar doctrine) to find what users actually hit, then a criterion rebuilt from those failure modes"
+- feature: Track what moved (the meta-repo)
+  tagline: "54 tracked repos live-synced weekly, 70-entry OEC canon, every claim evidence-tiered — one reliable place"
+  examples:
+    - say: "what moved this week in evals?"
+      get: "the registry diff (stars, pushes, org moves across 54 repos) plus the News ledger — the same 'what moved' the weekly human-gated PR carries"
+    - say: "give me the 300-year view on why eval without control fails"
+      get: "the survival canon: every 300y survivor fused observe+eval+control into one artifact a worker could use (control chart, andon cord, checklist); every corpse was a scoreboard or a framework — with primary sources per entry"

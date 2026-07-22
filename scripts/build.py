@@ -137,6 +137,24 @@ def render() -> str:
         lambda s: f"| [{s['name']}]({s['url']}) | {s['what']} | {s['why']} |",
         "| Entry | What | Why it matters |\n|-------|------|----------------|")
 
+    examples = ""
+    ex_blocks = []
+    for feat in load("examples.yml"):
+        rows = "\n".join(
+            f"| *“{e['say']}”* | {e['get']} |" for e in feat["examples"])
+        ex_blocks.append(
+            f"### {feat['feature']}\n\n_{feat['tagline']}_\n\n"
+            f"| You say (vague is fine) | You get |\n|---|---|\n{rows}")
+    if ex_blocks:
+        examples = ("\n**Not sure what it can do? Say any of these — verbatim works:**\n\n"
+                    + "\n\n".join(ex_blocks) + "\n")
+
+    demo = ""
+    if m.get("demo_url"):
+        demo = (f"\n> ⭐ **Live demo:** [{m['demo_url'].split('//')[1]}]({m['demo_url']}) — "
+                "the super-tool demoed: every essential feature, click-to-reveal say→get "
+                "examples, the OEC canon, and a copilot that won't bluff.\n")
+
     oec_entries = load("oec.yml")
     oec_entries.sort(key=lambda e: list(HORIZONS).index(e.get("horizon", "now")))
     oec = grouped(
@@ -153,11 +171,18 @@ def render() -> str:
 {badges}
 
 *{m['tagline']}*
-
+{demo}
 {m['description']}
 
 **For:** {m['audience']}
 {news}
+## ⭐ The super-tool: `/{skill}`
+
+One slash, no grammar, no expertise required. Say what you want — even vaguely —
+and the skill infers intent from the bigger context (this repo's ledger, commits,
+your history) before acting. Irreversible actions are always drafted for a human
+to ship, never auto-executed. See `skills/{skill}/SKILL.md`.
+{examples}
 ## 🧭 Three folds, one closed loop
 
 | Fold | Promise |
@@ -230,13 +255,6 @@ the measurement content. Security *repos* are tracked in the registry above;
 standards, papers, tools, labs, and people live here.
 
 {security}
-
-## ⭐ The super-tool: `/{skill}`
-
-One slash, no grammar, no expertise required. Say what you want — even vaguely —
-and the skill infers intent from the bigger context (this repo's ledger, commits,
-your history) before acting. Irreversible actions are always drafted for a human
-to ship, never auto-executed. See `skills/{skill}/SKILL.md`.
 
 ## ♻️ The loop
 
