@@ -1,0 +1,166 @@
+# data/labs.yml — research labs & organizations (single source of truth; README generated).
+# Researched 2026-07-22; URLs and status web-verified. `category` groups the rendered tables.
+
+# ── Independent eval orgs ───────────────────────────────────────────────────
+- category: independent
+  name: METR
+  url: https://metr.org
+  what: "nonprofit measuring frontier-model autonomous capabilities on long-horizon real tasks"
+  why: "the 50% time-horizon metric became the industry yardstick for agent autonomy; cited in nearly every frontier system card"
+  flagship: "Time Horizons (1.1, 2026-01) + HCAST/RE-Bench"
+- category: independent
+  name: Apollo Research
+  url: https://www.apolloresearch.ai
+  what: "safety org specializing in deception, scheming, and hidden-misalignment evals"
+  why: "defined in-context scheming as a measurable phenomenon; runs propensity evals for frontier labs"
+  flagship: "In-context Scheming evals (arXiv:2412.04984)"
+- category: independent
+  name: Epoch AI
+  url: https://epoch.ai
+  what: "research institute tracking compute trends and running independent benchmarking"
+  why: "the most rigorous third-party data source — its audit found errors in 42% of original FrontierMath problems"
+  flagship: "FrontierMath (v2, 2026-06) + AI Benchmarking Hub"
+- category: independent
+  name: Arena (LMArena)
+  url: https://lmarena.ai
+  what: "crowdsourced blind pairwise model comparison, spun out of UC Berkeley ($150M Series A 2026-01)"
+  why: "still the most-cited live human-preference leaderboard despite Leaderboard Illusion critiques"
+  flagship: "Chatbot Arena + category arenas (WebDev, coding, vision)"
+- category: independent
+  name: EleutherAI
+  url: https://www.eleuther.ai
+  what: "open-source AI research nonprofit"
+  why: "built the plumbing most academic evals run on; keeps the open reproducible-eval commons alive"
+  flagship: "lm-evaluation-harness"
+- category: independent
+  name: MLCommons
+  url: https://mlcommons.org/ailuminate/
+  what: "industry consortium (MLPerf) building standardized AI risk & reliability benchmarks"
+  why: "the closest thing to industry-standard safety certification (KPMG/Google/Microsoft assurance program 2026-02)"
+  flagship: "AILuminate (12 hazard categories, 24k+ prompts/language)"
+- category: independent
+  name: Irregular (ex Pattern Labs)
+  url: https://www.irregular.com
+  what: "frontier AI security lab running offensive-cyber capability evals ($80M Series B 2025-09)"
+  why: "its evals are cited in OpenAI and Anthropic system cards and used by the UK government"
+  flagship: "SOLVE cyber-risk scoring + private cyber ranges"
+- category: independent
+  name: Gray Swan AI
+  url: https://www.grayswan.ai
+  what: "AI security company running crowdsourced adversarial red-teaming at scale"
+  why: "its competitions (250k+ attack attempts) powered joint agent-hijacking research with US CAISI and UK AISI"
+  flagship: "Gray Swan Arena + Shade"
+- category: independent
+  name: Meridian Labs
+  url: https://meridianlabs.ai
+  what: "independent eval nonprofit; co-developer of Inspect with UK AISI"
+  why: "became the neutral steward of Anthropic's Petri (donated 2026-05 with the 3.0 release)"
+  flagship: "Petri 3.0 stewardship + Inspect co-development"
+
+# ── Government & institutes ─────────────────────────────────────────────────
+- category: government
+  name: UK AI Security Institute (AISI)
+  url: https://www.aisi.gov.uk
+  what: "UK government body doing pre-deployment frontier model testing"
+  why: "its open framework became the shared eval substrate for other AISIs, frontier labs, and safety orgs"
+  flagship: "Inspect + Inspect Evals (200+ prebuilt)"
+- category: government
+  name: US CAISI (ex US AISI)
+  url: https://www.nist.gov/caisi
+  what: "NIST-housed center running national-security-relevant capability evals (cyber, bio, chem)"
+  why: "the US federal eval touchpoint; published large-scale agent red-teaming with Gray Swan and UK AISI"
+  flagship: "CAISI model evaluations"
+- category: government
+  name: NIST ARIA
+  url: https://ai-challenges.nist.gov/aria
+  what: "sociotechnical field-testing of AI in realistic deployment settings"
+  why: "pushes eval beyond benchmarks toward measuring real human-AI interaction outcomes"
+  flagship: "ARIA pilot evaluations (healthcare, finance, public sector)"
+- category: government
+  name: EU AI Office
+  url: https://digital-strategy.ec.europa.eu/en/policies/ai-code-practice
+  what: "European Commission body enforcing the AI Act for general-purpose AI"
+  why: "the GPAI Code of Practice makes state-of-the-art model evaluation a de-facto legal requirement (enforceable 2026)"
+  flagship: "GPAI Code of Practice — Safety & Security chapter"
+
+# ── Academic ────────────────────────────────────────────────────────────────
+- category: academic
+  name: Stanford CRFM
+  url: https://crfm.stanford.edu/helm/
+  what: "Center for Research on Foundation Models — built the first holistic eval framework"
+  why: "HELM set the standard for transparent multi-dimension leaderboards; maintenance mode since 2026-06"
+  flagship: "HELM + AIR-Bench"
+- category: academic
+  name: UC Berkeley (Sky Lab / LMSYS lineage)
+  url: https://sky.cs.berkeley.edu
+  what: "the lab that spawned Chatbot Arena, vLLM, SGLang, and the Function-Calling Leaderboard"
+  why: "origin of crowd-preference eval and the serving infrastructure most evals run on"
+  flagship: "Chatbot Arena (origin) + Berkeley Function-Calling Leaderboard"
+- category: academic
+  name: Princeton (SWE-bench group / CITP)
+  url: https://www.swebench.com
+  what: "creators of the GitHub-issue-resolution benchmark; also home of the AI Snake Oil critique line"
+  why: "SWE-bench Verified is the canonical agentic-coding number; Kapoor's 'Missing Science of AI Evaluation' thesis"
+  flagship: "SWE-bench / SWE-bench Verified + HAL"
+- category: academic
+  name: CMU (WebArena group)
+  url: https://webarena.dev
+  what: "built the canonical self-hostable realistic web-agent environment"
+  why: "defined the realistic-reproducible-environment methodology for web agents"
+  flagship: "WebArena / VisualWebArena"
+- category: academic
+  name: HKU XLANG Lab
+  url: https://xlang.ai
+  what: "grounded-agent lab behind the standard computer-use benchmark"
+  why: "OSWorld became the hardest widely-used agent benchmark; OSWorld 2.0 shipped 2026-06"
+  flagship: "OSWorld / OSWorld 2.0 + OpenCUA"
+- category: academic
+  name: Allen Institute for AI (Ai2)
+  url: https://allenai.org/evaluation-frameworks
+  what: "nonprofit behind fully-open models (OLMo) and open documented eval standards"
+  why: "OLMES makes evals reproducible enough to compare base-model training decisions"
+  flagship: "OLMES + RewardBench + vla-evaluation-harness"
+- category: academic
+  name: Center for AI Safety (CAIS)
+  url: https://safe.ai
+  what: "safety nonprofit (Dan Hendrycks) behind the MMLU lineage"
+  why: "co-created the headline frontier-knowledge benchmark with Scale AI (Nature, 2026-01)"
+  flagship: "Humanity's Last Exam + HarmBench"
+
+# ── Industry eval teams ─────────────────────────────────────────────────────
+- category: industry
+  name: Anthropic
+  url: https://www.anthropic.com/research
+  what: "frontier lab with dedicated alignment-evals, eval-statistics, and Frontier Red Team publishing"
+  why: "Petri automated alignment audits (now Meridian-stewarded) + Bloom + the error-bars-on-evals methodology"
+  flagship: "Petri → Bloom + RSP capability evals"
+- category: industry
+  name: OpenAI
+  url: https://openai.com/index/gdpval/
+  what: "frontier lab running the Preparedness Framework and economic-value evals"
+  why: "GDPval reframed eval around real economically-valuable work (1,320 tasks, 44 occupations)"
+  flagship: "GDPval + Preparedness Framework + simple-evals"
+- category: industry
+  name: Google DeepMind
+  url: https://deepmind.google/research/evals/
+  what: "dedicated evals-science research group"
+  why: "produced factuality benchmarks others adopted as standards"
+  flagship: "FACTS Grounding + SimpleQA Verified + Frontier Safety Framework"
+- category: industry
+  name: Scale AI (SEAL)
+  url: https://scale.com/leaderboard
+  what: "Safety, Evaluations, and Alignment Lab running private-set expert leaderboards"
+  why: "private held-out prompts counter contamination; co-created HLE, built SWE-bench Pro"
+  flagship: "SEAL Leaderboards + HLE"
+- category: industry
+  name: Hugging Face
+  url: https://huggingface.co/spaces/OpenEvals/evaluation-guidebook
+  what: "open-model hub that ran community eval infrastructure"
+  why: "the Open LLM Leaderboard evaluated 13,000+ models before retiring 2025-03; legacy lives in lighteval + the guidebook"
+  flagship: "LLM Evaluation Guidebook + lighteval"
+- category: industry
+  name: Meta FAIR
+  url: https://facebookresearch.github.io/meta-agents-research-environments/
+  what: "Meta's fundamental AI research lab; built dynamic asynchronous agent-eval environments"
+  why: "GAIA defined general-assistant eval; ARE + Gaia2 moved it to dynamic time-constrained scenarios"
+  flagship: "ARE + Gaia2 + CyberSecEval"

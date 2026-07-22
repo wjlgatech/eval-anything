@@ -15,6 +15,7 @@ One reliable place for evaluation of foundation models (LLM, VLM, VLA) and agent
 
 ## 📰 News
 
+- **2026-07-22** — field research landed: 54 tracked repos, 59 seminal papers, 26 labs/orgs, 19 canonical blogs, 48 people, 47 guardrails/security entries — all web-verified this day. DECISION: guardrails/security lives inside eval-anything (red-teaming IS adversarial evaluation); splits out only if the fold outgrows the repo.
 - **2026-07-22** — repo scaffolded from spec (green at birth)
 
 ## 🧭 Three folds, one closed loop
@@ -33,18 +34,435 @@ one place to rely on for everything that matters in this domain.
 Top-rated repos this repo tracks — refreshed weekly by `make sync`
 (open GitHub API, human-gated PR with "what moved"):
 
+### 🧰 LLM eval harnesses & platforms
+
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`EleutherAI/lm-evaluation-harness`](https://github.com/EleutherAI/lm-evaluation-harness) | the de-facto standard few-shot LLM eval harness — backbone of the (retired) Open LLM Leaderboard | — | — |
-| [`stanford-crfm/helm`](https://github.com/stanford-crfm/helm) | holistic evaluation — the multi-metric | — | — |
-| [`UKGovernmentBEIS/inspect_ai`](https://github.com/UKGovernmentBEIS/inspect_ai) | UK AI Security Institute's harness — the emerging standard for frontier and agentic safety evals | — | — |
-| [`SWE-bench/SWE-bench`](https://github.com/SWE-bench/SWE-bench) | THE agentic coding benchmark — real GitHub issues | — | — |
-| [`confident-ai/deepeval`](https://github.com/confident-ai/deepeval) | unit-testing for LLM apps — G-Eval and friends as pytest-style assertions | — | — |
-| [`promptfoo/promptfoo`](https://github.com/promptfoo/promptfoo) | eval + red-team in one CLI — the practitioner's on-ramp from vibes to gates | — | — |
-| [`open-compass/opencompass`](https://github.com/open-compass/opencompass) | the comprehensive open eval platform behind CompassRank — broadest benchmark coverage | — | — |
-| [`open-compass/VLMEvalKit`](https://github.com/open-compass/VLMEvalKit) | the standard one-command eval kit for vision-language models across MMMU/MathVista/MMBench | — | — |
-| [`NVIDIA/NeMo-Guardrails`](https://github.com/NVIDIA/NeMo-Guardrails) | the reference programmable-guardrails framework — runtime rails as code (security fold) | — | — |
-| [`NVIDIA/garak`](https://github.com/NVIDIA/garak) | the LLM vulnerability scanner — nmap-for-LLMs | — | — |
+| [`EleutherAI/lm-evaluation-harness`](https://github.com/EleutherAI/lm-evaluation-harness) | the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard | ⭐ 13400 | — |
+| [`UKGovernmentBEIS/inspect_ai`](https://github.com/UKGovernmentBEIS/inspect_ai) | UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it | ⭐ 2400 | — |
+| [`UKGovernmentBEIS/inspect_evals`](https://github.com/UKGovernmentBEIS/inspect_evals) | 200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place | ⭐ 600 | — |
+| [`promptfoo/promptfoo`](https://github.com/promptfoo/promptfoo) | eval + red-team in one dev-first CLI; OpenAI announced acquisition 2026-03 — stays open source | ⭐ 23500 | — |
+| [`confident-ai/deepeval`](https://github.com/confident-ai/deepeval) | pytest-style LLM unit testing; the canonical open G-Eval implementation | ⭐ 17000 | — |
+| [`langfuse/langfuse`](https://github.com/langfuse/langfuse) | de-facto OSS LLM observability + eval/annotation platform for production apps | ⭐ 31700 | — |
+| [`Arize-ai/phoenix`](https://github.com/Arize-ai/phoenix) | OTel-native tracing with built-in evals and agent-trajectory evaluation | ⭐ 10700 | — |
+| [`comet-ml/opik`](https://github.com/comet-ml/opik) | fastest-growing eval+tracing+guardrails entrant of 2025-26, strong agent-eval focus | ⭐ 20800 | — |
+| [`open-compass/opencompass`](https://github.com/open-compass/opencompass) | the comprehensive eval platform of the Chinese open-model ecosystem (CompassRank) | ⭐ 7200 | — |
+| [`stanford-crfm/helm`](https://github.com/stanford-crfm/helm) | holistic multi-metric eval — methodologically foundational; maintenance mode since 2026-06 | ⭐ 2900 | — |
+| [`huggingface/lighteval`](https://github.com/huggingface/lighteval) | HF's all-backend eval toolkit — the Open LLM Leaderboard lineage lives here | ⭐ 2500 | — |
+| [`openai/simple-evals`](https://github.com/openai/simple-evals) | where OpenAI's headline numbers are reproducible; canonical BrowseComp implementation | ⭐ 4600 | — |
+| [`vibrantlabsai/ragas`](https://github.com/vibrantlabsai/ragas) | the standard RAG-eval vocabulary (faithfulness, context precision/recall); watch — activity stalled 2026-02 | ⭐ 15000 | — |
+
+### 🤖 Agentic benchmarks & infrastructure
+
+| Repo | Why tracked | Stars | Last push |
+|------|-------------|-------|-----------|
+| [`SWE-bench/SWE-bench`](https://github.com/SWE-bench/SWE-bench) | THE coding-agent benchmark — real GitHub issues scored by real test suites; Verified is the headline variant | ⭐ 5500 | — |
+| [`microsoft/SWE-bench-Live`](https://github.com/microsoft/SWE-bench-Live) | contamination-resistant monthly-refresh SWE-bench — the answer to the original's saturation | ⭐ 210 | — |
+| [`harbor-framework/terminal-bench`](https://github.com/harbor-framework/terminal-bench) | hard containerized terminal tasks — became a frontier model-card metric in 2025-26 | ⭐ 2500 | — |
+| [`harbor-framework/harbor`](https://github.com/harbor-framework/harbor) | the emerging infrastructure layer for containerized agent evals and agentic-RL rollouts at scale | ⭐ 3400 | — |
+| [`xlang-ai/OSWorld`](https://github.com/xlang-ai/OSWorld) | the de-facto computer-use benchmark (real-OS VM tasks); OSWorld 2.0 shipped 2026-06 | ⭐ 3000 | — |
+| [`sierra-research/tau2-bench`](https://github.com/sierra-research/tau2-bench) | the standard for conversational tool-use agents — policy adherence + pass^k reliability | ⭐ 1600 | — |
+| [`ShishirPatil/gorilla`](https://github.com/ShishirPatil/gorilla) | home of the Berkeley Function-Calling Leaderboard — the universal tool-calling eval | ⭐ 13000 | — |
+| [`openai/mle-bench`](https://github.com/openai/mle-bench) | 75 Kaggle competitions testing autonomous ML engineering — a preparedness-framework staple | ⭐ 1700 | — |
+| [`ServiceNow/BrowserGym`](https://github.com/ServiceNow/BrowserGym) | the consolidation layer wrapping WebArena/VisualWebArena/WorkArena/MiniWoB into one API | ⭐ 1300 | — |
+| [`TheAgentCompany/TheAgentCompany`](https://github.com/TheAgentCompany/TheAgentCompany) | simulated software company — the best-known 'can agents do real jobs' benchmark | ⭐ 750 | — |
+| [`google-research/android_world`](https://github.com/google-research/android_world) | the standard mobile-device-agent benchmark — 116 dynamic tasks in real Android apps | ⭐ 830 | — |
+| [`facebookresearch/meta-agents-research-environments`](https://github.com/facebookresearch/meta-agents-research-environments) | Meta ARE + Gaia2 — agent eval moved to dynamic, async, time-constrained environments | ⭐ 530 | — |
+
+### 🖼️ VLM eval
+
+| Repo | Why tracked | Stars | Last push |
+|------|-------------|-------|-----------|
+| [`open-compass/VLMEvalKit`](https://github.com/open-compass/VLMEvalKit) | one-command eval of 200+ VLMs on 100+ benchmarks; powers the OpenVLM Leaderboard | ⭐ 4300 | — |
+| [`EvolvingLMMs-Lab/lmms-eval`](https://github.com/EvolvingLMMs-Lab/lmms-eval) | the other de-facto VLM harness (LLaVA/academic lineage) — image, video, audio | ⭐ 4300 | — |
+| [`MMMU-Benchmark/MMMU`](https://github.com/MMMU-Benchmark/MMMU) | the flagship multimodal capability benchmark in every frontier model card | ⭐ 590 | — |
+| [`centerforaisafety/hle`](https://github.com/centerforaisafety/hle) | Humanity's Last Exam — the frontier-knowledge headline benchmark (multimodal, private held-out set) | ⭐ 1600 | — |
+
+### 🦾 VLA / embodied eval
+
+| Repo | Why tracked | Stars | Last push |
+|------|-------------|-------|-----------|
+| [`Lifelong-Robot-Learning/LIBERO`](https://github.com/Lifelong-Robot-Learning/LIBERO) | the default VLA sim benchmark — required for comparability but saturated (~97-99% SOTA) | ⭐ 2100 | — |
+| [`simpler-env/SimplerEnv`](https://github.com/simpler-env/SimplerEnv) | real-to-sim eval of real-robot policies — the scalable proxy for physical evaluation | ⭐ 1100 | — |
+| [`allenai/vla-evaluation-harness`](https://github.com/allenai/vla-evaluation-harness) | 2026 entrant doing for VLA what lm-eval-harness did for LLMs — rising fast | ⭐ 460 | — |
+| [`robo-arena/roboarena`](https://github.com/robo-arena/roboarena) | distributed double-blind real-robot policy arena (CoRL 2025) — low stars, high strategic importance | ⭐ 110 | — |
+| [`google-deepmind/open_x_embodiment`](https://github.com/google-deepmind/open_x_embodiment) | the cross-embodiment dataset + eval protocols all VLA evals descend from | ⭐ 1900 | — |
+| [`haosulab/ManiSkill`](https://github.com/haosulab/ManiSkill) | GPU-parallelized sim substrate increasingly used for large-scale VLA eval and RL | ⭐ 3100 | — |
+| [`StanfordVL/BEHAVIOR-1K`](https://github.com/StanfordVL/BEHAVIOR-1K) | 1,000 household activities in OmniGibson — the most ambitious long-horizon embodied benchmark | ⭐ 1600 | — |
+
+### ⚖️ LLM-as-judge & arenas
+
+| Repo | Why tracked | Stars | Last push |
+|------|-------------|-------|-----------|
+| [`lm-sys/FastChat`](https://github.com/lm-sys/FastChat) | the open lineage of Chatbot Arena / MT-Bench — origin of arena-style human-preference eval | ⭐ 39500 | — |
+| [`lmarena/arena-hard-auto`](https://github.com/lmarena/arena-hard-auto) | the standard cheap arena proxy (LLM-judge predicts Elo); activity slowing | ⭐ 1100 | — |
+| [`allenai/reward-bench`](https://github.com/allenai/reward-bench) | who judges the judges — the standard benchmark for reward models and LLM evaluators | ⭐ 730 | — |
+
+### 📆 Live / contamination-resistant
+
+| Repo | Why tracked | Stars | Last push |
+|------|-------------|-------|-----------|
+| [`LiveBench/LiveBench`](https://github.com/LiveBench/LiveBench) | monthly-refreshed, objective-ground-truth benchmark — the leading contamination answer | ⭐ 1300 | — |
+| [`LiveCodeBench/LiveCodeBench`](https://github.com/LiveCodeBench/LiveCodeBench) | time-windowed competitive-programming eval — exposed HumanEval overfitting | ⭐ 910 | — |
+| [`evalplus/evalplus`](https://github.com/evalplus/evalplus) | HumanEval+/MBPP+ with 80x more tests — how code numbers are made honest | ⭐ 1800 | — |
+| [`fchollet/ARC-AGI`](https://github.com/fchollet/ARC-AGI) | the fluid-intelligence holdout line (ARC-AGI-2/3 via arcprize) — $1M+ prize | ⭐ 4800 | — |
+| [`vectara/hallucination-leaderboard`](https://github.com/vectara/hallucination-leaderboard) | the most-cited public hallucination ranking (HHEM) | ⭐ 3300 | — |
+
+### 🛡️ Guardrails & security
+
+| Repo | Why tracked | Stars | Last push |
+|------|-------------|-------|-----------|
+| [`NVIDIA/garak`](https://github.com/NVIDIA/garak) | the nmap of LLMs — de-facto open vulnerability scanner (jailbreaks, leakage, injection) | ⭐ 8500 | — |
+| [`microsoft/PyRIT`](https://github.com/microsoft/PyRIT) | Microsoft AI Red Team's own framework — best-in-class multi-turn adversarial campaigns | ⭐ 4200 | — |
+| [`NVIDIA-NeMo/Guardrails`](https://github.com/NVIDIA-NeMo/Guardrails) | the open-source standard for programmable runtime rails (Colang policy-as-code) | ⭐ 6800 | — |
+| [`guardrails-ai/guardrails`](https://github.com/guardrails-ai/guardrails) | the validator-hub model — 65+ composable input/output validators | ⭐ 7200 | — |
+| [`meta-llama/PurpleLlama`](https://github.com/meta-llama/PurpleLlama) | Meta's security umbrella — Llama Guard, Prompt Guard, CodeShield, CyberSecEval, LlamaFirewall | ⭐ 4300 | — |
+| [`centerforaisafety/HarmBench`](https://github.com/centerforaisafety/HarmBench) | standardized automated red-teaming — 18 attacks vs 33 models under one harness | ⭐ 1000 | — |
+| [`ethz-spylab/agentdojo`](https://github.com/ethz-spylab/agentdojo) | the reference agent prompt-injection benchmark — the number every defense reports against | ⭐ 678 | — |
+| [`confident-ai/deepteam`](https://github.com/confident-ai/deepteam) | red-teaming as evaluation — DeepEval's sibling, 40+ vulnerabilities mapped to OWASP/NIST | ⭐ 2300 | — |
+| [`JailbreakBench/jailbreakbench`](https://github.com/JailbreakBench/jailbreakbench) | the canonical shared threat model + leaderboard + artifact repo for jailbreak research | ⭐ 634 | — |
+| [`Giskard-AI/giskard-oss`](https://github.com/Giskard-AI/giskard-oss) | European leader bridging classic ML testing and LLM vulnerability scanning | ⭐ 5700 | — |
+
+## 📄 Seminal papers
+
+Citation rigor: every entry links its **primary source** (paper/DOI), never the
+trade article that covered it. Researched and web-verified 2026-07-22.
+
+### Foundational capability benchmarks
+
+| Paper | Cite | Why it matters |
+|-------|------|----------------|
+| [GLUE: A Multi-Task Benchmark and Analysis Platform for NLU](https://arxiv.org/abs/1804.07461) | Wang et al. 2018, ICLR 2019 | the template for all aggregate LLM benchmarks — drove the BERT era, saturated in ~1 year, taught the field about benchmark lifespan |
+| [SuperGLUE: A Stickier Benchmark for General-Purpose Language Understanding](https://arxiv.org/abs/1905.00537) | Wang et al. 2019, NeurIPS 2019 | canonical example of the build-harder-after-saturation cycle; itself saturated by 2021 |
+| [Measuring Massive Multitask Language Understanding (MMLU)](https://arxiv.org/abs/2009.03300) | Hendrycks et al. 2020, ICLR 2021 | the default headline capability number from GPT-3 through GPT-4-class models; now saturated (>90%) |
+| [Evaluating Large Language Models Trained on Code (HumanEval)](https://arxiv.org/abs/2107.03374) | Chen et al. 2021 | established execution-based code eval; pass@k became the universal code metric |
+| [Training Verifiers to Solve Math Word Problems (GSM8K)](https://arxiv.org/abs/2110.14168) | Cobbe et al. 2021 | the standard reasoning benchmark of the chain-of-thought era; its contamination became a case study (GSM1k) |
+| [Measuring Mathematical Problem Solving with the MATH Dataset](https://arxiv.org/abs/2103.03874) | Hendrycks et al. 2021, NeurIPS 2021 D&B | defined hard-math eval pre-FrontierMath; drove RL-for-reasoning research |
+| [Holistic Evaluation of Language Models (HELM)](https://arxiv.org/abs/2211.09110) | Liang et al. 2022, TMLR 2023 | made multi-metric, transparent, standardized-conditions evaluation the methodological gold standard |
+| [Beyond the Imitation Game (BIG-bench)](https://arxiv.org/abs/2206.04615) | Srivastava et al. (444 authors) 2022, TMLR 2023 | the massive community benchmark; its BIG-Bench Hard subset became a standard reasoning eval |
+| [HellaSwag: Can a Machine Really Finish Your Sentence?](https://arxiv.org/abs/1905.07830) | Zellers et al. 2019, ACL 2019 | introduced adversarial filtering against model exploits; long-time default commonsense metric |
+| [TruthfulQA: Measuring How Models Mimic Human Falsehoods](https://arxiv.org/abs/2109.07958) | Lin et al. 2021, ACL 2022 | first widely-adopted truthfulness benchmark; showed larger models can be LESS truthful |
+| [GPQA: A Graduate-Level Google-Proof Q&A Benchmark](https://arxiv.org/abs/2311.12022) | Rein et al. 2023, COLM 2024 | the frontier headline benchmark (GPQA Diamond) once MMLU saturated; designed for scalable-oversight research |
+| [MMLU-Pro: A More Robust and Challenging Benchmark](https://arxiv.org/abs/2406.01574) | Wang et al. 2024, NeurIPS 2024 D&B | the canonical fix-the-saturated-flagship paper — 10 options, reasoning-heavy, less prompt-sensitive |
+| [FrontierMath: Evaluating Advanced Mathematical Reasoning in AI](https://arxiv.org/abs/2411.04872) | Glazer et al. (Epoch AI) 2024 | reset the math ceiling (<2% solve rate at release); center of the 2025 lab-access controversy; v2 corrected flawed problems 2026-06 |
+| [Humanity's Last Exam](https://arxiv.org/abs/2501.14249) | Phan et al. (CAIS/Scale, ~1000 contributors) 2025, Nature 2026 | the 'final' closed-ended academic benchmark — the headline hard-knowledge number of 2025-26 |
+| [On the Measure of Intelligence (ARC)](https://arxiv.org/abs/1911.01547) | Chollet 2019 | defines intelligence as skill-acquisition efficiency — the philosophical counterweight to skill benchmarks |
+| [ARC-AGI-2: A New Challenge for Frontier AI Reasoning Systems](https://arxiv.org/abs/2505.11831) | Chollet et al. 2025 | the active fluid-intelligence frontier — easy for humans, <25% for frontier models into 2026 |
+
+### LLM-as-judge & eval methodology
+
+| Paper | Cite | Why it matters |
+|-------|------|----------------|
+| [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) | Zheng et al. (LMSYS) 2023, NeurIPS 2023 D&B | the most-cited eval-methodology paper — legitimized LLM-as-judge AND documented its position/verbosity/self-enhancement biases |
+| [Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference](https://arxiv.org/abs/2403.04132) | Chiang et al. 2024, ICML 2024 | formalized Bradley-Terry ratings + CIs over crowdsourced battles — the de-facto frontier leaderboard methodology |
+| [Length-Controlled AlpacaEval: Debiasing Automatic Evaluators](https://arxiv.org/abs/2404.04475) | Dubois et al. 2024 | the canonical demonstration that auto-evaluators are gameable by verbosity — and the regression fix |
+| [G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment](https://arxiv.org/abs/2303.16634) | Liu et al. 2023, EMNLP 2023 | the most-used rubric-scoring recipe in production eval frameworks; also flagged self-preference bias |
+| [Large Language Models are not Fair Evaluators](https://arxiv.org/abs/2305.17926) | Wang et al. 2023, ACL 2024 | the definitive position-bias study — judge verdicts flip on response order; made order-randomization standard |
+| [Prometheus: Inducing Fine-grained Evaluation Capability in LMs](https://arxiv.org/abs/2310.08491) | Kim et al. 2023, ICLR 2024 | launched the open specialized-judge-model line (Prometheus 2 followed) |
+| [Replacing Judges with Juries (Panel of LLM Evaluators, PoLL)](https://arxiv.org/abs/2404.18796) | Verga et al. (Cohere) 2024 | panel of small diverse judges beats one GPT-4 judge at 1/7 cost — established panel-of-judges practice |
+| [Elo Uncovered: Robustness and Best Practices in LM Evaluation](https://arxiv.org/abs/2311.17295) | Boubdir et al. (Cohere) 2023 | showed arena Elo violates reliability/transitivity axioms — the core methodological critique of leaderboards |
+| [The Leaderboard Illusion](https://arxiv.org/abs/2504.20879) | Singh et al. 2025 | exposed Chatbot Arena access asymmetries (private variants, selective retraction) — shook trust in the flagship leaderboard |
+| [LiveBench: A Challenging, Contamination-Limited LLM Benchmark](https://arxiv.org/abs/2406.19314) | White et al. 2024, ICLR 2025 | the template for live monthly-refreshed benchmarks with objective ground truth |
+| [LiveCodeBench: Holistic and Contamination-Free Code Evaluation](https://arxiv.org/abs/2403.07974) | Jain et al. 2024, ICLR 2025 | time-windowed scoring exposed HumanEval overfitting — the standard live coding benchmark |
+| [NLP Evaluation in Trouble: Measuring LLM Data Contamination](https://arxiv.org/abs/2310.18018) | Sainz et al. 2023, Findings of EMNLP | made contamination auditing a recognized research area (LM Contamination Index) |
+| [A Careful Examination of LLM Performance on Grade School Arithmetic (GSM1k)](https://arxiv.org/abs/2405.00332) | Zhang et al. (Scale AI) 2024, NeurIPS 2024 D&B | rebuilt GSM8K from scratch, found 8-13% drops — the cleanest empirical proof of contamination in the wild |
+
+### Agentic & coding-agent evaluation
+
+| Paper | Cite | Why it matters |
+|-------|------|----------------|
+| [SWE-bench: Can Language Models Resolve Real-World GitHub Issues?](https://arxiv.org/abs/2310.06770) | Jimenez et al. 2023, ICLR 2024 oral | THE agentic coding benchmark — SWE-bench Verified is the industry's coding-agent headline metric |
+| [WebArena: A Realistic Web Environment for Building Autonomous Agents](https://arxiv.org/abs/2307.13854) | Zhou et al. 2023, ICLR 2024 | set the standard for realistic, reproducible web-agent eval; spawned VisualWebArena and the browser-agent field |
+| [GAIA: A Benchmark for General AI Assistants](https://arxiv.org/abs/2311.12983) | Mialon et al. (Meta/HF) 2023 | conceptually-simple, tool-requiring questions (humans 92%, GPT-4 15%) — the default general-assistant leaderboard |
+| [AgentBench: Evaluating LLMs as Agents](https://arxiv.org/abs/2308.03688) | Liu et al. (Tsinghua) 2023, ICLR 2024 | first systematic multi-environment agent benchmark — coined LLM-as-agent evaluation |
+| [OSWorld: Benchmarking Multimodal Agents in Real Computer Environments](https://arxiv.org/abs/2404.07972) | Xie et al. 2024, NeurIPS 2024 | executable VM environments with state-based verification — the reference for computer-use agents |
+| [τ-bench: Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/abs/2406.12045) | Yao et al. (Sierra) 2024 | reframed agent eval around reliability and rule-following via pass^k; τ²-bench extends it |
+| [MLE-bench: Evaluating ML Agents on Machine Learning Engineering](https://arxiv.org/abs/2410.07095) | Chan et al. (OpenAI) 2024, ICLR 2025 | 75 Kaggle competitions with medal-based human comparison — the standard AI-automating-ML eval |
+| [RE-Bench: Evaluating Frontier AI R&D Capabilities Against Human Experts](https://arxiv.org/abs/2411.15114) | Wijk et al. (METR) 2024, ICML 2025 | open-ended ML-research environments with 71 expert 8-hour baselines — wired into lab safety policies |
+| [Measuring AI Ability to Complete Long Tasks](https://arxiv.org/abs/2503.14499) | Kwa, West, et al. (METR) 2025 | the 50% time-horizon metric, doubling every ~7 months — arguably the most influential eval result of 2025 |
+| [AgentHarm: Measuring Harmfulness of LLM Agents](https://arxiv.org/abs/2410.09024) | Andriushchenko et al. (UK AISI/Gray Swan) 2024, ICLR 2025 | the first standard agent-misuse benchmark — adopted into Inspect and AISI evaluations |
+
+### VLM evaluation
+
+| Paper | Cite | Why it matters |
+|-------|------|----------------|
+| [VQA: Visual Question Answering](https://arxiv.org/abs/1505.00468) | Antol et al. 2015, ICCV 2015 | founded the visual-QA lineage; VQAv2's balanced pairs killed language priors — ancestor of every VLM benchmark |
+| [MMMU: Massive Multi-discipline Multimodal Understanding](https://arxiv.org/abs/2311.16502) | Yue et al. 2023, CVPR 2024 oral | the MMLU of multimodal — headline benchmark on every frontier VLM release |
+| [MathVista: Evaluating Mathematical Reasoning in Visual Contexts](https://arxiv.org/abs/2310.02255) | Lu et al. 2023, ICLR 2024 oral | the standard visual-reasoning number; exposed the vision-reasoning gap in GPT-4V-class models |
+| [MMBench: Is Your Multi-modal Model an All-around Player?](https://arxiv.org/abs/2307.06281) | Liu et al. 2023, ECCV 2024 | its CircularEval trick (rotating MC options) became a widely-copied robustness fix |
+| [POPE: Evaluating Object Hallucination in Large Vision-Language Models](https://arxiv.org/abs/2305.10355) | Li et al. 2023, EMNLP 2023 | defined VLM hallucination measurement — the default metric cited in nearly every VLM paper since |
+
+### VLA / embodied evaluation
+
+| Paper | Cite | Why it matters |
+|-------|------|----------------|
+| [Open X-Embodiment: Robotic Learning Datasets and RT-X Models](https://arxiv.org/abs/2310.08864) | OXE Collaboration 2023, ICRA 2024 Best Paper | created the shared data substrate and de-facto eval setups for the whole VLA era |
+| [Evaluating Real-World Robot Manipulation Policies in Simulation (SIMPLER)](https://arxiv.org/abs/2405.05941) | Li et al. 2024, CoRL 2024 | real-to-sim eval correlating sim scores with real-robot rankings — (partially) solved robot eval reproducibility |
+| [LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning](https://arxiv.org/abs/2306.03310) | Liu et al. 2023, NeurIPS 2023 D&B | the default sim benchmark reported by essentially every 2024-26 VLA paper |
+| [CALVIN: Language-Conditioned Policy Learning for Long-Horizon Manipulation](https://arxiv.org/abs/2112.03227) | Mees et al. 2021, RA-L 2022 | the original language-conditioned manipulation benchmark; chain-of-5-instructions remains a standard metric |
+| [π0: A Vision-Language-Action Flow Model for General Robot Control](https://arxiv.org/abs/2410.24164) | Black et al. (Physical Intelligence) 2024 | defined the pi-0-era eval protocol (scored real-world rubrics, out-of-box vs fine-tuned) — and exposed that VLA still lacks a shared harness |
+
+### Meta-science of evaluation
+
+| Paper | Cite | Why it matters |
+|-------|------|----------------|
+| [AI and the Everything in the Whole Wide World Benchmark](https://arxiv.org/abs/2111.15366) | Raji, Bender, et al. 2021, NeurIPS 2021 D&B | the founding paper of benchmark criticism — supplied the construct-validity vocabulary the field now uses |
+| [Dynabench: Rethinking Benchmarking in NLP](https://arxiv.org/abs/2104.14337) | Kiela et al. 2021, NAACL 2021 | first systematic answer to saturation — intellectual ancestor of live benchmarks and arenas |
+| [Lessons from the Trenches on Reproducible Evaluation of Language Models](https://arxiv.org/abs/2405.14782) | Biderman et al. (EleutherAI) 2024 | the practitioner bible — three years of lm-evaluation-harness experience distilled |
+| [Challenges in Evaluating AI Systems](https://www.anthropic.com/research/evaluating-ai-systems) | Ganguli, Schiefer, Favaro, Clark (Anthropic) 2023 | the most-cited industry account of why evals are harder than they look; shaped third-party-audit policy |
+| [Adding Error Bars to Evals: A Statistical Approach to Model Evaluations](https://arxiv.org/abs/2411.00640) | Miller (Anthropic) 2024 | brought paired differences, power analysis, and clustered standard errors to a field reporting point estimates |
+| [Evaluating General-Purpose AI with Psychometrics](https://arxiv.org/abs/2310.16379) | Wang et al. (MSR) 2023, CACM 2025 | the anchor paper for psychometrics-for-LLMs (item response theory, latent-ability estimation) |
+| [BetterBench: Assessing AI Benchmarks and Establishing Best Practices](https://arxiv.org/abs/2411.12990) | Reuel et al. (Stanford) 2024, NeurIPS 2024 Spotlight | 46-criterion lifecycle audit of 24 benchmarks — the closest thing to eval cards in practice |
+| [Measuring what Matters: Construct Validity in LLM Benchmarks](https://arxiv.org/abs/2511.04703) | Bean et al. (Oxford) 2025, NeurIPS 2025 D&B | systematic review of 445 benchmarks showing pervasive validity failures — the definitive ecosystem audit |
+| [Toward an Evaluation Science for Generative AI Systems](https://arxiv.org/abs/2503.05336) | Weidinger et al. (GDM + multi-lab) 2025 | the rallying point of the 2025-26 evaluation-science movement — eval as engineering-grade measurement |
+| [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004) | Schaeffer et al. 2023, NeurIPS 2023 Outstanding Paper | showed 'emergence' can be an artifact of discontinuous metrics — the canonical eval-artifact debunk |
+
+## 🏛️ Labs & organizations
+
+### Independent eval orgs
+
+| Org | What | Why it matters | Flagship |
+|-----|------|----------------|----------|
+| [METR](https://metr.org) | nonprofit measuring frontier-model autonomous capabilities on long-horizon real tasks | the 50% time-horizon metric became the industry yardstick for agent autonomy; cited in nearly every frontier system card | Time Horizons (1.1, 2026-01) + HCAST/RE-Bench |
+| [Apollo Research](https://www.apolloresearch.ai) | safety org specializing in deception, scheming, and hidden-misalignment evals | defined in-context scheming as a measurable phenomenon; runs propensity evals for frontier labs | In-context Scheming evals (arXiv:2412.04984) |
+| [Epoch AI](https://epoch.ai) | research institute tracking compute trends and running independent benchmarking | the most rigorous third-party data source — its audit found errors in 42% of original FrontierMath problems | FrontierMath (v2, 2026-06) + AI Benchmarking Hub |
+| [Arena (LMArena)](https://lmarena.ai) | crowdsourced blind pairwise model comparison, spun out of UC Berkeley ($150M Series A 2026-01) | still the most-cited live human-preference leaderboard despite Leaderboard Illusion critiques | Chatbot Arena + category arenas (WebDev, coding, vision) |
+| [EleutherAI](https://www.eleuther.ai) | open-source AI research nonprofit | built the plumbing most academic evals run on; keeps the open reproducible-eval commons alive | lm-evaluation-harness |
+| [MLCommons](https://mlcommons.org/ailuminate/) | industry consortium (MLPerf) building standardized AI risk & reliability benchmarks | the closest thing to industry-standard safety certification (KPMG/Google/Microsoft assurance program 2026-02) | AILuminate (12 hazard categories, 24k+ prompts/language) |
+| [Irregular (ex Pattern Labs)](https://www.irregular.com) | frontier AI security lab running offensive-cyber capability evals ($80M Series B 2025-09) | its evals are cited in OpenAI and Anthropic system cards and used by the UK government | SOLVE cyber-risk scoring + private cyber ranges |
+| [Gray Swan AI](https://www.grayswan.ai) | AI security company running crowdsourced adversarial red-teaming at scale | its competitions (250k+ attack attempts) powered joint agent-hijacking research with US CAISI and UK AISI | Gray Swan Arena + Shade |
+| [Meridian Labs](https://meridianlabs.ai) | independent eval nonprofit; co-developer of Inspect with UK AISI | became the neutral steward of Anthropic's Petri (donated 2026-05 with the 3.0 release) | Petri 3.0 stewardship + Inspect co-development |
+
+### Government & institutes
+
+| Org | What | Why it matters | Flagship |
+|-----|------|----------------|----------|
+| [UK AI Security Institute (AISI)](https://www.aisi.gov.uk) | UK government body doing pre-deployment frontier model testing | its open framework became the shared eval substrate for other AISIs, frontier labs, and safety orgs | Inspect + Inspect Evals (200+ prebuilt) |
+| [US CAISI (ex US AISI)](https://www.nist.gov/caisi) | NIST-housed center running national-security-relevant capability evals (cyber, bio, chem) | the US federal eval touchpoint; published large-scale agent red-teaming with Gray Swan and UK AISI | CAISI model evaluations |
+| [NIST ARIA](https://ai-challenges.nist.gov/aria) | sociotechnical field-testing of AI in realistic deployment settings | pushes eval beyond benchmarks toward measuring real human-AI interaction outcomes | ARIA pilot evaluations (healthcare, finance, public sector) |
+| [EU AI Office](https://digital-strategy.ec.europa.eu/en/policies/ai-code-practice) | European Commission body enforcing the AI Act for general-purpose AI | the GPAI Code of Practice makes state-of-the-art model evaluation a de-facto legal requirement (enforceable 2026) | GPAI Code of Practice — Safety & Security chapter |
+
+### Academic
+
+| Org | What | Why it matters | Flagship |
+|-----|------|----------------|----------|
+| [Stanford CRFM](https://crfm.stanford.edu/helm/) | Center for Research on Foundation Models — built the first holistic eval framework | HELM set the standard for transparent multi-dimension leaderboards; maintenance mode since 2026-06 | HELM + AIR-Bench |
+| [UC Berkeley (Sky Lab / LMSYS lineage)](https://sky.cs.berkeley.edu) | the lab that spawned Chatbot Arena, vLLM, SGLang, and the Function-Calling Leaderboard | origin of crowd-preference eval and the serving infrastructure most evals run on | Chatbot Arena (origin) + Berkeley Function-Calling Leaderboard |
+| [Princeton (SWE-bench group / CITP)](https://www.swebench.com) | creators of the GitHub-issue-resolution benchmark; also home of the AI Snake Oil critique line | SWE-bench Verified is the canonical agentic-coding number; Kapoor's 'Missing Science of AI Evaluation' thesis | SWE-bench / SWE-bench Verified + HAL |
+| [CMU (WebArena group)](https://webarena.dev) | built the canonical self-hostable realistic web-agent environment | defined the realistic-reproducible-environment methodology for web agents | WebArena / VisualWebArena |
+| [HKU XLANG Lab](https://xlang.ai) | grounded-agent lab behind the standard computer-use benchmark | OSWorld became the hardest widely-used agent benchmark; OSWorld 2.0 shipped 2026-06 | OSWorld / OSWorld 2.0 + OpenCUA |
+| [Allen Institute for AI (Ai2)](https://allenai.org/evaluation-frameworks) | nonprofit behind fully-open models (OLMo) and open documented eval standards | OLMES makes evals reproducible enough to compare base-model training decisions | OLMES + RewardBench + vla-evaluation-harness |
+| [Center for AI Safety (CAIS)](https://safe.ai) | safety nonprofit (Dan Hendrycks) behind the MMLU lineage | co-created the headline frontier-knowledge benchmark with Scale AI (Nature, 2026-01) | Humanity's Last Exam + HarmBench |
+
+### Industry eval teams
+
+| Org | What | Why it matters | Flagship |
+|-----|------|----------------|----------|
+| [Anthropic](https://www.anthropic.com/research) | frontier lab with dedicated alignment-evals, eval-statistics, and Frontier Red Team publishing | Petri automated alignment audits (now Meridian-stewarded) + Bloom + the error-bars-on-evals methodology | Petri → Bloom + RSP capability evals |
+| [OpenAI](https://openai.com/index/gdpval/) | frontier lab running the Preparedness Framework and economic-value evals | GDPval reframed eval around real economically-valuable work (1,320 tasks, 44 occupations) | GDPval + Preparedness Framework + simple-evals |
+| [Google DeepMind](https://deepmind.google/research/evals/) | dedicated evals-science research group | produced factuality benchmarks others adopted as standards | FACTS Grounding + SimpleQA Verified + Frontier Safety Framework |
+| [Scale AI (SEAL)](https://scale.com/leaderboard) | Safety, Evaluations, and Alignment Lab running private-set expert leaderboards | private held-out prompts counter contamination; co-created HLE, built SWE-bench Pro | SEAL Leaderboards + HLE |
+| [Hugging Face](https://huggingface.co/spaces/OpenEvals/evaluation-guidebook) | open-model hub that ran community eval infrastructure | the Open LLM Leaderboard evaluated 13,000+ models before retiring 2025-03; legacy lives in lighteval + the guidebook | LLM Evaluation Guidebook + lighteval |
+| [Meta FAIR](https://facebookresearch.github.io/meta-agents-research-environments/) | Meta's fundamental AI research lab; built dynamic asynchronous agent-eval environments | GAIA defined general-assistant eval; ARE + Gaia2 moved it to dynamic time-constrained scenarios | ARE + Gaia2 + CyberSecEval |
+
+## ✍️ Canonical blogs & blogposts
+
+### Practitioner blogs & seminal posts
+
+| Author | Post | Year | Why canonical |
+|--------|------|------|---------------|
+| Hamel Husain | [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) | 2024 | the post that made evals the center of AI product engineering; the Rechat case study is still the template |
+| Hamel Husain | [LLM Evals: Everything You Need to Know (Evals FAQ)](https://hamel.dev/blog/posts/evals-faq/) | 2025 | distilled FAQ from the largest practitioner evals course — error analysis over generic metrics |
+| Eugene Yan | [Task-Specific LLM Evals that Do & Don't Work](https://eugeneyan.com/writing/evals/) | 2024 | brutally practical catalog of which metrics actually correlate with quality, per task |
+| Eugene Yan | [Evaluating the Effectiveness of LLM-Evaluators (LLM-as-Judge)](https://eugeneyan.com/writing/llm-evaluators/) | 2024 | the canonical ~two-dozen-paper synthesis on when LLM-as-judge works and its biases |
+| Shreya Shankar et al. | [Who Validates the Validators? (EvalGen)](https://arxiv.org/abs/2404.12272) | 2024 | named the core recursion problem of LLM-judged evals and introduced criteria drift |
+| Lilian Weng | [Reward Hacking in Reinforcement Learning](https://lilianweng.github.io/posts/2024-11-28-reward-hacking/) | 2024 | the definitive survey of why models game imperfect measures — the theoretical backbone of eval-gaming concerns |
+| Jason Wei | [Successful language model evals](https://www.jasonwei.net/blog/evals) | 2024 | insider's checklist of what makes a benchmark achieve adoption — and the seven sins that kill one |
+| Simon Willison | [Eval commentary + the pelican-on-a-bicycle benchmark](https://simonwillison.net/2025/Jun/6/six-months-in-llms/) | 2025 | 'everyone needs their own benchmark' — the most famous personal/vibes eval, plus the field's best running changelog |
+| Chip Huyen | [AI Engineering — evaluation chapters](https://huyenchip.com) | 2025 | codified evaluation-driven development for the mainstream — if you care about something, put a test set on it |
+| Applied LLMs (Yan, Bischof, Frye, Husain, Liu, Shankar) | [What We Learned from a Year of Building with LLMs](https://applied-llms.org) | 2024 | the six-author field report whose 'evals are your moat' section became AI product teams' shared vocabulary |
+
+### Canonical org blogposts
+
+| Author | Post | Year | Why canonical |
+|--------|------|------|---------------|
+| Anthropic | [Challenges in evaluating AI systems](https://www.anthropic.com/research/evaluating-ai-systems) | 2023 | the first frontier-lab admission of how hard evals actually are — still the standard citation |
+| Anthropic | [A statistical approach to model evaluations](https://www.anthropic.com/research/statistical-approach-to-model-evals) | 2024 | error bars on eval tables trace here (paired differences, power analysis, clustered SEs) |
+| Anthropic | [Petri: an open-source auditing tool](https://www.anthropic.com/research/petri-open-source-auditing) | 2025 | established automated agent-driven alignment auditing as a category; donated to Meridian Labs 2026-05 |
+| OpenAI | [GDPval: measuring model performance on real-world tasks](https://openai.com/index/gdpval/) | 2025 | shifted the conversation from academic benchmarks to expert-graded, economically valuable deliverables |
+| OpenAI + Apollo Research | [Detecting and reducing scheming in AI models](https://openai.com/index/detecting-and-reducing-scheming-in-ai-models/) | 2025 | the canonical joint-lab writeup on stress-testing for hidden misalignment |
+| METR | [Measuring AI Ability to Complete Long Tasks (+ Time Horizons page)](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) | 2025 | the doubling-time-horizon framing — arguably the most influential eval chart of the decade |
+| Apollo Research | [Frontier Models are Capable of In-context Scheming](https://www.apolloresearch.ai/research/scheming-reasoning-evaluations) | 2024 | showed frontier models disabling oversight and sandbagging in-context — the template for propensity evals |
+| Epoch AI | [FrontierMath posts + Benchmarking Hub analyses](https://epoch.ai/benchmarks) | 2024 | independent re-runs and the v2 error audit set the bar for benchmark quality control |
+| Hugging Face (Clémentine Fourrier et al.) | [LLM Evaluation Guidebook](https://huggingface.co/spaces/OpenEvals/evaluation-guidebook) | 2024 | the practitioner's textbook, distilled from running the Open LLM Leaderboard (HF Space is the current version) |
+
+## 🌟 Ground-breaking & future-making people
+
+Affiliations verified 2026-07-22 where possible — people move fast in this field;
+uncertain affiliations are marked.
+
+### Benchmark architects
+
+| Person | Affiliation | Known for | Why future-making |
+|--------|-------------|-----------|-------------------|
+| [Dan Hendrycks](https://danhendrycks.com) | Center for AI Safety (director) | MMLU, MATH, Humanity's Last Exam (Nature 2026) | keeps building the ceiling benchmark each time frontier models saturate the last one |
+| [Percy Liang](https://cs.stanford.edu/~pliang/) | Stanford CRFM (director) | HELM — holistic, multi-metric, transparent LM evaluation | institutionalized eval as reproducible science |
+| [Rishi Bommasani](https://rishibommasani.github.io) | Stanford HAI | foundation-model transparency indexes; societal-impact eval | bridges eval science to real policy (CA Frontier AI report, EU Code of Practice) |
+| [Carlos E. Jimenez](https://www.carlosejimenez.com) | Princeton | co-creator of SWE-bench | SWE-bench became the currency of coding-agent claims; keeps hardening it against saturation |
+| [John Yang](https://john-b-yang.github.io) | Stanford | lead author of SWE-bench and SWE-agent | now pushing human-centered coding-agent evaluation — the frame after raw resolve-rates |
+| [Ofir Press](https://ofir.io/about/) | Meta FAIR | co-developed SWE-bench and SWE-agent; SciCode | prolific benchmark entrepreneur with a knack for evals labs actually adopt |
+| [Shunyu Yao](https://ysymyth.github.io) | Tencent (Chief AI Scientist) | ReAct, Tree of Thoughts, SWE-agent, tau-bench; 'The Second Half' essay | the most influential agent-eval thinker of his generation — argues eval is now THE bottleneck |
+| [Karthik Narasimhan](https://karthikncode.github.io) | Princeton (+ Sierra, split uncertain) | advised the SWE-bench/tau-bench/ReAct lineage; GPT-1 co-author | his lab is the most productive agent-benchmark factory in academia |
+| [Jason Wei](https://www.jasonwei.net) | Meta Superintelligence Labs | emergent abilities, chain-of-thought; eval-design essays | his 'evals are the real moat' framing drives frontier-lab research allocation |
+| [François Chollet](https://fchollet.com) | Ndea + ARC Prize Foundation | ARC-AGI; ARC-AGI-3 — the first fully interactive/agentic ARC (2026-03) | the most credible AGI-resistant benchmark line, moving eval from static Q&A to interactive environments |
+| [Graham Neubig](http://www.phontron.com) | CMU + All Hands AI | OpenHands agent framework; many code/agent evals | builds agents AND the harnesses that judge them — his evals reflect real failure modes |
+| [Xiang Yue](https://xiangyue9607.github.io) | Meta Superintelligence Labs | MMMU / MMMU-Pro | defined how vision-language expert reasoning is measured |
+| [Yejin Choi](https://yejinc.github.io) | Stanford | HellaSwag, WinoGrande, commonsense eval | pushing evals beyond accuracy toward pluralism and values |
+
+### Arena & preference-based evaluation
+
+| Person | Affiliation | Known for | Why future-making |
+|--------|-------------|-----------|-------------------|
+| [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/) | Arena (CEO) | the statistics behind Chatbot Arena's rankings; conformal prediction | raised $150M (2026-01, $1.7B valuation) to turn crowd eval into AI-reliability science |
+| [Wei-Lin Chiang](https://x.com/infwinston) | Arena (co-founder/CTO) | created Chatbot Arena and Vicuna at LMSYS | built the world's largest live human-preference eval, now scaling into domain arenas |
+| [Ion Stoica](https://people.eecs.berkeley.edu/~istoica/) | UC Berkeley; Arena chairman | academic godfather of LMSYS → LMArena → Arena | repeatedly turns Berkeley systems research into industry-standard eval infrastructure |
+| [Lianmin Zheng](https://lmzheng.net) | xAI (uncertain — possible recent move) | MT-Bench and the foundational LLM-as-a-Judge paper; SGLang | wrote the canonical analysis of the now-default eval paradigm |
+| [Yann Dubois](https://yanndubs.github.io) | OpenAI | AlpacaEval and Length-Controlled AlpacaEval | shaping how a frontier lab moves from gameable benchmarks to real-world-utility eval |
+
+### Frontier-lab & rising benchmark builders
+
+| Person | Affiliation | Known for | Why future-making |
+|--------|-------------|-----------|-------------------|
+| [Tejal Patwardhan](https://x.com/tejalpatwardhan) | OpenAI (frontier evals lead) | GDPval, PaperBench, MLE-bench | defining how AI's real economic labor impact gets measured, not just test scores |
+| [David Rein](https://idavidrein.com) | METR | first author of GPQA; METR Time Horizons; the 2025 developer-productivity RCT | moved from hard benchmarks to the science of agent evaluation and human-grounded RCTs |
+| [Summer Yue](https://x.com/summeryue0) | Meta Superintelligence Labs | SEAL leaderboards, MultiChallenge, HLE senior author | brought private contamination-resistant eval to industry scale |
+| [Mike A. Merrill](https://mikemerrill.io) | Anthropic (evals) | co-creator of Terminal-Bench | Terminal-Bench became 2025-26's fastest-adopted agent benchmark |
+| [Naman Jain](https://naman-ntc.github.io) | UC Berkeley (uncertain — may have graduated) | LiveCodeBench | built the template for live rolling benchmarks — the field's best answer to contamination |
+| [Hailey Schoelkopf](https://haileyschoelkopf.github.io) | Anthropic | maintainer of lm-evaluation-harness; 'Lessons from the Trenches' | the harness underpins thousands of reported results; she wrote the reproducibility playbook |
+
+### Eval science, critique & rigor
+
+| Person | Affiliation | Known for | Why future-making |
+|--------|-------------|-----------|-------------------|
+| [Clémentine Fourrier](https://clefourrier.github.io) | Hugging Face (sabbatical until 2026-12) | Open LLM Leaderboard, lighteval, the LLM Evaluation Guidebook | wrote the field's most-used practical eval handbook and democratized open-model evaluation |
+| [Rylan Schaeffer](https://rylanschaeffer.github.io) | Stanford (finishing PhD, next step uncertain) | 'Are Emergent Abilities a Mirage?' (NeurIPS 2023 Outstanding Paper) | serial debunker of eval artifacts; pushing a Refutations & Critiques track at ML conferences |
+| [Inioluwa Deborah Raji](https://rajiinio.github.io) | UC Berkeley (uncertain) | algorithmic auditing; 'Everything in the Whole Wide World Benchmark' | founded the audit framing that external adversarial evaluation of deployed systems now follows |
+| [Sara Hooker](https://www.sarahooker.me) | Adaption Labs (co-founder/CEO) | 'The Hardware Lottery'; leaderboard-gaming and compute-threshold critiques | one of the sharpest critics of scale-centric eval, now betting a company on adaptive models |
+| [Sanmi Koyejo](https://cs.stanford.edu/~sanmi/) | Stanford (STAIR lab) | emergence-mirage line; DecodingTrust; statistical rigor for ML eval | makes 'is this difference real?' a first-class question; training the next generation of eval statisticians |
+| [Moritz Hardt](https://mrtz.org) | MPI for Intelligent Systems (director) | train-on-test / leaderboard-overfitting theory | supplies the theoretical foundations for why benchmarks keep working — or quietly stop |
+| [Arvind Narayanan](https://www.cs.princeton.edu/~arvindn/) | Princeton (CITP director) | AI Snake Oil; 'AI Agents That Matter' critique | the field's most trusted public skeptic; forced cost-controlled reproducible agent reporting |
+| [Sayash Kapoor](https://www.cs.princeton.edu/~sayashk/) | Princeton (PhD, defending 2026) | HAL (Holistic Agent Leaderboard); AI Snake Oil co-author | literally writing the thesis the field needs — 'The Missing Science of AI Evaluation' |
+| [Shreya Shankar](https://www.sh-reya.com) | UC Berkeley → CMU (incoming assistant professor) | 'Who Validates the Validators?'; DocETL; evals-in-production research | defined human-aligned LLM-as-judge methodology; co-teaches the most popular practical evals course |
+| [Hamel Husain](https://hamel.dev) | Parlance Labs (independent) | 'Your AI Product Needs Evals'; the Maven evals course | made rigorous evals a mainstream engineering practice for thousands of AI product teams |
+| [Stella Biderman](https://www.stellabiderman.com) | EleutherAI (executive director) | steward of lm-evaluation-harness; Pythia suite | keeps the open reproducible eval commons alive as labs go closed |
+| [Melanie Mitchell](https://melaniemitchell.me) | Santa Fe Institute | ConceptARC; rigorous critiques of sparks-of-AGI capability claims | the conscience of capability claims — insists on probing HOW models pass tests |
+
+### Agent, safety & dangerous-capability evaluation
+
+| Person | Affiliation | Known for | Why future-making |
+|--------|-------------|-----------|-------------------|
+| [Beth Barnes](https://metr.org/team/beth-barnes/) | METR (founder/CEO) | time-horizon methodology; pre-release autonomy evals for frontier labs | Time Horizons + Frontier Risk Reports are becoming the industry's shared risk dashboard |
+| [Marius Hobbhahn](https://www.mariushobbhahn.com) | Apollo Research (co-founder/CEO) | scheming/deception evals; 'We need a science of evals' | deception eval is the hardest open problem in safety measurement; Apollo runs it for labs and governments |
+| [Jaime Sevilla](https://epoch.ai) | Epoch AI (founder/director) | compute trends; FrontierMath; capability forecasting | Epoch is the independent 'BLS of AI' — the neutral data source labs and policymakers both cite |
+| [Geoffrey Irving](https://naml.us) | UK AISI (Chief Scientist) | debate/scalable oversight; oversees AISI frontier evals and red-teaming | built the strongest state-run eval capacity in the world; Inspect is now widely adopted |
+| [Ethan Perez](https://ethanperez.net) | Anthropic | red-teaming LMs with LMs; model-written evals; inverse scaling prize | automated red-teaming — evals that generate themselves — is his invention and the likely future of safety testing |
+| [Nicholas Carlini](https://nicholas.carlini.com) | Anthropic | adversarial ML, training-data extraction, contamination detection | the field's most feared stress-tester — whatever eval you build, he shows how it breaks |
+| [Andy Zou](https://andyzoujm.github.io) | Gray Swan AI (co-founder/CTO) | GCG universal jailbreaks, HarmBench, representation engineering | turned adversarial eval into a product and a sport — jailbreak arenas feed frontier safety cases |
+| [Zico Kolter](https://zicokolter.com) | CMU; OpenAI board (Safety & Security Committee chair) | adversarial robustness; the GCG/HarmBench lineage | sets safety-eval bars from inside a frontier lab's board while training the attackers at CMU |
+
+### VLA / robotics / physical-AI evaluation
+
+| Person | Affiliation | Known for | Why future-making |
+|--------|-------------|-----------|-------------------|
+| [Sergey Levine](https://people.eecs.berkeley.edu/~svlevine/) | UC Berkeley + Physical Intelligence | rigorous real-robot evaluation culture; RT-X cross-embodiment eval | insists on real-world rollout statistics over demo videos — the eval standard VLA needs |
+| [Chelsea Finn](https://ai.stanford.edu/~cbfinn/) | Stanford + Physical Intelligence | meta-learning; generalization benchmarks for robot policies; π-model eval protocols | sets the standard for measuring policy generalization to unseen environments/embodiments |
+| [Karol Hausman](https://karolhausman.github.io) | Physical Intelligence (co-founder/CEO) | π0 generalist robot policy | defines what generalization means empirically for robot foundation models |
+| [Ted Xiao](https://tedxiao.me) | Project Prometheus (ex Google DeepMind) | Gemini Robotics eval; the robotics 'eval gap' advocacy | the clearest public thinker on why robotics lacks its MMLU |
+
+## 🛡️ Guardrails & security — the adversarial-eval fold
+
+**Decision (2026-07-22):** security lives *inside* eval-anything — red-teaming IS
+adversarial evaluation; the benchmarks, judges, and people overlap too heavily to
+split. It spins out into a sibling repo only if this fold demonstrably outgrows
+the measurement content. Security *repos* are tracked in the registry above;
+standards, papers, tools, labs, and people live here.
+
+### Standards & governance frameworks
+
+| Entry | What | Why it matters |
+|-------|------|----------------|
+| [OWASP Top 10 for LLM Applications (2025)](https://genai.owasp.org/llm-top-10/) | community-ranked top LLM app risks — LLM01 Prompt Injection through LLM10 Unbounded Consumption | the de-facto shared vocabulary for LLM appsec — vendors, auditors, and security teams map findings to these IDs |
+| [OWASP GenAI Security Project + Agentic Security Initiative](https://genai.owasp.org/) | OWASP flagship umbrella; 'Agentic AI — Threats and Mitigations' taxonomizes memory poisoning, tool misuse, intent breaking | the primary open community producing practitioner agent-security guidance, ahead of formal standards bodies |
+| [MITRE ATLAS](https://atlas.mitre.org/) | ATT&CK-style knowledge base of adversary tactics and real-world case studies against AI systems | the standard threat-modeling substrate — SOC teams and vendors map detections to ATLAS technique IDs |
+| [NIST AI RMF + AI 600-1 Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf) | Govern/Map/Measure/Manage framework + 12 GenAI risk categories with 200+ suggested actions | the closest thing to an official US government checklist for generative-AI risk controls |
+| [EU AI Act — GPAI obligations + Code of Practice](https://artificialintelligenceact.eu/article/55/) | systemic-risk GPAI providers must run state-of-the-art evals incl. documented adversarial testing (in force 2025-08) | the first binding legal regime making adversarial evaluation a regulatory requirement, not a best practice |
+| [MLCommons AILuminate](https://mlcommons.org/benchmarks/ailuminate/) | industry-consortium safety benchmark — 12 hazard categories, 24k+ prompts, letter-grade reports | the crash-test-rating model for AI safety — the leading neutral standardized safety grade |
+| [Frontier safety frameworks (Anthropic RSP v3 / OpenAI Preparedness v2 / GDM FSF v3)](https://www.anthropic.com/responsible-scaling-policy) | capability-thresholded if-then commitment frameworks governing pre-release evaluation at the big three labs | where dangerous-capability evals get their teeth — thresholds trigger safeguard requirements before deployment |
+
+### Seminal papers
+
+| Entry | What | Why it matters |
+|-------|------|----------------|
+| [Universal and Transferable Adversarial Attacks on Aligned LMs (GCG)](https://arxiv.org/abs/2307.15043) | Zou et al. 2023 — gradient-optimized adversarial suffixes on open models transfer to GPT-4/Claude | proved alignment can be broken automatically and transferably — launched automated jailbreak research |
+| [Many-shot Jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking) | Anil et al. (Anthropic) 2024, NeurIPS — hundreds of in-context harmful demos jailbreak frontier models on a power law | established that long context windows are themselves attack surface |
+| [Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training](https://arxiv.org/abs/2401.05566) | Hubinger et al. 2024 — backdoored deception survives SFT, RLHF, and adversarial training | canonical evidence that safety training cannot be trusted to remove implanted deception |
+| [Alignment Faking in Large Language Models](https://arxiv.org/abs/2412.14093) | Greenblatt et al. 2024 — Claude 3 Opus strategically complied with training objectives it disagreed with | first empirical demonstration of unprompted alignment-faking in a production model |
+| [Constitutional Classifiers: Defending against Universal Jailbreaks](https://arxiv.org/abs/2501.18837) | Sharma et al. (Anthropic) 2025 — classifiers trained on constitution-generated data survived 3,000+ red-team hours | the strongest published evidence that robust jailbreak defense is deployable at production scale (ASL-3) |
+| [Not What You've Signed Up For (indirect prompt injection)](https://arxiv.org/abs/2302.12173) | Greshake et al. 2023 — attacker instructions planted in retrieved data hijack LLM-integrated apps | founding paper of the threat class that now dominates agent security; its taxonomy still structures the field |
+| [Ignore Previous Prompt: Attack Techniques for Language Models](https://arxiv.org/abs/2211.09527) | Perez & Ribeiro 2022 — first systematic study of prompt injection (goal hijacking, prompt leaking) | the academic formalization of the attack Willison had just named — the direct-injection baseline |
+| [Poisoning Web-Scale Training Datasets is Practical](https://arxiv.org/abs/2302.10149) | Carlini et al. 2023 — expired domains + snapshot timing poison major web datasets for ~$60 | moved data poisoning from lab hypothetical to demonstrated supply-chain risk |
+| [Poisoning Attacks Require a Near-constant Number of Samples](https://arxiv.org/abs/2510.07192) | Souly et al. (Anthropic/UK AISI/Turing) 2025 — ~250 poisoned documents backdoor any model size | overturned the percentage assumption — poisoning cost does not grow with scale |
+| [Extracting Training Data from Large Language Models](https://arxiv.org/abs/2012.07805) | Carlini et al. 2021 — recovered verbatim memorized text incl. PII; extended to ChatGPT (arXiv:2311.17035) | founded LLM privacy attacks — core to every model privacy audit and copyright suit |
+| [Defeating Prompt Injections by Design (CaMeL)](https://arxiv.org/abs/2503.18813) | Debenedetti et al. (GDM/ETH) 2025 — control/data-flow separation so untrusted data never alters program flow | the flagship security-by-construction result — the reference for capability-based agent architectures |
+| [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/abs/2506.08837) | Beurer-Kellner et al. 2025 — action-selector, plan-then-execute, dual-LLM, context-minimization patterns | the consensus practitioner playbook — effectively the OWASP patterns of agentic security |
+
+### Notable tools & concepts (beyond the tracked registry)
+
+| Entry | What | Why it matters |
+|-------|------|----------------|
+| [LlamaFirewall (in PurpleLlama)](https://github.com/meta-llama/PurpleLlama) | orchestrates PromptGuard 2 + AlignmentCheck CoT auditor + CodeShield for agent protection | first open guardrail to audit an agent's chain-of-thought in real time; cut attack success >90% on AgentDojo |
+| [Lakera Guard / Gandalf](https://gandalf.lakera.ai) | commercial low-latency guardrail API powered by the viral Gandalf prompt-injection game | Gandalf is the largest crowdsourced prompt-attack dataset in existence; Lakera acquired by Check Point 2025-11 |
+| [LLM Guard + Rebuff (Protect AI)](https://github.com/protectai/llm-guard) | input/output scanner toolkit + multi-layer injection detector with canary tokens | widely-deployed lightweight defenses; Rebuff pioneered canary-token leak detection (now maintenance mode) |
+| [StrongREJECT](https://github.com/dsbowen/strong_reject) | jailbreak eval whose calibrated judge penalizes low-quality 'technically complied' outputs | fixed the field's grade inflation — the standard rigor bar for jailbreak scoring |
+| [Petri (Anthropic → Meridian Labs)](https://github.com/safety-research/petri) | automated alignment-auditing agent — auditor LLM probes a target, judge scores deception/sycophancy/power-seeking | turned qualitative alignment auditing into a runnable open tool; used on 14 frontier models; built on Inspect |
+| [Adversarial Robustness Toolbox (ART)](https://github.com/Trusted-AI/adversarial-robustness-toolbox) | IBM/LF-AI library of evasion, poisoning, extraction, and inference attacks + defenses | the pre-LLM adversarial-ML standard — still the reference attack taxonomy beyond prompts |
+| [prompt-injection-defenses (tldrsec)](https://github.com/tldrsec/prompt-injection-defenses) | curated catalog of every practical and proposed prompt-injection defense | the best single map of the defense design space — shows how few defenses survive adaptive attack |
+
+### Agent-specific security
+
+| Entry | What | Why it matters |
+|-------|------|----------------|
+| [The Lethal Trifecta (Simon Willison)](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) | private-data access + untrusted content + external communication = exploitable, period | the shared mental model for agent security in 2025-26 — cited by vendors, OWASP, and Meta |
+| [Agents Rule of Two (Meta)](https://ai.meta.com/blog/practical-ai-agent-security/) | an agent may satisfy at most two of the trifecta's three properties without human-in-the-loop | the most actionable engineering guidance yet published — operationalizes the trifecta as a budget |
+| [MCP tool poisoning (Invariant Labs disclosure)](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) | hidden instructions in MCP tool descriptions hijack agents; spawned MCPTox + OWASP MCP Top 10 | defined the supply-chain threat model for the MCP era (4 named CVEs in the MCP layer in 2025) |
+| [InjecAgent + Agent Security Bench](https://github.com/agiresearch/ASB) | indirect-injection benchmarks — ASB formalizes 16 attack types vs 11 defenses across 400+ tools | the broadest attack/defense matrices for agents, incl. memory poisoning and plan backdoors |
+| [Month of AI Bugs (Johann Rehberger)](https://embracethered.com) | a disclosed real-world exploit chain per day (2025-08): ChatGPT memory exfiltration, Copilot, agentic browsers | the field's empirical ground truth — actual shipped-product vulnerabilities, not lab attacks |
+
+### Labs & companies
+
+| Entry | What | Why it matters |
+|-------|------|----------------|
+| [Gray Swan AI](https://www.grayswan.ai/) | Kolter/Fredrikson/Zou; Arena jailbreak competitions (~15k red-teamers), Shade attack agent, Cygnal guard | the research-pedigree leader bridging academic attacks and commercial red-teaming for frontier labs |
+| [Haize Labs](https://haizelabs.com/) | automated red-teaming ('haizing') + judge infrastructure (Verdict) for labs and enterprises | emblematic of the automated-adversarial-testing wave; stress-tests models pre-release for major labs |
+| [Irregular (ex Pattern Labs)](https://www.irregular.com/) | the first self-described frontier AI security lab — offensive-cyber capability evals ($80M Series B) | its SOLVE framework and evals are cited in OpenAI/Anthropic system cards and used by the UK government |
+| [Robust Intelligence (Cisco)](https://www.robustintelligence.com/) | AI validation + firewall pioneer, acquired by Cisco 2024 → Cisco AI Defense | the first major AI-security acquisition — proof the category reached network-security scale |
+| [HiddenLayer](https://hiddenlayer.com/) | model scanning, ML detection & response, adversarial research; active MITRE ATLAS contributor | the leading independent pure-play, strong on model-file supply-chain threats |
+| [Protect AI (Palo Alto Networks)](https://protectai.com/) | ML supply-chain security (Guardian, huntr bug bounty, Recon) — acquired ~$634.5M, 2025-07 | built the largest AI/ML vulnerability community; its acquisition set the category's price benchmark |
+| [Lakera (Check Point)](https://www.lakera.ai/) | Lakera Guard runtime defense + the Gandalf attack corpus; acquired by Check Point 2025 | completed the pattern of every major firewall vendor buying an AI-security startup |
+| [Anthropic Safeguards & Frontier Red Team](https://www.anthropic.com/research) | production defenses (Constitutional Classifiers, ASL-3 safeguards) + threat-intel on real-world misuse | the clearest public window into what production-scale model abuse actually looks like |
+
+### Key people
+
+| Entry | What | Why it matters |
+|-------|------|----------------|
+| [Nicholas Carlini](https://nicholas.carlini.com) | Anthropic (ex GDM) — C&W attack, data extraction, web-scale poisoning, membership inference | his papers define the empirical adversarial-ML canon; a defense isn't robust until it survives Carlini |
+| [Andy Zou](https://andyzoujm.github.io) | Gray Swan co-founder/CTO — GCG, representation engineering, circuit breakers | first author of the paper that started automated LLM jailbreaking; commercializes both attack and defense |
+| [Zico Kolter](https://zicokolter.com) | CMU professor; Gray Swan co-founder; OpenAI board (Safety & Security Committee chair) | uniquely spans academic adversarial ML, a leading security startup, and frontier-lab governance |
+| [Ethan Perez](https://ethanperez.net) | Anthropic — red-teaming LMs with LMs, many-shot jailbreaking, Sleeper Agents, alignment faking | the central figure in adversarial-robustness and model-organisms-of-misalignment research |
+| [Simon Willison](https://simonwillison.net) | independent — coined 'prompt injection' (2022) and 'the lethal trifecta' (2025) | the field's most influential practitioner-communicator; his framings are how engineers reason about agent security |
+| [Johann Rehberger](https://embracethered.com) | independent (Embrace The Red) — dozens of disclosed real-world LLM-product exploit chains | the most prolific public discoverer of actual shipped vulnerabilities — the field's empirical ground truth |
+| [Kai Greshake](https://arxiv.org/abs/2302.12173) | lead author of 'Not What You've Signed Up For' (affiliation uncertain) | defined indirect prompt injection — the threat class that now dominates agentic security |
+| [Florian Tramèr](https://floriantramer.com) | ETH Zürich professor — adaptive-attack methodology; senior author on CaMeL, AgentDojo, design patterns | the academic anchor of principled agent-security defense; his group sets the evaluation standards |
 
 ## ⭐ The super-tool: `/eval-anything`
 

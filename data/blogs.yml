@@ -1,0 +1,120 @@
+# data/blogs.yml — canonical blogs & blogposts (single source of truth; README generated).
+# Researched 2026-07-22. `category`: practitioner | org.
+
+# ── Practitioner blogs & seminal posts ──────────────────────────────────────
+- category: practitioner
+  author: Hamel Husain
+  title: "Your AI Product Needs Evals"
+  url: https://hamel.dev/blog/posts/evals/
+  year: 2024
+  why: "the post that made evals the center of AI product engineering; the Rechat case study is still the template"
+- category: practitioner
+  author: Hamel Husain
+  title: "LLM Evals: Everything You Need to Know (Evals FAQ)"
+  url: https://hamel.dev/blog/posts/evals-faq/
+  year: 2025
+  why: "distilled FAQ from the largest practitioner evals course — error analysis over generic metrics"
+- category: practitioner
+  author: Eugene Yan
+  title: "Task-Specific LLM Evals that Do & Don't Work"
+  url: https://eugeneyan.com/writing/evals/
+  year: 2024
+  why: "brutally practical catalog of which metrics actually correlate with quality, per task"
+- category: practitioner
+  author: Eugene Yan
+  title: "Evaluating the Effectiveness of LLM-Evaluators (LLM-as-Judge)"
+  url: https://eugeneyan.com/writing/llm-evaluators/
+  year: 2024
+  why: "the canonical ~two-dozen-paper synthesis on when LLM-as-judge works and its biases"
+- category: practitioner
+  author: Shreya Shankar et al.
+  title: "Who Validates the Validators? (EvalGen)"
+  url: https://arxiv.org/abs/2404.12272
+  year: 2024
+  why: "named the core recursion problem of LLM-judged evals and introduced criteria drift"
+- category: practitioner
+  author: Lilian Weng
+  title: "Reward Hacking in Reinforcement Learning"
+  url: https://lilianweng.github.io/posts/2024-11-28-reward-hacking/
+  year: 2024
+  why: "the definitive survey of why models game imperfect measures — the theoretical backbone of eval-gaming concerns"
+- category: practitioner
+  author: Jason Wei
+  title: "Successful language model evals"
+  url: https://www.jasonwei.net/blog/evals
+  year: 2024
+  why: "insider's checklist of what makes a benchmark achieve adoption — and the seven sins that kill one"
+- category: practitioner
+  author: Simon Willison
+  title: "Eval commentary + the pelican-on-a-bicycle benchmark"
+  url: https://simonwillison.net/2025/Jun/6/six-months-in-llms/
+  year: 2025
+  why: "'everyone needs their own benchmark' — the most famous personal/vibes eval, plus the field's best running changelog"
+- category: practitioner
+  author: Chip Huyen
+  title: "AI Engineering — evaluation chapters"
+  url: https://huyenchip.com
+  year: 2025
+  why: "codified evaluation-driven development for the mainstream — if you care about something, put a test set on it"
+- category: practitioner
+  author: "Applied LLMs (Yan, Bischof, Frye, Husain, Liu, Shankar)"
+  title: "What We Learned from a Year of Building with LLMs"
+  url: https://applied-llms.org
+  year: 2024
+  why: "the six-author field report whose 'evals are your moat' section became AI product teams' shared vocabulary"
+
+# ── Canonical org blogposts ─────────────────────────────────────────────────
+- category: org
+  author: Anthropic
+  title: "Challenges in evaluating AI systems"
+  url: https://www.anthropic.com/research/evaluating-ai-systems
+  year: 2023
+  why: "the first frontier-lab admission of how hard evals actually are — still the standard citation"
+- category: org
+  author: Anthropic
+  title: "A statistical approach to model evaluations"
+  url: https://www.anthropic.com/research/statistical-approach-to-model-evals
+  year: 2024
+  why: "error bars on eval tables trace here (paired differences, power analysis, clustered SEs)"
+- category: org
+  author: Anthropic
+  title: "Petri: an open-source auditing tool"
+  url: https://www.anthropic.com/research/petri-open-source-auditing
+  year: 2025
+  why: "established automated agent-driven alignment auditing as a category; donated to Meridian Labs 2026-05"
+- category: org
+  author: OpenAI
+  title: "GDPval: measuring model performance on real-world tasks"
+  url: https://openai.com/index/gdpval/
+  year: 2025
+  why: "shifted the conversation from academic benchmarks to expert-graded, economically valuable deliverables"
+- category: org
+  author: OpenAI + Apollo Research
+  title: "Detecting and reducing scheming in AI models"
+  url: https://openai.com/index/detecting-and-reducing-scheming-in-ai-models/
+  year: 2025
+  why: "the canonical joint-lab writeup on stress-testing for hidden misalignment"
+- category: org
+  author: METR
+  title: "Measuring AI Ability to Complete Long Tasks (+ Time Horizons page)"
+  url: https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
+  year: 2025
+  why: "the doubling-time-horizon framing — arguably the most influential eval chart of the decade"
+- category: org
+  author: Apollo Research
+  title: "Frontier Models are Capable of In-context Scheming"
+  url: https://www.apolloresearch.ai/research/scheming-reasoning-evaluations
+  year: 2024
+  why: "showed frontier models disabling oversight and sandbagging in-context — the template for propensity evals"
+- category: org
+  author: Epoch AI
+  title: "FrontierMath posts + Benchmarking Hub analyses"
+  url: https://epoch.ai/benchmarks
+  year: 2024
+  why: "independent re-runs and the v2 error audit set the bar for benchmark quality control"
+- category: org
+  author: "Hugging Face (Clémentine Fourrier et al.)"
+  title: "LLM Evaluation Guidebook"
+  url: https://huggingface.co/spaces/OpenEvals/evaluation-guidebook
+  year: 2024
+  why: "the practitioner's textbook, distilled from running the Open LLM Leaderboard (HF Space is the current version)"

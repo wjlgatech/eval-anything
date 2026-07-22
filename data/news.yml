@@ -1,2 +1,4 @@
 - date: '2026-07-22'
+  entry: "field research landed: 54 tracked repos, 59 seminal papers, 26 labs/orgs, 19 canonical blogs, 48 people, 47 guardrails/security entries — all web-verified this day. DECISION: guardrails/security lives inside eval-anything (red-teaming IS adversarial evaluation); splits out only if the fold outgrows the repo."
+- date: '2026-07-22'
   entry: repo scaffolded from spec (green at birth)

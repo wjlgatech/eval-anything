@@ -11,6 +11,23 @@ DATA = ROOT / "data"
 
 REQUIRED_META = ["name", "emoji", "title", "tagline", "description", "audience", "github"]
 
+# curated-collection schemas: file → (required keys per entry, allowed categories)
+COLLECTIONS = {
+    "registry.yml": (["repo", "why", "category"],
+                     {"harness", "agent", "vlm", "vla", "judge", "live", "security"}),
+    "papers.yml": (["category", "title", "cite", "url", "why"],
+                   {"benchmarks", "judge", "agentic", "vlm", "vla", "meta"}),
+    "labs.yml": (["category", "name", "url", "what", "why", "flagship"],
+                 {"independent", "government", "academic", "industry"}),
+    "blogs.yml": (["category", "author", "title", "url", "year", "why"],
+                  {"practitioner", "org"}),
+    "people.yml": (["category", "name", "affiliation", "known_for", "why", "link"],
+                   {"architects", "arena", "builders", "science", "safety", "vla"}),
+    "security.yml": (["category", "name", "url", "what", "why"],
+                     {"standards", "papers", "tools", "agentsec", "labs", "people"}),
+}
+
+
 def main():
     errs = []
     files = sorted(DATA.glob("*.yml"))
@@ -25,6 +42,21 @@ def main():
     for k in REQUIRED_META:
         if not meta.get(k):
             errs.append(f"meta.yml missing: {k}")
+    for fname, (required, cats) in COLLECTIONS.items():
+        f = DATA / fname
+        if not f.exists():
+            errs.append(f"{fname}: missing (curated collection)")
+            continue
+        try:
+            entries = yaml.safe_load(f.read_text()) or []
+        except yaml.YAMLError:
+            continue  # parse error already reported above
+        for i, e in enumerate(entries):
+            for k in required:
+                if not e.get(k):
+                    errs.append(f"{fname}[{i}]: missing {k} ({e.get('name') or e.get('repo') or e.get('title') or '?'})")
+            if e.get("category") not in cats:
+                errs.append(f"{fname}[{i}]: unknown category {e.get('category')!r}")
     return errs
 
 

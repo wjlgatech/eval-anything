@@ -1,54 +1,234 @@
+# data/registry.yml — tracked upstream repos (single source of truth; README generated).
+# Curated 2026-07-22 from GitHub-API-verified research; stars are seeds — `make sync`
+# refreshes stars/pushed_at weekly via the open GitHub API (human-gated PR, honest nulls).
+# `category` groups the rendered table; sync.py preserves unknown fields.
+
+# ── LLM eval harnesses & platforms ──────────────────────────────────────────
 - repo: EleutherAI/lm-evaluation-harness
-  why: the de-facto standard few-shot LLM eval harness — backbone of the (retired)
-    Open LLM Leaderboard
-  stars: null
-  pushed_at: null
-  last_sync: null
-- repo: stanford-crfm/helm
-  why: holistic evaluation — the multi-metric
-  stars: null
-  pushed_at: null
-  last_sync: null
+  category: harness
+  why: "the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard"
+  stars: 13400
 - repo: UKGovernmentBEIS/inspect_ai
-  why: UK AI Security Institute's harness — the emerging standard for frontier and
-    agentic safety evals
-  stars: null
-  pushed_at: null
-  last_sync: null
-- repo: SWE-bench/SWE-bench
-  why: THE agentic coding benchmark — real GitHub issues
-  stars: null
-  pushed_at: null
-  last_sync: null
-- repo: confident-ai/deepeval
-  why: unit-testing for LLM apps — G-Eval and friends as pytest-style assertions
-  stars: null
-  pushed_at: null
-  last_sync: null
+  category: harness
+  why: "UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it"
+  stars: 2400
+- repo: UKGovernmentBEIS/inspect_evals
+  category: harness
+  why: "200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place"
+  stars: 600
 - repo: promptfoo/promptfoo
-  why: eval + red-team in one CLI — the practitioner's on-ramp from vibes to gates
-  stars: null
-  pushed_at: null
-  last_sync: null
+  category: harness
+  why: "eval + red-team in one dev-first CLI; OpenAI announced acquisition 2026-03 — stays open source"
+  stars: 23500
+- repo: confident-ai/deepeval
+  category: harness
+  why: "pytest-style LLM unit testing; the canonical open G-Eval implementation"
+  stars: 17000
+- repo: langfuse/langfuse
+  category: harness
+  why: "de-facto OSS LLM observability + eval/annotation platform for production apps"
+  stars: 31700
+- repo: Arize-ai/phoenix
+  category: harness
+  why: "OTel-native tracing with built-in evals and agent-trajectory evaluation"
+  stars: 10700
+- repo: comet-ml/opik
+  category: harness
+  why: "fastest-growing eval+tracing+guardrails entrant of 2025-26, strong agent-eval focus"
+  stars: 20800
 - repo: open-compass/opencompass
-  why: the comprehensive open eval platform behind CompassRank — broadest benchmark
-    coverage
-  stars: null
-  pushed_at: null
-  last_sync: null
+  category: harness
+  why: "the comprehensive eval platform of the Chinese open-model ecosystem (CompassRank)"
+  stars: 7200
+- repo: stanford-crfm/helm
+  category: harness
+  why: "holistic multi-metric eval — methodologically foundational; maintenance mode since 2026-06"
+  stars: 2900
+- repo: huggingface/lighteval
+  category: harness
+  why: "HF's all-backend eval toolkit — the Open LLM Leaderboard lineage lives here"
+  stars: 2500
+- repo: openai/simple-evals
+  category: harness
+  why: "where OpenAI's headline numbers are reproducible; canonical BrowseComp implementation"
+  stars: 4600
+- repo: vibrantlabsai/ragas
+  category: harness
+  why: "the standard RAG-eval vocabulary (faithfulness, context precision/recall); watch — activity stalled 2026-02"
+  stars: 15000
+
+# ── Agentic-system benchmarks & infrastructure ──────────────────────────────
+- repo: SWE-bench/SWE-bench
+  category: agent
+  why: "THE coding-agent benchmark — real GitHub issues scored by real test suites; Verified is the headline variant"
+  stars: 5500
+- repo: microsoft/SWE-bench-Live
+  category: agent
+  why: "contamination-resistant monthly-refresh SWE-bench — the answer to the original's saturation"
+  stars: 210
+- repo: harbor-framework/terminal-bench
+  category: agent
+  why: "hard containerized terminal tasks — became a frontier model-card metric in 2025-26"
+  stars: 2500
+- repo: harbor-framework/harbor
+  category: agent
+  why: "the emerging infrastructure layer for containerized agent evals and agentic-RL rollouts at scale"
+  stars: 3400
+- repo: xlang-ai/OSWorld
+  category: agent
+  why: "the de-facto computer-use benchmark (real-OS VM tasks); OSWorld 2.0 shipped 2026-06"
+  stars: 3000
+- repo: sierra-research/tau2-bench
+  category: agent
+  why: "the standard for conversational tool-use agents — policy adherence + pass^k reliability"
+  stars: 1600
+- repo: ShishirPatil/gorilla
+  category: agent
+  why: "home of the Berkeley Function-Calling Leaderboard — the universal tool-calling eval"
+  stars: 13000
+- repo: openai/mle-bench
+  category: agent
+  why: "75 Kaggle competitions testing autonomous ML engineering — a preparedness-framework staple"
+  stars: 1700
+- repo: ServiceNow/BrowserGym
+  category: agent
+  why: "the consolidation layer wrapping WebArena/VisualWebArena/WorkArena/MiniWoB into one API"
+  stars: 1300
+- repo: TheAgentCompany/TheAgentCompany
+  category: agent
+  why: "simulated software company — the best-known 'can agents do real jobs' benchmark"
+  stars: 750
+- repo: google-research/android_world
+  category: agent
+  why: "the standard mobile-device-agent benchmark — 116 dynamic tasks in real Android apps"
+  stars: 830
+- repo: facebookresearch/meta-agents-research-environments
+  category: agent
+  why: "Meta ARE + Gaia2 — agent eval moved to dynamic, async, time-constrained environments"
+  stars: 530
+
+# ── VLM eval ────────────────────────────────────────────────────────────────
 - repo: open-compass/VLMEvalKit
-  why: the standard one-command eval kit for vision-language models across MMMU/MathVista/MMBench
-  stars: null
-  pushed_at: null
-  last_sync: null
-- repo: NVIDIA/NeMo-Guardrails
-  why: the reference programmable-guardrails framework — runtime rails as code (security
-    fold)
-  stars: null
-  pushed_at: null
-  last_sync: null
+  category: vlm
+  why: "one-command eval of 200+ VLMs on 100+ benchmarks; powers the OpenVLM Leaderboard"
+  stars: 4300
+- repo: EvolvingLMMs-Lab/lmms-eval
+  category: vlm
+  why: "the other de-facto VLM harness (LLaVA/academic lineage) — image, video, audio"
+  stars: 4300
+- repo: MMMU-Benchmark/MMMU
+  category: vlm
+  why: "the flagship multimodal capability benchmark in every frontier model card"
+  stars: 590
+- repo: centerforaisafety/hle
+  category: vlm
+  why: "Humanity's Last Exam — the frontier-knowledge headline benchmark (multimodal, private held-out set)"
+  stars: 1600
+
+# ── VLA / embodied eval ─────────────────────────────────────────────────────
+- repo: Lifelong-Robot-Learning/LIBERO
+  category: vla
+  why: "the default VLA sim benchmark — required for comparability but saturated (~97-99% SOTA)"
+  stars: 2100
+- repo: simpler-env/SimplerEnv
+  category: vla
+  why: "real-to-sim eval of real-robot policies — the scalable proxy for physical evaluation"
+  stars: 1100
+- repo: allenai/vla-evaluation-harness
+  category: vla
+  why: "2026 entrant doing for VLA what lm-eval-harness did for LLMs — rising fast"
+  stars: 460
+- repo: robo-arena/roboarena
+  category: vla
+  why: "distributed double-blind real-robot policy arena (CoRL 2025) — low stars, high strategic importance"
+  stars: 110
+- repo: google-deepmind/open_x_embodiment
+  category: vla
+  why: "the cross-embodiment dataset + eval protocols all VLA evals descend from"
+  stars: 1900
+- repo: haosulab/ManiSkill
+  category: vla
+  why: "GPU-parallelized sim substrate increasingly used for large-scale VLA eval and RL"
+  stars: 3100
+- repo: StanfordVL/BEHAVIOR-1K
+  category: vla
+  why: "1,000 household activities in OmniGibson — the most ambitious long-horizon embodied benchmark"
+  stars: 1600
+
+# ── LLM-as-judge & arenas ───────────────────────────────────────────────────
+- repo: lm-sys/FastChat
+  category: judge
+  why: "the open lineage of Chatbot Arena / MT-Bench — origin of arena-style human-preference eval"
+  stars: 39500
+- repo: lmarena/arena-hard-auto
+  category: judge
+  why: "the standard cheap arena proxy (LLM-judge predicts Elo); activity slowing"
+  stars: 1100
+- repo: allenai/reward-bench
+  category: judge
+  why: "who judges the judges — the standard benchmark for reward models and LLM evaluators"
+  stars: 730
+
+# ── Live / contamination-resistant benchmarks ───────────────────────────────
+- repo: LiveBench/LiveBench
+  category: live
+  why: "monthly-refreshed, objective-ground-truth benchmark — the leading contamination answer"
+  stars: 1300
+- repo: LiveCodeBench/LiveCodeBench
+  category: live
+  why: "time-windowed competitive-programming eval — exposed HumanEval overfitting"
+  stars: 910
+- repo: evalplus/evalplus
+  category: live
+  why: "HumanEval+/MBPP+ with 80x more tests — how code numbers are made honest"
+  stars: 1800
+- repo: fchollet/ARC-AGI
+  category: live
+  why: "the fluid-intelligence holdout line (ARC-AGI-2/3 via arcprize) — $1M+ prize"
+  stars: 4800
+- repo: vectara/hallucination-leaderboard
+  category: live
+  why: "the most-cited public hallucination ranking (HHEM)"
+  stars: 3300
+
+# ── Guardrails & security (the adversarial-eval fold) ───────────────────────
 - repo: NVIDIA/garak
-  why: the LLM vulnerability scanner — nmap-for-LLMs
-  stars: null
-  pushed_at: null
-  last_sync: null
+  category: security
+  why: "the nmap of LLMs — de-facto open vulnerability scanner (jailbreaks, leakage, injection)"
+  stars: 8500
+- repo: microsoft/PyRIT
+  category: security
+  why: "Microsoft AI Red Team's own framework — best-in-class multi-turn adversarial campaigns"
+  stars: 4200
+- repo: NVIDIA-NeMo/Guardrails
+  category: security
+  why: "the open-source standard for programmable runtime rails (Colang policy-as-code)"
+  stars: 6800
+- repo: guardrails-ai/guardrails
+  category: security
+  why: "the validator-hub model — 65+ composable input/output validators"
+  stars: 7200
+- repo: meta-llama/PurpleLlama
+  category: security
+  why: "Meta's security umbrella — Llama Guard, Prompt Guard, CodeShield, CyberSecEval, LlamaFirewall"
+  stars: 4300
+- repo: centerforaisafety/HarmBench
+  category: security
+  why: "standardized automated red-teaming — 18 attacks vs 33 models under one harness"
+  stars: 1000
+- repo: ethz-spylab/agentdojo
+  category: security
+  why: "the reference agent prompt-injection benchmark — the number every defense reports against"
+  stars: 678
+- repo: confident-ai/deepteam
+  category: security
+  why: "red-teaming as evaluation — DeepEval's sibling, 40+ vulnerabilities mapped to OWASP/NIST"
+  stars: 2300
+- repo: JailbreakBench/jailbreakbench
+  category: security
+  why: "the canonical shared threat model + leaderboard + artifact repo for jailbreak research"
+  stars: 634
+- repo: Giskard-AI/giskard-oss
+  category: security
+  why: "European leader bridging classic ML testing and LLM vulnerability scanning"
+  stars: 5700

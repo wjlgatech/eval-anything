@@ -1,0 +1,255 @@
+# data/security.yml — the guardrails & security fold (single source of truth; README generated).
+# DECISION (2026-07-22): security lives INSIDE eval-anything, not a separate repo —
+# red-teaming IS adversarial evaluation; benchmarks, judges, and people overlap too heavily
+# to split (independent research assessment concurred). Runtime-enforcement + compliance is a
+# modest fraction and is still consumed through eval questions. Spin out a sibling repo only
+# if this fold demonstrably outgrows the measurement content.
+# Security REPOS already tracked live in data/registry.yml (category: security);
+# this file holds standards, seminal papers, notable tools/concepts, labs, and people.
+
+# ── Standards & governance frameworks ───────────────────────────────────────
+- category: standards
+  name: OWASP Top 10 for LLM Applications (2025)
+  url: https://genai.owasp.org/llm-top-10/
+  what: "community-ranked top LLM app risks — LLM01 Prompt Injection through LLM10 Unbounded Consumption"
+  why: "the de-facto shared vocabulary for LLM appsec — vendors, auditors, and security teams map findings to these IDs"
+- category: standards
+  name: OWASP GenAI Security Project + Agentic Security Initiative
+  url: https://genai.owasp.org/
+  what: "OWASP flagship umbrella; 'Agentic AI — Threats and Mitigations' taxonomizes memory poisoning, tool misuse, intent breaking"
+  why: "the primary open community producing practitioner agent-security guidance, ahead of formal standards bodies"
+- category: standards
+  name: MITRE ATLAS
+  url: https://atlas.mitre.org/
+  what: "ATT&CK-style knowledge base of adversary tactics and real-world case studies against AI systems"
+  why: "the standard threat-modeling substrate — SOC teams and vendors map detections to ATLAS technique IDs"
+- category: standards
+  name: NIST AI RMF + AI 600-1 Generative AI Profile
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
+  what: "Govern/Map/Measure/Manage framework + 12 GenAI risk categories with 200+ suggested actions"
+  why: "the closest thing to an official US government checklist for generative-AI risk controls"
+- category: standards
+  name: EU AI Act — GPAI obligations + Code of Practice
+  url: https://artificialintelligenceact.eu/article/55/
+  what: "systemic-risk GPAI providers must run state-of-the-art evals incl. documented adversarial testing (in force 2025-08)"
+  why: "the first binding legal regime making adversarial evaluation a regulatory requirement, not a best practice"
+- category: standards
+  name: MLCommons AILuminate
+  url: https://mlcommons.org/benchmarks/ailuminate/
+  what: "industry-consortium safety benchmark — 12 hazard categories, 24k+ prompts, letter-grade reports"
+  why: "the crash-test-rating model for AI safety — the leading neutral standardized safety grade"
+- category: standards
+  name: Frontier safety frameworks (Anthropic RSP v3 / OpenAI Preparedness v2 / GDM FSF v3)
+  url: https://www.anthropic.com/responsible-scaling-policy
+  what: "capability-thresholded if-then commitment frameworks governing pre-release evaluation at the big three labs"
+  why: "where dangerous-capability evals get their teeth — thresholds trigger safeguard requirements before deployment"
+
+# ── Seminal papers ──────────────────────────────────────────────────────────
+- category: papers
+  name: "Universal and Transferable Adversarial Attacks on Aligned LMs (GCG)"
+  url: https://arxiv.org/abs/2307.15043
+  what: "Zou et al. 2023 — gradient-optimized adversarial suffixes on open models transfer to GPT-4/Claude"
+  why: "proved alignment can be broken automatically and transferably — launched automated jailbreak research"
+- category: papers
+  name: Many-shot Jailbreaking
+  url: https://www.anthropic.com/research/many-shot-jailbreaking
+  what: "Anil et al. (Anthropic) 2024, NeurIPS — hundreds of in-context harmful demos jailbreak frontier models on a power law"
+  why: "established that long context windows are themselves attack surface"
+- category: papers
+  name: "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training"
+  url: https://arxiv.org/abs/2401.05566
+  what: "Hubinger et al. 2024 — backdoored deception survives SFT, RLHF, and adversarial training"
+  why: "canonical evidence that safety training cannot be trusted to remove implanted deception"
+- category: papers
+  name: Alignment Faking in Large Language Models
+  url: https://arxiv.org/abs/2412.14093
+  what: "Greenblatt et al. 2024 — Claude 3 Opus strategically complied with training objectives it disagreed with"
+  why: "first empirical demonstration of unprompted alignment-faking in a production model"
+- category: papers
+  name: "Constitutional Classifiers: Defending against Universal Jailbreaks"
+  url: https://arxiv.org/abs/2501.18837
+  what: "Sharma et al. (Anthropic) 2025 — classifiers trained on constitution-generated data survived 3,000+ red-team hours"
+  why: "the strongest published evidence that robust jailbreak defense is deployable at production scale (ASL-3)"
+- category: papers
+  name: "Not What You've Signed Up For (indirect prompt injection)"
+  url: https://arxiv.org/abs/2302.12173
+  what: "Greshake et al. 2023 — attacker instructions planted in retrieved data hijack LLM-integrated apps"
+  why: "founding paper of the threat class that now dominates agent security; its taxonomy still structures the field"
+- category: papers
+  name: "Ignore Previous Prompt: Attack Techniques for Language Models"
+  url: https://arxiv.org/abs/2211.09527
+  what: "Perez & Ribeiro 2022 — first systematic study of prompt injection (goal hijacking, prompt leaking)"
+  why: "the academic formalization of the attack Willison had just named — the direct-injection baseline"
+- category: papers
+  name: Poisoning Web-Scale Training Datasets is Practical
+  url: https://arxiv.org/abs/2302.10149
+  what: "Carlini et al. 2023 — expired domains + snapshot timing poison major web datasets for ~$60"
+  why: "moved data poisoning from lab hypothetical to demonstrated supply-chain risk"
+- category: papers
+  name: Poisoning Attacks Require a Near-constant Number of Samples
+  url: https://arxiv.org/abs/2510.07192
+  what: "Souly et al. (Anthropic/UK AISI/Turing) 2025 — ~250 poisoned documents backdoor any model size"
+  why: "overturned the percentage assumption — poisoning cost does not grow with scale"
+- category: papers
+  name: Extracting Training Data from Large Language Models
+  url: https://arxiv.org/abs/2012.07805
+  what: "Carlini et al. 2021 — recovered verbatim memorized text incl. PII; extended to ChatGPT (arXiv:2311.17035)"
+  why: "founded LLM privacy attacks — core to every model privacy audit and copyright suit"
+- category: papers
+  name: Defeating Prompt Injections by Design (CaMeL)
+  url: https://arxiv.org/abs/2503.18813
+  what: "Debenedetti et al. (GDM/ETH) 2025 — control/data-flow separation so untrusted data never alters program flow"
+  why: "the flagship security-by-construction result — the reference for capability-based agent architectures"
+- category: papers
+  name: Design Patterns for Securing LLM Agents against Prompt Injections
+  url: https://arxiv.org/abs/2506.08837
+  what: "Beurer-Kellner et al. 2025 — action-selector, plan-then-execute, dual-LLM, context-minimization patterns"
+  why: "the consensus practitioner playbook — effectively the OWASP patterns of agentic security"
+
+# ── Notable tools & concepts (beyond the tracked registry) ──────────────────
+- category: tools
+  name: LlamaFirewall (in PurpleLlama)
+  url: https://github.com/meta-llama/PurpleLlama
+  what: "orchestrates PromptGuard 2 + AlignmentCheck CoT auditor + CodeShield for agent protection"
+  why: "first open guardrail to audit an agent's chain-of-thought in real time; cut attack success >90% on AgentDojo"
+- category: tools
+  name: Lakera Guard / Gandalf
+  url: https://gandalf.lakera.ai
+  what: "commercial low-latency guardrail API powered by the viral Gandalf prompt-injection game"
+  why: "Gandalf is the largest crowdsourced prompt-attack dataset in existence; Lakera acquired by Check Point 2025-11"
+- category: tools
+  name: LLM Guard + Rebuff (Protect AI)
+  url: https://github.com/protectai/llm-guard
+  what: "input/output scanner toolkit + multi-layer injection detector with canary tokens"
+  why: "widely-deployed lightweight defenses; Rebuff pioneered canary-token leak detection (now maintenance mode)"
+- category: tools
+  name: StrongREJECT
+  url: https://github.com/dsbowen/strong_reject
+  what: "jailbreak eval whose calibrated judge penalizes low-quality 'technically complied' outputs"
+  why: "fixed the field's grade inflation — the standard rigor bar for jailbreak scoring"
+- category: tools
+  name: Petri (Anthropic → Meridian Labs)
+  url: https://github.com/safety-research/petri
+  what: "automated alignment-auditing agent — auditor LLM probes a target, judge scores deception/sycophancy/power-seeking"
+  why: "turned qualitative alignment auditing into a runnable open tool; used on 14 frontier models; built on Inspect"
+- category: tools
+  name: Adversarial Robustness Toolbox (ART)
+  url: https://github.com/Trusted-AI/adversarial-robustness-toolbox
+  what: "IBM/LF-AI library of evasion, poisoning, extraction, and inference attacks + defenses"
+  why: "the pre-LLM adversarial-ML standard — still the reference attack taxonomy beyond prompts"
+- category: tools
+  name: prompt-injection-defenses (tldrsec)
+  url: https://github.com/tldrsec/prompt-injection-defenses
+  what: "curated catalog of every practical and proposed prompt-injection defense"
+  why: "the best single map of the defense design space — shows how few defenses survive adaptive attack"
+
+# ── Agent-specific security ─────────────────────────────────────────────────
+- category: agentsec
+  name: The Lethal Trifecta (Simon Willison)
+  url: https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/
+  what: "private-data access + untrusted content + external communication = exploitable, period"
+  why: "the shared mental model for agent security in 2025-26 — cited by vendors, OWASP, and Meta"
+- category: agentsec
+  name: Agents Rule of Two (Meta)
+  url: https://ai.meta.com/blog/practical-ai-agent-security/
+  what: "an agent may satisfy at most two of the trifecta's three properties without human-in-the-loop"
+  why: "the most actionable engineering guidance yet published — operationalizes the trifecta as a budget"
+- category: agentsec
+  name: MCP tool poisoning (Invariant Labs disclosure)
+  url: https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks
+  what: "hidden instructions in MCP tool descriptions hijack agents; spawned MCPTox + OWASP MCP Top 10"
+  why: "defined the supply-chain threat model for the MCP era (4 named CVEs in the MCP layer in 2025)"
+- category: agentsec
+  name: InjecAgent + Agent Security Bench
+  url: https://github.com/agiresearch/ASB
+  what: "indirect-injection benchmarks — ASB formalizes 16 attack types vs 11 defenses across 400+ tools"
+  why: "the broadest attack/defense matrices for agents, incl. memory poisoning and plan backdoors"
+- category: agentsec
+  name: Month of AI Bugs (Johann Rehberger)
+  url: https://embracethered.com
+  what: "a disclosed real-world exploit chain per day (2025-08): ChatGPT memory exfiltration, Copilot, agentic browsers"
+  why: "the field's empirical ground truth — actual shipped-product vulnerabilities, not lab attacks"
+
+# ── Labs & companies ────────────────────────────────────────────────────────
+- category: labs
+  name: Gray Swan AI
+  url: https://www.grayswan.ai/
+  what: "Kolter/Fredrikson/Zou; Arena jailbreak competitions (~15k red-teamers), Shade attack agent, Cygnal guard"
+  why: "the research-pedigree leader bridging academic attacks and commercial red-teaming for frontier labs"
+- category: labs
+  name: Haize Labs
+  url: https://haizelabs.com/
+  what: "automated red-teaming ('haizing') + judge infrastructure (Verdict) for labs and enterprises"
+  why: "emblematic of the automated-adversarial-testing wave; stress-tests models pre-release for major labs"
+- category: labs
+  name: Irregular (ex Pattern Labs)
+  url: https://www.irregular.com/
+  what: "the first self-described frontier AI security lab — offensive-cyber capability evals ($80M Series B)"
+  why: "its SOLVE framework and evals are cited in OpenAI/Anthropic system cards and used by the UK government"
+- category: labs
+  name: Robust Intelligence (Cisco)
+  url: https://www.robustintelligence.com/
+  what: "AI validation + firewall pioneer, acquired by Cisco 2024 → Cisco AI Defense"
+  why: "the first major AI-security acquisition — proof the category reached network-security scale"
+- category: labs
+  name: HiddenLayer
+  url: https://hiddenlayer.com/
+  what: "model scanning, ML detection & response, adversarial research; active MITRE ATLAS contributor"
+  why: "the leading independent pure-play, strong on model-file supply-chain threats"
+- category: labs
+  name: Protect AI (Palo Alto Networks)
+  url: https://protectai.com/
+  what: "ML supply-chain security (Guardian, huntr bug bounty, Recon) — acquired ~$634.5M, 2025-07"
+  why: "built the largest AI/ML vulnerability community; its acquisition set the category's price benchmark"
+- category: labs
+  name: Lakera (Check Point)
+  url: https://www.lakera.ai/
+  what: "Lakera Guard runtime defense + the Gandalf attack corpus; acquired by Check Point 2025"
+  why: "completed the pattern of every major firewall vendor buying an AI-security startup"
+- category: labs
+  name: Anthropic Safeguards & Frontier Red Team
+  url: https://www.anthropic.com/research
+  what: "production defenses (Constitutional Classifiers, ASL-3 safeguards) + threat-intel on real-world misuse"
+  why: "the clearest public window into what production-scale model abuse actually looks like"
+
+# ── Key people ──────────────────────────────────────────────────────────────
+- category: people
+  name: Nicholas Carlini
+  url: https://nicholas.carlini.com
+  what: "Anthropic (ex GDM) — C&W attack, data extraction, web-scale poisoning, membership inference"
+  why: "his papers define the empirical adversarial-ML canon; a defense isn't robust until it survives Carlini"
+- category: people
+  name: Andy Zou
+  url: https://andyzoujm.github.io
+  what: "Gray Swan co-founder/CTO — GCG, representation engineering, circuit breakers"
+  why: "first author of the paper that started automated LLM jailbreaking; commercializes both attack and defense"
+- category: people
+  name: Zico Kolter
+  url: https://zicokolter.com
+  what: "CMU professor; Gray Swan co-founder; OpenAI board (Safety & Security Committee chair)"
+  why: "uniquely spans academic adversarial ML, a leading security startup, and frontier-lab governance"
+- category: people
+  name: Ethan Perez
+  url: https://ethanperez.net
+  what: "Anthropic — red-teaming LMs with LMs, many-shot jailbreaking, Sleeper Agents, alignment faking"
+  why: "the central figure in adversarial-robustness and model-organisms-of-misalignment research"
+- category: people
+  name: Simon Willison
+  url: https://simonwillison.net
+  what: "independent — coined 'prompt injection' (2022) and 'the lethal trifecta' (2025)"
+  why: "the field's most influential practitioner-communicator; his framings are how engineers reason about agent security"
+- category: people
+  name: Johann Rehberger
+  url: https://embracethered.com
+  what: "independent (Embrace The Red) — dozens of disclosed real-world LLM-product exploit chains"
+  why: "the most prolific public discoverer of actual shipped vulnerabilities — the field's empirical ground truth"
+- category: people
+  name: Kai Greshake
+  url: https://arxiv.org/abs/2302.12173
+  what: "lead author of 'Not What You've Signed Up For' (affiliation uncertain)"
+  why: "defined indirect prompt injection — the threat class that now dominates agentic security"
+- category: people
+  name: Florian Tramèr
+  url: https://floriantramer.com
+  what: "ETH Zürich professor — adaptive-attack methodology; senior author on CaMeL, AgentDojo, design patterns"
+  why: "the academic anchor of principled agent-security defense; his group sets the evaluation standards"

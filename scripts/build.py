@@ -11,6 +11,65 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 
+REG_CATS = [
+    ("harness", "🧰 LLM eval harnesses & platforms"),
+    ("agent", "🤖 Agentic benchmarks & infrastructure"),
+    ("vlm", "🖼️ VLM eval"),
+    ("vla", "🦾 VLA / embodied eval"),
+    ("judge", "⚖️ LLM-as-judge & arenas"),
+    ("live", "📆 Live / contamination-resistant"),
+    ("security", "🛡️ Guardrails & security"),
+]
+PAPER_CATS = [
+    ("benchmarks", "Foundational capability benchmarks"),
+    ("judge", "LLM-as-judge & eval methodology"),
+    ("agentic", "Agentic & coding-agent evaluation"),
+    ("vlm", "VLM evaluation"),
+    ("vla", "VLA / embodied evaluation"),
+    ("meta", "Meta-science of evaluation"),
+]
+LAB_CATS = [
+    ("independent", "Independent eval orgs"),
+    ("government", "Government & institutes"),
+    ("academic", "Academic"),
+    ("industry", "Industry eval teams"),
+]
+BLOG_CATS = [
+    ("practitioner", "Practitioner blogs & seminal posts"),
+    ("org", "Canonical org blogposts"),
+]
+PEOPLE_CATS = [
+    ("architects", "Benchmark architects"),
+    ("arena", "Arena & preference-based evaluation"),
+    ("builders", "Frontier-lab & rising benchmark builders"),
+    ("science", "Eval science, critique & rigor"),
+    ("safety", "Agent, safety & dangerous-capability evaluation"),
+    ("vla", "VLA / robotics / physical-AI evaluation"),
+]
+SEC_CATS = [
+    ("standards", "Standards & governance frameworks"),
+    ("papers", "Seminal papers"),
+    ("tools", "Notable tools & concepts (beyond the tracked registry)"),
+    ("agentsec", "Agent-specific security"),
+    ("labs", "Labs & companies"),
+    ("people", "Key people"),
+]
+
+
+def load(name):
+    f = ROOT / "data" / name
+    return (yaml.safe_load(f.read_text()) or []) if f.exists() else []
+
+
+def grouped(entries, cats, row_fn, header, level="###"):
+    """Render one table per category, in declared order."""
+    out = []
+    for key, title in cats:
+        rows = [row_fn(e) for e in entries if e.get("category") == key]
+        if rows:
+            out.append(f"{level} {title}\n\n{header}\n" + "\n".join(rows))
+    return "\n\n".join(out)
+
 
 def render() -> str:
     m = yaml.safe_load((ROOT / "data" / "meta.yml").read_text())
@@ -29,24 +88,49 @@ def render() -> str:
         f"?style=flat-square&label=last%20turn)](https://github.com/{gh}/commits)\n"
         f"![License](https://img.shields.io/badge/license-{m['license'].replace('-', '--')}-lightgrey?style=flat-square)")
     news = ""
-    news_file = ROOT / "data" / "news.yml"
-    if news_file.exists():
-        items = yaml.safe_load(news_file.read_text()) or []
+    items = load("news.yml")
+    if items:
         rows = "\n".join(f"- **{n['date']}** — {n['entry']}" for n in items)
         news = f"\n## 📰 News\n\n{rows}\n"
     folds = m["folds"]
     skill = m.get("skill", m["name"])
-    registry = []
-    reg_file = ROOT / "data" / "registry.yml"
-    if reg_file.exists():
-        registry = yaml.safe_load(reg_file.read_text()) or []
-    if registry:
-        reg_rows = "\n".join(
-            f"| [`{u['repo']}`](https://github.com/{u['repo']}) | {u['why']} "
-            f"| {'⭐ ' + str(u['stars']) if u.get('stars') is not None else '—'} "
-            f"| {(u.get('pushed_at') or '—')[:10]} |" for u in registry)
-    else:
-        reg_rows = "| *(seed the registry — add one row per tracked repo)* | | | |"
+
+    registry = load("registry.yml")
+    reg_tables = grouped(
+        registry, REG_CATS,
+        lambda u: (f"| [`{u['repo']}`](https://github.com/{u['repo']}) | {u['why']} "
+                   f"| {'⭐ ' + str(u['stars']) if u.get('stars') is not None else '—'} "
+                   f"| {(u.get('pushed_at') or '—')[:10]} |"),
+        "| Repo | Why tracked | Stars | Last push |\n|------|-------------|-------|-----------|")
+
+    papers = grouped(
+        load("papers.yml"), PAPER_CATS,
+        lambda p: f"| [{p['title']}]({p['url']}) | {p['cite']} | {p['why']} |",
+        "| Paper | Cite | Why it matters |\n|-------|------|----------------|")
+
+    labs = grouped(
+        load("labs.yml"), LAB_CATS,
+        lambda l: (f"| [{l['name']}]({l['url']}) | {l['what']} | {l['why']} "
+                   f"| {l['flagship']} |"),
+        "| Org | What | Why it matters | Flagship |\n|-----|------|----------------|----------|")
+
+    blogs = grouped(
+        load("blogs.yml"), BLOG_CATS,
+        lambda b: f"| {b['author']} | [{b['title']}]({b['url']}) | {b['year']} | {b['why']} |",
+        "| Author | Post | Year | Why canonical |\n|--------|------|------|---------------|")
+
+    people = grouped(
+        load("people.yml"), PEOPLE_CATS,
+        lambda p: (f"| [{p['name']}]({p['link']}) | {p['affiliation']} "
+                   f"| {p['known_for']} | {p['why']} |"),
+        "| Person | Affiliation | Known for | Why future-making |\n"
+        "|--------|-------------|-----------|-------------------|")
+
+    security = grouped(
+        load("security.yml"), SEC_CATS,
+        lambda s: f"| [{s['name']}]({s['url']}) | {s['what']} | {s['why']} |",
+        "| Entry | What | Why it matters |\n|-------|------|----------------|")
+
     return f"""<!-- GENERATED by scripts/build.py from data/*.yml — DO NOT HAND-EDIT. Edit data/ and run `make build`. -->
 
 # {m['emoji']} {m['title']}
@@ -75,9 +159,39 @@ one place to rely on for everything that matters in this domain.
 Top-rated repos this repo tracks — refreshed weekly by `make sync`
 (open GitHub API, human-gated PR with "what moved"):
 
-| Repo | Why tracked | Stars | Last push |
-|------|-------------|-------|-----------|
-{reg_rows}
+{reg_tables}
+
+## 📄 Seminal papers
+
+Citation rigor: every entry links its **primary source** (paper/DOI), never the
+trade article that covered it. Researched and web-verified 2026-07-22.
+
+{papers}
+
+## 🏛️ Labs & organizations
+
+{labs}
+
+## ✍️ Canonical blogs & blogposts
+
+{blogs}
+
+## 🌟 Ground-breaking & future-making people
+
+Affiliations verified 2026-07-22 where possible — people move fast in this field;
+uncertain affiliations are marked.
+
+{people}
+
+## 🛡️ Guardrails & security — the adversarial-eval fold
+
+**Decision (2026-07-22):** security lives *inside* eval-anything — red-teaming IS
+adversarial evaluation; the benchmarks, judges, and people overlap too heavily to
+split. It spins out into a sibling repo only if this fold demonstrably outgrows
+the measurement content. Security *repos* are tracked in the registry above;
+standards, papers, tools, labs, and people live here.
+
+{security}
 
 ## ⭐ The super-tool: `/{skill}`
 

@@ -1,0 +1,303 @@
+# data/people.yml — ground-breaking & future-making people (single source of truth; README generated).
+# Researched 2026-07-22; affiliations web-verified where possible — people move fast in this
+# field, so uncertain affiliations are marked "(uncertain)". `category` groups the tables.
+
+# ── Benchmark architects ────────────────────────────────────────────────────
+- category: architects
+  name: Dan Hendrycks
+  affiliation: Center for AI Safety (director)
+  known_for: "MMLU, MATH, Humanity's Last Exam (Nature 2026)"
+  why: "keeps building the ceiling benchmark each time frontier models saturate the last one"
+  link: https://danhendrycks.com
+- category: architects
+  name: Percy Liang
+  affiliation: Stanford CRFM (director)
+  known_for: "HELM — holistic, multi-metric, transparent LM evaluation"
+  why: "institutionalized eval as reproducible science"
+  link: https://cs.stanford.edu/~pliang/
+- category: architects
+  name: Rishi Bommasani
+  affiliation: Stanford HAI
+  known_for: "foundation-model transparency indexes; societal-impact eval"
+  why: "bridges eval science to real policy (CA Frontier AI report, EU Code of Practice)"
+  link: https://rishibommasani.github.io
+- category: architects
+  name: Carlos E. Jimenez
+  affiliation: Princeton
+  known_for: "co-creator of SWE-bench"
+  why: "SWE-bench became the currency of coding-agent claims; keeps hardening it against saturation"
+  link: https://www.carlosejimenez.com
+- category: architects
+  name: John Yang
+  affiliation: Stanford
+  known_for: "lead author of SWE-bench and SWE-agent"
+  why: "now pushing human-centered coding-agent evaluation — the frame after raw resolve-rates"
+  link: https://john-b-yang.github.io
+- category: architects
+  name: Ofir Press
+  affiliation: Meta FAIR
+  known_for: "co-developed SWE-bench and SWE-agent; SciCode"
+  why: "prolific benchmark entrepreneur with a knack for evals labs actually adopt"
+  link: https://ofir.io/about/
+- category: architects
+  name: Shunyu Yao
+  affiliation: Tencent (Chief AI Scientist)
+  known_for: "ReAct, Tree of Thoughts, SWE-agent, tau-bench; 'The Second Half' essay"
+  why: "the most influential agent-eval thinker of his generation — argues eval is now THE bottleneck"
+  link: https://ysymyth.github.io
+- category: architects
+  name: Karthik Narasimhan
+  affiliation: Princeton (+ Sierra, split uncertain)
+  known_for: "advised the SWE-bench/tau-bench/ReAct lineage; GPT-1 co-author"
+  why: "his lab is the most productive agent-benchmark factory in academia"
+  link: https://karthikncode.github.io
+- category: architects
+  name: Jason Wei
+  affiliation: Meta Superintelligence Labs
+  known_for: "emergent abilities, chain-of-thought; eval-design essays"
+  why: "his 'evals are the real moat' framing drives frontier-lab research allocation"
+  link: https://www.jasonwei.net
+- category: architects
+  name: François Chollet
+  affiliation: Ndea + ARC Prize Foundation
+  known_for: "ARC-AGI; ARC-AGI-3 — the first fully interactive/agentic ARC (2026-03)"
+  why: "the most credible AGI-resistant benchmark line, moving eval from static Q&A to interactive environments"
+  link: https://fchollet.com
+- category: architects
+  name: Graham Neubig
+  affiliation: CMU + All Hands AI
+  known_for: "OpenHands agent framework; many code/agent evals"
+  why: "builds agents AND the harnesses that judge them — his evals reflect real failure modes"
+  link: http://www.phontron.com
+- category: architects
+  name: Xiang Yue
+  affiliation: Meta Superintelligence Labs
+  known_for: "MMMU / MMMU-Pro"
+  why: "defined how vision-language expert reasoning is measured"
+  link: https://xiangyue9607.github.io
+- category: architects
+  name: Yejin Choi
+  affiliation: Stanford
+  known_for: "HellaSwag, WinoGrande, commonsense eval"
+  why: "pushing evals beyond accuracy toward pluralism and values"
+  link: https://yejinc.github.io
+
+# ── Arena & preference-based evaluation ─────────────────────────────────────
+- category: arena
+  name: Anastasios Angelopoulos
+  affiliation: Arena (CEO)
+  known_for: "the statistics behind Chatbot Arena's rankings; conformal prediction"
+  why: "raised $150M (2026-01, $1.7B valuation) to turn crowd eval into AI-reliability science"
+  link: https://people.eecs.berkeley.edu/~angelopoulos/
+- category: arena
+  name: Wei-Lin Chiang
+  affiliation: Arena (co-founder/CTO)
+  known_for: "created Chatbot Arena and Vicuna at LMSYS"
+  why: "built the world's largest live human-preference eval, now scaling into domain arenas"
+  link: https://x.com/infwinston
+- category: arena
+  name: Ion Stoica
+  affiliation: UC Berkeley; Arena chairman
+  known_for: "academic godfather of LMSYS → LMArena → Arena"
+  why: "repeatedly turns Berkeley systems research into industry-standard eval infrastructure"
+  link: https://people.eecs.berkeley.edu/~istoica/
+- category: arena
+  name: Lianmin Zheng
+  affiliation: xAI (uncertain — possible recent move)
+  known_for: "MT-Bench and the foundational LLM-as-a-Judge paper; SGLang"
+  why: "wrote the canonical analysis of the now-default eval paradigm"
+  link: https://lmzheng.net
+- category: arena
+  name: Yann Dubois
+  affiliation: OpenAI
+  known_for: "AlpacaEval and Length-Controlled AlpacaEval"
+  why: "shaping how a frontier lab moves from gameable benchmarks to real-world-utility eval"
+  link: https://yanndubs.github.io
+
+# ── Frontier-lab & rising benchmark builders ────────────────────────────────
+- category: builders
+  name: Tejal Patwardhan
+  affiliation: OpenAI (frontier evals lead)
+  known_for: "GDPval, PaperBench, MLE-bench"
+  why: "defining how AI's real economic labor impact gets measured, not just test scores"
+  link: https://x.com/tejalpatwardhan
+- category: builders
+  name: David Rein
+  affiliation: METR
+  known_for: "first author of GPQA; METR Time Horizons; the 2025 developer-productivity RCT"
+  why: "moved from hard benchmarks to the science of agent evaluation and human-grounded RCTs"
+  link: https://idavidrein.com
+- category: builders
+  name: Summer Yue
+  affiliation: Meta Superintelligence Labs
+  known_for: "SEAL leaderboards, MultiChallenge, HLE senior author"
+  why: "brought private contamination-resistant eval to industry scale"
+  link: https://x.com/summeryue0
+- category: builders
+  name: Mike A. Merrill
+  affiliation: Anthropic (evals)
+  known_for: "co-creator of Terminal-Bench"
+  why: "Terminal-Bench became 2025-26's fastest-adopted agent benchmark"
+  link: https://mikemerrill.io
+- category: builders
+  name: Naman Jain
+  affiliation: UC Berkeley (uncertain — may have graduated)
+  known_for: "LiveCodeBench"
+  why: "built the template for live rolling benchmarks — the field's best answer to contamination"
+  link: https://naman-ntc.github.io
+- category: builders
+  name: Hailey Schoelkopf
+  affiliation: Anthropic
+  known_for: "maintainer of lm-evaluation-harness; 'Lessons from the Trenches'"
+  why: "the harness underpins thousands of reported results; she wrote the reproducibility playbook"
+  link: https://haileyschoelkopf.github.io
+
+# ── Eval science, critique & rigor ──────────────────────────────────────────
+- category: science
+  name: Clémentine Fourrier
+  affiliation: Hugging Face (sabbatical until 2026-12)
+  known_for: "Open LLM Leaderboard, lighteval, the LLM Evaluation Guidebook"
+  why: "wrote the field's most-used practical eval handbook and democratized open-model evaluation"
+  link: https://clefourrier.github.io
+- category: science
+  name: Rylan Schaeffer
+  affiliation: Stanford (finishing PhD, next step uncertain)
+  known_for: "'Are Emergent Abilities a Mirage?' (NeurIPS 2023 Outstanding Paper)"
+  why: "serial debunker of eval artifacts; pushing a Refutations & Critiques track at ML conferences"
+  link: https://rylanschaeffer.github.io
+- category: science
+  name: Inioluwa Deborah Raji
+  affiliation: UC Berkeley (uncertain)
+  known_for: "algorithmic auditing; 'Everything in the Whole Wide World Benchmark'"
+  why: "founded the audit framing that external adversarial evaluation of deployed systems now follows"
+  link: https://rajiinio.github.io
+- category: science
+  name: Sara Hooker
+  affiliation: Adaption Labs (co-founder/CEO)
+  known_for: "'The Hardware Lottery'; leaderboard-gaming and compute-threshold critiques"
+  why: "one of the sharpest critics of scale-centric eval, now betting a company on adaptive models"
+  link: https://www.sarahooker.me
+- category: science
+  name: Sanmi Koyejo
+  affiliation: Stanford (STAIR lab)
+  known_for: "emergence-mirage line; DecodingTrust; statistical rigor for ML eval"
+  why: "makes 'is this difference real?' a first-class question; training the next generation of eval statisticians"
+  link: https://cs.stanford.edu/~sanmi/
+- category: science
+  name: Moritz Hardt
+  affiliation: MPI for Intelligent Systems (director)
+  known_for: "train-on-test / leaderboard-overfitting theory"
+  why: "supplies the theoretical foundations for why benchmarks keep working — or quietly stop"
+  link: https://mrtz.org
+- category: science
+  name: Arvind Narayanan
+  affiliation: Princeton (CITP director)
+  known_for: "AI Snake Oil; 'AI Agents That Matter' critique"
+  why: "the field's most trusted public skeptic; forced cost-controlled reproducible agent reporting"
+  link: https://www.cs.princeton.edu/~arvindn/
+- category: science
+  name: Sayash Kapoor
+  affiliation: Princeton (PhD, defending 2026)
+  known_for: "HAL (Holistic Agent Leaderboard); AI Snake Oil co-author"
+  why: "literally writing the thesis the field needs — 'The Missing Science of AI Evaluation'"
+  link: https://www.cs.princeton.edu/~sayashk/
+- category: science
+  name: Shreya Shankar
+  affiliation: UC Berkeley → CMU (incoming assistant professor)
+  known_for: "'Who Validates the Validators?'; DocETL; evals-in-production research"
+  why: "defined human-aligned LLM-as-judge methodology; co-teaches the most popular practical evals course"
+  link: https://www.sh-reya.com
+- category: science
+  name: Hamel Husain
+  affiliation: Parlance Labs (independent)
+  known_for: "'Your AI Product Needs Evals'; the Maven evals course"
+  why: "made rigorous evals a mainstream engineering practice for thousands of AI product teams"
+  link: https://hamel.dev
+- category: science
+  name: Stella Biderman
+  affiliation: EleutherAI (executive director)
+  known_for: "steward of lm-evaluation-harness; Pythia suite"
+  why: "keeps the open reproducible eval commons alive as labs go closed"
+  link: https://www.stellabiderman.com
+- category: science
+  name: Melanie Mitchell
+  affiliation: Santa Fe Institute
+  known_for: "ConceptARC; rigorous critiques of sparks-of-AGI capability claims"
+  why: "the conscience of capability claims — insists on probing HOW models pass tests"
+  link: https://melaniemitchell.me
+
+# ── Agent, safety & dangerous-capability evaluation ─────────────────────────
+- category: safety
+  name: Beth Barnes
+  affiliation: METR (founder/CEO)
+  known_for: "time-horizon methodology; pre-release autonomy evals for frontier labs"
+  why: "Time Horizons + Frontier Risk Reports are becoming the industry's shared risk dashboard"
+  link: https://metr.org/team/beth-barnes/
+- category: safety
+  name: Marius Hobbhahn
+  affiliation: Apollo Research (co-founder/CEO)
+  known_for: "scheming/deception evals; 'We need a science of evals'"
+  why: "deception eval is the hardest open problem in safety measurement; Apollo runs it for labs and governments"
+  link: https://www.mariushobbhahn.com
+- category: safety
+  name: Jaime Sevilla
+  affiliation: Epoch AI (founder/director)
+  known_for: "compute trends; FrontierMath; capability forecasting"
+  why: "Epoch is the independent 'BLS of AI' — the neutral data source labs and policymakers both cite"
+  link: https://epoch.ai
+- category: safety
+  name: Geoffrey Irving
+  affiliation: UK AISI (Chief Scientist)
+  known_for: "debate/scalable oversight; oversees AISI frontier evals and red-teaming"
+  why: "built the strongest state-run eval capacity in the world; Inspect is now widely adopted"
+  link: https://naml.us
+- category: safety
+  name: Ethan Perez
+  affiliation: Anthropic
+  known_for: "red-teaming LMs with LMs; model-written evals; inverse scaling prize"
+  why: "automated red-teaming — evals that generate themselves — is his invention and the likely future of safety testing"
+  link: https://ethanperez.net
+- category: safety
+  name: Nicholas Carlini
+  affiliation: Anthropic
+  known_for: "adversarial ML, training-data extraction, contamination detection"
+  why: "the field's most feared stress-tester — whatever eval you build, he shows how it breaks"
+  link: https://nicholas.carlini.com
+- category: safety
+  name: Andy Zou
+  affiliation: Gray Swan AI (co-founder/CTO)
+  known_for: "GCG universal jailbreaks, HarmBench, representation engineering"
+  why: "turned adversarial eval into a product and a sport — jailbreak arenas feed frontier safety cases"
+  link: https://andyzoujm.github.io
+- category: safety
+  name: Zico Kolter
+  affiliation: CMU; OpenAI board (Safety & Security Committee chair)
+  known_for: "adversarial robustness; the GCG/HarmBench lineage"
+  why: "sets safety-eval bars from inside a frontier lab's board while training the attackers at CMU"
+  link: https://zicokolter.com
+
+# ── VLA / robotics / physical-AI evaluation ─────────────────────────────────
+- category: vla
+  name: Sergey Levine
+  affiliation: UC Berkeley + Physical Intelligence
+  known_for: "rigorous real-robot evaluation culture; RT-X cross-embodiment eval"
+  why: "insists on real-world rollout statistics over demo videos — the eval standard VLA needs"
+  link: https://people.eecs.berkeley.edu/~svlevine/
+- category: vla
+  name: Chelsea Finn
+  affiliation: Stanford + Physical Intelligence
+  known_for: "meta-learning; generalization benchmarks for robot policies; π-model eval protocols"
+  why: "sets the standard for measuring policy generalization to unseen environments/embodiments"
+  link: https://ai.stanford.edu/~cbfinn/
+- category: vla
+  name: Karol Hausman
+  affiliation: Physical Intelligence (co-founder/CEO)
+  known_for: "π0 generalist robot policy"
+  why: "defines what generalization means empirically for robot foundation models"
+  link: https://karolhausman.github.io
+- category: vla
+  name: Ted Xiao
+  affiliation: Project Prometheus (ex Google DeepMind)
+  known_for: "Gemini Robotics eval; the robotics 'eval gap' advocacy"
+  why: "the clearest public thinker on why robotics lacks its MMLU"
+  link: https://tedxiao.me
