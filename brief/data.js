@@ -1618,6 +1618,10 @@ const BRIEF_DATA = {
   "news": [
     {
       "date": "2026-07-22",
+      "entry": "demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos) now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified, zero console errors. The pattern is now baseline-contract rule #4 in the family PLAYBOOK."
+    },
+    {
+      "date": "2026-07-22",
       "entry": "published: github.com/wjlgatech/eval-anything is live (private, family convention) — CI green on main; the weekly registry sync heartbeat is armed"
     },
     {
@@ -1987,6 +1991,7 @@ const BRIEF_DATA = {
     "Super-tool feature 'Answer 'is the business objective on track?'' — say: \"our evals pass but users are churning\" → you get: the diagnosis: your evals measure engineering soundness, not the objective — an error-analysis pass on real traces (Husain/Shankar doctrine) to find what users actually hit, then a criterion rebuilt from those failure modes.",
     "Super-tool feature 'Track what moved (the meta-repo)' — say: \"what moved this week in evals?\" → you get: the registry diff (stars, pushes, org moves across 54 repos) plus the News ledger — the same 'what moved' the weekly human-gated PR carries.",
     "Super-tool feature 'Track what moved (the meta-repo)' — say: \"give me the 300-year view on why eval without control fails\" → you get: the survival canon: every 300y survivor fused observe+eval+control into one artifact a worker could use (control chart, andon cord, checklist); every corpse was a scoreboard or a framework — with primary sources per entry.",
+    "News 2026-07-22: demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos) now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified, zero console errors. The pattern is now baseline-contract rule #4 in the family PLAYBOOK.",
     "News 2026-07-22: published: github.com/wjlgatech/eval-anything is live (private, family convention) — CI green on main; the weekly registry sync heartbeat is armed",
     "News 2026-07-22: OEC reframe landed (Paul's directive): the repo's big picture is now Observe → Evaluate → Control — observability precedes eval, eval targets the objective (engineering AND business, across the lifecycle), eval without control is a scoreboard. New data/oec.yml canon across three survival-test horizons (300y/30y/now) + docs/OEC.md deep dive (quote pairs, anti-portfolio, Lindy readings). Also: an unverifiable 'OpenAI acquires promptfoo' claim was removed from the registry (citation rigor).",
     "News 2026-07-22: field research landed: 54 tracked repos, 59 seminal papers, 26 labs/orgs, 19 canonical blogs, 48 people, 47 guardrails/security entries — all web-verified this day. DECISION: guardrails/security lives inside eval-anything (red-teaming IS adversarial evaluation); splits out only if the fold outgrows the repo.",

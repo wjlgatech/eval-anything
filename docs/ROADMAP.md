@@ -20,6 +20,9 @@ spec but NOT auto-generated** (no fake passes — each is a real next turn):
       freshness probe, honest-null on scrape failure.
 - [ ] **Split criterion review** — revisit the guardrails/security in-repo decision if
       that fold's entry count rivals the measurement content (currently 47 vs ~206).
+- [ ] **Deploy the brief webapp** — Vercel project `eval-anything-demo` (root `brief/`),
+      then add ANTHROPIC_API_KEY so the copilot answers via Claude (human-gated:
+      identity + spend); set `demo_url` in data/meta.yml so the README callout renders.
 - [ ] **OEC gap watch** — the now-horizon research surfaced three unowned gaps worth
       tracking (and possibly building toward): (1) no OSS trace platform ships native
       drift-detection with auto-baselining; (2) "AI SLOs" have no canonical owner;
