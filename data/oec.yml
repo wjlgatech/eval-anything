@@ -106,7 +106,7 @@
   horizon: 300y
   name: "Campbell's law"
   origin: "Campbell 1976/1979"
-  url: https://www.sciencedirect.com/science/article/abs/pii/014971897990048X
+  url: https://eric.ed.gov/?id=ED303512
   what: "the more an indicator drives decisions, the more it corrupts the process it monitors"
   why: "independently converged with Goodhart — twin discovery is itself survival evidence; standard in testing/policing-metrics literature"
 - pillar: evaluate
