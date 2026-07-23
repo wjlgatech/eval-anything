@@ -14,7 +14,7 @@ REQUIRED_META = ["name", "emoji", "title", "tagline", "description", "audience",
 # curated-collection schemas: file → (required keys per entry, allowed categories)
 COLLECTIONS = {
     "registry.yml": (["repo", "why", "category"],
-                     {"observe", "harness", "agent", "vlm", "vla", "judge", "live", "security"}),
+                     {"observe", "control", "harness", "agent", "vlm", "vla", "judge", "live", "security"}),
     "papers.yml": (["category", "title", "cite", "url", "why"],
                    {"benchmarks", "judge", "agentic", "vlm", "vla", "meta"}),
     "labs.yml": (["category", "name", "url", "what", "why", "flagship"],

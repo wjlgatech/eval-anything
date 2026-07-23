@@ -15,6 +15,7 @@ One reliable place for evaluation of foundation models (LLM, VLM, VLA) and agent
 
 ## 📰 News
 
+- **2026-07-23** — OEC completed end-to-end and demonstrated on a real product: agentgate joins the registry (new control category) and the OEC canon as the family C exemplar; AgentGate ROADMAP gains phase 3.5 (consume observe.py --eval session signals as gate evidence) + eval-rigor discipline. Live demo on REDACTED (docs/demos/redacted-oec.md): O = 14.7h build session observed (399 tool calls, 1.25% error); E = 100 tests green AND an honest business ❌ (parity not_measured pending GPU render); C = the real AgentGate pipeline blocking secrets, escalating 4k-line diffs, tamper-evident ledger verified.
 - **2026-07-22** — the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents; patoles/agent-flow (Apache-2.0, researched vs 6 alternatives incl. the unlicensed 1.5k-star leader) composed as the human surface — same ground truth, two audiences. New registry category: observe (5 repos). Dogfooded on this very session: 175 tool calls, 6.9% error rate, 11 subagents, 32 files mutated.
 - **2026-07-22** — demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos) now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified, zero console errors. The pattern is now baseline-contract rule #4 in the family PLAYBOOK.
 - **2026-07-22** — published: github.com/wjlgatech/eval-anything is live (private, family convention) — CI green on main; the weekly registry sync heartbeat is armed
@@ -211,6 +212,7 @@ hype cycle) · ⚡ now (rising, mid-2026):
 | [Agent fleet governance](https://www.microsoft.com/en-us/microsoft-365/blog/2025/11/18/microsoft-agent-365-the-control-plane-for-ai-agents/) | Microsoft Agent 365 (GA 2026-05) | ⚡ now | registry + agent identities + fleet-wide telemetry + enforcement, framework-agnostic | the biggest-scale 'governance over agent fleets'; meanwhile Deloitte finds only 21% of enterprises have mature agent governance — C is the least-built pillar |
 | [Sandboxing as containment control](https://e2b.dev) | E2B (Firecracker microVMs) et al. | ⚡ now | kernel-level isolation as the outermost control ring for agent execution | the control everyone agrees on even when policy engines disagree |
 | [Closed-loop data flywheels (MAPE for agents)](https://arxiv.org/abs/2510.27051) | NVIDIA, arXiv:2510.27051 → EACL 2026; Arize LLMOps loop | ⚡ now | Monitor-Analyze-Plan-Execute on a 30k-user assistant: production feedback → failure analysis → targeted fine-tunes → redeploy | the most explicit published OEC loop for agents — names the control-theory lineage outright (70% latency cut, 96% router accuracy) |
+| [AgentGate (first-party)](https://github.com/wjlgatech/agentgate) | wjlgatech 2026 | ⚡ now | actor-aware policy-as-data firewall for human + AI-agent code changes — verify → classify actor → deterministic checks → decide → audit (hash-chained ledger) | the family's own O+E+C-fused artifact (the 300y Lindy shape): agents auto-merge low-risk only, riskier routes to a human, every decision is court-grade evidence; red-team hardened 58%→75% catch at 0% false-escalation |
 
 ## 📡 Tracked upstream (the meta-repo)
 
@@ -226,6 +228,12 @@ Top-rated repos this repo tracks — refreshed weekly by `make sync`
 | [`anthropics/claude-code-monitoring-guide`](https://github.com/anthropics/claude-code-monitoring-guide) | the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana | ⭐ 357 | — |
 | [`OWASP/www-project-agent-observability-standard`](https://github.com/OWASP/www-project-agent-observability-standard) | the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit | ⭐ 57 | — |
 | [`dreadnode/agent-lens`](https://github.com/dreadnode/agent-lens) | agent observability + replay for safety/interpretability research (MIT) — the research-grade angle | ⭐ 109 | — |
+
+### 🎛️ Control (the C of OEC)
+
+| Repo | Why tracked | Stars | Last push |
+|------|-------------|-------|-----------|
+| [`wjlgatech/agentgate`](https://github.com/wjlgatech/agentgate) | FIRST-PARTY — the C of OEC productized: actor-aware policy firewall for human + AI-agent code changes (verify → classify → check → decide → audit); hash-chained ledger; agents held to a stricter bar. The family's own control exemplar | — | — |
 
 ### 🧰 LLM eval harnesses & platforms
 

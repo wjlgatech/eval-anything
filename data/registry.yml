@@ -20,6 +20,11 @@
   category: observe
   why: agent observability + replay for safety/interpretability research (MIT) — the research-grade angle
   stars: 109
+- repo: wjlgatech/agentgate
+  category: control
+  why: 'FIRST-PARTY — the C of OEC productized: actor-aware policy firewall for human + AI-agent code changes (verify → classify
+    → check → decide → audit); hash-chained ledger; agents held to a stricter bar. The family''s own control exemplar'
+  stars: null
 - repo: EleutherAI/lm-evaluation-harness
   category: harness
   why: the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard

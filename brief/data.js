@@ -76,6 +76,12 @@ const BRIEF_DATA = {
       "stars": 109
     },
     {
+      "repo": "wjlgatech/agentgate",
+      "category": "control",
+      "why": "FIRST-PARTY — the C of OEC productized: actor-aware policy firewall for human + AI-agent code changes (verify → classify → check → decide → audit); hash-chained ledger; agents held to a stricter bar. The family's own control exemplar",
+      "stars": null
+    },
+    {
       "repo": "EleutherAI/lm-evaluation-harness",
       "category": "harness",
       "why": "the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard",
@@ -1553,6 +1559,15 @@ const BRIEF_DATA = {
       "url": "https://arxiv.org/abs/2510.27051",
       "what": "Monitor-Analyze-Plan-Execute on a 30k-user assistant: production feedback → failure analysis → targeted fine-tunes → redeploy",
       "why": "the most explicit published OEC loop for agents — names the control-theory lineage outright (70% latency cut, 96% router accuracy)"
+    },
+    {
+      "pillar": "control",
+      "horizon": "now",
+      "name": "AgentGate (first-party)",
+      "origin": "wjlgatech 2026",
+      "url": "https://github.com/wjlgatech/agentgate",
+      "what": "actor-aware policy-as-data firewall for human + AI-agent code changes — verify → classify actor → deterministic checks → decide → audit (hash-chained ledger)",
+      "why": "the family's own O+E+C-fused artifact (the 300y Lindy shape): agents auto-merge low-risk only, riskier routes to a human, every decision is court-grade evidence; red-team hardened 58%→75% catch at 0% false-escalation"
     }
   ],
   "examples": [
@@ -1661,6 +1676,10 @@ const BRIEF_DATA = {
   ],
   "news": [
     {
+      "date": "2026-07-23",
+      "entry": "OEC completed end-to-end and demonstrated on a real product: agentgate joins the registry (new control category) and the OEC canon as the family C exemplar; AgentGate ROADMAP gains phase 3.5 (consume observe.py --eval session signals as gate evidence) + eval-rigor discipline. Live demo on REDACTED (docs/demos/redacted-oec.md): O = 14.7h build session observed (399 tool calls, 1.25% error); E = 100 tests green AND an honest business ❌ (parity not_measured pending GPU render); C = the real AgentGate pipeline blocking secrets, escalating 4k-line diffs, tamper-evident ledger verified."
+    },
+    {
       "date": "2026-07-22",
       "entry": "the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents; patoles/agent-flow (Apache-2.0, researched vs 6 alternatives incl. the unlicensed 1.5k-star leader) composed as the human surface — same ground truth, two audiences. New registry category: observe (5 repos). Dogfooded on this very session: 175 tool calls, 6.9% error rate, 11 subagents, 32 files mutated."
     },
@@ -1708,6 +1727,7 @@ const BRIEF_DATA = {
     "Tracked repo anthropics/claude-code-monitoring-guide [observe]: the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana. Stars 357, last push n/a.",
     "Tracked repo OWASP/www-project-agent-observability-standard [observe]: the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit. Stars 57, last push n/a.",
     "Tracked repo dreadnode/agent-lens [observe]: agent observability + replay for safety/interpretability research (MIT) — the research-grade angle. Stars 109, last push n/a.",
+    "Tracked repo wjlgatech/agentgate [control]: FIRST-PARTY — the C of OEC productized: actor-aware policy firewall for human + AI-agent code changes (verify → classify → check → decide → audit); hash-chained ledger; agents held to a stricter bar. The family's own control exemplar. Stars None, last push n/a.",
     "Tracked repo EleutherAI/lm-evaluation-harness [harness]: the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard. Stars 13371, last push 2026-07-13.",
     "Tracked repo UKGovernmentBEIS/inspect_ai [harness]: UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it. Stars 2391, last push 2026-07-22.",
     "Tracked repo UKGovernmentBEIS/inspect_evals [harness]: 200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place. Stars 595, last push 2026-07-22.",
@@ -1891,6 +1911,7 @@ const BRIEF_DATA = {
     "OEC canon [control / now]: Agent fleet governance (Microsoft Agent 365 (GA 2026-05)) — registry + agent identities + fleet-wide telemetry + enforcement, framework-agnostic. Why load-bearing: the biggest-scale 'governance over agent fleets'; meanwhile Deloitte finds only 21% of enterprises have mature agent governance — C is the least-built pillar.",
     "OEC canon [control / now]: Sandboxing as containment control (E2B (Firecracker microVMs) et al.) — kernel-level isolation as the outermost control ring for agent execution. Why load-bearing: the control everyone agrees on even when policy engines disagree.",
     "OEC canon [control / now]: Closed-loop data flywheels (MAPE for agents) (NVIDIA, arXiv:2510.27051 → EACL 2026; Arize LLMOps loop) — Monitor-Analyze-Plan-Execute on a 30k-user assistant: production feedback → failure analysis → targeted fine-tunes → redeploy. Why load-bearing: the most explicit published OEC loop for agents — names the control-theory lineage outright (70% latency cut, 96% router accuracy).",
+    "OEC canon [control / now]: AgentGate (first-party) (wjlgatech 2026) — actor-aware policy-as-data firewall for human + AI-agent code changes — verify → classify actor → deterministic checks → decide → audit (hash-chained ledger). Why load-bearing: the family's own O+E+C-fused artifact (the 300y Lindy shape): agents auto-merge low-risk only, riskier routes to a human, every decision is court-grade evidence; red-team hardened 58%→75% catch at 0% false-escalation.",
     "Lab/org [independent]: METR — nonprofit measuring frontier-model autonomous capabilities on long-horizon real tasks. Why: the 50% time-horizon metric became the industry yardstick for agent autonomy; cited in nearly every frontier system card. Flagship: Time Horizons (1.1, 2026-01) + HCAST/RE-Bench.",
     "Lab/org [independent]: Apollo Research — safety org specializing in deception, scheming, and hidden-misalignment evals. Why: defined in-context scheming as a measurable phenomenon; runs propensity evals for frontier labs. Flagship: In-context Scheming evals (arXiv:2412.04984).",
     "Lab/org [independent]: Epoch AI — research institute tracking compute trends and running independent benchmarking. Why: the most rigorous third-party data source — its audit found errors in 42% of original FrontierMath problems. Flagship: FrontierMath (v2, 2026-06) + AI Benchmarking Hub.",
@@ -2046,6 +2067,7 @@ const BRIEF_DATA = {
     "Super-tool feature 'Answer 'is the business objective on track?'' — say: \"our evals pass but users are churning\" → you get: the diagnosis: your evals measure engineering soundness, not the objective — an error-analysis pass on real traces (Husain/Shankar doctrine) to find what users actually hit, then a criterion rebuilt from those failure modes.",
     "Super-tool feature 'Track what moved (the meta-repo)' — say: \"what moved this week in evals?\" → you get: the registry diff (stars, pushes, org moves across 54 repos) plus the News ledger — the same 'what moved' the weekly human-gated PR carries.",
     "Super-tool feature 'Track what moved (the meta-repo)' — say: \"give me the 300-year view on why eval without control fails\" → you get: the survival canon: every 300y survivor fused observe+eval+control into one artifact a worker could use (control chart, andon cord, checklist); every corpse was a scoreboard or a framework — with primary sources per entry.",
+    "News 2026-07-23: OEC completed end-to-end and demonstrated on a real product: agentgate joins the registry (new control category) and the OEC canon as the family C exemplar; AgentGate ROADMAP gains phase 3.5 (consume observe.py --eval session signals as gate evidence) + eval-rigor discipline. Live demo on REDACTED (docs/demos/redacted-oec.md): O = 14.7h build session observed (399 tool calls, 1.25% error); E = 100 tests green AND an honest business ❌ (parity not_measured pending GPU render); C = the real AgentGate pipeline blocking secrets, escalating 4k-line diffs, tamper-evident ledger verified.",
     "News 2026-07-22: the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents; patoles/agent-flow (Apache-2.0, researched vs 6 alternatives incl. the unlicensed 1.5k-star leader) composed as the human surface — same ground truth, two audiences. New registry category: observe (5 repos). Dogfooded on this very session: 175 tool calls, 6.9% error rate, 11 subagents, 32 files mutated.",
     "News 2026-07-22: demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos) now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified, zero console errors. The pattern is now baseline-contract rule #4 in the family PLAYBOOK.",
     "News 2026-07-22: published: github.com/wjlgatech/eval-anything is live (private, family convention) — CI green on main; the weekly registry sync heartbeat is armed",

@@ -1,3 +1,10 @@
+- date: '2026-07-23'
+  entry: 'OEC completed end-to-end and demonstrated on a real product: agentgate joins the registry (new
+    control category) and the OEC canon as the family C exemplar; AgentGate ROADMAP gains phase 3.5 (consume
+    observe.py --eval session signals as gate evidence) + eval-rigor discipline. Live demo on REDACTED (docs/demos/redacted-oec.md):
+    O = 14.7h build session observed (399 tool calls, 1.25% error); E = 100 tests green AND an honest
+    business ❌ (parity not_measured pending GPU render); C = the real AgentGate pipeline blocking secrets,
+    escalating 4k-line diffs, tamper-evident ledger verified.'
 - date: '2026-07-22'
   entry: 'the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into
     machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents;

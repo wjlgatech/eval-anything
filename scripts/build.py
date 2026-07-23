@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 REG_CATS = [
     ("observe", "👁️ Observability (the O of OEC)"),
+    ("control", "🎛️ Control (the C of OEC)"),
     ("harness", "🧰 LLM eval harnesses & platforms"),
     ("agent", "🤖 Agentic benchmarks & infrastructure"),
     ("vlm", "🖼️ VLM eval"),
