@@ -1,75 +1,47 @@
-{
-  "cards": [
-    {
-      "id": "2026-07-22-oec-reframe",
-      "delivery": "OEC big picture landed — Observe → Evaluate → Control",
-      "objective": "Broaden eval beyond engineering soundness to business objectives across the lifecycle; observability before eval; control after eval",
-      "created_at": "2026-07-22",
-      "key_results": [
-        {
-          "text": "three-horizon survival-test research (300y/30y/now) on O, E, and C in engineering AND business",
-          "target": ">= 60 curated entries, each with origin + survival evidence, schema-validated",
-          "score": 1.0,
-          "evidence": "data/oec.yml — 70 entries (30/22/18 by horizon); validate.py gates pillar+horizon enums; make check green"
-        },
-        {
-          "text": "identity reframed around OEC",
-          "target": "meta description, CLAUDE.md mental model, SKILL.md triggers + backbone rule all updated",
-          "score": 1.0,
-          "evidence": "generated README gains 'The big picture: OEC' section with loop mapping; skill gains 'an eval with no control hook is a scoreboard — flag it'"
-        },
-        {
-          "text": "narrative deep-dive preserved (quote pairs, anti-portfolios, Lindy readings)",
-          "target": "docs/OEC.md exists and is linked from data/oec.yml header",
-          "score": 1.0,
-          "evidence": "docs/OEC.md — incl. verified corrections (DuPont 1912-14, Drucker misattribution, Maxwell's 80-year neglect)"
-        },
-        {
-          "text": "citation-rigor enforcement on own prior claims",
-          "target": "conflicting claims between research runs resolved, unverifiable removed",
-          "score": 1.0,
-          "evidence": "'OpenAI acquires promptfoo' could not be verified against a primary source — removed from registry, noted in docs/OEC.md"
-        }
-      ]
-    },
-    {
-      "id": "2026-07-22-founding-research",
-      "delivery": "eval-anything minted + field research landed",
-      "objective": "One reliable place for foundation-model (LLM/VLM/VLA) and agentic-system evaluation, guardrails/security included",
-      "created_at": "2026-07-22",
-      "key_results": [
-        {
-          "text": "repo scaffolded via the family factory, make check green at birth",
-          "target": "make check exits 0",
-          "score": 1.0,
-          "evidence": "commit d7ac24c — drift gate + ainative 100/100 + 3 unittests OK"
-        },
-        {
-          "text": "curated, web-verified field research across repos/papers/labs/blogs/people/security",
-          "target": ">= 200 annotated entries, every one schema-validated",
-          "score": 1.0,
-          "evidence": "commit 03faf37 — 253 entries in data/*.yml; validate.py gates required keys + categories"
-        },
-        {
-          "text": "every tracked repo slug verified against reality, not reputation",
-          "target": "0 last_sync_error after a live make sync over all 54 repos",
-          "score": 1.0,
-          "evidence": "make sync 2026-07-22 — 54/54 resolved via open GitHub API, stars+pushed_at recorded"
-        },
-        {
-          "text": "guardrails/security placement decided with an independent second opinion",
-          "target": "explicit decision recorded in README + data/security.yml header",
-          "score": 1.0,
-          "evidence": "in-repo (red-teaming IS adversarial evaluation); split criterion documented"
-        },
-        {
-          "text": "published to github.com/wjlgatech/eval-anything",
-          "target": "remote exists and CI check is green",
-          "score": 1.0,
-          "evidence": "pushed 2026-07-22 (private, family convention); CI run 29930921798 success on main — first run caught 5 dead links (fixed: private-repo exclusion + 1 wrong URL)"
-        }
-      ]
-    }
-  ],
-  "schema": "delivery/objective/key_results[{target,score,evidence}]"
-}
+[
+  {
+    "id": "rc0001",
+    "delivery": "data/tooling.yml \u2014 the agentic-tooling eval map: 12 primitives x URL-verified benchmarks x coverage grade x evidence tier x cost_metric. Wired into validate.py (enum + no-claim-without-evidence gate, both directions), build.py (new README section with computed counts), and tests/test_tooling.py (13 tests incl. 5 that prove the gate can fail). CLAUDE.md + docs/ROADMAP.md updated; two follow-ups filed (cost-per-kilotoken metric; cross-repo trust-vs-relevance P0 in anyagent skills find).",
+    "objective": "Answer the skills-bloat question with an evidence-tiered, machine-gated tooling eval map",
+    "created_at": "2026-08-03T11:57:57-05:00",
+    "key_results": [
+      {
+        "text": "data/tooling.yml ships 12 primitives with URL-verified benchmarks",
+        "target": "12 primitives",
+        "score": 1.0,
+        "evidence": "12 entries, 7 categories, 24 benchmark links, make check green"
+      },
+      {
+        "text": "the map cannot claim coverage without evidence",
+        "target": "gate fails both directions",
+        "score": 1.0,
+        "evidence": "validate.py: coverage none <=> zero benchmarks; 5 tests prove the gate FAILS on violation"
+      },
+      {
+        "text": "premise audited rather than accepted",
+        "target": "headline numbers checked",
+        "score": 1.0,
+        "evidence": "skills.sh shows 1,112,534 but its serving API reports 34,000+ from 2,800 repos; installs are gameable telemetry"
+      },
+      {
+        "text": "cost axis identified as the field's gap",
+        "target": "name the unmeasured",
+        "score": 1.0,
+        "evidence": "1 of 12 primitives has cost_metric measured; hook/permission/plugin have ZERO benchmarks, recorded as nulls"
+      },
+      {
+        "text": "cross-repo P0 found by testing our own tool",
+        "target": "honest failure surfaced",
+        "score": 1.0,
+        "evidence": "anyagent skills find returned 52-newsletter-ideas for a React query at 87/100 and PASSED --gate 1"
+      }
+    ],
+    "request": "agentic skills and other toolings are bloated up ... research and develop strategies on how to retrieve, eval, plug-and-play those skills with a lean-core-infra // focus on eval agentic tooling [skill, plugin, workflow, <you-name-others>] with benchmarks, what else?",
+    "headline": "Tooling is 12 primitives; only 1 has its cost measured",
+    "brief": "The team asked whether to adopt a million community 'skills'. A skill is one of twelve kinds of agent tooling, and each kind is judged by different tests. We built the map: every kind, the real tests that exist for it, and whether anyone checks what it COSTS to plug in. Almost nobody does \u2014 and cost is exactly what 'bloated' means.",
+    "growth": [
+      "C1:met:tested my own tool instead of trusting its docs \u2014 found trust-vs-relevance gate conflation, a live P0",
+      "P1:met:refused to fabricate URLs for BFCL/tau-bench; named them in gap prose as unread-primary instead of dressing secondary evidence as strong"
+    ]
+  }
+]

@@ -17,6 +17,12 @@ One reliable place for evaluation of foundation models (LLM, VLM, VLA) and agent
 
 The repo loop maps onto OEC: `scope+collect+run` = Observe · `judge` = Evaluate · `gate+compound` = Control. The curated OEC canon lives in `data/oec.yml` (three horizons: 300y / 30y / now).
 
+## The tooling map (`data/tooling.yml`, 2026-08-03)
+
+Agentic tooling is **12 primitives**, not one: skill · tool · mcp-server · harness · subagent · workflow · context-compiler · memory · hook · permission-model · plugin · judge. Each row carries its URL-verified benchmarks, a coverage grade, an evidence tier (`primary` = abstract/body read; `secondary` = caps at WEAK), and a **`cost_metric`** column — because every benchmark in the field answers *"does it help?"* and only 1 of 12 answers *"what did it cost?"*. Three primitives have **no** benchmark at all (`hook`, `permission-model`, `plugin`) and that null is recorded, not omitted. Two invariants are machine-gated: `coverage: none` ⟺ zero benchmarks (both directions), and a `strong` claim resting on `secondary` evidence must name its unread primary in `gap`.
+
+Load-bearing consequence when designing any eval here: **Harness-Bench measures a 23.8pp spread between best and worst harness on identical tasks and models** — larger than SkillsBench's +16.6pp skill effect. Hold the harness fixed before A/B-ing a skill, or the result is noise.
+
 Profile: **data-compiled**. Loop: `scope → collect → run → judge → gate → compound`.
 
 Three folds, one closed loop (the baseline contract):

@@ -56,6 +56,20 @@ SEC_CATS = [
     ("labs", "Labs & companies"),
     ("people", "Key people"),
 ]
+TOOLING_CATS = [
+    ("knowledge", "📚 Knowledge — instruction injected into context"),
+    ("action", "🔧 Action — the callable surface"),
+    ("loop", "♻️ Loop — the thing that runs the model"),
+    ("context", "🪟 Context — what gets loaded, and what persists"),
+    ("control", "🎛️ Control — the deterministic layer that can say no"),
+    ("package", "📦 Package — how primitives ship together"),
+    ("meta", "⚖️ Meta — the thing that grades the thing"),
+]
+COVERAGE_BADGE = {
+    "strong": "🟢 strong", "emerging": "🟡 emerging", "thin": "🟡 thin",
+    "weak": "🟠 weak", "none": "🔴 **none**",
+}
+COST_BADGE = {"measured": "✅ measured", "partial": "◐ partial", "unmeasured": "❌ unmeasured"}
 OEC_PILLARS = [
     ("observe", "👁️ Observe — you can't evaluate what you can't observe"),
     ("evaluate", "⚖️ Evaluate — is the objective on track? (engineering AND business)"),
@@ -157,6 +171,26 @@ def render() -> str:
                 "the super-tool demoed: every essential feature, click-to-reveal say→get "
                 "examples, the OEC canon, and a copilot that won't bluff.\n")
 
+    tool_entries = load("tooling.yml")
+
+    def tool_row(t):
+        benches = t.get("benchmarks") or []
+        cell = "<br>".join(f"[{b['name']}]({b['url']})" for b in benches) or "—"
+        return (f"| **`{t['primitive']}`** | {t['what']} | {cell} "
+                f"| {COVERAGE_BADGE.get(t['coverage'], t['coverage'])} "
+                f"| {COST_BADGE.get(t['cost_metric'], t['cost_metric'])} |")
+
+    tooling = grouped(
+        tool_entries, TOOLING_CATS, tool_row,
+        "| Primitive | What it is | Benchmarks | Coverage | Cost measured? |\n"
+        "|-----------|------------|------------|----------|----------------|")
+    n_tool = len(tool_entries)
+    n_gap = sum(1 for t in tool_entries if t["coverage"] == "none")
+    n_costed = sum(1 for t in tool_entries if t["cost_metric"] == "measured")
+    tool_gaps = "\n".join(
+        f"- **`{t['primitive']}`** — {t['gap']}" for t in tool_entries
+        if t["coverage"] == "none")
+
     oec_entries = load("oec.yml")
     oec_entries.sort(key=lambda e: list(HORIZONS).index(e.get("horizon", "now")))
     oec = grouped(
@@ -218,6 +252,39 @@ three horizons — 🏛️ 300 years (survived generations) · 🧭 30 years (su
 hype cycle) · ⚡ now (rising, mid-2026):
 
 {oec}
+
+## 🧩 Agentic tooling — {n_tool} primitives, and what actually benchmarks them
+
+"Should we adopt the community's skills?" is a question about **one** primitive.
+Agentic tooling is at least **{n_tool}**, each with its own eval story, security
+posture, and license question. This table is the map — generated from
+`data/tooling.yml`, so it cannot drift from the claim.
+
+Two columns carry the argument. **Coverage** is how well the primitive is
+benchmarked at all. **Cost measured?** is whether anyone scores what adopting it
+costs in context — and only **{n_costed} of {n_tool}** does.
+
+{tooling}
+
+### 🔴 The {n_gap} red gaps — recorded nulls, not omissions
+
+{tool_gaps}
+
+### The metric the field is missing
+
+Every benchmark above answers *"does it help?"*. Almost none answer *"what did it
+cost?"* — so:
+
+```
+marginal capability per kilotoken  =  Δ pass-rate  /  Δ context tokens
+```
+
+A tool that adds +2pp for 8k tokens is **worse than nothing** once you account for
+the measured tendency of LLMs to over-retrieve — favouring recall over precision
+and using a fraction of what they pull. SkillsBench's finding that focused skills
+of ≤3 modules beat exhaustive bundles is the closest published result, and it is a
+side note rather than the headline metric. Scoring this ratio is where this repo
+contributes rather than tracks.
 
 ## 📡 Tracked upstream (the meta-repo)
 

@@ -28,9 +28,16 @@ COLLECTIONS = {
     "oec.yml": (["pillar", "horizon", "name", "origin", "url", "what", "why"],
                 None),  # no `category` key — pillar/horizon checked below
     "examples.yml": (["feature", "tagline", "examples"], None),
+    "tooling.yml": (["primitive", "category", "what", "coverage", "cost_metric",
+                     "evidence", "gap"],
+                    {"knowledge", "action", "loop", "context", "control", "package", "meta"}),
 }
 OEC_PILLARS = {"observe", "evaluate", "control"}
 OEC_HORIZONS = {"300y", "30y", "now"}
+# tooling.yml enums — quoted in the data file (PyYAML coerces bare enum-ish values)
+COVERAGE = {"strong", "emerging", "thin", "weak", "none"}
+COST_METRIC = {"measured", "partial", "unmeasured"}
+EVIDENCE = {"primary", "secondary"}
 
 
 def main():
@@ -67,6 +74,25 @@ def main():
                     errs.append(f"oec.yml[{i}]: unknown pillar {e.get('pillar')!r}")
                 if e.get("horizon") not in OEC_HORIZONS:
                     errs.append(f"oec.yml[{i}]: unknown horizon {e.get('horizon')!r}")
+            if fname == "tooling.yml":
+                p = e.get("primitive") or "?"
+                for key, allowed in (("coverage", COVERAGE), ("cost_metric", COST_METRIC),
+                                     ("evidence", EVIDENCE)):
+                    if e.get(key) not in allowed:
+                        errs.append(f"tooling.yml[{i}]: {p}: bad {key} {e.get(key)!r}")
+                benches = e.get("benchmarks")
+                if benches is None:
+                    errs.append(f"tooling.yml[{i}]: {p}: needs benchmarks (use [] to record the null)")
+                    benches = []
+                for j, b in enumerate(benches):
+                    for k2 in ("name", "url", "note"):
+                        if not b.get(k2):
+                            errs.append(f"tooling.yml[{i}].benchmarks[{j}]: {p}: missing {k2}")
+                # no evidence ⇒ no claim, machine-checked both ways
+                if e.get("coverage") == "none" and benches:
+                    errs.append(f"tooling.yml[{i}]: {p}: coverage 'none' but {len(benches)} benchmark(s) listed")
+                if e.get("coverage") != "none" and not benches:
+                    errs.append(f"tooling.yml[{i}]: {p}: coverage {e.get('coverage')!r} claimed with zero benchmarks")
             if fname == "examples.yml":
                 for j, ex in enumerate(e.get("examples") or []):
                     if not ex.get("say") or not ex.get("get"):

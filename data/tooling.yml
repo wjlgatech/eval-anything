@@ -1,0 +1,287 @@
+# tooling.yml — the agentic-TOOLING eval map (added 2026-08-03).
+#
+# WHY THIS FILE EXISTS
+# Teams debating "should we adopt the 1M community skills?" are debating ONE
+# primitive. Agentic tooling is at least twelve, and each has a different eval
+# story, a different security posture, and a different license question.
+# This file is the source of truth for which primitives have real benchmarks,
+# which do not, and — the axis nobody upstream measures — whether anyone scores
+# the CONTEXT COST of adopting the primitive at all.
+#
+# THE COST COLUMN IS THE POINT
+# Every benchmark below answers "does it help?". Almost none answer "what did it
+# cost?". `cost_metric: unmeasured` is a recorded null, not an omission — it is
+# the measured state of the field as of 2026-08-03.
+#
+# EVIDENCE TIERS (repo non-negotiable: secondary-only caps at WEAK)
+#   primary   — the paper's own abstract/body was read at the cited URL
+#   secondary — surfaced via search/roundup only; primary NOT yet read
+# Benchmarks are listed ONLY where a URL was actually observed. Widely-cited
+# harnesses whose primary source was not read are named in `gap` prose instead
+# of given a fabricated URL — see BFCL/tau-bench/Terminal-Bench under `tool`
+# and `harness`.
+
+# ── knowledge: procedural instruction injected into context ──────────────────
+- primitive: skill
+  category: knowledge
+  what: a SKILL.md of procedural knowledge, loaded into context at inference time
+  coverage: strong
+  cost_metric: partial
+  evidence: primary
+  benchmarks:
+    - name: SkillsBench
+      url: https://arxiv.org/abs/2602.12670
+      note: >-
+        87 tasks / 8 domains / 18 model-harness configs, deterministic verifiers,
+        matched no-Skills vs curated-Skills. Pass rate 33.9% → 50.5% (+16.6pp).
+        Focused skills of ≤3 modules BEAT exhaustive bundles — the closest thing
+        to a bloat result in the literature. v1 (Feb 2026) reported 86 tasks /
+        11 domains / +16.2pp; cite the version or the number is meaningless.
+    - name: SkillRet
+      url: https://arxiv.org/html/2605.05726
+      note: >-
+        17,810 curated skills (from 22,795 raw), 4,997 eval queries. Off-the-shelf
+        bge-large-en-v1.5 = 55.82 NDCG@10; SkillRouter = 70.38; fine-tuned 8B =
+        83.45. Retrieval is buyable off the shelf at ~56 and tunable to ~83.
+    - name: SkillResolve-Bench
+      url: https://arxiv.org/pdf/2606.10388
+      note: >-
+        measures same-capability ambiguity — two skills that both plausibly fit
+        one task. The failure mode where a SAFE but IRRELEVANT skill wins.
+    - name: Snyk ToxicSkills
+      url: https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/
+      note: >-
+        3,984 skills audited across ClawHub AND skills.sh (2026-02-05). 36.82%
+        (1,467) had ≥1 security flaw; 13.4% (534) critical; 76 confirmed malicious
+        payloads; 8 still live at publication. 100% of malicious skills shipped
+        malicious code patterns, 91% ALSO used prompt injection.
+  gap: >-
+    efficacy and retrieval are well covered; joint (trust × relevance) scoring is
+    NOT — no benchmark scores a retriever on returning a skill that is both safe
+    and correct, which is precisely how a curation gate fails in production.
+
+# ── action: the callable surface ─────────────────────────────────────────────
+- primitive: tool
+  category: action
+  what: one atomic callable — a function/API the model invokes with structured args
+  coverage: strong
+  cost_metric: unmeasured
+  evidence: secondary
+  benchmarks:
+    - name: MCPVerse
+      url: https://arxiv.org/pdf/2508.16260
+      note: real-world agentic tool-use benchmark over a large live action space
+    - name: ToolGate
+      url: https://arxiv.org/pdf/2601.04688
+      note: contract-grounded, verified tool execution — the control-side counterpart
+    - name: "Benchmarking the Benchmarks: a validity audit of tool-calling eval"
+      url: https://arxiv.org/pdf/2607.02577
+      note: >-
+        the meta-entry — audits whether tool-calling benchmarks measure what they
+        claim. Read this BEFORE citing any leaderboard number.
+  gap: >-
+    BFCL v4 (Apr 2026; reweighted to Agentic 40% / Multi-Turn 30% / Live 10% /
+    Non-Live 10% / Hallucination 10%) and tau-bench are the field's default
+    citations but their primary sources were NOT read here — treated as WEAK and
+    deliberately given no URL rather than a guessed one. Token cost per tool
+    schema is unmeasured everywhere.
+
+- primitive: mcp-server
+  category: action
+  what: a server exposing many tools over a protocol — transport plus discovery
+  coverage: strong
+  cost_metric: partial
+  evidence: secondary
+  benchmarks:
+    - name: MCP-Bench
+      url: https://arxiv.org/pdf/2508.20453
+      note: 28 live MCP servers, 250 tools, real multi-hop coordination (NeurIPS'25)
+    - name: MCP-Atlas (Scale)
+      url: https://labs.scale.com/leaderboard/mcp_atlas
+      note: >-
+        Apr 2026 revision upgraded the scoring judge, added transient-error retry,
+        and replaced the 20-turn limit with a 100-tool-call budget
+    - name: MCPSecBench
+      url: https://arxiv.org/pdf/2508.13220
+      note: systematic security benchmark + playground for MCP attack surface
+    - name: "From Tool Orchestration to Code Execution: MCP Design Choices"
+      url: https://arxiv.org/pdf/2602.15945
+      note: measures the design fork — expose tools vs let the agent write code
+    - name: MCP Tool Descriptions Are Smelly
+      url: https://arxiv.org/html/2602.14878v1
+      note: tool DESCRIPTION quality is a measurable efficiency lever, not cosmetics
+  gap: >-
+    this is the one primitive where cost is partly measured — most models degrade
+    as the toolset grows, consistent with heavier schema context and a larger
+    action space. Still no standard tokens-per-point-of-gain metric. Every
+    benchmark listed here was surfaced via search and its primary was NOT read
+    end-to-end; the degradation finding in particular is secondary and capped
+    at WEAK until MCP-Bench and MCP-Atlas are read directly.
+
+# ── loop: the thing that runs the model ──────────────────────────────────────
+- primitive: harness
+  category: loop
+  what: the agent loop itself — context assembly, tool wiring, state, retry, recovery
+  coverage: strong
+  cost_metric: unmeasured
+  evidence: primary
+  benchmarks:
+    - name: Harness-Bench
+      url: https://arxiv.org/html/2605.27922v1
+      note: >-
+        106 sandboxed offline tasks, 8 workflow categories, 5,194 trajectories,
+        6 configurable harnesses × 8 model backends. Best 76.2% vs worst 52.4% —
+        a 23.8pp spread on IDENTICAL tasks and models. Failure modes: output-
+        contract violations 36.4%, tool/recovery 24.6%, evidence/grounding 14.6%.
+        Weaker models are MORE harness-sensitive.
+    - name: Claw-SWE-Bench
+      url: https://arxiv.org/html/2606.12344v1
+      note: harness-level coding benchmark for OpenClaw-style agent scaffolds
+    - name: Agentic Harness Engineering
+      url: https://arxiv.org/abs/2604.25850
+      note: observability-driven automatic evolution of coding-agent harnesses
+  gap: >-
+    Terminal-Bench 2.0 and SWE-bench Verified are the standard pair but were not
+    read primary here. CRITICAL PRACTICAL CONSEQUENCE: a 23.8pp harness spread
+    will swamp a 16.6pp skill effect — hold the harness FIXED before A/B-ing any
+    skill, or the result is noise.
+
+- primitive: subagent
+  category: loop
+  what: a delegated worker the main agent spawns, briefs, and collects from
+  coverage: emerging
+  cost_metric: unmeasured
+  evidence: secondary
+  benchmarks:
+    - name: ClawArena-Team
+      url: https://arxiv.org/abs/2606.31174
+      note: >-
+        41 multi-turn multimodal scenarios, 258 evaluation rounds, 72 staged
+        updates — isolates the MANAGEMENT ability of the leader model, which
+        task-solving benchmarks conflate away
+    - name: DecisionBench
+      url: https://arxiv.org/html/2605.19099
+      note: emergent delegation in long-horizon workflows — process-level metrics
+    - name: AOrchestra
+      url: https://arxiv.org/pdf/2602.03786
+      note: automating sub-agent creation for orchestration
+  gap: >-
+    delegation is scored on outcome, not on whether the fan-out was WORTH its
+    token multiple — the cost question is wide open and the spend is highest here.
+
+- primitive: workflow
+  category: loop
+  what: multi-step orchestration — fixed DAG or dynamically programmed fan-out
+  coverage: thin
+  cost_metric: unmeasured
+  evidence: secondary
+  benchmarks:
+    - name: ClawArena-Team (dynamic-workflow split)
+      url: https://arxiv.org/abs/2606.31174
+      note: >-
+        the only benchmark found that treats dynamic programmable workflows as
+        the unit of evaluation rather than a fixed multi-agent topology
+  gap: >-
+    no benchmark compares a deterministic DAG against a model-driven workflow on
+    matched tasks — the single most common architecture decision in agent
+    engineering has no published head-to-head.
+
+# ── context: what gets loaded, and what persists ─────────────────────────────
+- primitive: context-compiler
+  category: context
+  what: the layer deciding what enters the window, when, and at what depth
+  coverage: thin
+  cost_metric: measured
+  evidence: secondary
+  benchmarks:
+    - name: Is Progressive Disclosure All You Need for Long-Context Agents?
+      url: https://arxiv.org/html/2607.17598
+      note: >-
+        the tier-1-activation / tier-2-reference pattern, evaluated. Related
+        ContextBench finding: LLMs favour recall over precision — they over-
+        retrieve and use a fraction of what they pull.
+  gap: >-
+    the ONE primitive where cost is natively the metric, which is exactly why it
+    should host the cost-per-kilotoken score for every other primitive.
+
+- primitive: memory
+  category: context
+  what: state that survives across runs — lessons, preferences, prior trajectories
+  coverage: weak
+  cost_metric: unmeasured
+  evidence: secondary
+  benchmarks:
+    - name: SWE-Bench-CL
+      url: https://arxiv.org/pdf/2507.00014
+      note: continual learning for coding agents — sequential-task retention
+  gap: >-
+    no benchmark measures whether a memory system's recalled item was USED, or
+    whether it displaced something more useful. Memory is assumed beneficial.
+
+# ── control: the deterministic layer that can say no ────────────────────────
+- primitive: hook
+  category: control
+  what: deterministic interception of an agent action — the C of OEC in code
+  coverage: none
+  cost_metric: unmeasured
+  evidence: secondary
+  benchmarks: []
+  gap: >-
+    NO dedicated benchmark found. Hooks are the only primitive that can
+    deterministically stop a bad action, and their efficacy is unmeasured —
+    an eval-without-control scoreboard at the ecosystem level.
+
+- primitive: permission-model
+  category: control
+  what: the boundary declaring what a tool may read, write, or reach
+  coverage: none
+  cost_metric: unmeasured
+  evidence: primary
+  benchmarks: []
+  gap: >-
+    products exist (mcp-scan: 90-100% recall / 0% FP on confirmed-malicious per
+    ToxicSkills; Snyk Evo; AI-BOM) but no open benchmark. Trail of Bits bypassed
+    skills.sh's own malicious-skill detector — scanner efficacy is contested and
+    unbenchmarked, so a scanner's pass is evidence, never proof.
+
+# ── package: how primitives ship together ───────────────────────────────────
+- primitive: plugin
+  category: package
+  what: a bundle shipping skills + commands + MCP servers + hooks + subagents as one unit
+  coverage: none
+  cost_metric: unmeasured
+  evidence: secondary
+  benchmarks: []
+  gap: >-
+    THE headline gap. Nobody benchmarks the container, yet the container is what
+    loads 40 skills at once — the actual mechanism of context bloat. Observed
+    failure modes are real and filed upstream: two Anthropic plugins shipping
+    IDENTICAL skills that both enter context, and skills re-attaching after
+    compaction (111 loaded instead of ~63). Measured by bug report, not benchmark.
+
+# ── meta: the thing that grades the thing ───────────────────────────────────
+- primitive: judge
+  category: meta
+  what: the evaluator scoring agent output — maker≠checker made concrete
+  coverage: thin
+  cost_metric: unmeasured
+  evidence: secondary
+  benchmarks:
+    - name: AgentProp-Bench
+      url: https://arxiv.org/pdf/2604.16706
+      note: >-
+        judge reliability, error-propagation cascades, and runtime mitigation for
+        tool-using agents — judge error COMPOUNDS down a trajectory
+    - name: Agent Skill Evaluation and Evolution
+      url: https://arxiv.org/pdf/2606.11435
+      note: frameworks and benchmarks for scoring and evolving skills
+    - name: awesome-agent-skills-security
+      url: https://github.com/LLMSecurity/awesome-agent-skills-security
+      note: >-
+        curated index of attacks, defenses, and benchmarks — the tracking surface
+        for this fold as it moves
+  gap: >-
+    per this repo's standing rule, no judge score counts as evidence without a
+    stated bias mitigation (randomized order, reference-guided, or human-
+    calibrated sample). Most tooling benchmarks above use an LLM judge and do
+    not report one.

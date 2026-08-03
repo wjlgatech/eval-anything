@@ -11,6 +11,26 @@ spec but NOT auto-generated** (no fake passes — each is a real next turn):
 
 - [x] **Publish** — `github.com/wjlgatech/eval-anything` live (private, matching the
       family), CI green on `main` (2026-07-22); weekly sync workflow armed.
+- [x] **The agentic-tooling eval map** — `data/tooling.yml` (2026-08-03): 12 tooling
+      primitives (skill · tool · mcp-server · harness · subagent · workflow ·
+      context-compiler · memory · hook · permission-model · plugin · judge), each with
+      its URL-verified benchmarks, a coverage grade, an evidence tier, and a
+      `cost_metric` column. Answers "should we adopt the community's 1M skills?" by
+      showing it is a question about ONE of twelve primitives. Gated: `coverage: none`
+      ⟺ zero benchmarks, enforced both directions, with 5 tests that prove the gate
+      can fail (it caught a real honesty gap in `mcp-server` on first run).
+- [ ] **Cost-per-kilotoken (the metric the field is missing)** — `data/tooling.yml`
+      records that only 1 of 12 primitives has its context cost measured anywhere.
+      Build `Δ pass-rate / Δ context tokens` as a scored gate: a primitive adding
+      +2pp for 8k tokens must fail. This is where the repo CONTRIBUTES rather than
+      tracks. Blocked on nothing — needs a paired-eval runner (SkillsBench's matched
+      with/without design is the template).
+- [ ] **Trust ≠ relevance (cross-repo P0, filed 2026-08-03)** — `anyagent skills find`
+      grades trust (license + code-shipping) but not relevance, and **passes a gate on
+      a safe-but-irrelevant hit**: querying "write a react component with tests"
+      returned `52-newsletter-ideas` at 87/100 ✅ trusted and PASSED `--gate 1`. The two
+      axes are orthogonal and must BOTH clear a bar. Fix lives in the `anyagent` repo;
+      the failure mode is what `SkillResolve-Bench` measures (see `data/tooling.yml`).
 - [ ] **Super-tool depth** — grow `skills/eval-anything/SKILL.md` beyond the scaffold
       contract: "pick me a benchmark" routing over `data/registry.yml`, an eval-design
       checklist wired to the loop's judge/gate stages (maker≠checker, bias checks,

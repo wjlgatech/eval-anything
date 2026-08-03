@@ -214,6 +214,86 @@ hype cycle) · ⚡ now (rising, mid-2026):
 | [Closed-loop data flywheels (MAPE for agents)](https://arxiv.org/abs/2510.27051) | NVIDIA, arXiv:2510.27051 → EACL 2026; Arize LLMOps loop | ⚡ now | Monitor-Analyze-Plan-Execute on a 30k-user assistant: production feedback → failure analysis → targeted fine-tunes → redeploy | the most explicit published OEC loop for agents — names the control-theory lineage outright (70% latency cut, 96% router accuracy) |
 | [AgentGate (first-party)](https://github.com/wjlgatech/agentgate) | wjlgatech 2026 | ⚡ now | actor-aware policy-as-data firewall for human + AI-agent code changes — verify → classify actor → deterministic checks → decide → audit (hash-chained ledger) | the family's own O+E+C-fused artifact (the 300y Lindy shape): agents auto-merge low-risk only, riskier routes to a human, every decision is court-grade evidence; red-team hardened 58%→75% catch at 0% false-escalation |
 
+## 🧩 Agentic tooling — 12 primitives, and what actually benchmarks them
+
+"Should we adopt the community's skills?" is a question about **one** primitive.
+Agentic tooling is at least **12**, each with its own eval story, security
+posture, and license question. This table is the map — generated from
+`data/tooling.yml`, so it cannot drift from the claim.
+
+Two columns carry the argument. **Coverage** is how well the primitive is
+benchmarked at all. **Cost measured?** is whether anyone scores what adopting it
+costs in context — and only **1 of 12** does.
+
+### 📚 Knowledge — instruction injected into context
+
+| Primitive | What it is | Benchmarks | Coverage | Cost measured? |
+|-----------|------------|------------|----------|----------------|
+| **`skill`** | a SKILL.md of procedural knowledge, loaded into context at inference time | [SkillsBench](https://arxiv.org/abs/2602.12670)<br>[SkillRet](https://arxiv.org/html/2605.05726)<br>[SkillResolve-Bench](https://arxiv.org/pdf/2606.10388)<br>[Snyk ToxicSkills](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/) | 🟢 strong | ◐ partial |
+
+### 🔧 Action — the callable surface
+
+| Primitive | What it is | Benchmarks | Coverage | Cost measured? |
+|-----------|------------|------------|----------|----------------|
+| **`tool`** | one atomic callable — a function/API the model invokes with structured args | [MCPVerse](https://arxiv.org/pdf/2508.16260)<br>[ToolGate](https://arxiv.org/pdf/2601.04688)<br>[Benchmarking the Benchmarks: a validity audit of tool-calling eval](https://arxiv.org/pdf/2607.02577) | 🟢 strong | ❌ unmeasured |
+| **`mcp-server`** | a server exposing many tools over a protocol — transport plus discovery | [MCP-Bench](https://arxiv.org/pdf/2508.20453)<br>[MCP-Atlas (Scale)](https://labs.scale.com/leaderboard/mcp_atlas)<br>[MCPSecBench](https://arxiv.org/pdf/2508.13220)<br>[From Tool Orchestration to Code Execution: MCP Design Choices](https://arxiv.org/pdf/2602.15945)<br>[MCP Tool Descriptions Are Smelly](https://arxiv.org/html/2602.14878v1) | 🟢 strong | ◐ partial |
+
+### ♻️ Loop — the thing that runs the model
+
+| Primitive | What it is | Benchmarks | Coverage | Cost measured? |
+|-----------|------------|------------|----------|----------------|
+| **`harness`** | the agent loop itself — context assembly, tool wiring, state, retry, recovery | [Harness-Bench](https://arxiv.org/html/2605.27922v1)<br>[Claw-SWE-Bench](https://arxiv.org/html/2606.12344v1)<br>[Agentic Harness Engineering](https://arxiv.org/abs/2604.25850) | 🟢 strong | ❌ unmeasured |
+| **`subagent`** | a delegated worker the main agent spawns, briefs, and collects from | [ClawArena-Team](https://arxiv.org/abs/2606.31174)<br>[DecisionBench](https://arxiv.org/html/2605.19099)<br>[AOrchestra](https://arxiv.org/pdf/2602.03786) | 🟡 emerging | ❌ unmeasured |
+| **`workflow`** | multi-step orchestration — fixed DAG or dynamically programmed fan-out | [ClawArena-Team (dynamic-workflow split)](https://arxiv.org/abs/2606.31174) | 🟡 thin | ❌ unmeasured |
+
+### 🪟 Context — what gets loaded, and what persists
+
+| Primitive | What it is | Benchmarks | Coverage | Cost measured? |
+|-----------|------------|------------|----------|----------------|
+| **`context-compiler`** | the layer deciding what enters the window, when, and at what depth | [Is Progressive Disclosure All You Need for Long-Context Agents?](https://arxiv.org/html/2607.17598) | 🟡 thin | ✅ measured |
+| **`memory`** | state that survives across runs — lessons, preferences, prior trajectories | [SWE-Bench-CL](https://arxiv.org/pdf/2507.00014) | 🟠 weak | ❌ unmeasured |
+
+### 🎛️ Control — the deterministic layer that can say no
+
+| Primitive | What it is | Benchmarks | Coverage | Cost measured? |
+|-----------|------------|------------|----------|----------------|
+| **`hook`** | deterministic interception of an agent action — the C of OEC in code | — | 🔴 **none** | ❌ unmeasured |
+| **`permission-model`** | the boundary declaring what a tool may read, write, or reach | — | 🔴 **none** | ❌ unmeasured |
+
+### 📦 Package — how primitives ship together
+
+| Primitive | What it is | Benchmarks | Coverage | Cost measured? |
+|-----------|------------|------------|----------|----------------|
+| **`plugin`** | a bundle shipping skills + commands + MCP servers + hooks + subagents as one unit | — | 🔴 **none** | ❌ unmeasured |
+
+### ⚖️ Meta — the thing that grades the thing
+
+| Primitive | What it is | Benchmarks | Coverage | Cost measured? |
+|-----------|------------|------------|----------|----------------|
+| **`judge`** | the evaluator scoring agent output — maker≠checker made concrete | [AgentProp-Bench](https://arxiv.org/pdf/2604.16706)<br>[Agent Skill Evaluation and Evolution](https://arxiv.org/pdf/2606.11435)<br>[awesome-agent-skills-security](https://github.com/LLMSecurity/awesome-agent-skills-security) | 🟡 thin | ❌ unmeasured |
+
+### 🔴 The 3 red gaps — recorded nulls, not omissions
+
+- **`hook`** — NO dedicated benchmark found. Hooks are the only primitive that can deterministically stop a bad action, and their efficacy is unmeasured — an eval-without-control scoreboard at the ecosystem level.
+- **`permission-model`** — products exist (mcp-scan: 90-100% recall / 0% FP on confirmed-malicious per ToxicSkills; Snyk Evo; AI-BOM) but no open benchmark. Trail of Bits bypassed skills.sh's own malicious-skill detector — scanner efficacy is contested and unbenchmarked, so a scanner's pass is evidence, never proof.
+- **`plugin`** — THE headline gap. Nobody benchmarks the container, yet the container is what loads 40 skills at once — the actual mechanism of context bloat. Observed failure modes are real and filed upstream: two Anthropic plugins shipping IDENTICAL skills that both enter context, and skills re-attaching after compaction (111 loaded instead of ~63). Measured by bug report, not benchmark.
+
+### The metric the field is missing
+
+Every benchmark above answers *"does it help?"*. Almost none answer *"what did it
+cost?"* — so:
+
+```
+marginal capability per kilotoken  =  Δ pass-rate  /  Δ context tokens
+```
+
+A tool that adds +2pp for 8k tokens is **worse than nothing** once you account for
+the measured tendency of LLMs to over-retrieve — favouring recall over precision
+and using a fraction of what they pull. SkillsBench's finding that focused skills
+of ≤3 modules beat exhaustive bundles is the closest published result, and it is a
+side note rather than the headline metric. Scoring this ratio is where this repo
+contributes rather than tracks.
+
 ## 📡 Tracked upstream (the meta-repo)
 
 Top-rated repos this repo tracks — refreshed weekly by `make sync`
