@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
 
-REQUIRED_META = ["name", "emoji", "title", "tagline", "description", "audience", "github"]
+REQUIRED_META = ["name", "emoji", "title", "tagline", "description", "audience", "github",
+                 "license", "license_data"]
 
 # curated-collection schemas: file → (required keys per entry, allowed categories)
 COLLECTIONS = {
@@ -54,6 +55,10 @@ def main():
     for k in REQUIRED_META:
         if not meta.get(k):
             errs.append(f"meta.yml missing: {k}")
+    # A private sibling must be declared in `family` too, or the no-link rule silently misses it.
+    stray = set(meta.get("family_private") or []) - set(meta.get("family") or [])
+    for s in sorted(stray):
+        errs.append(f"meta.yml: family_private lists {s!r}, which is not in family")
     for fname, (required, cats) in COLLECTIONS.items():
         f = DATA / fname
         if not f.exists():

@@ -98,8 +98,13 @@ def render() -> str:
     stages = m["loop"]["stages"]
     loop_rows = "\n".join(
         f"| {i+1} | **{st['name']}** | {st['promise']} |" for i, st in enumerate(stages))
+    # Private siblings are NAMED for lineage but never hyperlinked — a public README must not
+    # ship a 404 that advertises a private repo (audit 2026-08-03).
+    fam_private = set(m.get("family_private") or [])
     fam_rows = "\n".join(
-        f"| [`{f}`](https://github.com/{f}) | sibling — shared method lineage |"
+        (f"| `{f}` | sibling — shared method lineage (**private**, no public URL) |"
+         if f in fam_private else
+         f"| [`{f}`](https://github.com/{f}) | sibling — shared method lineage |")
         for f in m["family"])
     arrow = " → ".join(st["name"] for st in stages)
     gh = m["github"]
@@ -108,7 +113,10 @@ def render() -> str:
         f"?style=flat-square&label=check)](https://github.com/{gh}/actions)\n"
         f"[![Last Updated](https://img.shields.io/github/last-commit/{gh}"
         f"?style=flat-square&label=last%20turn)](https://github.com/{gh}/commits)\n"
-        f"![License](https://img.shields.io/badge/license-{m['license'].replace('-', '--')}-lightgrey?style=flat-square)")
+        f"[![code](https://img.shields.io/badge/code-{m['license'].replace('-', '--')}"
+        f"-green?style=flat-square)](LICENSE)\n"
+        f"[![data](https://img.shields.io/badge/data-{m['license_data'].replace('-', '--')}"
+        f"-green?style=flat-square)](LICENSE-DATA)")
     news = ""
     items = load("news.yml")
     if items:
@@ -349,7 +357,18 @@ make check   # validate + tests + self-audit + drift gate — nothing ships red
 
 ## 📄 License
 
-{m['license']} — see LICENSE.
+Two licences, because the code and the curation are different kinds of work:
+
+| What | Licence | Why |
+|------|---------|-----|
+| `scripts/`, `tests/` | **{m['license']}** — see [LICENSE](LICENSE) | a small build harness: a schema gate, a README generator, a session observer. Its value is that you can read it in an afternoon. |
+| `data/`, `brief/`, `specs/` | **{m['license_data']}** — see [LICENSE-DATA](LICENSE-DATA) | the curation is the part that took real work. Every benchmark version, contamination status, arXiv id and evidence tier was read from a primary source and dated. Lift it into your own tool or paper — just say where it came from. |
+
+Coverage grades, evidence tiers and `cost_metric` values are **our editorial judgement**, not
+the claim of any benchmark author or vendor named in the data. An `evidence: secondary` row is
+published precisely because its primary has NOT been read end-to-end; a `coverage: none` row is
+a recorded null — we looked and found nothing, which is not the same as nothing existing.
+Nothing here is an audit opinion or a safety guarantee. **Please dispute anything you find wrong.**
 """
 
 

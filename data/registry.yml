@@ -20,10 +20,12 @@
   category: observe
   why: agent observability + replay for safety/interpretability research (MIT) — the research-grade angle
   stars: 109
-- repo: wjlgatech/agentgate
+- repo: wjlgatech/secure-anything-core
   category: control
-  why: 'FIRST-PARTY — the C of OEC productized: actor-aware policy firewall for human + AI-agent code changes (verify → classify
-    → check → decide → audit); hash-chained ledger; agents held to a stricter bar. The family''s own control exemplar'
+  why: 'FIRST-PARTY — the C of OEC as a composition layer: one registry of what exists, a deterministic router from intent
+    to capability, a uniform gate seam turning any tool into a comparable exit code, and a hash-chained signed ledger of
+    what was actually checked. Open core (Apache-2.0 code / CC BY 4.0 data); its north star, Verified Control Coverage,
+    is published honestly at 0/20 because nothing has an integrated run receipt yet'
   stars: null
 - repo: EleutherAI/lm-evaluation-harness
   category: harness

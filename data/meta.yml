@@ -17,7 +17,8 @@ description: 'One reliable place for evaluation of foundation models (LLM, VLM, 
 audience: builders who must answer "is this model/agent good enough — and safe enough
   — to ship?" with evidence
 github: wjlgatech/eval-anything
-license: all-rights-reserved
+license: Apache-2.0
+license_data: CC-BY-4.0
 family:
 - wjlgatech/anyagent
 - wjlgatech/FM-os
@@ -28,6 +29,14 @@ family:
 - wjlgatech/marketing-anything
 - wjlgatech/graph-engineering-anything
 - wjlgatech/loop-engineering-anything
+# Siblings that are PRIVATE: named for lineage, deliberately NOT hyperlinked so a public
+# README never ships a 404 that advertises a private repo. Verified 2026-08-03 via
+# `gh repo view`. Move a repo out of this list the day it goes public.
+family_private:
+- wjlgatech/anyagent
+- wjlgatech/master-anything
+- wjlgatech/marketing-anything
+- wjlgatech/graph-engineering-anything
 loop:
   stages:
   - name: scope

@@ -1,0 +1,50 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+==========================================================
+
+Copyright 2026 Paul Jialiang Wu (wjlgatech)
+
+This licence applies to the CURATED DATA in this repository:
+
+    data/**   the registry, papers, labs, blogs, people, security and OEC canon,
+              the agentic-tooling eval map, and the say/get example corpus
+    brief/    the generated data.js corpus (derived from data/**)
+    specs/    the machine-readable repo spec
+
+The software in this repository (scripts/, tests/) is licensed separately under
+Apache-2.0 — see LICENSE.
+
+Why the split: the code here is a small build harness — a schema gate, a README
+generator, a session observer — and its value is that you can read it in an
+afternoon. The *curation* is the part that took real work. Every benchmark
+version, contamination status, arXiv id, star count, licence and evidence tier
+was read from a primary source and dated, and the entries that say "not measured"
+cost more judgement than the ones that say a number. CC BY 4.0 means you can lift
+the registry or the tooling map into your own tool, your own paper, or your own
+internal eval plan, commercially or not, as long as you say where it came from.
+
+Full text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+You are free to:
+  Share  — copy and redistribute the material in any medium or format
+  Adapt  — remix, transform, and build upon the material for any purpose, even commercially
+
+Under the following term:
+  Attribution — You must give appropriate credit, provide a link to the licence, and
+  indicate if changes were made. You may do so in any reasonable manner, but not in any way
+  that suggests the licensor endorses you or your use.
+
+Suggested attribution:
+  Evaluation registry and agentic-tooling eval map from eval-anything
+  (https://github.com/wjlgatech/eval-anything), CC BY 4.0.
+
+NO WARRANTY AND NO ENDORSEMENT
+------------------------------
+Coverage grades, evidence tiers and `cost_metric` values are OUR editorial judgement,
+not the claim of any upstream project, benchmark author, lab or vendor named in the
+data. An `evidence: secondary` entry is published precisely because its primary source
+has NOT been read end-to-end, and a `coverage: none` row is a recorded null — a
+statement that we looked and found nothing, not a statement that nothing exists.
+Benchmark scores move with benchmark versions; a number here is only as good as the
+version and date beside it. Nothing in this repository is an audit opinion, a
+certification, a safety guarantee, or legal advice. Verify before you rely on it — and
+please dispute anything you find wrong.

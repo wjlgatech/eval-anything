@@ -4,7 +4,8 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/wjlgatech/eval-anything/ci.yml?style=flat-square&label=check)](https://github.com/wjlgatech/eval-anything/actions)
 [![Last Updated](https://img.shields.io/github/last-commit/wjlgatech/eval-anything?style=flat-square&label=last%20turn)](https://github.com/wjlgatech/eval-anything/commits)
-![License](https://img.shields.io/badge/license-all--rights--reserved-lightgrey?style=flat-square)
+[![code](https://img.shields.io/badge/code-Apache--2.0-green?style=flat-square)](LICENSE)
+[![data](https://img.shields.io/badge/data-CC--BY--4.0-green?style=flat-square)](LICENSE-DATA)
 
 *an honest ❌ beats a fake ✅ — measure models, agents, and their guardrails against reality*
 
@@ -15,10 +16,11 @@ One reliable place for evaluation of foundation models (LLM, VLM, VLA) and agent
 
 ## 📰 News
 
-- **2026-07-23** — OEC completed end-to-end and demonstrated on a real product: agentgate joins the registry (new control category) and the OEC canon as the family C exemplar; AgentGate ROADMAP gains phase 3.5 (consume observe.py --eval session signals as gate evidence) + eval-rigor discipline. Live demo on REDACTED (docs/demos/redacted-oec.md): O = 14.7h build session observed (399 tool calls, 1.25% error); E = 100 tests green AND an honest business ❌ (parity not_measured pending GPU render); C = the real AgentGate pipeline blocking secrets, escalating 4k-line diffs, tamper-evident ledger verified.
+- **2026-08-03** — DECISION — open source, and the recorded reason for privacy was wrong. The only justification on file said "private, matching the family"; the declared family measured 5 PUBLIC / 4 private, so there was no convention to match — privacy was a scaffold default nobody had ever decided. Audited before flipping: 13 commits, one author on the personal identity, zero secret-shaped strings in any commit, zero deleted files, no client or employer data, and content that is entirely curated public research. The argument FOR is in this repo's own spec: the community fold promises add-one-row registry PRs and the repo claims to be the one place people rely on — both are structurally impossible while private, so by our own rule (no evidence ⇒ no claim) that fold was a claim with zero evidence. Licence split to Apache-2.0 (scripts/) + CC BY 4.0 (data/), matching secure-anything-core. Private siblings are now named for lineage but never hyperlinked, so a public README ships no 404 that advertises a private repo.
+- **2026-07-23** — OEC closed end-to-end on a real build, not a toy: the family's control layer joins the registry (new control category) and the OEC canon as the C exemplar, and gains a phase to consume observe.py --eval session signals as gate evidence. All three pillars fired on one delivery — O = the build session observed from its own transcript; E = a full test suite green AND an honest business ❌ (parity recorded as not_measured rather than assumed); C = a real gate pipeline blocking secrets, escalating an oversized diff, and leaving a tamper-evident ledger. The walkthrough stays private: it documents an unreleased product, and this repo does not trade a sibling's confidentiality for a demo.
 - **2026-07-22** — the repo is now its own O layer: scripts/observe.py parses Claude Code session transcripts into machine-readable observations + eval-ready signals (--eval, honest not_measured fields) for AI agents; patoles/agent-flow (Apache-2.0, researched vs 6 alternatives incl. the unlicensed 1.5k-star leader) composed as the human surface — same ground truth, two audiences. New registry category: observe (5 repos). Dogfooded on this very session: 175 tool calls, 6.9% error rate, 11 subagents, 32 files mutated.
 - **2026-07-22** — demo above the fold + agentic brief webapp: data/examples.yml (6 features x 13 say/get demos) now renders at the top of the README; brief/ ships the family webapp (generated data.js with 353 corpus passages, drift-gated; corpus-restricted copilot with labeled offline fallback) — browser-verified, zero console errors. The pattern is now baseline-contract rule #4 in the family PLAYBOOK.
-- **2026-07-22** — published: github.com/wjlgatech/eval-anything is live (private, family convention) — CI green on main; the weekly registry sync heartbeat is armed
+- **2026-07-22** — published: github.com/wjlgatech/eval-anything is live — CI green on main; the weekly registry sync heartbeat is armed. Created PRIVATE by scaffold default; the "family convention" this entry originally claimed as the reason did not exist (see the 2026-08-03 decision).
 - **2026-07-22** — OEC reframe landed (Paul's directive): the repo's big picture is now Observe → Evaluate → Control — observability precedes eval, eval targets the objective (engineering AND business, across the lifecycle), eval without control is a scoreboard. New data/oec.yml canon across three survival-test horizons (300y/30y/now) + docs/OEC.md deep dive (quote pairs, anti-portfolio, Lindy readings). Also: an unverifiable 'OpenAI acquires promptfoo' claim was removed from the registry (citation rigor).
 - **2026-07-22** — field research landed: 54 tracked repos, 59 seminal papers, 26 labs/orgs, 19 canonical blogs, 48 people, 47 guardrails/security entries — all web-verified this day. DECISION: guardrails/security lives inside eval-anything (red-teaming IS adversarial evaluation); splits out only if the fold outgrows the repo.
 - **2026-07-22** — repo scaffolded from spec (green at birth)
@@ -212,7 +214,7 @@ hype cycle) · ⚡ now (rising, mid-2026):
 | [Agent fleet governance](https://www.microsoft.com/en-us/microsoft-365/blog/2025/11/18/microsoft-agent-365-the-control-plane-for-ai-agents/) | Microsoft Agent 365 (GA 2026-05) | ⚡ now | registry + agent identities + fleet-wide telemetry + enforcement, framework-agnostic | the biggest-scale 'governance over agent fleets'; meanwhile Deloitte finds only 21% of enterprises have mature agent governance — C is the least-built pillar |
 | [Sandboxing as containment control](https://e2b.dev) | E2B (Firecracker microVMs) et al. | ⚡ now | kernel-level isolation as the outermost control ring for agent execution | the control everyone agrees on even when policy engines disagree |
 | [Closed-loop data flywheels (MAPE for agents)](https://arxiv.org/abs/2510.27051) | NVIDIA, arXiv:2510.27051 → EACL 2026; Arize LLMOps loop | ⚡ now | Monitor-Analyze-Plan-Execute on a 30k-user assistant: production feedback → failure analysis → targeted fine-tunes → redeploy | the most explicit published OEC loop for agents — names the control-theory lineage outright (70% latency cut, 96% router accuracy) |
-| [AgentGate (first-party)](https://github.com/wjlgatech/agentgate) | wjlgatech 2026 | ⚡ now | actor-aware policy-as-data firewall for human + AI-agent code changes — verify → classify actor → deterministic checks → decide → audit (hash-chained ledger) | the family's own O+E+C-fused artifact (the 300y Lindy shape): agents auto-merge low-risk only, riskier routes to a human, every decision is court-grade evidence; red-team hardened 58%→75% catch at 0% false-escalation |
+| [secure-anything (first-party open core)](https://github.com/wjlgatech/secure-anything-core) | wjlgatech 2026 | ⚡ now | the composition layer for agent security — registry of capabilities, deterministic intent→capability router, uniform gate seam (any tool becomes a comparable exit code), hash-chained signed ledger of what was checked | the family's own C exemplar in the 300y Lindy shape — a decision is only a control if something can refuse and the refusal leaves evidence. It publishes its own north star (Verified Control Coverage) at 0/20 rather than a flattering number, which is the discipline this repo exists to enforce |
 
 ## 🧩 Agentic tooling — 12 primitives, and what actually benchmarks them
 
@@ -313,7 +315,7 @@ Top-rated repos this repo tracks — refreshed weekly by `make sync`
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`wjlgatech/agentgate`](https://github.com/wjlgatech/agentgate) | FIRST-PARTY — the C of OEC productized: actor-aware policy firewall for human + AI-agent code changes (verify → classify → check → decide → audit); hash-chained ledger; agents held to a stricter bar. The family's own control exemplar | — | — |
+| [`wjlgatech/secure-anything-core`](https://github.com/wjlgatech/secure-anything-core) | FIRST-PARTY — the C of OEC as a composition layer: one registry of what exists, a deterministic router from intent to capability, a uniform gate seam turning any tool into a comparable exit code, and a hash-chained signed ledger of what was actually checked. Open core (Apache-2.0 code / CC BY 4.0 data); its north star, Verified Control Coverage, is published honestly at 0/20 because nothing has an integrated run receipt yet | — | — |
 
 ### 🧰 LLM eval harnesses & platforms
 
@@ -764,14 +766,14 @@ Every promise above is **observable → eval-able → improve-able** — `make c
 
 | Repo | Relation |
 |------|----------|
-| [`wjlgatech/anyagent`](https://github.com/wjlgatech/anyagent) | sibling — shared method lineage |
+| `wjlgatech/anyagent` | sibling — shared method lineage (**private**, no public URL) |
 | [`wjlgatech/FM-os`](https://github.com/wjlgatech/FM-os) | sibling — shared method lineage |
 | [`wjlgatech/rsi-os`](https://github.com/wjlgatech/rsi-os) | sibling — shared method lineage |
 | [`wjlgatech/longevity-loop`](https://github.com/wjlgatech/longevity-loop) | sibling — shared method lineage |
 | [`wjlgatech/animate-anything`](https://github.com/wjlgatech/animate-anything) | sibling — shared method lineage |
-| [`wjlgatech/master-anything`](https://github.com/wjlgatech/master-anything) | sibling — shared method lineage |
-| [`wjlgatech/marketing-anything`](https://github.com/wjlgatech/marketing-anything) | sibling — shared method lineage |
-| [`wjlgatech/graph-engineering-anything`](https://github.com/wjlgatech/graph-engineering-anything) | sibling — shared method lineage |
+| `wjlgatech/master-anything` | sibling — shared method lineage (**private**, no public URL) |
+| `wjlgatech/marketing-anything` | sibling — shared method lineage (**private**, no public URL) |
+| `wjlgatech/graph-engineering-anything` | sibling — shared method lineage (**private**, no public URL) |
 | [`wjlgatech/loop-engineering-anything`](https://github.com/wjlgatech/loop-engineering-anything) | sibling — shared method lineage |
 
 ## 🧪 Verify
@@ -782,4 +784,15 @@ make check   # validate + tests + self-audit + drift gate — nothing ships red
 
 ## 📄 License
 
-all-rights-reserved — see LICENSE.
+Two licences, because the code and the curation are different kinds of work:
+
+| What | Licence | Why |
+|------|---------|-----|
+| `scripts/`, `tests/` | **Apache-2.0** — see [LICENSE](LICENSE) | a small build harness: a schema gate, a README generator, a session observer. Its value is that you can read it in an afternoon. |
+| `data/`, `brief/`, `specs/` | **CC-BY-4.0** — see [LICENSE-DATA](LICENSE-DATA) | the curation is the part that took real work. Every benchmark version, contamination status, arXiv id and evidence tier was read from a primary source and dated. Lift it into your own tool or paper — just say where it came from. |
+
+Coverage grades, evidence tiers and `cost_metric` values are **our editorial judgement**, not
+the claim of any benchmark author or vendor named in the data. An `evidence: secondary` row is
+published precisely because its primary has NOT been read end-to-end; a `coverage: none` row is
+a recorded null — we looked and found nothing, which is not the same as nothing existing.
+Nothing here is an audit opinion or a safety guarantee. **Please dispute anything you find wrong.**

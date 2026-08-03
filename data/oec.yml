@@ -526,10 +526,11 @@
     accuracy)
 - pillar: control
   horizon: now
-  name: AgentGate (first-party)
+  name: secure-anything (first-party open core)
   origin: wjlgatech 2026
-  url: https://github.com/wjlgatech/agentgate
-  what: actor-aware policy-as-data firewall for human + AI-agent code changes — verify → classify actor → deterministic checks
-    → decide → audit (hash-chained ledger)
-  why: 'the family''s own O+E+C-fused artifact (the 300y Lindy shape): agents auto-merge low-risk only, riskier routes to
-    a human, every decision is court-grade evidence; red-team hardened 58%→75% catch at 0% false-escalation'
+  url: https://github.com/wjlgatech/secure-anything-core
+  what: the composition layer for agent security — registry of capabilities, deterministic intent→capability router,
+    uniform gate seam (any tool becomes a comparable exit code), hash-chained signed ledger of what was checked
+  why: 'the family''s own C exemplar in the 300y Lindy shape — a decision is only a control if something can refuse and
+    the refusal leaves evidence. It publishes its own north star (Verified Control Coverage) at 0/20 rather than a
+    flattering number, which is the discipline this repo exists to enforce'
