@@ -43,5 +43,44 @@
       "C1:met:tested my own tool instead of trusting its docs \u2014 found trust-vs-relevance gate conflation, a live P0",
       "P1:met:refused to fabricate URLs for BFCL/tau-bench; named them in gap prose as unread-primary instead of dressing secondary evidence as strong"
     ]
+  },
+  {
+    "id": "rc0002",
+    "delivery": "Option B executed: renamed the old repo to wjlgatech/eval-anything-archive (PRIVATE, holds the dirty history), created a fresh PUBLIC wjlgatech/eval-anything, pushed only refs/heads/main (17 commits, clean). Verified with the probe that caught the Option A failure: old SHAs return 'No commit found for SHA', git fetch of them is refused, the purged file 404s, and an exhaustive fresh-clone object scan finds nothing. Also fixed a self-inflicted leak (my own ROADMAP entry named the purged product) and a genuinely broken link that failed the first public CI run (stellabiderman.com serves a cert for an unrelated domain; replaced with her identity-verified GitHub plus a link_note recording why). CI green on the public repo.",
+    "objective": "Open-source eval-anything with the leak verified closed from an external vantage point",
+    "created_at": "2026-08-03T14:21:07-05:00",
+    "key_results": [
+      {
+        "text": "no pre-rewrite object reachable on the public repo",
+        "target": "0 reachable",
+        "score": 1.0,
+        "evidence": "old SHAs return 'No commit found for SHA' (same as a fabricated SHA, while a real one returns 200); git fetch of them refused; purged file 404"
+      },
+      {
+        "text": "public history clean under exhaustive scan",
+        "target": "0 hits",
+        "score": 1.0,
+        "evidence": "fresh-clone scan of every object in the pack across all refs: no match; docs/demos appears in 0 commits"
+      },
+      {
+        "text": "CI green as a public project",
+        "target": "success",
+        "score": 1.0,
+        "evidence": "run completed success after fixing a REAL broken link (351/363 passed; not excluded, replaced)"
+      },
+      {
+        "text": "dirty history contained, not deleted",
+        "target": "archive private",
+        "score": 1.0,
+        "evidence": "wjlgatech/eval-anything-archive PRIVATE with a do-not-publish description"
+      }
+    ],
+    "request": "run B",
+    "headline": "Public for real this time \u2014 verified from outside, not inside",
+    "brief": "Yesterday's attempt looked clean from my own machine and still leaked, because rewriting history does not remove old copies from GitHub's servers. So instead of editing the old repo, I made a brand new one and copied only the clean work into it. Then I checked from the outside, as a stranger would, and the old copies genuinely do not exist there.",
+    "growth": [
+      "C1:met:distrusted my own green \u2014 the Option A verification passed locally and still leaked; only an external probe (curl by old SHA) found it, and I built that probe into the Option B acceptance test",
+      "P1:missed:recommended Option A from first principles about git without checking what GitHub does with unreachable objects \u2014 one curl would have refuted it before I advised a force-push"
+    ]
   }
 ]
