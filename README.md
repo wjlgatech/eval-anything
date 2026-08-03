@@ -305,105 +305,105 @@ Top-rated repos this repo tracks — refreshed weekly by `make sync`
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`patoles/agent-flow`](https://github.com/patoles/agent-flow) | the HUMAN observation surface we compose (Apache-2.0): real-time node-graph viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py reads the same transcripts for the AI-agent surface | ⭐ 1336 | — |
-| [`disler/claude-code-hooks-multi-agent-observability`](https://github.com/disler/claude-code-hooks-multi-agent-observability) | top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for knowledge; NOT composed (no license, heavier setup) | ⭐ 1500 | — |
-| [`anthropics/claude-code-monitoring-guide`](https://github.com/anthropics/claude-code-monitoring-guide) | the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana | ⭐ 357 | — |
-| [`OWASP/www-project-agent-observability-standard`](https://github.com/OWASP/www-project-agent-observability-standard) | the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit | ⭐ 57 | — |
-| [`dreadnode/agent-lens`](https://github.com/dreadnode/agent-lens) | agent observability + replay for safety/interpretability research (MIT) — the research-grade angle | ⭐ 109 | — |
+| [`patoles/agent-flow`](https://github.com/patoles/agent-flow) | the HUMAN observation surface we compose (Apache-2.0): real-time node-graph viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py reads the same transcripts for the AI-agent surface | ⭐ 1437 | 2026-07-11 |
+| [`disler/claude-code-hooks-multi-agent-observability`](https://github.com/disler/claude-code-hooks-multi-agent-observability) | top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for knowledge; NOT composed (no license, heavier setup) | ⭐ 1504 | 2026-02-08 |
+| [`anthropics/claude-code-monitoring-guide`](https://github.com/anthropics/claude-code-monitoring-guide) | the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana | ⭐ 360 | 2025-07-29 |
+| [`OWASP/www-project-agent-observability-standard`](https://github.com/OWASP/www-project-agent-observability-standard) | the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit | ⭐ 57 | 2026-07-08 |
+| [`dreadnode/agent-lens`](https://github.com/dreadnode/agent-lens) | agent observability + replay for safety/interpretability research (MIT) — the research-grade angle | ⭐ 111 | 2026-06-19 |
 
 ### 🎛️ Control (the C of OEC)
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`wjlgatech/secure-anything-core`](https://github.com/wjlgatech/secure-anything-core) | FIRST-PARTY — the C of OEC as a composition layer: one registry of what exists, a deterministic router from intent to capability, a uniform gate seam turning any tool into a comparable exit code, and a hash-chained signed ledger of what was actually checked. Open core (Apache-2.0 code / CC BY 4.0 data); its north star, Verified Control Coverage, is published honestly at 0/20 because nothing has an integrated run receipt yet | — | — |
+| [`wjlgatech/secure-anything-core`](https://github.com/wjlgatech/secure-anything-core) | FIRST-PARTY — the C of OEC as a composition layer: one registry of what exists, a deterministic router from intent to capability, a uniform gate seam turning any tool into a comparable exit code, and a hash-chained signed ledger of what was actually checked. Open core (Apache-2.0 code / CC BY 4.0 data); its north star, Verified Control Coverage, is published honestly at 0/20 because nothing has an integrated run receipt yet | ⭐ 0 | 2026-08-03 |
 
 ### 🧰 LLM eval harnesses & platforms
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`EleutherAI/lm-evaluation-harness`](https://github.com/EleutherAI/lm-evaluation-harness) | the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard | ⭐ 13371 | 2026-07-13 |
-| [`UKGovernmentBEIS/inspect_ai`](https://github.com/UKGovernmentBEIS/inspect_ai) | UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it | ⭐ 2391 | 2026-07-22 |
-| [`UKGovernmentBEIS/inspect_evals`](https://github.com/UKGovernmentBEIS/inspect_evals) | 200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place | ⭐ 595 | 2026-07-22 |
-| [`promptfoo/promptfoo`](https://github.com/promptfoo/promptfoo) | eval + red-team in one dev-first CLI — the practitioner's on-ramp from vibes to gates (a 2026 OpenAI-acquisition claim circulated but is unverified — not cited) | ⭐ 23494 | 2026-07-22 |
-| [`confident-ai/deepeval`](https://github.com/confident-ai/deepeval) | pytest-style LLM unit testing; the canonical open G-Eval implementation | ⭐ 17040 | 2026-07-22 |
-| [`langfuse/langfuse`](https://github.com/langfuse/langfuse) | de-facto OSS LLM observability + eval/annotation platform for production apps | ⭐ 31654 | 2026-07-22 |
-| [`Arize-ai/phoenix`](https://github.com/Arize-ai/phoenix) | OTel-native tracing with built-in evals and agent-trajectory evaluation | ⭐ 10675 | 2026-07-22 |
-| [`comet-ml/opik`](https://github.com/comet-ml/opik) | fastest-growing eval+tracing+guardrails entrant of 2025-26, strong agent-eval focus | ⭐ 20769 | 2026-07-22 |
-| [`open-compass/opencompass`](https://github.com/open-compass/opencompass) | the comprehensive eval platform of the Chinese open-model ecosystem (CompassRank) | ⭐ 7230 | 2026-07-22 |
-| [`stanford-crfm/helm`](https://github.com/stanford-crfm/helm) | holistic multi-metric eval — methodologically foundational; maintenance mode since 2026-06 | ⭐ 2860 | 2026-07-01 |
-| [`huggingface/lighteval`](https://github.com/huggingface/lighteval) | HF's all-backend eval toolkit — the Open LLM Leaderboard lineage lives here | ⭐ 2491 | 2026-06-29 |
-| [`openai/simple-evals`](https://github.com/openai/simple-evals) | where OpenAI's headline numbers are reproducible; canonical BrowseComp implementation | ⭐ 4578 | 2026-04-22 |
-| [`vibrantlabsai/ragas`](https://github.com/vibrantlabsai/ragas) | the standard RAG-eval vocabulary (faithfulness, context precision/recall); watch — activity stalled 2026-02 | ⭐ 14956 | 2026-02-24 |
+| [`EleutherAI/lm-evaluation-harness`](https://github.com/EleutherAI/lm-evaluation-harness) | the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard | ⭐ 13520 | 2026-07-13 |
+| [`UKGovernmentBEIS/inspect_ai`](https://github.com/UKGovernmentBEIS/inspect_ai) | UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it | ⭐ 2458 | 2026-08-03 |
+| [`UKGovernmentBEIS/inspect_evals`](https://github.com/UKGovernmentBEIS/inspect_evals) | 200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place | ⭐ 612 | 2026-08-03 |
+| [`promptfoo/promptfoo`](https://github.com/promptfoo/promptfoo) | eval + red-team in one dev-first CLI — the practitioner's on-ramp from vibes to gates (a 2026 OpenAI-acquisition claim circulated but is unverified — not cited) | ⭐ 23880 | 2026-08-03 |
+| [`confident-ai/deepeval`](https://github.com/confident-ai/deepeval) | pytest-style LLM unit testing; the canonical open G-Eval implementation | ⭐ 17369 | 2026-08-03 |
+| [`langfuse/langfuse`](https://github.com/langfuse/langfuse) | de-facto OSS LLM observability + eval/annotation platform for production apps | ⭐ 32435 | 2026-08-03 |
+| [`Arize-ai/phoenix`](https://github.com/Arize-ai/phoenix) | OTel-native tracing with built-in evals and agent-trajectory evaluation | ⭐ 10875 | 2026-08-03 |
+| [`comet-ml/opik`](https://github.com/comet-ml/opik) | fastest-growing eval+tracing+guardrails entrant of 2025-26, strong agent-eval focus | ⭐ 21085 | 2026-08-03 |
+| [`open-compass/opencompass`](https://github.com/open-compass/opencompass) | the comprehensive eval platform of the Chinese open-model ecosystem (CompassRank) | ⭐ 7266 | 2026-07-31 |
+| [`stanford-crfm/helm`](https://github.com/stanford-crfm/helm) | holistic multi-metric eval — methodologically foundational; maintenance mode since 2026-06 | ⭐ 2872 | 2026-08-01 |
+| [`huggingface/lighteval`](https://github.com/huggingface/lighteval) | HF's all-backend eval toolkit — the Open LLM Leaderboard lineage lives here | ⭐ 2501 | 2026-06-29 |
+| [`openai/simple-evals`](https://github.com/openai/simple-evals) | where OpenAI's headline numbers are reproducible; canonical BrowseComp implementation | ⭐ 4593 | 2026-04-22 |
+| [`vibrantlabsai/ragas`](https://github.com/vibrantlabsai/ragas) | the standard RAG-eval vocabulary (faithfulness, context precision/recall); watch — activity stalled 2026-02 | ⭐ 15105 | 2026-02-24 |
 
 ### 🤖 Agentic benchmarks & infrastructure
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`SWE-bench/SWE-bench`](https://github.com/SWE-bench/SWE-bench) | THE coding-agent benchmark — real GitHub issues scored by real test suites; Verified is the headline variant | ⭐ 5470 | 2026-04-01 |
-| [`microsoft/SWE-bench-Live`](https://github.com/microsoft/SWE-bench-Live) | contamination-resistant monthly-refresh SWE-bench — the answer to the original's saturation | ⭐ 210 | 2026-06-11 |
-| [`harbor-framework/terminal-bench`](https://github.com/harbor-framework/terminal-bench) | hard containerized terminal tasks — became a frontier model-card metric in 2025-26 | ⭐ 2478 | 2026-07-11 |
-| [`harbor-framework/harbor`](https://github.com/harbor-framework/harbor) | the emerging infrastructure layer for containerized agent evals and agentic-RL rollouts at scale | ⭐ 3372 | 2026-07-21 |
-| [`xlang-ai/OSWorld`](https://github.com/xlang-ai/OSWorld) | the de-facto computer-use benchmark (real-OS VM tasks); OSWorld 2.0 shipped 2026-06 | ⭐ 3030 | 2026-07-21 |
-| [`sierra-research/tau2-bench`](https://github.com/sierra-research/tau2-bench) | the standard for conversational tool-use agents — policy adherence + pass^k reliability | ⭐ 1637 | 2026-07-22 |
-| [`ShishirPatil/gorilla`](https://github.com/ShishirPatil/gorilla) | home of the Berkeley Function-Calling Leaderboard — the universal tool-calling eval | ⭐ 12955 | 2026-04-13 |
-| [`openai/mle-bench`](https://github.com/openai/mle-bench) | 75 Kaggle competitions testing autonomous ML engineering — a preparedness-framework staple | ⭐ 1653 | 2026-04-24 |
-| [`ServiceNow/BrowserGym`](https://github.com/ServiceNow/BrowserGym) | the consolidation layer wrapping WebArena/VisualWebArena/WorkArena/MiniWoB into one API | ⭐ 1284 | 2026-07-17 |
-| [`TheAgentCompany/TheAgentCompany`](https://github.com/TheAgentCompany/TheAgentCompany) | simulated software company — the best-known 'can agents do real jobs' benchmark | ⭐ 750 | 2025-11-17 |
-| [`google-research/android_world`](https://github.com/google-research/android_world) | the standard mobile-device-agent benchmark — 116 dynamic tasks in real Android apps | ⭐ 830 | 2026-07-16 |
-| [`facebookresearch/meta-agents-research-environments`](https://github.com/facebookresearch/meta-agents-research-environments) | Meta ARE + Gaia2 — agent eval moved to dynamic, async, time-constrained environments | ⭐ 528 | 2026-07-21 |
+| [`SWE-bench/SWE-bench`](https://github.com/SWE-bench/SWE-bench) | THE coding-agent benchmark — real GitHub issues scored by real test suites; Verified is the headline variant | ⭐ 5559 | 2026-07-27 |
+| [`microsoft/SWE-bench-Live`](https://github.com/microsoft/SWE-bench-Live) | contamination-resistant monthly-refresh SWE-bench — the answer to the original's saturation | ⭐ 217 | 2026-06-11 |
+| [`harbor-framework/terminal-bench`](https://github.com/harbor-framework/terminal-bench) | hard containerized terminal tasks — became a frontier model-card metric in 2025-26 | ⭐ 2518 | 2026-07-11 |
+| [`harbor-framework/harbor`](https://github.com/harbor-framework/harbor) | the emerging infrastructure layer for containerized agent evals and agentic-RL rollouts at scale | ⭐ 3786 | 2026-08-03 |
+| [`xlang-ai/OSWorld`](https://github.com/xlang-ai/OSWorld) | the de-facto computer-use benchmark (real-OS VM tasks); OSWorld 2.0 shipped 2026-06 | ⭐ 3059 | 2026-07-28 |
+| [`sierra-research/tau2-bench`](https://github.com/sierra-research/tau2-bench) | the standard for conversational tool-use agents — policy adherence + pass^k reliability | ⭐ 1720 | 2026-07-30 |
+| [`ShishirPatil/gorilla`](https://github.com/ShishirPatil/gorilla) | home of the Berkeley Function-Calling Leaderboard — the universal tool-calling eval | ⭐ 12985 | 2026-04-13 |
+| [`openai/mle-bench`](https://github.com/openai/mle-bench) | 75 Kaggle competitions testing autonomous ML engineering — a preparedness-framework staple | ⭐ 1661 | 2026-04-24 |
+| [`ServiceNow/BrowserGym`](https://github.com/ServiceNow/BrowserGym) | the consolidation layer wrapping WebArena/VisualWebArena/WorkArena/MiniWoB into one API | ⭐ 1300 | 2026-07-17 |
+| [`TheAgentCompany/TheAgentCompany`](https://github.com/TheAgentCompany/TheAgentCompany) | simulated software company — the best-known 'can agents do real jobs' benchmark | ⭐ 755 | 2025-11-17 |
+| [`google-research/android_world`](https://github.com/google-research/android_world) | the standard mobile-device-agent benchmark — 116 dynamic tasks in real Android apps | ⭐ 837 | 2026-07-16 |
+| [`facebookresearch/meta-agents-research-environments`](https://github.com/facebookresearch/meta-agents-research-environments) | Meta ARE + Gaia2 — agent eval moved to dynamic, async, time-constrained environments | ⭐ 535 | 2026-08-01 |
 
 ### 🖼️ VLM eval
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`open-compass/VLMEvalKit`](https://github.com/open-compass/VLMEvalKit) | one-command eval of 200+ VLMs on 100+ benchmarks; powers the OpenVLM Leaderboard | ⭐ 4295 | 2026-07-22 |
-| [`EvolvingLMMs-Lab/lmms-eval`](https://github.com/EvolvingLMMs-Lab/lmms-eval) | the other de-facto VLM harness (LLaVA/academic lineage) — image, video, audio | ⭐ 4330 | 2026-07-21 |
-| [`MMMU-Benchmark/MMMU`](https://github.com/MMMU-Benchmark/MMMU) | the flagship multimodal capability benchmark in every frontier model card | ⭐ 589 | 2026-02-12 |
-| [`centerforaisafety/hle`](https://github.com/centerforaisafety/hle) | Humanity's Last Exam — the frontier-knowledge headline benchmark (multimodal, private held-out set) | ⭐ 1621 | 2026-02-20 |
+| [`open-compass/VLMEvalKit`](https://github.com/open-compass/VLMEvalKit) | one-command eval of 200+ VLMs on 100+ benchmarks; powers the OpenVLM Leaderboard | ⭐ 4321 | 2026-08-03 |
+| [`EvolvingLMMs-Lab/lmms-eval`](https://github.com/EvolvingLMMs-Lab/lmms-eval) | the other de-facto VLM harness (LLaVA/academic lineage) — image, video, audio | ⭐ 4346 | 2026-08-03 |
+| [`MMMU-Benchmark/MMMU`](https://github.com/MMMU-Benchmark/MMMU) | the flagship multimodal capability benchmark in every frontier model card | ⭐ 591 | 2026-07-28 |
+| [`centerforaisafety/hle`](https://github.com/centerforaisafety/hle) | Humanity's Last Exam — the frontier-knowledge headline benchmark (multimodal, private held-out set) | ⭐ 1641 | 2026-08-01 |
 
 ### 🦾 VLA / embodied eval
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`Lifelong-Robot-Learning/LIBERO`](https://github.com/Lifelong-Robot-Learning/LIBERO) | the default VLA sim benchmark — required for comparability but saturated (~97-99% SOTA) | ⭐ 2085 | 2025-03-15 |
-| [`simpler-env/SimplerEnv`](https://github.com/simpler-env/SimplerEnv) | real-to-sim eval of real-robot policies — the scalable proxy for physical evaluation | ⭐ 1126 | 2025-12-20 |
-| [`allenai/vla-evaluation-harness`](https://github.com/allenai/vla-evaluation-harness) | 2026 entrant doing for VLA what lm-eval-harness did for LLMs — rising fast | ⭐ 459 | 2026-07-22 |
+| [`Lifelong-Robot-Learning/LIBERO`](https://github.com/Lifelong-Robot-Learning/LIBERO) | the default VLA sim benchmark — required for comparability but saturated (~97-99% SOTA) | ⭐ 2131 | 2025-03-15 |
+| [`simpler-env/SimplerEnv`](https://github.com/simpler-env/SimplerEnv) | real-to-sim eval of real-robot policies — the scalable proxy for physical evaluation | ⭐ 1133 | 2025-12-20 |
+| [`allenai/vla-evaluation-harness`](https://github.com/allenai/vla-evaluation-harness) | 2026 entrant doing for VLA what lm-eval-harness did for LLMs — rising fast | ⭐ 506 | 2026-08-01 |
 | [`robo-arena/roboarena`](https://github.com/robo-arena/roboarena) | distributed double-blind real-robot policy arena (CoRL 2025) — low stars, high strategic importance | ⭐ 110 | 2026-04-28 |
-| [`google-deepmind/open_x_embodiment`](https://github.com/google-deepmind/open_x_embodiment) | the cross-embodiment dataset + eval protocols all VLA evals descend from | ⭐ 1937 | 2025-11-05 |
-| [`haosulab/ManiSkill`](https://github.com/haosulab/ManiSkill) | GPU-parallelized sim substrate increasingly used for large-scale VLA eval and RL | ⭐ 3136 | 2026-06-24 |
-| [`StanfordVL/BEHAVIOR-1K`](https://github.com/StanfordVL/BEHAVIOR-1K) | 1,000 household activities in OmniGibson — the most ambitious long-horizon embodied benchmark | ⭐ 1591 | 2026-07-22 |
+| [`google-deepmind/open_x_embodiment`](https://github.com/google-deepmind/open_x_embodiment) | the cross-embodiment dataset + eval protocols all VLA evals descend from | ⭐ 1956 | 2025-11-05 |
+| [`haosulab/ManiSkill`](https://github.com/haosulab/ManiSkill) | GPU-parallelized sim substrate increasingly used for large-scale VLA eval and RL | ⭐ 3200 | 2026-08-02 |
+| [`StanfordVL/BEHAVIOR-1K`](https://github.com/StanfordVL/BEHAVIOR-1K) | 1,000 household activities in OmniGibson — the most ambitious long-horizon embodied benchmark | ⭐ 1613 | 2026-08-03 |
 
 ### ⚖️ LLM-as-judge & arenas
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`lm-sys/FastChat`](https://github.com/lm-sys/FastChat) | the open lineage of Chatbot Arena / MT-Bench — origin of arena-style human-preference eval | ⭐ 39497 | 2026-05-01 |
-| [`lmarena/arena-hard-auto`](https://github.com/lmarena/arena-hard-auto) | the standard cheap arena proxy (LLM-judge predicts Elo); activity slowing | ⭐ 1050 | 2025-06-21 |
-| [`allenai/reward-bench`](https://github.com/allenai/reward-bench) | who judges the judges — the standard benchmark for reward models and LLM evaluators | ⭐ 728 | 2026-02-16 |
+| [`lm-sys/FastChat`](https://github.com/lm-sys/FastChat) | the open lineage of Chatbot Arena / MT-Bench — origin of arena-style human-preference eval | ⭐ 39512 | 2026-05-01 |
+| [`lmarena/arena-hard-auto`](https://github.com/lmarena/arena-hard-auto) | the standard cheap arena proxy (LLM-judge predicts Elo); activity slowing | ⭐ 1055 | 2025-06-21 |
+| [`allenai/reward-bench`](https://github.com/allenai/reward-bench) | who judges the judges — the standard benchmark for reward models and LLM evaluators | ⭐ 730 | 2026-02-16 |
 
 ### 📆 Live / contamination-resistant
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`LiveBench/LiveBench`](https://github.com/LiveBench/LiveBench) | monthly-refreshed, objective-ground-truth benchmark — the leading contamination answer | ⭐ 1254 | 2026-07-22 |
-| [`LiveCodeBench/LiveCodeBench`](https://github.com/LiveCodeBench/LiveCodeBench) | time-windowed competitive-programming eval — exposed HumanEval overfitting | ⭐ 912 | 2025-07-16 |
-| [`evalplus/evalplus`](https://github.com/evalplus/evalplus) | HumanEval+/MBPP+ with 80x more tests — how code numbers are made honest | ⭐ 1782 | 2025-10-02 |
-| [`fchollet/ARC-AGI`](https://github.com/fchollet/ARC-AGI) | the fluid-intelligence holdout line (ARC-AGI-2/3 via arcprize) — $1M+ prize | ⭐ 4804 | 2025-04-04 |
-| [`vectara/hallucination-leaderboard`](https://github.com/vectara/hallucination-leaderboard) | the most-cited public hallucination ranking (HHEM) | ⭐ 3289 | 2026-05-11 |
+| [`LiveBench/LiveBench`](https://github.com/LiveBench/LiveBench) | monthly-refreshed, objective-ground-truth benchmark — the leading contamination answer | ⭐ 1270 | 2026-07-28 |
+| [`LiveCodeBench/LiveCodeBench`](https://github.com/LiveCodeBench/LiveCodeBench) | time-windowed competitive-programming eval — exposed HumanEval overfitting | ⭐ 924 | 2025-07-16 |
+| [`evalplus/evalplus`](https://github.com/evalplus/evalplus) | HumanEval+/MBPP+ with 80x more tests — how code numbers are made honest | ⭐ 1791 | 2025-10-02 |
+| [`fchollet/ARC-AGI`](https://github.com/fchollet/ARC-AGI) | the fluid-intelligence holdout line (ARC-AGI-2/3 via arcprize) — $1M+ prize | ⭐ 4811 | 2025-04-04 |
+| [`vectara/hallucination-leaderboard`](https://github.com/vectara/hallucination-leaderboard) | the most-cited public hallucination ranking (HHEM) | ⭐ 3298 | 2026-05-11 |
 
 ### 🛡️ Guardrails & security
 
 | Repo | Why tracked | Stars | Last push |
 |------|-------------|-------|-----------|
-| [`NVIDIA/garak`](https://github.com/NVIDIA/garak) | the nmap of LLMs — de-facto open vulnerability scanner (jailbreaks, leakage, injection) | ⭐ 8528 | 2026-07-21 |
-| [`microsoft/PyRIT`](https://github.com/microsoft/PyRIT) | Microsoft AI Red Team's own framework — best-in-class multi-turn adversarial campaigns | ⭐ 4164 | 2026-07-22 |
-| [`NVIDIA-NeMo/Guardrails`](https://github.com/NVIDIA-NeMo/Guardrails) | the open-source standard for programmable runtime rails (Colang policy-as-code) | ⭐ 6771 | 2026-07-22 |
-| [`guardrails-ai/guardrails`](https://github.com/guardrails-ai/guardrails) | the validator-hub model — 65+ composable input/output validators | ⭐ 7191 | 2026-07-22 |
-| [`meta-llama/PurpleLlama`](https://github.com/meta-llama/PurpleLlama) | Meta's security umbrella — Llama Guard, Prompt Guard, CodeShield, CyberSecEval, LlamaFirewall | ⭐ 4305 | 2026-07-20 |
-| [`centerforaisafety/HarmBench`](https://github.com/centerforaisafety/HarmBench) | standardized automated red-teaming — 18 attacks vs 33 models under one harness | ⭐ 1011 | 2024-08-16 |
-| [`ethz-spylab/agentdojo`](https://github.com/ethz-spylab/agentdojo) | the reference agent prompt-injection benchmark — the number every defense reports against | ⭐ 678 | 2026-06-02 |
-| [`confident-ai/deepteam`](https://github.com/confident-ai/deepteam) | red-teaming as evaluation — DeepEval's sibling, 40+ vulnerabilities mapped to OWASP/NIST | ⭐ 2280 | 2026-07-20 |
-| [`JailbreakBench/jailbreakbench`](https://github.com/JailbreakBench/jailbreakbench) | the canonical shared threat model + leaderboard + artifact repo for jailbreak research | ⭐ 634 | 2025-04-04 |
+| [`NVIDIA/garak`](https://github.com/NVIDIA/garak) | the nmap of LLMs — de-facto open vulnerability scanner (jailbreaks, leakage, injection) | ⭐ 8674 | 2026-07-31 |
+| [`microsoft/PyRIT`](https://github.com/microsoft/PyRIT) | Microsoft AI Red Team's own framework — best-in-class multi-turn adversarial campaigns | ⭐ 4233 | 2026-08-03 |
+| [`NVIDIA-NeMo/Guardrails`](https://github.com/NVIDIA-NeMo/Guardrails) | the open-source standard for programmable runtime rails (Colang policy-as-code) | ⭐ 6867 | 2026-08-03 |
+| [`guardrails-ai/guardrails`](https://github.com/guardrails-ai/guardrails) | the validator-hub model — 65+ composable input/output validators | ⭐ 7245 | 2026-08-02 |
+| [`meta-llama/PurpleLlama`](https://github.com/meta-llama/PurpleLlama) | Meta's security umbrella — Llama Guard, Prompt Guard, CodeShield, CyberSecEval, LlamaFirewall | ⭐ 4326 | 2026-07-27 |
+| [`centerforaisafety/HarmBench`](https://github.com/centerforaisafety/HarmBench) | standardized automated red-teaming — 18 attacks vs 33 models under one harness | ⭐ 1022 | 2024-08-16 |
+| [`ethz-spylab/agentdojo`](https://github.com/ethz-spylab/agentdojo) | the reference agent prompt-injection benchmark — the number every defense reports against | ⭐ 706 | 2026-06-02 |
+| [`confident-ai/deepteam`](https://github.com/confident-ai/deepteam) | red-teaming as evaluation — DeepEval's sibling, 40+ vulnerabilities mapped to OWASP/NIST | ⭐ 2318 | 2026-08-02 |
+| [`JailbreakBench/jailbreakbench`](https://github.com/JailbreakBench/jailbreakbench) | the canonical shared threat model + leaderboard + artifact repo for jailbreak research | ⭐ 642 | 2025-04-04 |
 | [`Giskard-AI/giskard-oss`](https://github.com/Giskard-AI/giskard-oss) | European leader bridging classic ML testing and LLM vulnerability scanning | ⭐ 5704 | 2026-07-21 |
 
 ## 📄 Seminal papers

@@ -49,293 +49,305 @@ const BRIEF_DATA = {
       "repo": "patoles/agent-flow",
       "category": "observe",
       "why": "the HUMAN observation surface we compose (Apache-2.0): real-time node-graph viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py reads the same transcripts for the AI-agent surface",
-      "stars": 1336
+      "stars": 1437,
+      "pushed_at": "2026-07-11T15:57:04Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "disler/claude-code-hooks-multi-agent-observability",
       "category": "observe",
       "why": "top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for knowledge; NOT composed (no license, heavier setup)",
-      "stars": 1500
+      "stars": 1504,
+      "pushed_at": "2026-02-08T23:59:13Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "anthropics/claude-code-monitoring-guide",
       "category": "observe",
       "why": "the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana",
-      "stars": 357
+      "stars": 360,
+      "pushed_at": "2025-07-29T05:21:27Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "OWASP/www-project-agent-observability-standard",
       "category": "observe",
       "why": "the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit",
-      "stars": 57
+      "stars": 57,
+      "pushed_at": "2026-07-08T09:08:41Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "dreadnode/agent-lens",
       "category": "observe",
       "why": "agent observability + replay for safety/interpretability research (MIT) — the research-grade angle",
-      "stars": 109
+      "stars": 111,
+      "pushed_at": "2026-06-19T01:05:54Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "wjlgatech/secure-anything-core",
       "category": "control",
       "why": "FIRST-PARTY — the C of OEC as a composition layer: one registry of what exists, a deterministic router from intent to capability, a uniform gate seam turning any tool into a comparable exit code, and a hash-chained signed ledger of what was actually checked. Open core (Apache-2.0 code / CC BY 4.0 data); its north star, Verified Control Coverage, is published honestly at 0/20 because nothing has an integrated run receipt yet",
-      "stars": null
+      "stars": 0,
+      "pushed_at": "2026-08-03T17:13:57Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "EleutherAI/lm-evaluation-harness",
       "category": "harness",
       "why": "the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard",
-      "stars": 13371,
+      "stars": 13520,
       "pushed_at": "2026-07-13T20:18:15Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "UKGovernmentBEIS/inspect_ai",
       "category": "harness",
       "why": "UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it",
-      "stars": 2391,
-      "pushed_at": "2026-07-22T13:20:30Z",
-      "last_sync": "2026-07-22"
+      "stars": 2458,
+      "pushed_at": "2026-08-03T17:05:52Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "UKGovernmentBEIS/inspect_evals",
       "category": "harness",
       "why": "200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place",
-      "stars": 595,
-      "pushed_at": "2026-07-22T05:35:18Z",
-      "last_sync": "2026-07-22"
+      "stars": 612,
+      "pushed_at": "2026-08-03T10:09:03Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "promptfoo/promptfoo",
       "category": "harness",
       "why": "eval + red-team in one dev-first CLI — the practitioner's on-ramp from vibes to gates (a 2026 OpenAI-acquisition claim circulated but is unverified — not cited)",
-      "stars": 23494,
-      "pushed_at": "2026-07-22T06:39:26Z",
-      "last_sync": "2026-07-22"
+      "stars": 23880,
+      "pushed_at": "2026-08-03T16:52:01Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "confident-ai/deepeval",
       "category": "harness",
       "why": "pytest-style LLM unit testing; the canonical open G-Eval implementation",
-      "stars": 17040,
-      "pushed_at": "2026-07-22T13:45:55Z",
-      "last_sync": "2026-07-22"
+      "stars": 17369,
+      "pushed_at": "2026-08-03T12:53:51Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "langfuse/langfuse",
       "category": "harness",
       "why": "de-facto OSS LLM observability + eval/annotation platform for production apps",
-      "stars": 31654,
-      "pushed_at": "2026-07-22T14:05:12Z",
-      "last_sync": "2026-07-22"
+      "stars": 32435,
+      "pushed_at": "2026-08-03T17:27:36Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "Arize-ai/phoenix",
       "category": "harness",
       "why": "OTel-native tracing with built-in evals and agent-trajectory evaluation",
-      "stars": 10675,
-      "pushed_at": "2026-07-22T13:35:28Z",
-      "last_sync": "2026-07-22"
+      "stars": 10875,
+      "pushed_at": "2026-08-03T17:34:05Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "comet-ml/opik",
       "category": "harness",
       "why": "fastest-growing eval+tracing+guardrails entrant of 2025-26, strong agent-eval focus",
-      "stars": 20769,
-      "pushed_at": "2026-07-22T13:56:20Z",
-      "last_sync": "2026-07-22"
+      "stars": 21085,
+      "pushed_at": "2026-08-03T17:43:32Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "open-compass/opencompass",
       "category": "harness",
       "why": "the comprehensive eval platform of the Chinese open-model ecosystem (CompassRank)",
-      "stars": 7230,
-      "pushed_at": "2026-07-22T06:10:01Z",
-      "last_sync": "2026-07-22"
+      "stars": 7266,
+      "pushed_at": "2026-07-31T05:25:35Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "stanford-crfm/helm",
       "category": "harness",
       "why": "holistic multi-metric eval — methodologically foundational; maintenance mode since 2026-06",
-      "stars": 2860,
-      "pushed_at": "2026-07-01T01:23:08Z",
-      "last_sync": "2026-07-22"
+      "stars": 2872,
+      "pushed_at": "2026-08-01T01:23:17Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "huggingface/lighteval",
       "category": "harness",
       "why": "HF's all-backend eval toolkit — the Open LLM Leaderboard lineage lives here",
-      "stars": 2491,
+      "stars": 2501,
       "pushed_at": "2026-06-29T13:03:33Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "openai/simple-evals",
       "category": "harness",
       "why": "where OpenAI's headline numbers are reproducible; canonical BrowseComp implementation",
-      "stars": 4578,
+      "stars": 4593,
       "pushed_at": "2026-04-22T22:16:18Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "vibrantlabsai/ragas",
       "category": "harness",
       "why": "the standard RAG-eval vocabulary (faithfulness, context precision/recall); watch — activity stalled 2026-02",
-      "stars": 14956,
+      "stars": 15105,
       "pushed_at": "2026-02-24T07:47:19Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "SWE-bench/SWE-bench",
       "category": "agent",
       "why": "THE coding-agent benchmark — real GitHub issues scored by real test suites; Verified is the headline variant",
-      "stars": 5470,
-      "pushed_at": "2026-04-01T05:16:30Z",
-      "last_sync": "2026-07-22"
+      "stars": 5559,
+      "pushed_at": "2026-07-27T05:34:27Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "microsoft/SWE-bench-Live",
       "category": "agent",
       "why": "contamination-resistant monthly-refresh SWE-bench — the answer to the original's saturation",
-      "stars": 210,
+      "stars": 217,
       "pushed_at": "2026-06-11T02:58:21Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "harbor-framework/terminal-bench",
       "category": "agent",
       "why": "hard containerized terminal tasks — became a frontier model-card metric in 2025-26",
-      "stars": 2478,
+      "stars": 2518,
       "pushed_at": "2026-07-11T05:19:08Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "harbor-framework/harbor",
       "category": "agent",
       "why": "the emerging infrastructure layer for containerized agent evals and agentic-RL rollouts at scale",
-      "stars": 3372,
-      "pushed_at": "2026-07-21T23:45:16Z",
-      "last_sync": "2026-07-22"
+      "stars": 3786,
+      "pushed_at": "2026-08-03T17:53:11Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "xlang-ai/OSWorld",
       "category": "agent",
       "why": "the de-facto computer-use benchmark (real-OS VM tasks); OSWorld 2.0 shipped 2026-06",
-      "stars": 3030,
-      "pushed_at": "2026-07-21T11:09:20Z",
-      "last_sync": "2026-07-22"
+      "stars": 3059,
+      "pushed_at": "2026-07-28T12:30:35Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "sierra-research/tau2-bench",
       "category": "agent",
       "why": "the standard for conversational tool-use agents — policy adherence + pass^k reliability",
-      "stars": 1637,
-      "pushed_at": "2026-07-22T03:54:52Z",
-      "last_sync": "2026-07-22"
+      "stars": 1720,
+      "pushed_at": "2026-07-30T00:08:54Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "ShishirPatil/gorilla",
       "category": "agent",
       "why": "home of the Berkeley Function-Calling Leaderboard — the universal tool-calling eval",
-      "stars": 12955,
+      "stars": 12985,
       "pushed_at": "2026-04-13T03:19:45Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "openai/mle-bench",
       "category": "agent",
       "why": "75 Kaggle competitions testing autonomous ML engineering — a preparedness-framework staple",
-      "stars": 1653,
+      "stars": 1661,
       "pushed_at": "2026-04-24T17:33:44Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "ServiceNow/BrowserGym",
       "category": "agent",
       "why": "the consolidation layer wrapping WebArena/VisualWebArena/WorkArena/MiniWoB into one API",
-      "stars": 1284,
+      "stars": 1300,
       "pushed_at": "2026-07-17T18:09:30Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "TheAgentCompany/TheAgentCompany",
       "category": "agent",
       "why": "simulated software company — the best-known 'can agents do real jobs' benchmark",
-      "stars": 750,
+      "stars": 755,
       "pushed_at": "2025-11-17T20:31:16Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "google-research/android_world",
       "category": "agent",
       "why": "the standard mobile-device-agent benchmark — 116 dynamic tasks in real Android apps",
-      "stars": 830,
+      "stars": 837,
       "pushed_at": "2026-07-16T20:18:37Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "facebookresearch/meta-agents-research-environments",
       "category": "agent",
       "why": "Meta ARE + Gaia2 — agent eval moved to dynamic, async, time-constrained environments",
-      "stars": 528,
-      "pushed_at": "2026-07-21T18:00:46Z",
-      "last_sync": "2026-07-22"
+      "stars": 535,
+      "pushed_at": "2026-08-01T01:51:01Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "open-compass/VLMEvalKit",
       "category": "vlm",
       "why": "one-command eval of 200+ VLMs on 100+ benchmarks; powers the OpenVLM Leaderboard",
-      "stars": 4295,
-      "pushed_at": "2026-07-22T08:32:45Z",
-      "last_sync": "2026-07-22"
+      "stars": 4321,
+      "pushed_at": "2026-08-03T10:48:10Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "EvolvingLMMs-Lab/lmms-eval",
       "category": "vlm",
       "why": "the other de-facto VLM harness (LLaVA/academic lineage) — image, video, audio",
-      "stars": 4330,
-      "pushed_at": "2026-07-21T11:44:44Z",
-      "last_sync": "2026-07-22"
+      "stars": 4346,
+      "pushed_at": "2026-08-03T06:54:20Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "MMMU-Benchmark/MMMU",
       "category": "vlm",
       "why": "the flagship multimodal capability benchmark in every frontier model card",
-      "stars": 589,
-      "pushed_at": "2026-02-12T09:41:31Z",
-      "last_sync": "2026-07-22"
+      "stars": 591,
+      "pushed_at": "2026-07-28T02:29:26Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "centerforaisafety/hle",
       "category": "vlm",
       "why": "Humanity's Last Exam — the frontier-knowledge headline benchmark (multimodal, private held-out set)",
-      "stars": 1621,
-      "pushed_at": "2026-02-20T19:46:25Z",
-      "last_sync": "2026-07-22"
+      "stars": 1641,
+      "pushed_at": "2026-08-01T08:53:41Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "Lifelong-Robot-Learning/LIBERO",
       "category": "vla",
       "why": "the default VLA sim benchmark — required for comparability but saturated (~97-99% SOTA)",
-      "stars": 2085,
+      "stars": 2131,
       "pushed_at": "2025-03-15T12:14:04Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "simpler-env/SimplerEnv",
       "category": "vla",
       "why": "real-to-sim eval of real-robot policies — the scalable proxy for physical evaluation",
-      "stars": 1126,
+      "stars": 1133,
       "pushed_at": "2025-12-20T13:08:29Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "allenai/vla-evaluation-harness",
       "category": "vla",
       "why": "2026 entrant doing for VLA what lm-eval-harness did for LLMs — rising fast",
-      "stars": 459,
-      "pushed_at": "2026-07-22T03:23:13Z",
-      "last_sync": "2026-07-22"
+      "stars": 506,
+      "pushed_at": "2026-08-01T06:48:07Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "robo-arena/roboarena",
@@ -343,167 +355,167 @@ const BRIEF_DATA = {
       "why": "distributed double-blind real-robot policy arena (CoRL 2025) — low stars, high strategic importance",
       "stars": 110,
       "pushed_at": "2026-04-28T11:54:02Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "google-deepmind/open_x_embodiment",
       "category": "vla",
       "why": "the cross-embodiment dataset + eval protocols all VLA evals descend from",
-      "stars": 1937,
+      "stars": 1956,
       "pushed_at": "2025-11-05T23:45:27Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "haosulab/ManiSkill",
       "category": "vla",
       "why": "GPU-parallelized sim substrate increasingly used for large-scale VLA eval and RL",
-      "stars": 3136,
-      "pushed_at": "2026-06-24T05:07:23Z",
-      "last_sync": "2026-07-22"
+      "stars": 3200,
+      "pushed_at": "2026-08-02T03:59:43Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "StanfordVL/BEHAVIOR-1K",
       "category": "vla",
       "why": "1,000 household activities in OmniGibson — the most ambitious long-horizon embodied benchmark",
-      "stars": 1591,
-      "pushed_at": "2026-07-22T00:12:48Z",
-      "last_sync": "2026-07-22"
+      "stars": 1613,
+      "pushed_at": "2026-08-03T16:39:34Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "lm-sys/FastChat",
       "category": "judge",
       "why": "the open lineage of Chatbot Arena / MT-Bench — origin of arena-style human-preference eval",
-      "stars": 39497,
+      "stars": 39512,
       "pushed_at": "2026-05-01T00:25:53Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "lmarena/arena-hard-auto",
       "category": "judge",
       "why": "the standard cheap arena proxy (LLM-judge predicts Elo); activity slowing",
-      "stars": 1050,
+      "stars": 1055,
       "pushed_at": "2025-06-21T04:44:12Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "allenai/reward-bench",
       "category": "judge",
       "why": "who judges the judges — the standard benchmark for reward models and LLM evaluators",
-      "stars": 728,
+      "stars": 730,
       "pushed_at": "2026-02-16T05:50:29Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "LiveBench/LiveBench",
       "category": "live",
       "why": "monthly-refreshed, objective-ground-truth benchmark — the leading contamination answer",
-      "stars": 1254,
-      "pushed_at": "2026-07-22T07:13:18Z",
-      "last_sync": "2026-07-22"
+      "stars": 1270,
+      "pushed_at": "2026-07-28T13:13:34Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "LiveCodeBench/LiveCodeBench",
       "category": "live",
       "why": "time-windowed competitive-programming eval — exposed HumanEval overfitting",
-      "stars": 912,
+      "stars": 924,
       "pushed_at": "2025-07-16T00:58:38Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "evalplus/evalplus",
       "category": "live",
       "why": "HumanEval+/MBPP+ with 80x more tests — how code numbers are made honest",
-      "stars": 1782,
+      "stars": 1791,
       "pushed_at": "2025-10-02T22:56:38Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "fchollet/ARC-AGI",
       "category": "live",
       "why": "the fluid-intelligence holdout line (ARC-AGI-2/3 via arcprize) — $1M+ prize",
-      "stars": 4804,
+      "stars": 4811,
       "pushed_at": "2025-04-04T21:28:40Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "vectara/hallucination-leaderboard",
       "category": "live",
       "why": "the most-cited public hallucination ranking (HHEM)",
-      "stars": 3289,
+      "stars": 3298,
       "pushed_at": "2026-05-11T18:42:42Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "NVIDIA/garak",
       "category": "security",
       "why": "the nmap of LLMs — de-facto open vulnerability scanner (jailbreaks, leakage, injection)",
-      "stars": 8528,
-      "pushed_at": "2026-07-21T20:15:03Z",
-      "last_sync": "2026-07-22"
+      "stars": 8674,
+      "pushed_at": "2026-07-31T21:53:06Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "microsoft/PyRIT",
       "category": "security",
       "why": "Microsoft AI Red Team's own framework — best-in-class multi-turn adversarial campaigns",
-      "stars": 4164,
-      "pushed_at": "2026-07-22T14:05:25Z",
-      "last_sync": "2026-07-22"
+      "stars": 4233,
+      "pushed_at": "2026-08-03T17:16:06Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "NVIDIA-NeMo/Guardrails",
       "category": "security",
       "why": "the open-source standard for programmable runtime rails (Colang policy-as-code)",
-      "stars": 6771,
-      "pushed_at": "2026-07-22T13:39:41Z",
-      "last_sync": "2026-07-22"
+      "stars": 6867,
+      "pushed_at": "2026-08-03T17:49:10Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "guardrails-ai/guardrails",
       "category": "security",
       "why": "the validator-hub model — 65+ composable input/output validators",
-      "stars": 7191,
-      "pushed_at": "2026-07-22T01:01:21Z",
-      "last_sync": "2026-07-22"
+      "stars": 7245,
+      "pushed_at": "2026-08-02T00:48:55Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "meta-llama/PurpleLlama",
       "category": "security",
       "why": "Meta's security umbrella — Llama Guard, Prompt Guard, CodeShield, CyberSecEval, LlamaFirewall",
-      "stars": 4305,
-      "pushed_at": "2026-07-20T23:09:12Z",
-      "last_sync": "2026-07-22"
+      "stars": 4326,
+      "pushed_at": "2026-07-27T21:53:59Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "centerforaisafety/HarmBench",
       "category": "security",
       "why": "standardized automated red-teaming — 18 attacks vs 33 models under one harness",
-      "stars": 1011,
+      "stars": 1022,
       "pushed_at": "2024-08-16T04:37:37Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "ethz-spylab/agentdojo",
       "category": "security",
       "why": "the reference agent prompt-injection benchmark — the number every defense reports against",
-      "stars": 678,
+      "stars": 706,
       "pushed_at": "2026-06-02T10:01:31Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "confident-ai/deepteam",
       "category": "security",
       "why": "red-teaming as evaluation — DeepEval's sibling, 40+ vulnerabilities mapped to OWASP/NIST",
-      "stars": 2280,
-      "pushed_at": "2026-07-20T08:47:21Z",
-      "last_sync": "2026-07-22"
+      "stars": 2318,
+      "pushed_at": "2026-08-02T11:15:38Z",
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "JailbreakBench/jailbreakbench",
       "category": "security",
       "why": "the canonical shared threat model + leaderboard + artifact repo for jailbreak research",
-      "stars": 634,
+      "stars": 642,
       "pushed_at": "2025-04-04T11:30:46Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-08-03"
     },
     {
       "repo": "Giskard-AI/giskard-oss",
@@ -511,7 +523,8 @@ const BRIEF_DATA = {
       "why": "European leader bridging classic ML testing and LLM vulnerability scanning",
       "stars": 5704,
       "pushed_at": "2026-07-21T09:18:23Z",
-      "last_sync": "2026-07-22"
+      "last_sync": "2026-07-22",
+      "last_sync_error": "HTTPError — none found"
     }
   ],
   "papers": [
@@ -1726,65 +1739,65 @@ const BRIEF_DATA = {
     "Loop stage 'gate': pass/fail lands against the stated threshold — an honest ❌ recorded over a fake ✅.",
     "Loop stage 'compound': results bank to the ledger; what moved (and what saturated) feeds the next eval.",
     "The OEC mental model: Observe → Evaluate → Control. Observability precedes eval (you cannot evaluate what you cannot observe — Kalman 1960 proved O and C are duals). Eval targets the objective, engineering AND business (Kohavi's OEC — Overall Evaluation Criterion — is the formalized business E). Eval without control is a scoreboard.",
-    "Tracked repo patoles/agent-flow [observe]: the HUMAN observation surface we compose (Apache-2.0): real-time node-graph viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py reads the same transcripts for the AI-agent surface. Stars 1336, last push n/a.",
-    "Tracked repo disler/claude-code-hooks-multi-agent-observability [observe]: top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for knowledge; NOT composed (no license, heavier setup). Stars 1500, last push n/a.",
-    "Tracked repo anthropics/claude-code-monitoring-guide [observe]: the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana. Stars 357, last push n/a.",
-    "Tracked repo OWASP/www-project-agent-observability-standard [observe]: the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit. Stars 57, last push n/a.",
-    "Tracked repo dreadnode/agent-lens [observe]: agent observability + replay for safety/interpretability research (MIT) — the research-grade angle. Stars 109, last push n/a.",
-    "Tracked repo wjlgatech/secure-anything-core [control]: FIRST-PARTY — the C of OEC as a composition layer: one registry of what exists, a deterministic router from intent to capability, a uniform gate seam turning any tool into a comparable exit code, and a hash-chained signed ledger of what was actually checked. Open core (Apache-2.0 code / CC BY 4.0 data); its north star, Verified Control Coverage, is published honestly at 0/20 because nothing has an integrated run receipt yet. Stars None, last push n/a.",
-    "Tracked repo EleutherAI/lm-evaluation-harness [harness]: the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard. Stars 13371, last push 2026-07-13.",
-    "Tracked repo UKGovernmentBEIS/inspect_ai [harness]: UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it. Stars 2391, last push 2026-07-22.",
-    "Tracked repo UKGovernmentBEIS/inspect_evals [harness]: 200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place. Stars 595, last push 2026-07-22.",
-    "Tracked repo promptfoo/promptfoo [harness]: eval + red-team in one dev-first CLI — the practitioner's on-ramp from vibes to gates (a 2026 OpenAI-acquisition claim circulated but is unverified — not cited). Stars 23494, last push 2026-07-22.",
-    "Tracked repo confident-ai/deepeval [harness]: pytest-style LLM unit testing; the canonical open G-Eval implementation. Stars 17040, last push 2026-07-22.",
-    "Tracked repo langfuse/langfuse [harness]: de-facto OSS LLM observability + eval/annotation platform for production apps. Stars 31654, last push 2026-07-22.",
-    "Tracked repo Arize-ai/phoenix [harness]: OTel-native tracing with built-in evals and agent-trajectory evaluation. Stars 10675, last push 2026-07-22.",
-    "Tracked repo comet-ml/opik [harness]: fastest-growing eval+tracing+guardrails entrant of 2025-26, strong agent-eval focus. Stars 20769, last push 2026-07-22.",
-    "Tracked repo open-compass/opencompass [harness]: the comprehensive eval platform of the Chinese open-model ecosystem (CompassRank). Stars 7230, last push 2026-07-22.",
-    "Tracked repo stanford-crfm/helm [harness]: holistic multi-metric eval — methodologically foundational; maintenance mode since 2026-06. Stars 2860, last push 2026-07-01.",
-    "Tracked repo huggingface/lighteval [harness]: HF's all-backend eval toolkit — the Open LLM Leaderboard lineage lives here. Stars 2491, last push 2026-06-29.",
-    "Tracked repo openai/simple-evals [harness]: where OpenAI's headline numbers are reproducible; canonical BrowseComp implementation. Stars 4578, last push 2026-04-22.",
-    "Tracked repo vibrantlabsai/ragas [harness]: the standard RAG-eval vocabulary (faithfulness, context precision/recall); watch — activity stalled 2026-02. Stars 14956, last push 2026-02-24.",
-    "Tracked repo SWE-bench/SWE-bench [agent]: THE coding-agent benchmark — real GitHub issues scored by real test suites; Verified is the headline variant. Stars 5470, last push 2026-04-01.",
-    "Tracked repo microsoft/SWE-bench-Live [agent]: contamination-resistant monthly-refresh SWE-bench — the answer to the original's saturation. Stars 210, last push 2026-06-11.",
-    "Tracked repo harbor-framework/terminal-bench [agent]: hard containerized terminal tasks — became a frontier model-card metric in 2025-26. Stars 2478, last push 2026-07-11.",
-    "Tracked repo harbor-framework/harbor [agent]: the emerging infrastructure layer for containerized agent evals and agentic-RL rollouts at scale. Stars 3372, last push 2026-07-21.",
-    "Tracked repo xlang-ai/OSWorld [agent]: the de-facto computer-use benchmark (real-OS VM tasks); OSWorld 2.0 shipped 2026-06. Stars 3030, last push 2026-07-21.",
-    "Tracked repo sierra-research/tau2-bench [agent]: the standard for conversational tool-use agents — policy adherence + pass^k reliability. Stars 1637, last push 2026-07-22.",
-    "Tracked repo ShishirPatil/gorilla [agent]: home of the Berkeley Function-Calling Leaderboard — the universal tool-calling eval. Stars 12955, last push 2026-04-13.",
-    "Tracked repo openai/mle-bench [agent]: 75 Kaggle competitions testing autonomous ML engineering — a preparedness-framework staple. Stars 1653, last push 2026-04-24.",
-    "Tracked repo ServiceNow/BrowserGym [agent]: the consolidation layer wrapping WebArena/VisualWebArena/WorkArena/MiniWoB into one API. Stars 1284, last push 2026-07-17.",
-    "Tracked repo TheAgentCompany/TheAgentCompany [agent]: simulated software company — the best-known 'can agents do real jobs' benchmark. Stars 750, last push 2025-11-17.",
-    "Tracked repo google-research/android_world [agent]: the standard mobile-device-agent benchmark — 116 dynamic tasks in real Android apps. Stars 830, last push 2026-07-16.",
-    "Tracked repo facebookresearch/meta-agents-research-environments [agent]: Meta ARE + Gaia2 — agent eval moved to dynamic, async, time-constrained environments. Stars 528, last push 2026-07-21.",
-    "Tracked repo open-compass/VLMEvalKit [vlm]: one-command eval of 200+ VLMs on 100+ benchmarks; powers the OpenVLM Leaderboard. Stars 4295, last push 2026-07-22.",
-    "Tracked repo EvolvingLMMs-Lab/lmms-eval [vlm]: the other de-facto VLM harness (LLaVA/academic lineage) — image, video, audio. Stars 4330, last push 2026-07-21.",
-    "Tracked repo MMMU-Benchmark/MMMU [vlm]: the flagship multimodal capability benchmark in every frontier model card. Stars 589, last push 2026-02-12.",
-    "Tracked repo centerforaisafety/hle [vlm]: Humanity's Last Exam — the frontier-knowledge headline benchmark (multimodal, private held-out set). Stars 1621, last push 2026-02-20.",
-    "Tracked repo Lifelong-Robot-Learning/LIBERO [vla]: the default VLA sim benchmark — required for comparability but saturated (~97-99% SOTA). Stars 2085, last push 2025-03-15.",
-    "Tracked repo simpler-env/SimplerEnv [vla]: real-to-sim eval of real-robot policies — the scalable proxy for physical evaluation. Stars 1126, last push 2025-12-20.",
-    "Tracked repo allenai/vla-evaluation-harness [vla]: 2026 entrant doing for VLA what lm-eval-harness did for LLMs — rising fast. Stars 459, last push 2026-07-22.",
+    "Tracked repo patoles/agent-flow [observe]: the HUMAN observation surface we compose (Apache-2.0): real-time node-graph viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py reads the same transcripts for the AI-agent surface. Stars 1437, last push 2026-07-11.",
+    "Tracked repo disler/claude-code-hooks-multi-agent-observability [observe]: top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for knowledge; NOT composed (no license, heavier setup). Stars 1504, last push 2026-02-08.",
+    "Tracked repo anthropics/claude-code-monitoring-guide [observe]: the official machine-readable path — Claude Code's native OTel telemetry into Prometheus/Grafana. Stars 360, last push 2025-07-29.",
+    "Tracked repo OWASP/www-project-agent-observability-standard [observe]: the emerging standard vocabulary for agent observability — our observation schema aligns with its spirit. Stars 57, last push 2026-07-08.",
+    "Tracked repo dreadnode/agent-lens [observe]: agent observability + replay for safety/interpretability research (MIT) — the research-grade angle. Stars 111, last push 2026-06-19.",
+    "Tracked repo wjlgatech/secure-anything-core [control]: FIRST-PARTY — the C of OEC as a composition layer: one registry of what exists, a deterministic router from intent to capability, a uniform gate seam turning any tool into a comparable exit code, and a hash-chained signed ledger of what was actually checked. Open core (Apache-2.0 code / CC BY 4.0 data); its north star, Verified Control Coverage, is published honestly at 0/20 because nothing has an integrated run receipt yet. Stars 0, last push 2026-08-03.",
+    "Tracked repo EleutherAI/lm-evaluation-harness [harness]: the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open LLM Leaderboard. Stars 13520, last push 2026-07-13.",
+    "Tracked repo UKGovernmentBEIS/inspect_ai [harness]: UK AISI's framework — the government/safety-institute standard; METR deprecated its own task spec for it. Stars 2458, last push 2026-08-03.",
+    "Tracked repo UKGovernmentBEIS/inspect_evals [harness]: 200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld) — one reproducible place. Stars 612, last push 2026-08-03.",
+    "Tracked repo promptfoo/promptfoo [harness]: eval + red-team in one dev-first CLI — the practitioner's on-ramp from vibes to gates (a 2026 OpenAI-acquisition claim circulated but is unverified — not cited). Stars 23880, last push 2026-08-03.",
+    "Tracked repo confident-ai/deepeval [harness]: pytest-style LLM unit testing; the canonical open G-Eval implementation. Stars 17369, last push 2026-08-03.",
+    "Tracked repo langfuse/langfuse [harness]: de-facto OSS LLM observability + eval/annotation platform for production apps. Stars 32435, last push 2026-08-03.",
+    "Tracked repo Arize-ai/phoenix [harness]: OTel-native tracing with built-in evals and agent-trajectory evaluation. Stars 10875, last push 2026-08-03.",
+    "Tracked repo comet-ml/opik [harness]: fastest-growing eval+tracing+guardrails entrant of 2025-26, strong agent-eval focus. Stars 21085, last push 2026-08-03.",
+    "Tracked repo open-compass/opencompass [harness]: the comprehensive eval platform of the Chinese open-model ecosystem (CompassRank). Stars 7266, last push 2026-07-31.",
+    "Tracked repo stanford-crfm/helm [harness]: holistic multi-metric eval — methodologically foundational; maintenance mode since 2026-06. Stars 2872, last push 2026-08-01.",
+    "Tracked repo huggingface/lighteval [harness]: HF's all-backend eval toolkit — the Open LLM Leaderboard lineage lives here. Stars 2501, last push 2026-06-29.",
+    "Tracked repo openai/simple-evals [harness]: where OpenAI's headline numbers are reproducible; canonical BrowseComp implementation. Stars 4593, last push 2026-04-22.",
+    "Tracked repo vibrantlabsai/ragas [harness]: the standard RAG-eval vocabulary (faithfulness, context precision/recall); watch — activity stalled 2026-02. Stars 15105, last push 2026-02-24.",
+    "Tracked repo SWE-bench/SWE-bench [agent]: THE coding-agent benchmark — real GitHub issues scored by real test suites; Verified is the headline variant. Stars 5559, last push 2026-07-27.",
+    "Tracked repo microsoft/SWE-bench-Live [agent]: contamination-resistant monthly-refresh SWE-bench — the answer to the original's saturation. Stars 217, last push 2026-06-11.",
+    "Tracked repo harbor-framework/terminal-bench [agent]: hard containerized terminal tasks — became a frontier model-card metric in 2025-26. Stars 2518, last push 2026-07-11.",
+    "Tracked repo harbor-framework/harbor [agent]: the emerging infrastructure layer for containerized agent evals and agentic-RL rollouts at scale. Stars 3786, last push 2026-08-03.",
+    "Tracked repo xlang-ai/OSWorld [agent]: the de-facto computer-use benchmark (real-OS VM tasks); OSWorld 2.0 shipped 2026-06. Stars 3059, last push 2026-07-28.",
+    "Tracked repo sierra-research/tau2-bench [agent]: the standard for conversational tool-use agents — policy adherence + pass^k reliability. Stars 1720, last push 2026-07-30.",
+    "Tracked repo ShishirPatil/gorilla [agent]: home of the Berkeley Function-Calling Leaderboard — the universal tool-calling eval. Stars 12985, last push 2026-04-13.",
+    "Tracked repo openai/mle-bench [agent]: 75 Kaggle competitions testing autonomous ML engineering — a preparedness-framework staple. Stars 1661, last push 2026-04-24.",
+    "Tracked repo ServiceNow/BrowserGym [agent]: the consolidation layer wrapping WebArena/VisualWebArena/WorkArena/MiniWoB into one API. Stars 1300, last push 2026-07-17.",
+    "Tracked repo TheAgentCompany/TheAgentCompany [agent]: simulated software company — the best-known 'can agents do real jobs' benchmark. Stars 755, last push 2025-11-17.",
+    "Tracked repo google-research/android_world [agent]: the standard mobile-device-agent benchmark — 116 dynamic tasks in real Android apps. Stars 837, last push 2026-07-16.",
+    "Tracked repo facebookresearch/meta-agents-research-environments [agent]: Meta ARE + Gaia2 — agent eval moved to dynamic, async, time-constrained environments. Stars 535, last push 2026-08-01.",
+    "Tracked repo open-compass/VLMEvalKit [vlm]: one-command eval of 200+ VLMs on 100+ benchmarks; powers the OpenVLM Leaderboard. Stars 4321, last push 2026-08-03.",
+    "Tracked repo EvolvingLMMs-Lab/lmms-eval [vlm]: the other de-facto VLM harness (LLaVA/academic lineage) — image, video, audio. Stars 4346, last push 2026-08-03.",
+    "Tracked repo MMMU-Benchmark/MMMU [vlm]: the flagship multimodal capability benchmark in every frontier model card. Stars 591, last push 2026-07-28.",
+    "Tracked repo centerforaisafety/hle [vlm]: Humanity's Last Exam — the frontier-knowledge headline benchmark (multimodal, private held-out set). Stars 1641, last push 2026-08-01.",
+    "Tracked repo Lifelong-Robot-Learning/LIBERO [vla]: the default VLA sim benchmark — required for comparability but saturated (~97-99% SOTA). Stars 2131, last push 2025-03-15.",
+    "Tracked repo simpler-env/SimplerEnv [vla]: real-to-sim eval of real-robot policies — the scalable proxy for physical evaluation. Stars 1133, last push 2025-12-20.",
+    "Tracked repo allenai/vla-evaluation-harness [vla]: 2026 entrant doing for VLA what lm-eval-harness did for LLMs — rising fast. Stars 506, last push 2026-08-01.",
     "Tracked repo robo-arena/roboarena [vla]: distributed double-blind real-robot policy arena (CoRL 2025) — low stars, high strategic importance. Stars 110, last push 2026-04-28.",
-    "Tracked repo google-deepmind/open_x_embodiment [vla]: the cross-embodiment dataset + eval protocols all VLA evals descend from. Stars 1937, last push 2025-11-05.",
-    "Tracked repo haosulab/ManiSkill [vla]: GPU-parallelized sim substrate increasingly used for large-scale VLA eval and RL. Stars 3136, last push 2026-06-24.",
-    "Tracked repo StanfordVL/BEHAVIOR-1K [vla]: 1,000 household activities in OmniGibson — the most ambitious long-horizon embodied benchmark. Stars 1591, last push 2026-07-22.",
-    "Tracked repo lm-sys/FastChat [judge]: the open lineage of Chatbot Arena / MT-Bench — origin of arena-style human-preference eval. Stars 39497, last push 2026-05-01.",
-    "Tracked repo lmarena/arena-hard-auto [judge]: the standard cheap arena proxy (LLM-judge predicts Elo); activity slowing. Stars 1050, last push 2025-06-21.",
-    "Tracked repo allenai/reward-bench [judge]: who judges the judges — the standard benchmark for reward models and LLM evaluators. Stars 728, last push 2026-02-16.",
-    "Tracked repo LiveBench/LiveBench [live]: monthly-refreshed, objective-ground-truth benchmark — the leading contamination answer. Stars 1254, last push 2026-07-22.",
-    "Tracked repo LiveCodeBench/LiveCodeBench [live]: time-windowed competitive-programming eval — exposed HumanEval overfitting. Stars 912, last push 2025-07-16.",
-    "Tracked repo evalplus/evalplus [live]: HumanEval+/MBPP+ with 80x more tests — how code numbers are made honest. Stars 1782, last push 2025-10-02.",
-    "Tracked repo fchollet/ARC-AGI [live]: the fluid-intelligence holdout line (ARC-AGI-2/3 via arcprize) — $1M+ prize. Stars 4804, last push 2025-04-04.",
-    "Tracked repo vectara/hallucination-leaderboard [live]: the most-cited public hallucination ranking (HHEM). Stars 3289, last push 2026-05-11.",
-    "Tracked repo NVIDIA/garak [security]: the nmap of LLMs — de-facto open vulnerability scanner (jailbreaks, leakage, injection). Stars 8528, last push 2026-07-21.",
-    "Tracked repo microsoft/PyRIT [security]: Microsoft AI Red Team's own framework — best-in-class multi-turn adversarial campaigns. Stars 4164, last push 2026-07-22.",
-    "Tracked repo NVIDIA-NeMo/Guardrails [security]: the open-source standard for programmable runtime rails (Colang policy-as-code). Stars 6771, last push 2026-07-22.",
-    "Tracked repo guardrails-ai/guardrails [security]: the validator-hub model — 65+ composable input/output validators. Stars 7191, last push 2026-07-22.",
-    "Tracked repo meta-llama/PurpleLlama [security]: Meta's security umbrella — Llama Guard, Prompt Guard, CodeShield, CyberSecEval, LlamaFirewall. Stars 4305, last push 2026-07-20.",
-    "Tracked repo centerforaisafety/HarmBench [security]: standardized automated red-teaming — 18 attacks vs 33 models under one harness. Stars 1011, last push 2024-08-16.",
-    "Tracked repo ethz-spylab/agentdojo [security]: the reference agent prompt-injection benchmark — the number every defense reports against. Stars 678, last push 2026-06-02.",
-    "Tracked repo confident-ai/deepteam [security]: red-teaming as evaluation — DeepEval's sibling, 40+ vulnerabilities mapped to OWASP/NIST. Stars 2280, last push 2026-07-20.",
-    "Tracked repo JailbreakBench/jailbreakbench [security]: the canonical shared threat model + leaderboard + artifact repo for jailbreak research. Stars 634, last push 2025-04-04.",
+    "Tracked repo google-deepmind/open_x_embodiment [vla]: the cross-embodiment dataset + eval protocols all VLA evals descend from. Stars 1956, last push 2025-11-05.",
+    "Tracked repo haosulab/ManiSkill [vla]: GPU-parallelized sim substrate increasingly used for large-scale VLA eval and RL. Stars 3200, last push 2026-08-02.",
+    "Tracked repo StanfordVL/BEHAVIOR-1K [vla]: 1,000 household activities in OmniGibson — the most ambitious long-horizon embodied benchmark. Stars 1613, last push 2026-08-03.",
+    "Tracked repo lm-sys/FastChat [judge]: the open lineage of Chatbot Arena / MT-Bench — origin of arena-style human-preference eval. Stars 39512, last push 2026-05-01.",
+    "Tracked repo lmarena/arena-hard-auto [judge]: the standard cheap arena proxy (LLM-judge predicts Elo); activity slowing. Stars 1055, last push 2025-06-21.",
+    "Tracked repo allenai/reward-bench [judge]: who judges the judges — the standard benchmark for reward models and LLM evaluators. Stars 730, last push 2026-02-16.",
+    "Tracked repo LiveBench/LiveBench [live]: monthly-refreshed, objective-ground-truth benchmark — the leading contamination answer. Stars 1270, last push 2026-07-28.",
+    "Tracked repo LiveCodeBench/LiveCodeBench [live]: time-windowed competitive-programming eval — exposed HumanEval overfitting. Stars 924, last push 2025-07-16.",
+    "Tracked repo evalplus/evalplus [live]: HumanEval+/MBPP+ with 80x more tests — how code numbers are made honest. Stars 1791, last push 2025-10-02.",
+    "Tracked repo fchollet/ARC-AGI [live]: the fluid-intelligence holdout line (ARC-AGI-2/3 via arcprize) — $1M+ prize. Stars 4811, last push 2025-04-04.",
+    "Tracked repo vectara/hallucination-leaderboard [live]: the most-cited public hallucination ranking (HHEM). Stars 3298, last push 2026-05-11.",
+    "Tracked repo NVIDIA/garak [security]: the nmap of LLMs — de-facto open vulnerability scanner (jailbreaks, leakage, injection). Stars 8674, last push 2026-07-31.",
+    "Tracked repo microsoft/PyRIT [security]: Microsoft AI Red Team's own framework — best-in-class multi-turn adversarial campaigns. Stars 4233, last push 2026-08-03.",
+    "Tracked repo NVIDIA-NeMo/Guardrails [security]: the open-source standard for programmable runtime rails (Colang policy-as-code). Stars 6867, last push 2026-08-03.",
+    "Tracked repo guardrails-ai/guardrails [security]: the validator-hub model — 65+ composable input/output validators. Stars 7245, last push 2026-08-02.",
+    "Tracked repo meta-llama/PurpleLlama [security]: Meta's security umbrella — Llama Guard, Prompt Guard, CodeShield, CyberSecEval, LlamaFirewall. Stars 4326, last push 2026-07-27.",
+    "Tracked repo centerforaisafety/HarmBench [security]: standardized automated red-teaming — 18 attacks vs 33 models under one harness. Stars 1022, last push 2024-08-16.",
+    "Tracked repo ethz-spylab/agentdojo [security]: the reference agent prompt-injection benchmark — the number every defense reports against. Stars 706, last push 2026-06-02.",
+    "Tracked repo confident-ai/deepteam [security]: red-teaming as evaluation — DeepEval's sibling, 40+ vulnerabilities mapped to OWASP/NIST. Stars 2318, last push 2026-08-02.",
+    "Tracked repo JailbreakBench/jailbreakbench [security]: the canonical shared threat model + leaderboard + artifact repo for jailbreak research. Stars 642, last push 2025-04-04.",
     "Tracked repo Giskard-AI/giskard-oss [security]: European leader bridging classic ML testing and LLM vulnerability scanning. Stars 5704, last push 2026-07-21.",
     "Seminal paper [benchmarks]: GLUE: A Multi-Task Benchmark and Analysis Platform for NLU (Wang et al. 2018, ICLR 2019). the template for all aggregate LLM benchmarks — drove the BERT era, saturated in ~1 year, taught the field about benchmark lifespan (https://arxiv.org/abs/1804.07461).",
     "Seminal paper [benchmarks]: SuperGLUE: A Stickier Benchmark for General-Purpose Language Understanding (Wang et al. 2019, NeurIPS 2019). canonical example of the build-harder-after-saturation cycle; itself saturated by 2021 (https://arxiv.org/abs/1905.00537).",

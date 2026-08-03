@@ -44,7 +44,11 @@ if __name__ == "__main__":
         except Exception as ex:  # record the null, never fabricate
             e["last_sync_error"] = f"{type(ex).__name__} — none found"
     REG.write_text(yaml.safe_dump(entries, sort_keys=False, allow_unicode=True))
-    subprocess.run([sys.executable, str(ROOT / "scripts" / "build.py")], check=True)
+    # Regenerate EVERY derived artifact, not just the README. Missing build_brief.py here left
+    # `make check` red after every sync (brief-drift), which would have failed the weekly
+    # automation's own PR — caught 2026-08-03 while replaying a stale sync branch.
+    for gen in ("build.py", "build_brief.py"):
+        subprocess.run([sys.executable, str(ROOT / "scripts" / gen)], check=True)
     print("what moved:" if moved else "what moved: (nothing this week)")
     for m in moved:
         print(f"  {m}")
