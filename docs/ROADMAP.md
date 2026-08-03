@@ -31,6 +31,20 @@ spec but NOT auto-generated** (no fake passes — each is a real next turn):
       returned `52-newsletter-ideas` at 87/100 ✅ trusted and PASSED `--gate 1`. The two
       axes are orthogonal and must BOTH clear a bar. Fix lives in the `anyagent` repo;
       the failure mode is what `SkillResolve-Bench` measures (see `data/tooling.yml`).
+- [x] **OPEN SOURCE** (2026-08-03) — repo is PUBLIC at github.com/wjlgatech/eval-anything,
+      Apache-2.0 (`scripts/`) + CC BY 4.0 (`data/`), with `CONTRIBUTING.md` making the
+      add-one-row model executable. The recorded reason for privacy ("matching the family")
+      was measured false: the declared family was 5 PUBLIC / 4 private. Pre-flip audit found
+      zero secrets across all commits; an unreleased sibling product's walkthrough was purged
+      from history with `git filter-repo`
+      (verified by exhaustive fresh-clone object scan, not local refs — a local-only check
+      reported clean while a stale `sync/weekly` branch still carried it).
+- [ ] **Contamination status is not yet a field** — non-negotiable #3 says every score names
+      its benchmark VERSION and contamination status, and CONTRIBUTING now demands it of
+      contributors, but no `data/` schema actually holds it. Right now the discipline lives in
+      prose, which means it is unenforced. Add `version` + `contamination` to the benchmark
+      shape in `data/tooling.yml` and gate it in `validate.py` — otherwise rule 3 is exactly
+      the kind of claim-without-evidence this repo exists to catch.
 - [ ] **Super-tool depth** — grow `skills/eval-anything/SKILL.md` beyond the scaffold
       contract: "pick me a benchmark" routing over `data/registry.yml`, an eval-design
       checklist wired to the loop's judge/gate stages (maker≠checker, bias checks,

@@ -66,6 +66,22 @@ make help    # every target, self-documented
 - Leaderboard deltas within a few points are often noise — report confidence intervals, not single numbers (Anthropic's 'statistical approach to model evals', 2024).
 - A benchmark's public test set is in every frontier model's pretraining shadow — treat unversioned scores on pre-2024 benchmarks as contaminated until shown otherwise.
 
+## Visibility & licence (decided 2026-08-03)
+
+**PUBLIC** — github.com/wjlgatech/eval-anything. Code (`scripts/`, `tests/`) **Apache-2.0**;
+curated data (`data/`, `brief/`, `specs/`) **CC BY 4.0** (`LICENSE-DATA`). The prior privacy was
+a scaffold default whose stated reason ("matching the family") was measured false — the family
+was 5 public / 4 private. The argument for public is in this repo's own spec: the community fold
+promises add-one-row registry PRs, which is structurally impossible while private.
+
+Two standing consequences:
+- **Private siblings are named but NEVER hyperlinked** — `data/meta.yml` `family_private` drives
+  this and `validate.py` fails if it drifts from `family`. A public README must not ship a 404
+  that advertises a private repo. Move a repo out of that list the day it goes public.
+- **Anything about an unreleased sibling product stays out** — including build telemetry. Going
+  public publishes *history*, not just the tree; if something must be removed, it needs a history
+  rewrite verified by a **fresh-clone** scan (a local-refs check missed a stale remote branch).
+
 ## Identity
 
 Personal identity ONLY: author/push as `wjlgatech` (wjlgatech@gmail.com). Never the
