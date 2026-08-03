@@ -215,10 +215,15 @@
   link: https://hamel.dev
 - category: science
   name: Stella Biderman
-  affiliation: EleutherAI (executive director)
+  affiliation: EleutherAI (executive director); also Booz Allen Hamilton (per her own GitHub profile, 2026-08-03)
   known_for: "steward of lm-evaluation-harness; Pythia suite"
   why: "keeps the open reproducible eval commons alive as labs go closed"
-  link: https://www.stellabiderman.com
+  link: https://github.com/StellaAthena
+  link_note: >-
+    her own site (www.stellabiderman.com) is listed on her GitHub profile, but as of 2026-08-03 its
+    TLS certificate is misconfigured — it serves a cert valid only for an unrelated domain, so the
+    link check fails it (curl exit 60). Linking her verified GitHub instead; do NOT restore the
+    personal domain without re-testing it.
 - category: science
   name: Melanie Mitchell
   affiliation: Santa Fe Institute

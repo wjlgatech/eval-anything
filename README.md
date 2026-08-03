@@ -637,7 +637,7 @@ uncertain affiliations are marked.
 | [Sayash Kapoor](https://www.cs.princeton.edu/~sayashk/) | Princeton (PhD, defending 2026) | HAL (Holistic Agent Leaderboard); AI Snake Oil co-author | literally writing the thesis the field needs — 'The Missing Science of AI Evaluation' |
 | [Shreya Shankar](https://www.sh-reya.com) | UC Berkeley → CMU (incoming assistant professor) | 'Who Validates the Validators?'; DocETL; evals-in-production research | defined human-aligned LLM-as-judge methodology; co-teaches the most popular practical evals course |
 | [Hamel Husain](https://hamel.dev) | Parlance Labs (independent) | 'Your AI Product Needs Evals'; the Maven evals course | made rigorous evals a mainstream engineering practice for thousands of AI product teams |
-| [Stella Biderman](https://www.stellabiderman.com) | EleutherAI (executive director) | steward of lm-evaluation-harness; Pythia suite | keeps the open reproducible eval commons alive as labs go closed |
+| [Stella Biderman](https://github.com/StellaAthena) | EleutherAI (executive director); also Booz Allen Hamilton (per her own GitHub profile, 2026-08-03) | steward of lm-evaluation-harness; Pythia suite | keeps the open reproducible eval commons alive as labs go closed |
 | [Melanie Mitchell](https://melaniemitchell.me) | Santa Fe Institute | ConceptARC; rigorous critiques of sparks-of-AGI capability claims | the conscience of capability claims — insists on probing HOW models pass tests |
 
 ### Agent, safety & dangerous-capability evaluation
