@@ -82,5 +82,50 @@
       "C1:met:distrusted my own green \u2014 the Option A verification passed locally and still leaked; only an external probe (curl by old SHA) found it, and I built that probe into the Option B acceptance test",
       "P1:missed:recommended Option A from first principles about git without checking what GitHub does with unreachable objects \u2014 one curl would have refuted it before I advised a force-push"
     ]
+  },
+  {
+    "id": "rc0003",
+    "delivery": "Launch article 'My Repo Was Private For a Reason That Was Never True' committed to the portfolio (995a0a7): cover + five-vantage ledger infographic, GitHub's force-push warning quoted verbatim, promo kit (LinkedIn post + comment + 18-tweet thread), registry entry, translation deferral. Also upgraded the earlier tooling article to link the now-public data/tooling.yml as reference [11] and fixed the dead SHA the rewrite created. Both portfolio commits verified in an isolated worktree: translation-coverage and publish-kit gates exit 0.",
+    "objective": "Promote the open-sourcing through the portfolio-first flow, with the failure reported rather than smoothed",
+    "created_at": "2026-08-03T14:28:19-05:00",
+    "key_results": [
+      {
+        "text": "long-form published to the canonical home first",
+        "target": "article committed with full DoD",
+        "score": 1.0,
+        "evidence": "995a0a7; isolated-worktree run of translation-coverage + publish-kit both exit 0"
+      },
+      {
+        "text": "syndication requires zero human writing",
+        "target": "prefilled kit exists",
+        "score": 1.0,
+        "evidence": "content/promos/a-reason-that-was-never-true.yml passes test-publish-kit's 1-click rule"
+      },
+      {
+        "text": "art agrees with prose numerically",
+        "target": "0 contradictions",
+        "score": 1.0,
+        "evidence": "ledger headline 'Four answers' did not reconcile with its own rows; changed to 'Two were confidently wrong', matching the 2 rows marked wrong"
+      },
+      {
+        "text": "the earlier article made reader-verifiable now the repo is public",
+        "target": "linked + referenced",
+        "score": 1.0,
+        "evidence": "data/tooling.yml linked inline and as reference [11]; both URLs HTTP 200"
+      },
+      {
+        "text": "independent 5-S review",
+        "target": "reviewer != maker",
+        "score": 0.0,
+        "evidence": "NOT RUN \u2014 self-assessed only; agent-spawning is disabled this session, so the gate is recorded unmeasured rather than passed"
+      }
+    ],
+    "request": "run B (then: use viral marketing playbook to promote it and publish a article to my portfolio)",
+    "headline": "The launch piece leads with the failure, not the launch",
+    "brief": "The article about opening the repo does not say 'we opened a repo'. It says the reason it was closed turned out to be false, and that when I tried to remove something before opening it, four of my five safety checks were satisfied and one stranger with one command could still read the file. The interesting part of a launch is what it cost.",
+    "growth": [
+      "C1:met:published the leak, its duration, and the checks that missed it inside the launch article itself rather than announcing a clean win",
+      "M1:met:one delivery across three surfaces \u2014 the public repo, the long-form on the canonical home, and a prefilled kit for LinkedIn and X \u2014 with the human gate intact at the only irreversible step"
+    ]
   }
 ]
