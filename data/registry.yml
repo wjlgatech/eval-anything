@@ -1,4 +1,5 @@
 - repo: patoles/agent-flow
+  head_sha: 84cd2fb8c704cefe52e6dd41a375c4069442e206
   category: observe
   why: 'the HUMAN observation surface we compose (Apache-2.0): real-time node-graph
     viz of Claude Code + Codex sessions — `npx agent-flow-app`; scripts/observe.py
@@ -7,6 +8,7 @@
   pushed_at: '2026-07-11T15:57:04Z'
   last_sync: '2026-08-03'
 - repo: disler/claude-code-hooks-multi-agent-observability
+  head_sha: 8a6e5cf795df50767cea7123703751282a819697
   category: observe
   why: top-starred Claude Code observability (hooks → SQLite → Vue) — tracked for
     knowledge; NOT composed (no license, heavier setup)
@@ -14,6 +16,7 @@
   pushed_at: '2026-02-08T23:59:13Z'
   last_sync: '2026-08-03'
 - repo: anthropics/claude-code-monitoring-guide
+  head_sha: 02777441f2a3fa38a187b57872ca9dc5e0411b48
   category: observe
   why: the official machine-readable path — Claude Code's native OTel telemetry into
     Prometheus/Grafana
@@ -21,6 +24,7 @@
   pushed_at: '2025-07-29T05:21:27Z'
   last_sync: '2026-08-03'
 - repo: OWASP/www-project-agent-observability-standard
+  head_sha: e4a50f63cdf912a34262632f1379f674522fe237
   category: observe
   why: the emerging standard vocabulary for agent observability — our observation
     schema aligns with its spirit
@@ -28,6 +32,7 @@
   pushed_at: '2026-07-08T09:08:41Z'
   last_sync: '2026-08-03'
 - repo: dreadnode/agent-lens
+  head_sha: 9eab2b0ca729947cbfed3ecd8cab3f45521447cf
   category: observe
   why: agent observability + replay for safety/interpretability research (MIT) — the
     research-grade angle
@@ -46,6 +51,7 @@
   pushed_at: '2026-08-03T17:13:57Z'
   last_sync: '2026-08-03'
 - repo: EleutherAI/lm-evaluation-harness
+  head_sha: f4d4b3de3ee6741a7151a9fe74945ee515262f4c
   category: harness
   why: the de-facto academic eval harness — 300+ tasks, backend of the (retired) Open
     LLM Leaderboard
@@ -53,6 +59,7 @@
   pushed_at: '2026-07-13T20:18:15Z'
   last_sync: '2026-08-03'
 - repo: UKGovernmentBEIS/inspect_ai
+  head_sha: 0aca5d54f096f47b8edfd10b4a2c30aeee0a0f24
   category: harness
   why: UK AISI's framework — the government/safety-institute standard; METR deprecated
     its own task spec for it
@@ -60,6 +67,7 @@
   pushed_at: '2026-08-03T17:05:52Z'
   last_sync: '2026-08-03'
 - repo: UKGovernmentBEIS/inspect_evals
+  head_sha: c5c26b3a516ae746ca8521fe66b7cf3db9072a17
   category: harness
   why: 200+ ready-to-run Inspect implementations (GAIA, SWE-bench, AgentHarm, OSWorld)
     — one reproducible place
@@ -67,6 +75,7 @@
   pushed_at: '2026-08-03T10:09:03Z'
   last_sync: '2026-08-03'
 - repo: promptfoo/promptfoo
+  head_sha: b5f8ea3b0a307adb91c31ed4e13a3d6896902841
   category: harness
   why: eval + red-team in one dev-first CLI — the practitioner's on-ramp from vibes
     to gates (a 2026 OpenAI-acquisition claim circulated but is unverified — not cited)
@@ -74,24 +83,28 @@
   pushed_at: '2026-08-03T16:52:01Z'
   last_sync: '2026-08-03'
 - repo: confident-ai/deepeval
+  head_sha: e2bf78ef5ae4ad4c1ea34915d86734ecc376dce8
   category: harness
   why: pytest-style LLM unit testing; the canonical open G-Eval implementation
   stars: 17369
   pushed_at: '2026-08-03T12:53:51Z'
   last_sync: '2026-08-03'
 - repo: langfuse/langfuse
+  head_sha: f06126ddc426a6233a056fcc905d6790f3fe9928
   category: harness
   why: de-facto OSS LLM observability + eval/annotation platform for production apps
   stars: 32435
   pushed_at: '2026-08-03T17:27:36Z'
   last_sync: '2026-08-03'
 - repo: Arize-ai/phoenix
+  head_sha: 006c943b9f2734118136c3b50905ad77d49bb002
   category: harness
   why: OTel-native tracing with built-in evals and agent-trajectory evaluation
   stars: 10875
   pushed_at: '2026-08-03T17:34:05Z'
   last_sync: '2026-08-03'
 - repo: comet-ml/opik
+  head_sha: 0ed4bc21f08534661c8b3076da3d270e1a58a5e5
   category: harness
   why: fastest-growing eval+tracing+guardrails entrant of 2025-26, strong agent-eval
     focus
@@ -99,12 +112,14 @@
   pushed_at: '2026-08-03T17:43:32Z'
   last_sync: '2026-08-03'
 - repo: open-compass/opencompass
+  head_sha: 96263b1a16899260586c8e945eea06934c43c225
   category: harness
   why: the comprehensive eval platform of the Chinese open-model ecosystem (CompassRank)
   stars: 7266
   pushed_at: '2026-07-31T05:25:35Z'
   last_sync: '2026-08-03'
 - repo: stanford-crfm/helm
+  head_sha: 63754d05db6f874e41a395880fb573890a13e791
   category: harness
   why: holistic multi-metric eval — methodologically foundational; maintenance mode
     since 2026-06
@@ -112,18 +127,21 @@
   pushed_at: '2026-08-01T01:23:17Z'
   last_sync: '2026-08-03'
 - repo: huggingface/lighteval
+  head_sha: 64f4f5ae173626509fad6e477ca4ee56ebb26129
   category: harness
   why: HF's all-backend eval toolkit — the Open LLM Leaderboard lineage lives here
   stars: 2501
   pushed_at: '2026-06-29T13:03:33Z'
   last_sync: '2026-08-03'
 - repo: openai/simple-evals
+  head_sha: 652c89d0ca9df547706735883097e9537d40dc47
   category: harness
   why: where OpenAI's headline numbers are reproducible; canonical BrowseComp implementation
   stars: 4593
   pushed_at: '2026-04-22T22:16:18Z'
   last_sync: '2026-08-03'
 - repo: vibrantlabsai/ragas
+  head_sha: 298b68274234c060deacab3cf5fb52aa3a20e885
   category: harness
   why: the standard RAG-eval vocabulary (faithfulness, context precision/recall);
     watch — activity stalled 2026-02
@@ -131,6 +149,7 @@
   pushed_at: '2026-02-24T07:47:19Z'
   last_sync: '2026-08-03'
 - repo: SWE-bench/SWE-bench
+  head_sha: f7bbbb2ccdf479001d6467c9e34af59e44a840f9
   category: agent
   why: THE coding-agent benchmark — real GitHub issues scored by real test suites;
     Verified is the headline variant
@@ -138,6 +157,7 @@
   pushed_at: '2026-07-27T05:34:27Z'
   last_sync: '2026-08-03'
 - repo: microsoft/SWE-bench-Live
+  head_sha: 70ec57e852e3f2d195790fe71f553e272c691833
   category: agent
   why: contamination-resistant monthly-refresh SWE-bench — the answer to the original's
     saturation
@@ -145,6 +165,7 @@
   pushed_at: '2026-06-11T02:58:21Z'
   last_sync: '2026-08-03'
 - repo: harbor-framework/terminal-bench
+  head_sha: d28711d0da2675d0bb1d56de45ae5df6082438a3
   category: agent
   why: hard containerized terminal tasks — became a frontier model-card metric in
     2025-26
@@ -152,6 +173,7 @@
   pushed_at: '2026-07-11T05:19:08Z'
   last_sync: '2026-08-03'
 - repo: harbor-framework/harbor
+  head_sha: ab96ea657fa8be2c6c239123bf8d9fa474c7e796
   category: agent
   why: the emerging infrastructure layer for containerized agent evals and agentic-RL
     rollouts at scale
@@ -159,6 +181,7 @@
   pushed_at: '2026-08-03T17:53:11Z'
   last_sync: '2026-08-03'
 - repo: xlang-ai/OSWorld
+  head_sha: 091f5ef1d5544bc74953c77875d5feb5bed30108
   category: agent
   why: the de-facto computer-use benchmark (real-OS VM tasks); OSWorld 2.0 shipped
     2026-06
@@ -166,6 +189,7 @@
   pushed_at: '2026-07-28T12:30:35Z'
   last_sync: '2026-08-03'
 - repo: sierra-research/tau2-bench
+  head_sha: 1eceb0453fe2effa1ba26b6a51fc52b966944ec1
   category: agent
   why: the standard for conversational tool-use agents — policy adherence + pass^k
     reliability
@@ -173,6 +197,7 @@
   pushed_at: '2026-07-30T00:08:54Z'
   last_sync: '2026-08-03'
 - repo: ShishirPatil/gorilla
+  head_sha: 6ea57973c7a6097fd7c5915698c54c17c5b1b6c8
   category: agent
   why: home of the Berkeley Function-Calling Leaderboard — the universal tool-calling
     eval
@@ -180,6 +205,7 @@
   pushed_at: '2026-04-13T03:19:45Z'
   last_sync: '2026-08-03'
 - repo: openai/mle-bench
+  head_sha: 507f92e1138bb6e40dac5c6ee7a6758e6424bf97
   category: agent
   why: 75 Kaggle competitions testing autonomous ML engineering — a preparedness-framework
     staple
@@ -187,6 +213,7 @@
   pushed_at: '2026-04-24T17:33:44Z'
   last_sync: '2026-08-03'
 - repo: ServiceNow/BrowserGym
+  head_sha: 9e779f087de9a65668b6974d11f9ce9816026e96
   category: agent
   why: the consolidation layer wrapping WebArena/VisualWebArena/WorkArena/MiniWoB
     into one API
@@ -194,12 +221,14 @@
   pushed_at: '2026-07-17T18:09:30Z'
   last_sync: '2026-08-03'
 - repo: TheAgentCompany/TheAgentCompany
+  head_sha: 98b68ef82a47690c316f42fddb05baafaab56851
   category: agent
   why: simulated software company — the best-known 'can agents do real jobs' benchmark
   stars: 755
   pushed_at: '2025-11-17T20:31:16Z'
   last_sync: '2026-08-03'
 - repo: google-research/android_world
+  head_sha: 3e50888527ef9f29b9157ecd537e408008bb1c85
   category: agent
   why: the standard mobile-device-agent benchmark — 116 dynamic tasks in real Android
     apps
@@ -207,30 +236,35 @@
   pushed_at: '2026-07-16T20:18:37Z'
   last_sync: '2026-08-03'
 - repo: facebookresearch/meta-agents-research-environments
+  head_sha: 7946367413129784139e785ae4c351090002a0bb
   category: agent
   why: Meta ARE + Gaia2 — agent eval moved to dynamic, async, time-constrained environments
   stars: 535
   pushed_at: '2026-08-01T01:51:01Z'
   last_sync: '2026-08-03'
 - repo: open-compass/VLMEvalKit
+  head_sha: 09874c7a69c2a3c7c60ace141525c1552a2c1095
   category: vlm
   why: one-command eval of 200+ VLMs on 100+ benchmarks; powers the OpenVLM Leaderboard
   stars: 4321
   pushed_at: '2026-08-03T10:48:10Z'
   last_sync: '2026-08-03'
 - repo: EvolvingLMMs-Lab/lmms-eval
+  head_sha: 9a337637931c6817ab794d7a32f2f135fb17ca1b
   category: vlm
   why: the other de-facto VLM harness (LLaVA/academic lineage) — image, video, audio
   stars: 4346
   pushed_at: '2026-08-03T06:54:20Z'
   last_sync: '2026-08-03'
 - repo: MMMU-Benchmark/MMMU
+  head_sha: 268471d0d488258990025331c7528359c324aa25
   category: vlm
   why: the flagship multimodal capability benchmark in every frontier model card
   stars: 591
   pushed_at: '2026-07-28T02:29:26Z'
   last_sync: '2026-08-03'
 - repo: centerforaisafety/hle
+  head_sha: 73ae974b1844c3ffa64c3f4343d9f1f259575700
   category: vlm
   why: Humanity's Last Exam — the frontier-knowledge headline benchmark (multimodal,
     private held-out set)
@@ -238,6 +272,7 @@
   pushed_at: '2026-08-01T08:53:41Z'
   last_sync: '2026-08-03'
 - repo: Lifelong-Robot-Learning/LIBERO
+  head_sha: 8f1084e3132a39270c3a13ebe37270a43ece2a01
   category: vla
   why: the default VLA sim benchmark — required for comparability but saturated (~97-99%
     SOTA)
@@ -245,18 +280,21 @@
   pushed_at: '2025-03-15T12:14:04Z'
   last_sync: '2026-08-03'
 - repo: simpler-env/SimplerEnv
+  head_sha: 06accaca93535902d408da4855f21cece12bceb7
   category: vla
   why: real-to-sim eval of real-robot policies — the scalable proxy for physical evaluation
   stars: 1133
   pushed_at: '2025-12-20T13:08:29Z'
   last_sync: '2026-08-03'
 - repo: allenai/vla-evaluation-harness
+  head_sha: 92c165b7ba7ef2e3c9a10e54e8b4dfc88869228f
   category: vla
   why: 2026 entrant doing for VLA what lm-eval-harness did for LLMs — rising fast
   stars: 506
   pushed_at: '2026-08-01T06:48:07Z'
   last_sync: '2026-08-03'
 - repo: robo-arena/roboarena
+  head_sha: a07f93db004e2357aee931069a7011d7e52774ed
   category: vla
   why: distributed double-blind real-robot policy arena (CoRL 2025) — low stars, high
     strategic importance
@@ -264,12 +302,14 @@
   pushed_at: '2026-04-28T11:54:02Z'
   last_sync: '2026-08-03'
 - repo: google-deepmind/open_x_embodiment
+  head_sha: 9eeb68b989efbcf474e8fb9019e01d02b962a604
   category: vla
   why: the cross-embodiment dataset + eval protocols all VLA evals descend from
   stars: 1956
   pushed_at: '2025-11-05T23:45:27Z'
   last_sync: '2026-08-03'
 - repo: haosulab/ManiSkill
+  head_sha: 62ff3a5896b4d5b4cf0ac4c8d79afe600c9404a3
   category: vla
   why: GPU-parallelized sim substrate increasingly used for large-scale VLA eval and
     RL
@@ -277,6 +317,7 @@
   pushed_at: '2026-08-02T03:59:43Z'
   last_sync: '2026-08-03'
 - repo: StanfordVL/BEHAVIOR-1K
+  head_sha: 26f2c7ef7b9cf96bd0414f81e1e751e493762779
   category: vla
   why: 1,000 household activities in OmniGibson — the most ambitious long-horizon
     embodied benchmark
@@ -284,6 +325,7 @@
   pushed_at: '2026-08-03T16:39:34Z'
   last_sync: '2026-08-03'
 - repo: lm-sys/FastChat
+  head_sha: 587d5cfa1609a43d192cedb8441cac3c17db105d
   category: judge
   why: the open lineage of Chatbot Arena / MT-Bench — origin of arena-style human-preference
     eval
@@ -291,18 +333,21 @@
   pushed_at: '2026-05-01T00:25:53Z'
   last_sync: '2026-08-03'
 - repo: lmarena/arena-hard-auto
+  head_sha: 196f6b826783b3da7310e361a805fa36f0be83f3
   category: judge
   why: the standard cheap arena proxy (LLM-judge predicts Elo); activity slowing
   stars: 1055
   pushed_at: '2025-06-21T04:44:12Z'
   last_sync: '2026-08-03'
 - repo: allenai/reward-bench
+  head_sha: 05a9005efb607249822c193590c8ecab87c77052
   category: judge
   why: who judges the judges — the standard benchmark for reward models and LLM evaluators
   stars: 730
   pushed_at: '2026-02-16T05:50:29Z'
   last_sync: '2026-08-03'
 - repo: LiveBench/LiveBench
+  head_sha: 00eae856aa1c1a9e9d058a65a9a94d85884034c4
   category: live
   why: monthly-refreshed, objective-ground-truth benchmark — the leading contamination
     answer
@@ -310,30 +355,35 @@
   pushed_at: '2026-07-28T13:13:34Z'
   last_sync: '2026-08-03'
 - repo: LiveCodeBench/LiveCodeBench
+  head_sha: 28fef95ea8c9f7a547c8329f2cd3d32b92c1fa24
   category: live
   why: time-windowed competitive-programming eval — exposed HumanEval overfitting
   stars: 924
   pushed_at: '2025-07-16T00:58:38Z'
   last_sync: '2026-08-03'
 - repo: evalplus/evalplus
+  head_sha: 26d6d00bb1fd0fa37f39c99d5290da67891d1c5e
   category: live
   why: HumanEval+/MBPP+ with 80x more tests — how code numbers are made honest
   stars: 1791
   pushed_at: '2025-10-02T22:56:38Z'
   last_sync: '2026-08-03'
 - repo: fchollet/ARC-AGI
+  head_sha: 399030444e0ab0cc8b4e199870fb20b863846f34
   category: live
   why: the fluid-intelligence holdout line (ARC-AGI-2/3 via arcprize) — $1M+ prize
   stars: 4811
   pushed_at: '2025-04-04T21:28:40Z'
   last_sync: '2026-08-03'
 - repo: vectara/hallucination-leaderboard
+  head_sha: ef054ab3a4b7792149f85844bd74fa87746a2b96
   category: live
   why: the most-cited public hallucination ranking (HHEM)
   stars: 3298
   pushed_at: '2026-05-11T18:42:42Z'
   last_sync: '2026-08-03'
 - repo: NVIDIA/garak
+  head_sha: afae291b684ae64055d53a0ea4228f7e760392ba
   category: security
   why: the nmap of LLMs — de-facto open vulnerability scanner (jailbreaks, leakage,
     injection)
@@ -341,6 +391,7 @@
   pushed_at: '2026-07-31T21:53:06Z'
   last_sync: '2026-08-03'
 - repo: microsoft/PyRIT
+  head_sha: 981e6cd55ae2512cb4bebf41d52aea89407054b1
   category: security
   why: Microsoft AI Red Team's own framework — best-in-class multi-turn adversarial
     campaigns
@@ -348,18 +399,21 @@
   pushed_at: '2026-08-03T17:16:06Z'
   last_sync: '2026-08-03'
 - repo: NVIDIA-NeMo/Guardrails
+  head_sha: 891c13f64e4509294dcaec4c13fe7ca657993099
   category: security
   why: the open-source standard for programmable runtime rails (Colang policy-as-code)
   stars: 6867
   pushed_at: '2026-08-03T17:49:10Z'
   last_sync: '2026-08-03'
 - repo: guardrails-ai/guardrails
+  head_sha: 798d2c4574474593114dbd79f9c031982a3289a8
   category: security
   why: the validator-hub model — 65+ composable input/output validators
   stars: 7245
   pushed_at: '2026-08-02T00:48:55Z'
   last_sync: '2026-08-03'
 - repo: meta-llama/PurpleLlama
+  head_sha: acfdd58f7c605eec53af4eed3f7ecf302267f0f8
   category: security
   why: Meta's security umbrella — Llama Guard, Prompt Guard, CodeShield, CyberSecEval,
     LlamaFirewall
@@ -367,12 +421,14 @@
   pushed_at: '2026-07-27T21:53:59Z'
   last_sync: '2026-08-03'
 - repo: centerforaisafety/HarmBench
+  head_sha: 8e1604d1171fe8a48d8febecd22f600e462bdcdd
   category: security
   why: standardized automated red-teaming — 18 attacks vs 33 models under one harness
   stars: 1022
   pushed_at: '2024-08-16T04:37:37Z'
   last_sync: '2026-08-03'
 - repo: ethz-spylab/agentdojo
+  head_sha: 089ed468cf3ed0322acc66b0211f26d9d90dbf60
   category: security
   why: the reference agent prompt-injection benchmark — the number every defense reports
     against
@@ -380,6 +436,7 @@
   pushed_at: '2026-06-02T10:01:31Z'
   last_sync: '2026-08-03'
 - repo: confident-ai/deepteam
+  head_sha: 1666c26f4f500549e831a996c00558621d2b6ca6
   category: security
   why: red-teaming as evaluation — DeepEval's sibling, 40+ vulnerabilities mapped
     to OWASP/NIST
@@ -387,6 +444,7 @@
   pushed_at: '2026-08-02T11:15:38Z'
   last_sync: '2026-08-03'
 - repo: JailbreakBench/jailbreakbench
+  head_sha: 23dbdf6b19650521604456229bc1d9c4156c85c1
   category: security
   why: the canonical shared threat model + leaderboard + artifact repo for jailbreak
     research
@@ -394,6 +452,7 @@
   pushed_at: '2025-04-04T11:30:46Z'
   last_sync: '2026-08-03'
 - repo: Giskard-AI/giskard-oss
+  head_sha: 1c3c43d6ab6650bae787637c97f4449f28d1f353
   category: security
   why: European leader bridging classic ML testing and LLM vulnerability scanning
   stars: 5704
